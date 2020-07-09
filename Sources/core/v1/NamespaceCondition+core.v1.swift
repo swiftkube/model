@@ -21,33 +21,32 @@ public extension core.v1 {
 	///
 	/// NamespaceCondition contains details about state of namespace.
 	///
-	struct NamespaceCondition: KubernetesResource, Codable {
-	
+	struct NamespaceCondition: KubernetesResource {
 		///
 		/// No description
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// No description
 		///
 		var message: String?
-	
+
 		///
 		/// No description
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of namespace controller condition.
 		///
 		var type: String
-	
+
 	}
 }
 

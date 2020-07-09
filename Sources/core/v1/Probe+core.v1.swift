@@ -21,48 +21,47 @@ public extension core.v1 {
 	///
 	/// Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 	///
-	struct Probe: KubernetesResource, Codable {
-	
+	struct Probe: KubernetesResource {
 		///
 		/// One and only one of the following should be specified. Exec specifies the action to take.
 		///
 		var exec: core.v1.ExecAction?
-	
+
 		///
 		/// Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
 		///
 		var failureThreshold: Int32?
-	
+
 		///
 		/// HTTPGet specifies the http request to perform.
 		///
 		var httpGet: core.v1.HTTPGetAction?
-	
+
 		///
 		/// Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 		///
 		var initialDelaySeconds: Int32?
-	
+
 		///
 		/// How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 		///
 		var periodSeconds: Int32?
-	
+
 		///
 		/// Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 		///
 		var successThreshold: Int32?
-	
+
 		///
 		/// TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 		///
 		var tcpSocket: core.v1.TCPSocketAction?
-	
+
 		///
 		/// Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 		///
 		var timeoutSeconds: Int32?
-	
+
 	}
 }
 

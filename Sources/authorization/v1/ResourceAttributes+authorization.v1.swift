@@ -21,43 +21,42 @@ public extension authorization.v1 {
 	///
 	/// ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
 	///
-	struct ResourceAttributes: KubernetesResource, Codable {
-	
+	struct ResourceAttributes: KubernetesResource {
 		///
 		/// Group is the API Group of the Resource.  "*" means all.
 		///
 		var group: String?
-	
+
 		///
 		/// Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
 		///
 		var name: String?
-	
+
 		///
 		/// Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces "" (empty) is defaulted for LocalSubjectAccessReviews "" (empty) is empty for cluster-scoped resources "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
 		///
 		var namespace: String?
-	
+
 		///
 		/// Resource is one of the existing resource types.  "*" means all.
 		///
 		var resource: String?
-	
+
 		///
 		/// Subresource is one of the existing resource types.  "" means none.
 		///
 		var subresource: String?
-	
+
 		///
 		/// Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
 		///
 		var verb: String?
-	
+
 		///
 		/// Version is the API Version of the Resource.  "*" means all.
 		///
 		var version: String?
-	
+
 	}
 }
 

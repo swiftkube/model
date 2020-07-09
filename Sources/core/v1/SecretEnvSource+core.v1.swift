@@ -23,18 +23,17 @@ public extension core.v1 {
 	/// 
 	/// The contents of the target Secret's Data field will represent the key-value pairs as environment variables.
 	///
-	struct SecretEnvSource: KubernetesResource, Codable {
-	
+	struct SecretEnvSource: KubernetesResource {
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		var name: String?
-	
+
 		///
 		/// Specify whether the Secret must be defined
 		///
 		var optional: Bool?
-	
+
 	}
 }
 

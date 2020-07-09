@@ -21,23 +21,22 @@ public extension autoscaling.v2beta2 {
 	///
 	/// ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
 	///
-	struct ObjectMetricSource: KubernetesResource, Codable {
-	
+	struct ObjectMetricSource: KubernetesResource {
 		///
 		/// No description
 		///
 		var describedObject: autoscaling.v2beta2.CrossVersionObjectReference
-	
+
 		///
 		/// metric identifies the target metric by name and selector
 		///
 		var metric: autoscaling.v2beta2.MetricIdentifier
-	
+
 		///
 		/// target specifies the target value for the given metric
 		///
 		var target: autoscaling.v2beta2.MetricTarget
-	
+
 	}
 }
 

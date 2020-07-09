@@ -21,18 +21,17 @@ public extension authorization.v1beta1 {
 	///
 	/// NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface
 	///
-	struct NonResourceAttributes: KubernetesResource, Codable {
-	
+	struct NonResourceAttributes: KubernetesResource {
 		///
 		/// Path is the URL path of the request
 		///
 		var path: String?
-	
+
 		///
 		/// Verb is the standard HTTP verb
 		///
 		var verb: String?
-	
+
 	}
 }
 

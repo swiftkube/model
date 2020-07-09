@@ -21,23 +21,22 @@ public extension events.v1beta1 {
 	///
 	/// EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
 	///
-	struct EventSeries: KubernetesResource, Codable {
-	
+	struct EventSeries: KubernetesResource {
 		///
 		/// Number of occurrences in this series up to the last heartbeat time
 		///
 		var count: Int32
-	
+
 		///
 		/// Time when last Event from the series was seen before last heartbeat.
 		///
 		var lastObservedTime: String
-	
+
 		///
 		/// Information whether this series is ongoing or finished. Deprecated. Planned removal for 1.18
 		///
 		var state: String
-	
+
 	}
 }
 

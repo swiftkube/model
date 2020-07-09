@@ -28,23 +28,22 @@ public extension core.v1 {
 	///     a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],
 	///     b: [ 10.10.1.1:309, 10.10.2.2:309 ]
 	///
-	struct EndpointSubset: KubernetesResource, Codable {
-	
+	struct EndpointSubset: KubernetesResource {
 		///
 		/// IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.
 		///
 		var addresses: [core.v1.EndpointAddress]?
-	
+
 		///
 		/// IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
 		///
 		var notReadyAddresses: [core.v1.EndpointAddress]?
-	
+
 		///
 		/// Port numbers available on the related IP addresses.
 		///
 		var ports: [core.v1.EndpointPort]?
-	
+
 	}
 }
 

@@ -21,18 +21,17 @@ public extension meta.v1 {
 	///
 	/// ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
 	///
-	struct ServerAddressByClientCIDR: KubernetesResource, Codable {
-	
+	struct ServerAddressByClientCIDR: KubernetesResource {
 		///
 		/// The CIDR with which clients can match their IP to figure out the server address that they should use.
 		///
 		var clientCIDR: String
-	
+
 		///
 		/// Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
 		///
 		var serverAddress: String
-	
+
 	}
 }
 

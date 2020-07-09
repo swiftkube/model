@@ -21,33 +21,32 @@ public extension apiregistration.v1 {
 	///
 	/// APIServiceCondition describes the state of an APIService at a particular point
 	///
-	struct APIServiceCondition: KubernetesResource, Codable {
-	
+	struct APIServiceCondition: KubernetesResource {
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// Human-readable message indicating details about last transition.
 		///
 		var message: String?
-	
+
 		///
 		/// Unique, one-word, CamelCase reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status is the status of the condition. Can be True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type is the type of the condition.
 		///
 		var type: String
-	
+
 	}
 }
 

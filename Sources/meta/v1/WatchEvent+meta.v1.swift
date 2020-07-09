@@ -21,8 +21,7 @@ public extension meta.v1 {
 	///
 	/// Event represents a single event to a watched resource.
 	///
-	struct WatchEvent: KubernetesResource, Codable {
-	
+	struct WatchEvent: KubernetesResource {
 		///
 		/// Object is:
 		///  * If Type is Added or Modified: the new state of the object.
@@ -31,12 +30,12 @@ public extension meta.v1 {
 		///    depending on context.
 		///
 		var object: [String: Any]
-	
+
 		///
 		/// No description
 		///
 		var type: String
-	
+
 	}
 }
 

@@ -21,33 +21,32 @@ public extension apps.v1beta2 {
 	///
 	/// DaemonSetCondition describes the state of a DaemonSet at a certain point.
 	///
-	struct DaemonSetCondition: KubernetesResource, Codable {
-	
+	struct DaemonSetCondition: KubernetesResource {
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// A human readable message indicating details about the transition.
 		///
 		var message: String?
-	
+
 		///
 		/// The reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of DaemonSet condition.
 		///
 		var type: String
-	
+
 	}
 }
 

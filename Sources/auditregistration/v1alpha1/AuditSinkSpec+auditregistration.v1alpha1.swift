@@ -21,18 +21,17 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// AuditSinkSpec holds the spec for the audit sink
 	///
-	struct AuditSinkSpec: KubernetesResource, Codable {
-	
+	struct AuditSinkSpec: KubernetesResource {
 		///
 		/// Policy defines the policy for selecting which events should be sent to the webhook required
 		///
 		var policy: auditregistration.v1alpha1.Policy
-	
+
 		///
 		/// Webhook to send events required
 		///
 		var webhook: auditregistration.v1alpha1.Webhook
-	
+
 	}
 }
 

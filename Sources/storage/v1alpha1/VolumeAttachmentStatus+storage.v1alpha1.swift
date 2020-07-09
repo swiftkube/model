@@ -21,28 +21,27 @@ public extension storage.v1alpha1 {
 	///
 	/// VolumeAttachmentStatus is the status of a VolumeAttachment request.
 	///
-	struct VolumeAttachmentStatus: KubernetesResource, Codable {
-	
+	struct VolumeAttachmentStatus: KubernetesResource {
 		///
 		/// The last error encountered during attach operation, if any. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		var attachError: storage.v1alpha1.VolumeError?
-	
+
 		///
 		/// Indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		var attached: Bool
-	
+
 		///
 		/// Upon successful attach, this field is populated with any information returned by the attach operation that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		var attachmentMetadata: [String: String]?
-	
+
 		///
 		/// The last error encountered during detach operation, if any. This field must only be set by the entity completing the detach operation, i.e. the external-attacher.
 		///
 		var detachError: storage.v1alpha1.VolumeError?
-	
+
 	}
 }
 

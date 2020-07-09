@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
 	///
-	struct ScopeSelector: KubernetesResource, Codable {
-	
+	struct ScopeSelector: KubernetesResource {
 		///
 		/// A list of scope selector requirements by scope of the resources.
 		///
 		var matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
-	
+
 	}
 }
 

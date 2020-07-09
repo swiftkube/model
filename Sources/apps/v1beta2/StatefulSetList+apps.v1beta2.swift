@@ -21,28 +21,38 @@ public extension apps.v1beta2 {
 	///
 	/// StatefulSetList is a collection of StatefulSets.
 	///
-	struct StatefulSetList: KubernetesResource, Codable {
-	
+	struct StatefulSetList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = apps.v1beta2.StatefulSet
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "apps/v1beta2"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "StatefulSetList"
-	
+
 		///
 		/// No description
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// No description
 		///
 		var items: [apps.v1beta2.StatefulSet]
-	
+
+	}
+}
+
+extension apps.v1beta2.StatefulSetList: Sequence {
+
+	public typealias Element = apps.v1beta2.StatefulSet
+
+	public func makeIterator() -> AnyIterator<apps.v1beta2.StatefulSet> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

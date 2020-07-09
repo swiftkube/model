@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
 	///
-	struct GlusterfsVolumeSource: KubernetesResource, Codable {
-	
+	struct GlusterfsVolumeSource: KubernetesResource {
 		///
 		/// EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
 		var endpoints: String
-	
+
 		///
 		/// Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
 		var path: String
-	
+
 		///
 		/// ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
 		var readOnly: Bool?
-	
+
 	}
 }
 

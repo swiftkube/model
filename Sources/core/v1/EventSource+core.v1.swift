@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// EventSource contains information for an event.
 	///
-	struct EventSource: KubernetesResource, Codable {
-	
+	struct EventSource: KubernetesResource {
 		///
 		/// Component from which the event is generated.
 		///
 		var component: String?
-	
+
 		///
 		/// Node name on which the event is generated.
 		///
 		var host: String?
-	
+
 	}
 }
 

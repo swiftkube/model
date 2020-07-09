@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// PodReadinessGate contains the reference to a pod condition
 	///
-	struct PodReadinessGate: KubernetesResource, Codable {
-	
+	struct PodReadinessGate: KubernetesResource {
 		///
 		/// ConditionType refers to a condition in the pod's condition list with matching type.
 		///
 		var conditionType: String
-	
+
 	}
 }
 

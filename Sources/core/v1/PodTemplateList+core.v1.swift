@@ -21,28 +21,38 @@ public extension core.v1 {
 	///
 	/// PodTemplateList is a list of PodTemplates.
 	///
-	struct PodTemplateList: KubernetesResource, Codable {
-	
+	struct PodTemplateList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = core.v1.PodTemplate
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "PodTemplateList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of pod templates
 		///
 		var items: [core.v1.PodTemplate]
-	
+
+	}
+}
+
+extension core.v1.PodTemplateList: Sequence {
+
+	public typealias Element = core.v1.PodTemplate
+
+	public func makeIterator() -> AnyIterator<core.v1.PodTemplate> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

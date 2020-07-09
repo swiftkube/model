@@ -21,20 +21,19 @@ public extension admissionregistration.v1 {
 	///
 	/// WebhookClientConfig contains the information to make a TLS connection with the webhook
 	///
-	struct WebhookClientConfig: KubernetesResource, Codable {
-	
+	struct WebhookClientConfig: KubernetesResource {
 		///
 		/// `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.
 		///
 		var caBundle: String?
-	
+
 		///
 		/// `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.
 		/// 
 		/// If the webhook is running within the cluster, then you should use `service`.
 		///
 		var service: admissionregistration.v1.ServiceReference?
-	
+
 		///
 		/// `url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or `service` must be specified.
 		/// 
@@ -49,7 +48,7 @@ public extension admissionregistration.v1 {
 		/// Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
 		///
 		var url: String?
-	
+
 	}
 }
 

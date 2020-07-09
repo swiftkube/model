@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// AttachedVolume describes a volume attached to a node
 	///
-	struct AttachedVolume: KubernetesResource, Codable {
-	
+	struct AttachedVolume: KubernetesResource {
 		///
 		/// DevicePath represents the device path where the volume should be available
 		///
 		var devicePath: String
-	
+
 		///
 		/// Name of the attached volume
 		///
 		var name: String
-	
+
 	}
 }
 

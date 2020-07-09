@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// ResourceFieldSelector represents container resources (cpu, memory) and their output format
 	///
-	struct ResourceFieldSelector: KubernetesResource, Codable {
-	
+	struct ResourceFieldSelector: KubernetesResource {
 		///
 		/// Container name: required for volumes, optional for env vars
 		///
 		var containerName: String?
-	
+
 		///
 		/// Specifies the output format of the exposed resources, defaults to "1"
 		///
 		var divisor: Quantity?
-	
+
 		///
 		/// Required: resource to select
 		///
 		var resource: String
-	
+
 	}
 }
 

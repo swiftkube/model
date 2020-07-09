@@ -21,23 +21,22 @@ public extension autoscaling.v2beta2 {
 	///
 	/// MetricValueStatus holds the current value for a metric
 	///
-	struct MetricValueStatus: KubernetesResource, Codable {
-	
+	struct MetricValueStatus: KubernetesResource {
 		///
 		/// currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
 		///
 		var averageUtilization: Int32?
-	
+
 		///
 		/// averageValue is the current value of the average of the metric across all relevant pods (as a quantity)
 		///
 		var averageValue: Quantity?
-	
+
 		///
 		/// value is the current value of the metric (as a quantity).
 		///
 		var value: Quantity?
-	
+
 	}
 }
 

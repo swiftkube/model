@@ -21,28 +21,38 @@ public extension core.v1 {
 	///
 	/// Status of all the conditions for the component as a list of ComponentStatus objects.
 	///
-	struct ComponentStatusList: KubernetesResource, Codable {
-	
+	struct ComponentStatusList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = core.v1.ComponentStatus
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "ComponentStatusList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of ComponentStatus objects.
 		///
 		var items: [core.v1.ComponentStatus]
-	
+
+	}
+}
+
+extension core.v1.ComponentStatusList: Sequence {
+
+	public typealias Element = core.v1.ComponentStatus
+
+	public func makeIterator() -> AnyIterator<core.v1.ComponentStatus> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

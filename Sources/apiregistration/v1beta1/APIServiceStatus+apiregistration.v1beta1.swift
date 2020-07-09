@@ -21,13 +21,12 @@ public extension apiregistration.v1beta1 {
 	///
 	/// APIServiceStatus contains derived information about an API server
 	///
-	struct APIServiceStatus: KubernetesResource, Codable {
-	
+	struct APIServiceStatus: KubernetesResource {
 		///
 		/// Current service state of apiService.
 		///
 		var conditions: [apiregistration.v1beta1.APIServiceCondition]?
-	
+
 	}
 }
 

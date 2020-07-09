@@ -21,18 +21,17 @@ public extension extensions.v1beta1 {
 	///
 	/// HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined. Deprecated: use HostPortRange from policy API Group instead.
 	///
-	struct HostPortRange: KubernetesResource, Codable {
-	
+	struct HostPortRange: KubernetesResource {
 		///
 		/// max is the end of the range, inclusive.
 		///
 		var max: Int32
-	
+
 		///
 		/// min is the start of the range, inclusive.
 		///
 		var min: Int32
-	
+
 	}
 }
 

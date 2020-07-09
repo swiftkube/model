@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// ResourceQuotaStatus defines the enforced hard limits and observed use.
 	///
-	struct ResourceQuotaStatus: KubernetesResource, Codable {
-	
+	struct ResourceQuotaStatus: KubernetesResource {
 		///
 		/// Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 		///
 		var hard: [String: Quantity]?
-	
+
 		///
 		/// Used is the current observed total usage of the resource in the namespace.
 		///
 		var used: [String: Quantity]?
-	
+
 	}
 }
 

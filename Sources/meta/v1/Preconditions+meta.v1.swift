@@ -21,18 +21,17 @@ public extension meta.v1 {
 	///
 	/// Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
 	///
-	struct Preconditions: KubernetesResource, Codable {
-	
+	struct Preconditions: KubernetesResource {
 		///
 		/// Specifies the target ResourceVersion
 		///
 		var resourceVersion: String?
-	
+
 		///
 		/// Specifies the target UID.
 		///
 		var uid: String?
-	
+
 	}
 }
 

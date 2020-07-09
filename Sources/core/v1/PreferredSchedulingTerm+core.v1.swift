@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 	///
-	struct PreferredSchedulingTerm: KubernetesResource, Codable {
-	
+	struct PreferredSchedulingTerm: KubernetesResource {
 		///
 		/// A node selector term, associated with the corresponding weight.
 		///
 		var preference: core.v1.NodeSelectorTerm
-	
+
 		///
 		/// Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
 		///
 		var weight: Int32
-	
+
 	}
 }
 

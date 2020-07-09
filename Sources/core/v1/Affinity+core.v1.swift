@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// Affinity is a group of affinity scheduling rules.
 	///
-	struct Affinity: KubernetesResource, Codable {
-	
+	struct Affinity: KubernetesResource {
 		///
 		/// Describes node affinity scheduling rules for the pod.
 		///
 		var nodeAffinity: core.v1.NodeAffinity?
-	
+
 		///
 		/// Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 		///
 		var podAffinity: core.v1.PodAffinity?
-	
+
 		///
 		/// Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 		///
 		var podAntiAffinity: core.v1.PodAntiAffinity?
-	
+
 	}
 }
 

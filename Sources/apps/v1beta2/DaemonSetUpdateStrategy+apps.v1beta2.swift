@@ -21,18 +21,17 @@ public extension apps.v1beta2 {
 	///
 	/// DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
 	///
-	struct DaemonSetUpdateStrategy: KubernetesResource, Codable {
-	
+	struct DaemonSetUpdateStrategy: KubernetesResource {
 		///
 		/// Rolling update config params. Present only if type = "RollingUpdate".
 		///
 		var rollingUpdate: apps.v1beta2.RollingUpdateDaemonSet?
-	
+
 		///
 		/// Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
 		///
 		var type: String?
-	
+
 	}
 }
 

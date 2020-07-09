@@ -21,23 +21,22 @@ public extension autoscaling.v2beta2 {
 	///
 	/// ObjectMetricStatus indicates the current value of a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
 	///
-	struct ObjectMetricStatus: KubernetesResource, Codable {
-	
+	struct ObjectMetricStatus: KubernetesResource {
 		///
 		/// current contains the current value for the given metric
 		///
 		var current: autoscaling.v2beta2.MetricValueStatus
-	
+
 		///
 		/// No description
 		///
 		var describedObject: autoscaling.v2beta2.CrossVersionObjectReference
-	
+
 		///
 		/// metric identifies the target metric by name and selector
 		///
 		var metric: autoscaling.v2beta2.MetricIdentifier
-	
+
 	}
 }
 

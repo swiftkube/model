@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// SecretKeySelector selects a key of a Secret.
 	///
-	struct SecretKeySelector: KubernetesResource, Codable {
-	
+	struct SecretKeySelector: KubernetesResource {
 		///
 		/// The key of the secret to select from.  Must be a valid secret key.
 		///
 		var key: String
-	
+
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		var name: String?
-	
+
 		///
 		/// Specify whether the Secret or its key must be defined
 		///
 		var optional: Bool?
-	
+
 	}
 }
 

@@ -21,28 +21,27 @@ public extension core.v1 {
 	///
 	/// Projection that may be projected along with other supported volume types
 	///
-	struct VolumeProjection: KubernetesResource, Codable {
-	
+	struct VolumeProjection: KubernetesResource {
 		///
 		/// information about the configMap data to project
 		///
 		var configMap: core.v1.ConfigMapProjection?
-	
+
 		///
 		/// information about the downwardAPI data to project
 		///
 		var downwardAPI: core.v1.DownwardAPIProjection?
-	
+
 		///
 		/// information about the secret data to project
 		///
 		var secret: core.v1.SecretProjection?
-	
+
 		///
 		/// information about the serviceAccountToken data to project
 		///
 		var serviceAccountToken: core.v1.ServiceAccountTokenProjection?
-	
+
 	}
 }
 

@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// NodeDaemonEndpoints lists ports opened by daemons running on the Node.
 	///
-	struct NodeDaemonEndpoints: KubernetesResource, Codable {
-	
+	struct NodeDaemonEndpoints: KubernetesResource {
 		///
 		/// Endpoint on which Kubelet is listening.
 		///
 		var kubeletEndpoint: core.v1.DaemonEndpoint?
-	
+
 	}
 }
 

@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// LoadBalancerStatus represents the status of a load-balancer.
 	///
-	struct LoadBalancerStatus: KubernetesResource, Codable {
-	
+	struct LoadBalancerStatus: KubernetesResource {
 		///
 		/// Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.
 		///
 		var ingress: [core.v1.LoadBalancerIngress]?
-	
+
 	}
 }
 

@@ -16,5 +16,11 @@
 
 import Foundation
 
-protocol KubernetesResource {
+protocol KubernetesResource: Codable {
+}
+
+protocol KubernetesResourceList: Codable {
+	associatedtype Resource
+
+	var items: [Resource] { get }
 }

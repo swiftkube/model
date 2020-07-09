@@ -21,23 +21,22 @@ public extension storage.v1 {
 	///
 	/// VolumeAttachmentSpec is the specification of a VolumeAttachment request.
 	///
-	struct VolumeAttachmentSpec: KubernetesResource, Codable {
-	
+	struct VolumeAttachmentSpec: KubernetesResource {
 		///
 		/// Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().
 		///
 		var attacher: String
-	
+
 		///
 		/// The node that the volume should be attached to.
 		///
 		var nodeName: String
-	
+
 		///
 		/// Source represents the volume that should be attached.
 		///
 		var source: storage.v1.VolumeAttachmentSource
-	
+
 	}
 }
 

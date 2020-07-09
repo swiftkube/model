@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
 	///
-	struct TopologySelectorLabelRequirement: KubernetesResource, Codable {
-	
+	struct TopologySelectorLabelRequirement: KubernetesResource {
 		///
 		/// The label key that the selector applies to.
 		///
 		var key: String
-	
+
 		///
 		/// An array of string values. One value must match the label to be selected. Each entry in Values is ORed.
 		///
 		var values: [String]
-	
+
 	}
 }
 

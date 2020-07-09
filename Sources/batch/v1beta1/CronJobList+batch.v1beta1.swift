@@ -21,28 +21,38 @@ public extension batch.v1beta1 {
 	///
 	/// CronJobList is a collection of cron jobs.
 	///
-	struct CronJobList: KubernetesResource, Codable {
-	
+	struct CronJobList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = batch.v1beta1.CronJob
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "batch/v1beta1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "CronJobList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// items is the list of CronJobs.
 		///
 		var items: [batch.v1beta1.CronJob]
-	
+
+	}
+}
+
+extension batch.v1beta1.CronJobList: Sequence {
+
+	public typealias Element = batch.v1beta1.CronJob
+
+	public func makeIterator() -> AnyIterator<batch.v1beta1.CronJob> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

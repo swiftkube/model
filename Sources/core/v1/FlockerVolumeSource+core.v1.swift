@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
 	///
-	struct FlockerVolumeSource: KubernetesResource, Codable {
-	
+	struct FlockerVolumeSource: KubernetesResource {
 		///
 		/// Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
 		///
 		var datasetName: String?
-	
+
 		///
 		/// UUID of the dataset. This is unique identifier of a Flocker dataset
 		///
 		var datasetUUID: String?
-	
+
 	}
 }
 

@@ -21,13 +21,12 @@ public extension storage.v1beta1 {
 	///
 	/// CSINodeSpec holds information about the specification of all CSI drivers installed on a node
 	///
-	struct CSINodeSpec: KubernetesResource, Codable {
-	
+	struct CSINodeSpec: KubernetesResource {
 		///
 		/// drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
 		///
 		var drivers: [storage.v1beta1.CSINodeDriver]
-	
+
 	}
 }
 

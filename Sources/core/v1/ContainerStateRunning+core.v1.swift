@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// ContainerStateRunning is a running state of a container.
 	///
-	struct ContainerStateRunning: KubernetesResource, Codable {
-	
+	struct ContainerStateRunning: KubernetesResource {
 		///
 		/// Time at which the container was last (re-)started
 		///
 		var startedAt: String?
-	
+
 	}
 }
 

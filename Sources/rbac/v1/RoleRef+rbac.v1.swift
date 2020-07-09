@@ -21,23 +21,22 @@ public extension rbac.v1 {
 	///
 	/// RoleRef contains information that points to the role being used
 	///
-	struct RoleRef: KubernetesResource, Codable {
-	
+	struct RoleRef: KubernetesResource {
 		///
 		/// Kind is the type of resource being referenced
 		///
 		var kind: String
-	
+
 		///
 		/// APIGroup is the group for the resource being referenced
 		///
 		var apiGroup: String
-	
+
 		///
 		/// Name is the name of resource being referenced
 		///
 		var name: String
-	
+
 	}
 }
 

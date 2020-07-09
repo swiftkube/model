@@ -21,23 +21,22 @@ public extension apiregistration.v1 {
 	///
 	/// ServiceReference holds a reference to Service.legacy.k8s.io
 	///
-	struct ServiceReference: KubernetesResource, Codable {
-	
+	struct ServiceReference: KubernetesResource {
 		///
 		/// Name is the name of the service
 		///
 		var name: String?
-	
+
 		///
 		/// Namespace is the namespace of the service
 		///
 		var namespace: String?
-	
+
 		///
 		/// If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
 		///
 		var port: Int32?
-	
+
 	}
 }
 

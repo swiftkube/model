@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// ServiceStatus represents the current status of a service.
 	///
-	struct ServiceStatus: KubernetesResource, Codable {
-	
+	struct ServiceStatus: KubernetesResource {
 		///
 		/// LoadBalancer contains the current status of the load-balancer, if one is present.
 		///
 		var loadBalancer: core.v1.LoadBalancerStatus?
-	
+
 	}
 }
 

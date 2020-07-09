@@ -21,28 +21,27 @@ public extension core.v1 {
 	///
 	/// Represents a vSphere volume resource.
 	///
-	struct VsphereVirtualDiskVolumeSource: KubernetesResource, Codable {
-	
+	struct VsphereVirtualDiskVolumeSource: KubernetesResource {
 		///
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 		///
 		var fsType: String?
-	
+
 		///
 		/// Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
 		///
 		var storagePolicyID: String?
-	
+
 		///
 		/// Storage Policy Based Management (SPBM) profile name.
 		///
 		var storagePolicyName: String?
-	
+
 		///
 		/// Path that identifies vSphere volume vmdk
 		///
 		var volumePath: String
-	
+
 	}
 }
 

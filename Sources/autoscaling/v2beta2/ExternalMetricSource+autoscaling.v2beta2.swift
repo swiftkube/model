@@ -21,18 +21,17 @@ public extension autoscaling.v2beta2 {
 	///
 	/// ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
 	///
-	struct ExternalMetricSource: KubernetesResource, Codable {
-	
+	struct ExternalMetricSource: KubernetesResource {
 		///
 		/// metric identifies the target metric by name and selector
 		///
 		var metric: autoscaling.v2beta2.MetricIdentifier
-	
+
 		///
 		/// target specifies the target value for the given metric
 		///
 		var target: autoscaling.v2beta2.MetricTarget
-	
+
 	}
 }
 

@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// PersistentVolumeStatus is the current status of a persistent volume.
 	///
-	struct PersistentVolumeStatus: KubernetesResource, Codable {
-	
+	struct PersistentVolumeStatus: KubernetesResource {
 		///
 		/// A human-readable message indicating details about why the volume is in this state.
 		///
 		var message: String?
-	
+
 		///
 		/// Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
 		///
 		var phase: String?
-	
+
 		///
 		/// Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
 		///
 		var reason: String?
-	
+
 	}
 }
 

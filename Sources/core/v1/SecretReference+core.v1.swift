@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace
 	///
-	struct SecretReference: KubernetesResource, Codable {
-	
+	struct SecretReference: KubernetesResource {
 		///
 		/// Name is unique within a namespace to reference a secret resource.
 		///
 		var name: String?
-	
+
 		///
 		/// Namespace defines the space within which the secret name must be unique.
 		///
 		var namespace: String?
-	
+
 	}
 }
 

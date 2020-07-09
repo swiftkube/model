@@ -21,13 +21,12 @@ public extension extensions.v1beta1 {
 	///
 	/// AllowedFlexVolume represents a single Flexvolume that is allowed to be used. Deprecated: use AllowedFlexVolume from policy API Group instead.
 	///
-	struct AllowedFlexVolume: KubernetesResource, Codable {
-	
+	struct AllowedFlexVolume: KubernetesResource {
 		///
 		/// driver is the name of the Flexvolume driver.
 		///
 		var driver: String
-	
+
 	}
 }
 

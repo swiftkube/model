@@ -21,13 +21,12 @@ public extension extensions.v1beta1 {
 	///
 	/// describes the attributes of a scale subresource
 	///
-	struct ScaleSpec: KubernetesResource, Codable {
-	
+	struct ScaleSpec: KubernetesResource {
 		///
 		/// desired number of instances for the scaled object.
 		///
 		var replicas: Int32?
-	
+
 	}
 }
 

@@ -21,18 +21,17 @@ public extension batch.v1beta1 {
 	///
 	/// JobTemplateSpec describes the data a Job should have when created from a template
 	///
-	struct JobTemplateSpec: KubernetesResource, Codable {
-	
+	struct JobTemplateSpec: KubernetesResource {
 		///
 		/// Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ObjectMeta?
-	
+
 		///
 		/// Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
 		var spec: batch.v1.JobSpec?
-	
+
 	}
 }
 

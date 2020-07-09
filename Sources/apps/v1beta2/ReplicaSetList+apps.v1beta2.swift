@@ -21,28 +21,38 @@ public extension apps.v1beta2 {
 	///
 	/// ReplicaSetList is a collection of ReplicaSets.
 	///
-	struct ReplicaSetList: KubernetesResource, Codable {
-	
+	struct ReplicaSetList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = apps.v1beta2.ReplicaSet
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "apps/v1beta2"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "ReplicaSetList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
 		///
 		var items: [apps.v1beta2.ReplicaSet]
-	
+
+	}
+}
+
+extension apps.v1beta2.ReplicaSetList: Sequence {
+
+	public typealias Element = apps.v1beta2.ReplicaSet
+
+	public func makeIterator() -> AnyIterator<apps.v1beta2.ReplicaSet> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

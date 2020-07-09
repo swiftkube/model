@@ -21,33 +21,32 @@ public extension apps.v1beta1 {
 	///
 	/// Scale represents a scaling request for a resource.
 	///
-	struct Scale: KubernetesResource, Codable {
-	
+	struct Scale: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "apps/v1beta1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "Scale"
-	
+
 		///
 		/// Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
 		///
 		var metadata: meta.v1.ObjectMeta?
-	
+
 		///
 		/// defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
 		///
 		var spec: apps.v1beta1.ScaleSpec?
-	
+
 		///
 		/// current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
 		///
 		var status: apps.v1beta1.ScaleStatus?
-	
+
 	}
 }
 

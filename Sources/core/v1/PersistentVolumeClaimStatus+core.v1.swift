@@ -21,28 +21,27 @@ public extension core.v1 {
 	///
 	/// PersistentVolumeClaimStatus is the current status of a persistent volume claim.
 	///
-	struct PersistentVolumeClaimStatus: KubernetesResource, Codable {
-	
+	struct PersistentVolumeClaimStatus: KubernetesResource {
 		///
 		/// AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
 		///
 		var accessModes: [String]?
-	
+
 		///
 		/// Represents the actual resources of the underlying volume.
 		///
 		var capacity: [String: Quantity]?
-	
+
 		///
 		/// Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.
 		///
 		var conditions: [core.v1.PersistentVolumeClaimCondition]?
-	
+
 		///
 		/// Phase represents the current phase of PersistentVolumeClaim.
 		///
 		var phase: String?
-	
+
 	}
 }
 

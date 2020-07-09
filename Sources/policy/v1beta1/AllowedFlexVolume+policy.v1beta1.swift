@@ -21,13 +21,12 @@ public extension policy.v1beta1 {
 	///
 	/// AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
 	///
-	struct AllowedFlexVolume: KubernetesResource, Codable {
-	
+	struct AllowedFlexVolume: KubernetesResource {
 		///
 		/// driver is the name of the Flexvolume driver.
 		///
 		var driver: String
-	
+
 	}
 }
 

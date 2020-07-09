@@ -21,18 +21,17 @@ public extension storage.v1beta1 {
 	///
 	/// VolumeError captures an error encountered during a volume operation.
 	///
-	struct VolumeError: KubernetesResource, Codable {
-	
+	struct VolumeError: KubernetesResource {
 		///
 		/// String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
 		///
 		var message: String?
-	
+
 		///
 		/// Time the error was encountered.
 		///
 		var time: String?
-	
+
 	}
 }
 

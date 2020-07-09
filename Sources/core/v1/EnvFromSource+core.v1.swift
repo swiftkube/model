@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// EnvFromSource represents the source of a set of ConfigMaps
 	///
-	struct EnvFromSource: KubernetesResource, Codable {
-	
+	struct EnvFromSource: KubernetesResource {
 		///
 		/// The ConfigMap to select from
 		///
 		var configMapRef: core.v1.ConfigMapEnvSource?
-	
+
 		///
 		/// An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
 		///
 		var prefix: String?
-	
+
 		///
 		/// The Secret to select from
 		///
 		var secretRef: core.v1.SecretEnvSource?
-	
+
 	}
 }
 

@@ -21,38 +21,37 @@ public extension core.v1 {
 	///
 	/// PersistentVolumeClaimCondition contails details about state of pvc
 	///
-	struct PersistentVolumeClaimCondition: KubernetesResource, Codable {
-	
+	struct PersistentVolumeClaimCondition: KubernetesResource {
 		///
 		/// Last time we probed the condition.
 		///
 		var lastProbeTime: String?
-	
+
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// Human-readable message indicating details about last transition.
 		///
 		var message: String?
-	
+
 		///
 		/// Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
 		///
 		var reason: String?
-	
+
 		///
 		/// No description
 		///
 		var status: String
-	
+
 		///
 		/// No description
 		///
 		var type: String
-	
+
 	}
 }
 

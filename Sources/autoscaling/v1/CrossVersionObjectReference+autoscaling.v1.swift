@@ -21,23 +21,22 @@ public extension autoscaling.v1 {
 	///
 	/// CrossVersionObjectReference contains enough information to let you identify the referred resource.
 	///
-	struct CrossVersionObjectReference: KubernetesResource, Codable {
-	
+	struct CrossVersionObjectReference: KubernetesResource {
 		///
 		/// API version of the referent
 		///
 		var apiVersion: String?
-	
+
 		///
 		/// Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
 		///
 		var kind: String
-	
+
 		///
 		/// Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
 		///
 		var name: String
-	
+
 	}
 }
 

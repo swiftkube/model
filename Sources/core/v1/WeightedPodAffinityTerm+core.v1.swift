@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
 	///
-	struct WeightedPodAffinityTerm: KubernetesResource, Codable {
-	
+	struct WeightedPodAffinityTerm: KubernetesResource {
 		///
 		/// Required. A pod affinity term, associated with the corresponding weight.
 		///
 		var podAffinityTerm: core.v1.PodAffinityTerm
-	
+
 		///
 		/// weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 		///
 		var weight: Int32
-	
+
 	}
 }
 

@@ -21,28 +21,38 @@ public extension core.v1 {
 	///
 	/// ServiceAccountList is a list of ServiceAccount objects
 	///
-	struct ServiceAccountList: KubernetesResource, Codable {
-	
+	struct ServiceAccountList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = core.v1.ServiceAccount
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "ServiceAccountList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 		///
 		var items: [core.v1.ServiceAccount]
-	
+
+	}
+}
+
+extension core.v1.ServiceAccountList: Sequence {
+
+	public typealias Element = core.v1.ServiceAccount
+
+	public func makeIterator() -> AnyIterator<core.v1.ServiceAccount> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

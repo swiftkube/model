@@ -21,18 +21,17 @@ public extension authorization.v1 {
 	///
 	/// SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
 	///
-	struct SelfSubjectAccessReviewSpec: KubernetesResource, Codable {
-	
+	struct SelfSubjectAccessReviewSpec: KubernetesResource {
 		///
 		/// NonResourceAttributes describes information for a non-resource access request
 		///
 		var nonResourceAttributes: authorization.v1.NonResourceAttributes?
-	
+
 		///
 		/// ResourceAuthorizationAttributes describes information for a resource access request
 		///
 		var resourceAttributes: authorization.v1.ResourceAttributes?
-	
+
 	}
 }
 

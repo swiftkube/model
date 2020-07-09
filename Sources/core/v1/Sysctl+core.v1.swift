@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// Sysctl defines a kernel parameter to be set
 	///
-	struct Sysctl: KubernetesResource, Codable {
-	
+	struct Sysctl: KubernetesResource {
 		///
 		/// Name of a property to set
 		///
 		var name: String
-	
+
 		///
 		/// Value of a property to set
 		///
 		var value: String
-	
+
 	}
 }
 

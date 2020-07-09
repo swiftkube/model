@@ -21,28 +21,38 @@ public extension rbac.v1beta1 {
 	///
 	/// ClusterRoleList is a collection of ClusterRoles
 	///
-	struct ClusterRoleList: KubernetesResource, Codable {
-	
+	struct ClusterRoleList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = rbac.v1beta1.ClusterRole
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "rbac.authorization.k8s.io/v1beta1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "ClusterRoleList"
-	
+
 		///
 		/// Standard object's metadata.
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// Items is a list of ClusterRoles
 		///
 		var items: [rbac.v1beta1.ClusterRole]
-	
+
+	}
+}
+
+extension rbac.v1beta1.ClusterRoleList: Sequence {
+
+	public typealias Element = rbac.v1beta1.ClusterRole
+
+	public func makeIterator() -> AnyIterator<rbac.v1beta1.ClusterRole> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

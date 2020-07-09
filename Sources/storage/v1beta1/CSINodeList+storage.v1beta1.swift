@@ -21,28 +21,38 @@ public extension storage.v1beta1 {
 	///
 	/// CSINodeList is a collection of CSINode objects.
 	///
-	struct CSINodeList: KubernetesResource, Codable {
-	
+	struct CSINodeList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = storage.v1beta1.CSINode
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "storage.k8s.io/v1beta1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "CSINodeList"
-	
+
 		///
 		/// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// items is the list of CSINode
 		///
 		var items: [storage.v1beta1.CSINode]
-	
+
+	}
+}
+
+extension storage.v1beta1.CSINodeList: Sequence {
+
+	public typealias Element = storage.v1beta1.CSINode
+
+	public func makeIterator() -> AnyIterator<storage.v1beta1.CSINode> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

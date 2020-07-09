@@ -21,28 +21,38 @@ public extension core.v1 {
 	///
 	/// NodeList is the whole list of all Nodes which have been registered with master.
 	///
-	struct NodeList: KubernetesResource, Codable {
-	
+	struct NodeList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = core.v1.Node
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "NodeList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of nodes
 		///
 		var items: [core.v1.Node]
-	
+
+	}
+}
+
+extension core.v1.NodeList: Sequence {
+
+	public typealias Element = core.v1.Node
+
+	public func makeIterator() -> AnyIterator<core.v1.Node> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

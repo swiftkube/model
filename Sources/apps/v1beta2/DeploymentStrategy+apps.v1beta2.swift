@@ -21,18 +21,17 @@ public extension apps.v1beta2 {
 	///
 	/// DeploymentStrategy describes how to replace existing pods with new ones.
 	///
-	struct DeploymentStrategy: KubernetesResource, Codable {
-	
+	struct DeploymentStrategy: KubernetesResource {
 		///
 		/// Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
 		///
 		var rollingUpdate: apps.v1beta2.RollingUpdateDeployment?
-	
+
 		///
 		/// Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
 		///
 		var type: String?
-	
+
 	}
 }
 

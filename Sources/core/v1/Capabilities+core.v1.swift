@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// Adds and removes POSIX capabilities from running containers.
 	///
-	struct Capabilities: KubernetesResource, Codable {
-	
+	struct Capabilities: KubernetesResource {
 		///
 		/// Added capabilities
 		///
 		var add: [String]?
-	
+
 		///
 		/// Removed capabilities
 		///
 		var drop: [String]?
-	
+
 	}
 }
 

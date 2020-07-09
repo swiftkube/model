@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.
 	///
-	struct NodeConfigSource: KubernetesResource, Codable {
-	
+	struct NodeConfigSource: KubernetesResource {
 		///
 		/// ConfigMap is a reference to a Node's ConfigMap
 		///
 		var configMap: core.v1.ConfigMapNodeConfigSource?
-	
+
 	}
 }
 

@@ -21,33 +21,32 @@ public extension extensions.v1beta1 {
 	///
 	/// ReplicaSetCondition describes the state of a replica set at a certain point.
 	///
-	struct ReplicaSetCondition: KubernetesResource, Codable {
-	
+	struct ReplicaSetCondition: KubernetesResource {
 		///
 		/// The last time the condition transitioned from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// A human readable message indicating details about the transition.
 		///
 		var message: String?
-	
+
 		///
 		/// The reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of replica set condition.
 		///
 		var type: String
-	
+
 	}
 }
 

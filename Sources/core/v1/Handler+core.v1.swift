@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// Handler defines a specific action that should be taken
 	///
-	struct Handler: KubernetesResource, Codable {
-	
+	struct Handler: KubernetesResource {
 		///
 		/// One and only one of the following should be specified. Exec specifies the action to take.
 		///
 		var exec: core.v1.ExecAction?
-	
+
 		///
 		/// HTTPGet specifies the http request to perform.
 		///
 		var httpGet: core.v1.HTTPGetAction?
-	
+
 		///
 		/// TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 		///
 		var tcpSocket: core.v1.TCPSocketAction?
-	
+
 	}
 }
 

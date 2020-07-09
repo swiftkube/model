@@ -21,18 +21,17 @@ public extension certificates.v1beta1 {
 	///
 	/// No description
 	///
-	struct CertificateSigningRequestStatus: KubernetesResource, Codable {
-	
+	struct CertificateSigningRequestStatus: KubernetesResource {
 		///
 		/// If request was approved, the controller will place the issued certificate here.
 		///
 		var certificate: String?
-	
+
 		///
 		/// Conditions applied to the request, such as approval or denial.
 		///
 		var conditions: [certificates.v1beta1.CertificateSigningRequestCondition]?
-	
+
 	}
 }
 

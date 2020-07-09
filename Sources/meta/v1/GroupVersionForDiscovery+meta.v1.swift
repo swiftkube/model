@@ -21,18 +21,17 @@ public extension meta.v1 {
 	///
 	/// GroupVersion contains the "group/version" and "version" string of a version. It is made a struct to keep extensibility.
 	///
-	struct GroupVersionForDiscovery: KubernetesResource, Codable {
-	
+	struct GroupVersionForDiscovery: KubernetesResource {
 		///
 		/// groupVersion specifies the API group and version in the form "group/version"
 		///
 		var groupVersion: String
-	
+
 		///
 		/// version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
 		///
 		var version: String
-	
+
 	}
 }
 

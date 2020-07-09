@@ -21,28 +21,38 @@ public extension core.v1 {
 	///
 	/// EndpointsList is a list of endpoints.
 	///
-	struct EndpointsList: KubernetesResource, Codable {
-	
+	struct EndpointsList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = core.v1.Endpoints
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "EndpointsList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// List of endpoints.
 		///
 		var items: [core.v1.Endpoints]
-	
+
+	}
+}
+
+extension core.v1.EndpointsList: Sequence {
+
+	public typealias Element = core.v1.Endpoints
+
+	public func makeIterator() -> AnyIterator<core.v1.Endpoints> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

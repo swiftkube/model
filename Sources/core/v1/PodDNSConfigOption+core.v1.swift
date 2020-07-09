@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// PodDNSConfigOption defines DNS resolver options of a pod.
 	///
-	struct PodDNSConfigOption: KubernetesResource, Codable {
-	
+	struct PodDNSConfigOption: KubernetesResource {
 		///
 		/// Required.
 		///
 		var name: String?
-	
+
 		///
 		/// No description
 		///
 		var value: String?
-	
+
 	}
 }
 

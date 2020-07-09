@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// ContainerStateWaiting is a waiting state of a container.
 	///
-	struct ContainerStateWaiting: KubernetesResource, Codable {
-	
+	struct ContainerStateWaiting: KubernetesResource {
 		///
 		/// Message regarding why the container is not yet running.
 		///
 		var message: String?
-	
+
 		///
 		/// (brief) reason the container is not yet running.
 		///
 		var reason: String?
-	
+
 	}
 }
 

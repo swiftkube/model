@@ -21,28 +21,38 @@ public extension node.v1alpha1 {
 	///
 	/// RuntimeClassList is a list of RuntimeClass objects.
 	///
-	struct RuntimeClassList: KubernetesResource, Codable {
-	
+	struct RuntimeClassList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = node.v1alpha1.RuntimeClass
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "node.k8s.io/v1alpha1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "RuntimeClassList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// Items is a list of schema objects.
 		///
 		var items: [node.v1alpha1.RuntimeClass]
-	
+
+	}
+}
+
+extension node.v1alpha1.RuntimeClassList: Sequence {
+
+	public typealias Element = node.v1alpha1.RuntimeClass
+
+	public func makeIterator() -> AnyIterator<node.v1alpha1.RuntimeClass> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

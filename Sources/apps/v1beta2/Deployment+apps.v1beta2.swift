@@ -21,33 +21,32 @@ public extension apps.v1beta2 {
 	///
 	/// DEPRECATED - This group version of Deployment is deprecated by apps/v1/Deployment. See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
 	///
-	struct Deployment: KubernetesResource, Codable {
-	
+	struct Deployment: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "apps/v1beta2"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "Deployment"
-	
+
 		///
 		/// Standard object metadata.
 		///
 		var metadata: meta.v1.ObjectMeta?
-	
+
 		///
 		/// Specification of the desired behavior of the Deployment.
 		///
 		var spec: apps.v1beta2.DeploymentSpec?
-	
+
 		///
 		/// Most recently observed status of the Deployment.
 		///
 		var status: apps.v1beta2.DeploymentStatus?
-	
+
 	}
 }
 

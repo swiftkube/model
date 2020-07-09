@@ -21,28 +21,38 @@ public extension storage.v1 {
 	///
 	/// VolumeAttachmentList is a collection of VolumeAttachment objects.
 	///
-	struct VolumeAttachmentList: KubernetesResource, Codable {
-	
+	struct VolumeAttachmentList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = storage.v1.VolumeAttachment
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "storage.k8s.io/v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "VolumeAttachmentList"
-	
+
 		///
 		/// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// Items is the list of VolumeAttachments
 		///
 		var items: [storage.v1.VolumeAttachment]
-	
+
+	}
+}
+
+extension storage.v1.VolumeAttachmentList: Sequence {
+
+	public typealias Element = storage.v1.VolumeAttachment
+
+	public func makeIterator() -> AnyIterator<storage.v1.VolumeAttachment> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

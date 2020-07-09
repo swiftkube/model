@@ -23,18 +23,17 @@ public extension core.v1 {
 	/// 
 	/// The contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.
 	///
-	struct ConfigMapEnvSource: KubernetesResource, Codable {
-	
+	struct ConfigMapEnvSource: KubernetesResource {
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		var name: String?
-	
+
 		///
 		/// Specify whether the ConfigMap must be defined
 		///
 		var optional: Bool?
-	
+
 	}
 }
 

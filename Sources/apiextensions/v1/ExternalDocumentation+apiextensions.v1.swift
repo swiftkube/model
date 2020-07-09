@@ -21,18 +21,17 @@ public extension apiextensions.v1 {
 	///
 	/// ExternalDocumentation allows referencing an external resource for extended documentation.
 	///
-	struct ExternalDocumentation: KubernetesResource, Codable {
-	
+	struct ExternalDocumentation: KubernetesResource {
 		///
 		/// No description
 		///
 		var description: String?
-	
+
 		///
 		/// No description
 		///
 		var url: String?
-	
+
 	}
 }
 

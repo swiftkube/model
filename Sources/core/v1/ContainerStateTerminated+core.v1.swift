@@ -21,43 +21,42 @@ public extension core.v1 {
 	///
 	/// ContainerStateTerminated is a terminated state of a container.
 	///
-	struct ContainerStateTerminated: KubernetesResource, Codable {
-	
+	struct ContainerStateTerminated: KubernetesResource {
 		///
 		/// Container's ID in the format 'docker://<container_id>'
 		///
 		var containerID: String?
-	
+
 		///
 		/// Exit status from the last termination of the container
 		///
 		var exitCode: Int32
-	
+
 		///
 		/// Time at which the container last terminated
 		///
 		var finishedAt: String?
-	
+
 		///
 		/// Message regarding the last termination of the container
 		///
 		var message: String?
-	
+
 		///
 		/// (brief) reason from the last termination of the container
 		///
 		var reason: String?
-	
+
 		///
 		/// Signal from the last termination of the container
 		///
 		var signal: Int32?
-	
+
 		///
 		/// Time at which previous execution of the container started
 		///
 		var startedAt: String?
-	
+
 	}
 }
 

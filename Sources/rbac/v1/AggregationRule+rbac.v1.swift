@@ -21,13 +21,12 @@ public extension rbac.v1 {
 	///
 	/// AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
 	///
-	struct AggregationRule: KubernetesResource, Codable {
-	
+	struct AggregationRule: KubernetesResource {
 		///
 		/// ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
 		///
 		var clusterRoleSelectors: [meta.v1.LabelSelector]?
-	
+
 	}
 }
 

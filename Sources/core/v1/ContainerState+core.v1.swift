@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.
 	///
-	struct ContainerState: KubernetesResource, Codable {
-	
+	struct ContainerState: KubernetesResource {
 		///
 		/// Details about a running container
 		///
 		var running: core.v1.ContainerStateRunning?
-	
+
 		///
 		/// Details about a terminated container
 		///
 		var terminated: core.v1.ContainerStateTerminated?
-	
+
 		///
 		/// Details about a waiting container
 		///
 		var waiting: core.v1.ContainerStateWaiting?
-	
+
 	}
 }
 

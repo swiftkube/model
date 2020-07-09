@@ -21,18 +21,17 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// Policy defines the configuration of how audit events are logged
 	///
-	struct Policy: KubernetesResource, Codable {
-	
+	struct Policy: KubernetesResource {
 		///
 		/// The Level that all requests are recorded at. available options: None, Metadata, Request, RequestResponse required
 		///
 		var level: String
-	
+
 		///
 		/// Stages is a list of stages for which events are created.
 		///
 		var stages: [String]?
-	
+
 	}
 }
 

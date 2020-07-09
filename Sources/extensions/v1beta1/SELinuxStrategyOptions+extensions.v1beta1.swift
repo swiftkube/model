@@ -21,18 +21,17 @@ public extension extensions.v1beta1 {
 	///
 	/// SELinuxStrategyOptions defines the strategy type and any options used to create the strategy. Deprecated: use SELinuxStrategyOptions from policy API Group instead.
 	///
-	struct SELinuxStrategyOptions: KubernetesResource, Codable {
-	
+	struct SELinuxStrategyOptions: KubernetesResource {
 		///
 		/// rule is the strategy that will dictate the allowable labels that may be set.
 		///
 		var rule: String
-	
+
 		///
 		/// seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 		///
 		var seLinuxOptions: core.v1.SELinuxOptions?
-	
+
 	}
 }
 

@@ -21,18 +21,17 @@ public extension batch.v2alpha1 {
 	///
 	/// CronJobStatus represents the current state of a cron job.
 	///
-	struct CronJobStatus: KubernetesResource, Codable {
-	
+	struct CronJobStatus: KubernetesResource {
 		///
 		/// A list of pointers to currently running jobs.
 		///
 		var active: [core.v1.ObjectReference]?
-	
+
 		///
 		/// Information when was the last time the job was successfully scheduled.
 		///
 		var lastScheduleTime: String?
-	
+
 	}
 }
 

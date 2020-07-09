@@ -21,28 +21,38 @@ public extension apps.v1 {
 	///
 	/// DaemonSetList is a collection of daemon sets.
 	///
-	struct DaemonSetList: KubernetesResource, Codable {
-	
+	struct DaemonSetList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = apps.v1.DaemonSet
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "apps/v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "DaemonSetList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// A list of daemon sets.
 		///
 		var items: [apps.v1.DaemonSet]
-	
+
+	}
+}
+
+extension apps.v1.DaemonSetList: Sequence {
+
+	public typealias Element = apps.v1.DaemonSet
+
+	public func makeIterator() -> AnyIterator<apps.v1.DaemonSet> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

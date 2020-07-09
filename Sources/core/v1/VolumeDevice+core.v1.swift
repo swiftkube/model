@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// volumeDevice describes a mapping of a raw block device within a container.
 	///
-	struct VolumeDevice: KubernetesResource, Codable {
-	
+	struct VolumeDevice: KubernetesResource {
 		///
 		/// devicePath is the path inside of the container that the device will be mapped to.
 		///
 		var devicePath: String
-	
+
 		///
 		/// name must match the name of a persistentVolumeClaim in the pod
 		///
 		var name: String
-	
+
 	}
 }
 

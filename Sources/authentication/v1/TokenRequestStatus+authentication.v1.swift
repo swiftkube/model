@@ -21,18 +21,17 @@ public extension authentication.v1 {
 	///
 	/// TokenRequestStatus is the result of a token request.
 	///
-	struct TokenRequestStatus: KubernetesResource, Codable {
-	
+	struct TokenRequestStatus: KubernetesResource {
 		///
 		/// ExpirationTimestamp is the time of expiration of the returned token.
 		///
 		var expirationTimestamp: String
-	
+
 		///
 		/// Token is the opaque bearer token.
 		///
 		var token: String
-	
+
 	}
 }
 

@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// NodeAddress contains information for the node's address.
 	///
-	struct NodeAddress: KubernetesResource, Codable {
-	
+	struct NodeAddress: KubernetesResource {
 		///
 		/// The node address.
 		///
 		var address: String
-	
+
 		///
 		/// Node address type, one of Hostname, ExternalIP or InternalIP.
 		///
 		var type: String
-	
+
 	}
 }
 

@@ -21,28 +21,27 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// AuditSink represents a cluster level audit sink
 	///
-	struct AuditSink: KubernetesResource, Codable {
-	
+	struct AuditSink: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "auditregistration.k8s.io/v1alpha1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "AuditSink"
-	
+
 		///
 		/// No description
 		///
 		var metadata: meta.v1.ObjectMeta?
-	
+
 		///
 		/// Spec defines the audit configuration spec
 		///
 		var spec: auditregistration.v1alpha1.AuditSinkSpec?
-	
+
 	}
 }
 

@@ -21,18 +21,17 @@ public extension networking.v1beta1 {
 	///
 	/// IngressBackend describes all endpoints for a given service and port.
 	///
-	struct IngressBackend: KubernetesResource, Codable {
-	
+	struct IngressBackend: KubernetesResource {
 		///
 		/// Specifies the name of the referenced service.
 		///
 		var serviceName: String
-	
+
 		///
 		/// Specifies the port of the referenced service.
 		///
 		var servicePort: IntOrString
-	
+
 	}
 }
 

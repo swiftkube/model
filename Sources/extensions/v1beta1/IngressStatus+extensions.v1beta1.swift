@@ -21,13 +21,12 @@ public extension extensions.v1beta1 {
 	///
 	/// IngressStatus describe the current state of the Ingress.
 	///
-	struct IngressStatus: KubernetesResource, Codable {
-	
+	struct IngressStatus: KubernetesResource {
 		///
 		/// LoadBalancer contains the current status of the load-balancer.
 		///
 		var loadBalancer: core.v1.LoadBalancerStatus?
-	
+
 	}
 }
 

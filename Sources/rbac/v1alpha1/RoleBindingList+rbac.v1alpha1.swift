@@ -21,28 +21,38 @@ public extension rbac.v1alpha1 {
 	///
 	/// RoleBindingList is a collection of RoleBindings
 	///
-	struct RoleBindingList: KubernetesResource, Codable {
-	
+	struct RoleBindingList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = rbac.v1alpha1.RoleBinding
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "rbac.authorization.k8s.io/v1alpha1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "RoleBindingList"
-	
+
 		///
 		/// Standard object's metadata.
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// Items is a list of RoleBindings
 		///
 		var items: [rbac.v1alpha1.RoleBinding]
-	
+
+	}
+}
+
+extension rbac.v1alpha1.RoleBindingList: Sequence {
+
+	public typealias Element = rbac.v1alpha1.RoleBinding
+
+	public func makeIterator() -> AnyIterator<rbac.v1alpha1.RoleBinding> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

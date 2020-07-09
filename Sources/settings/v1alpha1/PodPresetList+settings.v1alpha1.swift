@@ -21,28 +21,38 @@ public extension settings.v1alpha1 {
 	///
 	/// PodPresetList is a list of PodPreset objects.
 	///
-	struct PodPresetList: KubernetesResource, Codable {
-	
+	struct PodPresetList: KubernetesResource, KubernetesResourceList {
+
+		typealias Resource = settings.v1alpha1.PodPreset
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "settings.k8s.io/v1alpha1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "PodPresetList"
-	
+
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		var metadata: meta.v1.ListMeta?
-	
+
 		///
 		/// Items is a list of schema objects.
 		///
 		var items: [settings.v1alpha1.PodPreset]
-	
+
+	}
+}
+
+extension settings.v1alpha1.PodPresetList: Sequence {
+
+	public typealias Element = settings.v1alpha1.PodPreset
+
+	public func makeIterator() -> AnyIterator<settings.v1alpha1.PodPreset> {
+		return AnyIterator(self.items.makeIterator())
 	}
 }
 

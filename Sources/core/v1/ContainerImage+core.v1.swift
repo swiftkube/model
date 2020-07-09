@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// Describe a container image
 	///
-	struct ContainerImage: KubernetesResource, Codable {
-	
+	struct ContainerImage: KubernetesResource {
 		///
 		/// Names by which this image is known. e.g. ["k8s.gcr.io/hyperkube:v1.0.7", "dockerhub.io/google_containers/hyperkube:v1.0.7"]
 		///
 		var names: [String]
-	
+
 		///
 		/// The size of the image in bytes.
 		///
 		var sizeBytes: Int64?
-	
+
 	}
 }
 

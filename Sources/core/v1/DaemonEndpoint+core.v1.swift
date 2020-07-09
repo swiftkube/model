@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// DaemonEndpoint contains information about a single Daemon endpoint.
 	///
-	struct DaemonEndpoint: KubernetesResource, Codable {
-	
+	struct DaemonEndpoint: KubernetesResource {
 		///
 		/// Port number of the given endpoint.
 		///
 		var Port: Int32
-	
+
 	}
 }
 

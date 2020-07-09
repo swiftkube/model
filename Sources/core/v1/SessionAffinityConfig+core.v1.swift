@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// SessionAffinityConfig represents the configurations of session affinity.
 	///
-	struct SessionAffinityConfig: KubernetesResource, Codable {
-	
+	struct SessionAffinityConfig: KubernetesResource {
 		///
 		/// clientIP contains the configurations of Client IP based session affinity.
 		///
 		var clientIP: core.v1.ClientIPConfig?
-	
+
 	}
 }
 

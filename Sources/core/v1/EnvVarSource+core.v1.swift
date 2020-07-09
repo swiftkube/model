@@ -21,28 +21,27 @@ public extension core.v1 {
 	///
 	/// EnvVarSource represents a source for the value of an EnvVar.
 	///
-	struct EnvVarSource: KubernetesResource, Codable {
-	
+	struct EnvVarSource: KubernetesResource {
 		///
 		/// Selects a key of a ConfigMap.
 		///
 		var configMapKeyRef: core.v1.ConfigMapKeySelector?
-	
+
 		///
 		/// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
 		///
 		var fieldRef: core.v1.ObjectFieldSelector?
-	
+
 		///
 		/// Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 		///
 		var resourceFieldRef: core.v1.ResourceFieldSelector?
-	
+
 		///
 		/// Selects a key of a secret in the pod's namespace
 		///
 		var secretKeyRef: core.v1.SecretKeySelector?
-	
+
 	}
 }
 

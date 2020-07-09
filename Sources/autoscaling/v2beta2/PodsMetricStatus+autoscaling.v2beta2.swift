@@ -21,18 +21,17 @@ public extension autoscaling.v2beta2 {
 	///
 	/// PodsMetricStatus indicates the current value of a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
 	///
-	struct PodsMetricStatus: KubernetesResource, Codable {
-	
+	struct PodsMetricStatus: KubernetesResource {
 		///
 		/// current contains the current value for the given metric
 		///
 		var current: autoscaling.v2beta2.MetricValueStatus
-	
+
 		///
 		/// metric identifies the target metric by name and selector
 		///
 		var metric: autoscaling.v2beta2.MetricIdentifier
-	
+
 	}
 }
 

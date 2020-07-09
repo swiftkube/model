@@ -21,28 +21,27 @@ public extension certificates.v1beta1 {
 	///
 	/// No description
 	///
-	struct CertificateSigningRequestCondition: KubernetesResource, Codable {
-	
+	struct CertificateSigningRequestCondition: KubernetesResource {
 		///
 		/// timestamp for the last update to this condition
 		///
 		var lastUpdateTime: String?
-	
+
 		///
 		/// human readable message with details about the request state
 		///
 		var message: String?
-	
+
 		///
 		/// brief reason for the request state
 		///
 		var reason: String?
-	
+
 		///
 		/// request approval state, currently Approved or Denied.
 		///
 		var type: String
-	
+
 	}
 }
 

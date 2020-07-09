@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
 	///
-	struct VolumeNodeAffinity: KubernetesResource, Codable {
-	
+	struct VolumeNodeAffinity: KubernetesResource {
 		///
 		/// Required specifies hard node constraints that must be met.
 		///
 		var required: core.v1.NodeSelector?
-	
+
 	}
 }
 

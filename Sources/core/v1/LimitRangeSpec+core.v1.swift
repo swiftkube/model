@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// LimitRangeSpec defines a min/max usage limit for resources that match on kind.
 	///
-	struct LimitRangeSpec: KubernetesResource, Codable {
-	
+	struct LimitRangeSpec: KubernetesResource {
 		///
 		/// Limits is the list of LimitRangeItem objects that are enforced.
 		///
 		var limits: [core.v1.LimitRangeItem]
-	
+
 	}
 }
 

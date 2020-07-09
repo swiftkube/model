@@ -21,23 +21,22 @@ public extension core.v1 {
 	///
 	/// Selects a key from a ConfigMap.
 	///
-	struct ConfigMapKeySelector: KubernetesResource, Codable {
-	
+	struct ConfigMapKeySelector: KubernetesResource {
 		///
 		/// The key to select.
 		///
 		var key: String
-	
+
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		var name: String?
-	
+
 		///
 		/// Specify whether the ConfigMap or its key must be defined
 		///
 		var optional: Bool?
-	
+
 	}
 }
 

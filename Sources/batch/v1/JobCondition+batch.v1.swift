@@ -21,38 +21,37 @@ public extension batch.v1 {
 	///
 	/// JobCondition describes current state of a job.
 	///
-	struct JobCondition: KubernetesResource, Codable {
-	
+	struct JobCondition: KubernetesResource {
 		///
 		/// Last time the condition was checked.
 		///
 		var lastProbeTime: String?
-	
+
 		///
 		/// Last time the condition transit from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// Human readable message indicating details about last transition.
 		///
 		var message: String?
-	
+
 		///
 		/// (brief) reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of job condition, Complete or Failed.
 		///
 		var type: String
-	
+
 	}
 }
 

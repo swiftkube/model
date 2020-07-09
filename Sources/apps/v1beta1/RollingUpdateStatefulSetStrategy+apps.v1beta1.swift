@@ -21,13 +21,12 @@ public extension apps.v1beta1 {
 	///
 	/// RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
 	///
-	struct RollingUpdateStatefulSetStrategy: KubernetesResource, Codable {
-	
+	struct RollingUpdateStatefulSetStrategy: KubernetesResource {
 		///
 		/// Partition indicates the ordinal at which the StatefulSet should be partitioned.
 		///
 		var partition: Int32?
-	
+
 	}
 }
 

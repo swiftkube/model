@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// TCPSocketAction describes an action based on opening a socket
 	///
-	struct TCPSocketAction: KubernetesResource, Codable {
-	
+	struct TCPSocketAction: KubernetesResource {
 		///
 		/// Optional: Host name to connect to, defaults to the pod IP.
 		///
 		var host: String?
-	
+
 		///
 		/// Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 		///
 		var port: IntOrString
-	
+
 	}
 }
 

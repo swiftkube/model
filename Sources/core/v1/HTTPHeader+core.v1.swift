@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// HTTPHeader describes a custom header to be used in HTTP probes
 	///
-	struct HTTPHeader: KubernetesResource, Codable {
-	
+	struct HTTPHeader: KubernetesResource {
 		///
 		/// The header field name
 		///
 		var name: String
-	
+
 		///
 		/// The header field value
 		///
 		var value: String
-	
+
 	}
 }
 

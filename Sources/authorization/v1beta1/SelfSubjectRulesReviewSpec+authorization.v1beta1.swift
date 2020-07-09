@@ -21,13 +21,12 @@ public extension authorization.v1beta1 {
 	///
 	/// No description
 	///
-	struct SelfSubjectRulesReviewSpec: KubernetesResource, Codable {
-	
+	struct SelfSubjectRulesReviewSpec: KubernetesResource {
 		///
 		/// Namespace to evaluate rules for. Required.
 		///
 		var namespace: String?
-	
+
 	}
 }
 

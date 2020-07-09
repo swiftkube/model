@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
 	///
-	struct NodeSelectorTerm: KubernetesResource, Codable {
-	
+	struct NodeSelectorTerm: KubernetesResource {
 		///
 		/// A list of node selector requirements by node's labels.
 		///
 		var matchExpressions: [core.v1.NodeSelectorRequirement]?
-	
+
 		///
 		/// A list of node selector requirements by node's fields.
 		///
 		var matchFields: [core.v1.NodeSelectorRequirement]?
-	
+
 	}
 }
 

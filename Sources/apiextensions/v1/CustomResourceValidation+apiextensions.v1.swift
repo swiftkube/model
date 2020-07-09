@@ -21,13 +21,12 @@ public extension apiextensions.v1 {
 	///
 	/// CustomResourceValidation is a list of validation methods for CustomResources.
 	///
-	struct CustomResourceValidation: KubernetesResource, Codable {
-	
+	struct CustomResourceValidation: KubernetesResource {
 		///
 		/// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 		///
 		var openAPIV3Schema: [String: Any]?
-	
+
 	}
 }
 

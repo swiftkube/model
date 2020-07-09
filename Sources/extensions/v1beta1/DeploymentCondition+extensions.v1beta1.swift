@@ -21,38 +21,37 @@ public extension extensions.v1beta1 {
 	///
 	/// DeploymentCondition describes the state of a deployment at a certain point.
 	///
-	struct DeploymentCondition: KubernetesResource, Codable {
-	
+	struct DeploymentCondition: KubernetesResource {
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// The last time this condition was updated.
 		///
 		var lastUpdateTime: String?
-	
+
 		///
 		/// A human readable message indicating details about the transition.
 		///
 		var message: String?
-	
+
 		///
 		/// The reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of deployment condition.
 		///
 		var type: String
-	
+
 	}
 }
 

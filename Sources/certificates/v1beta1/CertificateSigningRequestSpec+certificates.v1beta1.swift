@@ -21,39 +21,38 @@ public extension certificates.v1beta1 {
 	///
 	/// This information is immutable after the request is created. Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.
 	///
-	struct CertificateSigningRequestSpec: KubernetesResource, Codable {
-	
+	struct CertificateSigningRequestSpec: KubernetesResource {
 		///
 		/// Extra information about the requesting user. See user.Info interface for details.
 		///
 		var extra: [String: [String]]?
-	
+
 		///
 		/// Group information about the requesting user. See user.Info interface for details.
 		///
 		var groups: [String]?
-	
+
 		///
 		/// Base64-encoded PKCS#10 CSR data
 		///
 		var request: String
-	
+
 		///
 		/// UID information about the requesting user. See user.Info interface for details.
 		///
 		var uid: String?
-	
+
 		///
 		/// allowedUsages specifies a set of usage contexts the key will be valid for. See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
 		///      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
 		///
 		var usages: [String]?
-	
+
 		///
 		/// Information about the requesting user. See user.Info interface for details.
 		///
 		var username: String?
-	
+
 	}
 }
 

@@ -21,33 +21,32 @@ public extension authentication.v1 {
 	///
 	/// TokenRequest requests a token for a given service account.
 	///
-	struct TokenRequest: KubernetesResource, Codable {
-	
+	struct TokenRequest: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		let apiVersion: String = "authentication.k8s.io/v1"
-	
+
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		let kind: String = "TokenRequest"
-	
+
 		///
 		/// No description
 		///
 		var metadata: meta.v1.ObjectMeta?
-	
+
 		///
 		/// No description
 		///
 		var spec: authentication.v1.TokenRequestSpec
-	
+
 		///
 		/// No description
 		///
 		var status: authentication.v1.TokenRequestStatus?
-	
+
 	}
 }
 

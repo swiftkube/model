@@ -21,13 +21,12 @@ public extension node.v1alpha1 {
 	///
 	/// Overhead structure represents the resource overhead associated with running a pod.
 	///
-	struct Overhead: KubernetesResource, Codable {
-	
+	struct Overhead: KubernetesResource {
 		///
 		/// PodFixed represents the fixed resource overhead associated with running a pod.
 		///
 		var podFixed: [String: Quantity]?
-	
+
 	}
 }
 

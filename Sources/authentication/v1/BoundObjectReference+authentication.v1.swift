@@ -21,28 +21,27 @@ public extension authentication.v1 {
 	///
 	/// BoundObjectReference is a reference to an object that a token is bound to.
 	///
-	struct BoundObjectReference: KubernetesResource, Codable {
-	
+	struct BoundObjectReference: KubernetesResource {
 		///
 		/// API version of the referent.
 		///
 		var apiVersion: String?
-	
+
 		///
 		/// Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
 		///
 		var kind: String?
-	
+
 		///
 		/// Name of the referent.
 		///
 		var name: String?
-	
+
 		///
 		/// UID of the referent.
 		///
 		var uid: String?
-	
+
 	}
 }
 

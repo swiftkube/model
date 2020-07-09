@@ -21,18 +21,17 @@ public extension core.v1 {
 	///
 	/// HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
 	///
-	struct HostAlias: KubernetesResource, Codable {
-	
+	struct HostAlias: KubernetesResource {
 		///
 		/// Hostnames for the above IP address.
 		///
 		var hostnames: [String]?
-	
+
 		///
 		/// IP address of the host file entry.
 		///
 		var ip: String?
-	
+
 	}
 }
 

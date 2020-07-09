@@ -21,38 +21,37 @@ public extension core.v1 {
 	///
 	/// NodeCondition contains condition information for a node.
 	///
-	struct NodeCondition: KubernetesResource, Codable {
-	
+	struct NodeCondition: KubernetesResource {
 		///
 		/// Last time we got an update on a given condition.
 		///
 		var lastHeartbeatTime: String?
-	
+
 		///
 		/// Last time the condition transit from one status to another.
 		///
 		var lastTransitionTime: String?
-	
+
 		///
 		/// Human readable message indicating details about last transition.
 		///
 		var message: String?
-	
+
 		///
 		/// (brief) reason for the condition's last transition.
 		///
 		var reason: String?
-	
+
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		var status: String
-	
+
 		///
 		/// Type of node condition.
 		///
 		var type: String
-	
+
 	}
 }
 

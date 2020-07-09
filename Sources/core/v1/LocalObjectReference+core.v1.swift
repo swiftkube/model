@@ -21,13 +21,12 @@ public extension core.v1 {
 	///
 	/// LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
 	///
-	struct LocalObjectReference: KubernetesResource, Codable {
-	
+	struct LocalObjectReference: KubernetesResource {
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		var name: String?
-	
+
 	}
 }
 

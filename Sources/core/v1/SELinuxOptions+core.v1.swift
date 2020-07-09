@@ -21,28 +21,27 @@ public extension core.v1 {
 	///
 	/// SELinuxOptions are the labels to be applied to the container
 	///
-	struct SELinuxOptions: KubernetesResource, Codable {
-	
+	struct SELinuxOptions: KubernetesResource {
 		///
 		/// Level is SELinux level label that applies to the container.
 		///
 		var level: String?
-	
+
 		///
 		/// Role is a SELinux role label that applies to the container.
 		///
 		var role: String?
-	
+
 		///
 		/// Type is a SELinux type label that applies to the container.
 		///
 		var type: String?
-	
+
 		///
 		/// User is a SELinux user label that applies to the container.
 		///
 		var user: String?
-	
+
 	}
 }
 

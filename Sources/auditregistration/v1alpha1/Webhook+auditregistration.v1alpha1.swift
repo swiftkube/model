@@ -21,18 +21,17 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// Webhook holds the configuration of the webhook
 	///
-	struct Webhook: KubernetesResource, Codable {
-	
+	struct Webhook: KubernetesResource {
 		///
 		/// ClientConfig holds the connection parameters for the webhook required
 		///
 		var clientConfig: auditregistration.v1alpha1.WebhookClientConfig
-	
+
 		///
 		/// Throttle holds the options for throttling the webhook
 		///
 		var throttle: auditregistration.v1alpha1.WebhookThrottleConfig?
-	
+
 	}
 }
 
