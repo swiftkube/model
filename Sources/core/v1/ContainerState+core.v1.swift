@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// Details about a running container
 		///
-		var running: core.v1.ContainerStateRunning?
+		public var running: core.v1.ContainerStateRunning?
 
 		///
 		/// Details about a terminated container
 		///
-		var terminated: core.v1.ContainerStateTerminated?
+		public var terminated: core.v1.ContainerStateTerminated?
 
 		///
 		/// Details about a waiting container
 		///
-		var waiting: core.v1.ContainerStateWaiting?
+		public var waiting: core.v1.ContainerStateWaiting?
 
 	}
 }

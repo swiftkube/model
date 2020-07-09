@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// The header field name
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// The header field value
 		///
-		var value: String
+		public var value: String
 
 	}
 }

@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Message regarding why the container is not yet running.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// (brief) reason the container is not yet running.
 		///
-		var reason: String?
+		public var reason: String?
 
 	}
 }

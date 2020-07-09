@@ -25,22 +25,22 @@ public extension core.v1 {
 		///
 		/// information about the configMap data to project
 		///
-		var configMap: core.v1.ConfigMapProjection?
+		public var configMap: core.v1.ConfigMapProjection?
 
 		///
 		/// information about the downwardAPI data to project
 		///
-		var downwardAPI: core.v1.DownwardAPIProjection?
+		public var downwardAPI: core.v1.DownwardAPIProjection?
 
 		///
 		/// information about the secret data to project
 		///
-		var secret: core.v1.SecretProjection?
+		public var secret: core.v1.SecretProjection?
 
 		///
 		/// information about the serviceAccountToken data to project
 		///
-		var serviceAccountToken: core.v1.ServiceAccountTokenProjection?
+		public var serviceAccountToken: core.v1.ServiceAccountTokenProjection?
 
 	}
 }

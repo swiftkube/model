@@ -25,12 +25,12 @@ public extension autoscaling.v2beta2 {
 		///
 		/// current contains the current value for the given metric
 		///
-		var current: autoscaling.v2beta2.MetricValueStatus
+		public var current: autoscaling.v2beta2.MetricValueStatus
 
 		///
 		/// metric identifies the target metric by name and selector
 		///
-		var metric: autoscaling.v2beta2.MetricIdentifier
+		public var metric: autoscaling.v2beta2.MetricIdentifier
 
 	}
 }

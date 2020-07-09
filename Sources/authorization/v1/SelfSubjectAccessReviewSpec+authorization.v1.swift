@@ -25,12 +25,12 @@ public extension authorization.v1 {
 		///
 		/// NonResourceAttributes describes information for a non-resource access request
 		///
-		var nonResourceAttributes: authorization.v1.NonResourceAttributes?
+		public var nonResourceAttributes: authorization.v1.NonResourceAttributes?
 
 		///
 		/// ResourceAuthorizationAttributes describes information for a resource access request
 		///
-		var resourceAttributes: authorization.v1.ResourceAttributes?
+		public var resourceAttributes: authorization.v1.ResourceAttributes?
 
 	}
 }

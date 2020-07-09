@@ -23,26 +23,26 @@ public extension networking.v1 {
 	///
 	struct NetworkPolicyList: KubernetesResource, KubernetesResourceList {
 
-		typealias Resource = networking.v1.NetworkPolicy
+		public typealias Resource = networking.v1.NetworkPolicy
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "networking.k8s.io/v1"
+		public let apiVersion: String = "networking.k8s.io/v1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "NetworkPolicyList"
+		public let kind: String = "NetworkPolicyList"
 
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ListMeta?
+		public var metadata: meta.v1.ListMeta?
 
 		///
 		/// Items is a list of schema objects.
 		///
-		var items: [networking.v1.NetworkPolicy]
+		public var items: [networking.v1.NetworkPolicy]
 
 	}
 }

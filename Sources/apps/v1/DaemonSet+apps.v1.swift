@@ -25,27 +25,27 @@ public extension apps.v1 {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "apps/v1"
+		public let apiVersion: String = "apps/v1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "DaemonSet"
+		public let kind: String = "DaemonSet"
 
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ObjectMeta?
+		public var metadata: meta.v1.ObjectMeta?
 
 		///
 		/// The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var spec: apps.v1.DaemonSetSpec?
+		public var spec: apps.v1.DaemonSetSpec?
 
 		///
 		/// The current status of this daemon set. This data may be out of date by some window of time. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var status: apps.v1.DaemonSetStatus?
+		public var status: apps.v1.DaemonSetStatus?
 
 	}
 }

@@ -26,7 +26,7 @@ public extension core.v1 {
 		///
 		/// ip is an IP address (IPv4 or IPv6) assigned to the pod
 		///
-		var ip: String?
+		public var ip: String?
 
 	}
 }

@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Name of a property to set
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// Value of a property to set
 		///
-		var value: String
+		public var value: String
 
 	}
 }

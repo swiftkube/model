@@ -25,37 +25,37 @@ public extension scheduling.v1alpha1 {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "scheduling.k8s.io/v1alpha1"
+		public let apiVersion: String = "scheduling.k8s.io/v1alpha1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "PriorityClass"
+		public let kind: String = "PriorityClass"
 
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ObjectMeta?
+		public var metadata: meta.v1.ObjectMeta?
 
 		///
 		/// description is an arbitrary string that usually provides guidelines on when this priority class should be used.
 		///
-		var description: String?
+		public var description: String?
 
 		///
 		/// globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
 		///
-		var globalDefault: Bool?
+		public var globalDefault: Bool?
 
 		///
 		/// PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
 		///
-		var preemptionPolicy: String?
+		public var preemptionPolicy: String?
 
 		///
 		/// The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
 		///
-		var value: Int32
+		public var value: Int32
 
 	}
 }

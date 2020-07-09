@@ -25,22 +25,22 @@ public extension core.v1 {
 		///
 		/// Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.
 		///
-		var effect: String
+		public var effect: String
 
 		///
 		/// Required. The taint key to be applied to a node.
 		///
-		var key: String
+		public var key: String
 
 		///
 		/// TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.
 		///
-		var timeAdded: String?
+		public var timeAdded: String?
 
 		///
 		/// Required. The taint value corresponding to the taint key.
 		///
-		var value: String?
+		public var value: String?
 
 	}
 }

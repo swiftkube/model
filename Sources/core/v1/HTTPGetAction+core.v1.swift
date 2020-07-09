@@ -25,27 +25,27 @@ public extension core.v1 {
 		///
 		/// Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
 		///
-		var host: String?
+		public var host: String?
 
 		///
 		/// Custom headers to set in the request. HTTP allows repeated headers.
 		///
-		var httpHeaders: [core.v1.HTTPHeader]?
+		public var httpHeaders: [core.v1.HTTPHeader]?
 
 		///
 		/// Path to access on the HTTP server.
 		///
-		var path: String?
+		public var path: String?
 
 		///
 		/// Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 		///
-		var port: IntOrString
+		public var port: IntOrString
 
 		///
 		/// Scheme to use for connecting to the host. Defaults to HTTP.
 		///
-		var scheme: String?
+		public var scheme: String?
 
 	}
 }

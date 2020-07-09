@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// A list of scope selector requirements by scope of the resources.
 		///
-		var matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
+		public var matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
 
 	}
 }

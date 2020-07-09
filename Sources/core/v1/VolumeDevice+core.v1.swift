@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// devicePath is the path inside of the container that the device will be mapped to.
 		///
-		var devicePath: String
+		public var devicePath: String
 
 		///
 		/// name must match the name of a persistentVolumeClaim in the pod
 		///
-		var name: String
+		public var name: String
 
 	}
 }

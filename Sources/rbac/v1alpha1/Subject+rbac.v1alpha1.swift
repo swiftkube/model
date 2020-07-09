@@ -25,22 +25,22 @@ public extension rbac.v1alpha1 {
 		///
 		/// APIVersion holds the API group and version of the referenced subject. Defaults to "v1" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io/v1alpha1" for User and Group subjects.
 		///
-		var apiVersion: String?
+		public var apiVersion: String?
 
 		///
 		/// Kind of object being referenced. Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
 		///
-		var kind: String
+		public var kind: String
 
 		///
 		/// Name of the object being referenced.
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// Namespace of the referenced object.  If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
 		///
-		var namespace: String?
+		public var namespace: String?
 
 	}
 }

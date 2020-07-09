@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Added capabilities
 		///
-		var add: [String]?
+		public var add: [String]?
 
 		///
 		/// Removed capabilities
 		///
-		var drop: [String]?
+		public var drop: [String]?
 
 	}
 }

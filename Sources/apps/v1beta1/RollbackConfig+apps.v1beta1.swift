@@ -25,7 +25,7 @@ public extension apps.v1beta1 {
 		///
 		/// The revision to rollback to. If set to 0, rollback to the last revision.
 		///
-		var revision: Int64?
+		public var revision: Int64?
 
 	}
 }

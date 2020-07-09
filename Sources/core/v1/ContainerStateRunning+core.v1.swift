@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Time at which the container was last (re-)started
 		///
-		var startedAt: String?
+		public var startedAt: String?
 
 	}
 }

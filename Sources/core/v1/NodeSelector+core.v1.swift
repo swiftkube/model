@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Required. A list of node selector terms. The terms are ORed.
 		///
-		var nodeSelectorTerms: [core.v1.NodeSelectorTerm]
+		public var nodeSelectorTerms: [core.v1.NodeSelectorTerm]
 
 	}
 }

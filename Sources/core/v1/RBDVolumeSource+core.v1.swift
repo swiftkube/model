@@ -25,42 +25,42 @@ public extension core.v1 {
 		///
 		/// Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
 		///
-		var fsType: String?
+		public var fsType: String?
 
 		///
 		/// The rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var image: String
+		public var image: String
 
 		///
 		/// Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var keyring: String?
+		public var keyring: String?
 
 		///
 		/// A collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var monitors: [String]
+		public var monitors: [String]
 
 		///
 		/// The rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var pool: String?
+		public var pool: String?
 
 		///
 		/// ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var readOnly: Bool?
+		public var readOnly: Bool?
 
 		///
 		/// SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var secretRef: core.v1.LocalObjectReference?
+		public var secretRef: core.v1.LocalObjectReference?
 
 		///
 		/// The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
-		var user: String?
+		public var user: String?
 
 	}
 }

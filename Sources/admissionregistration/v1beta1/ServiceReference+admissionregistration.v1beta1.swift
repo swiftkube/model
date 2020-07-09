@@ -25,22 +25,22 @@ public extension admissionregistration.v1beta1 {
 		///
 		/// `name` is the name of the service. Required
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// `namespace` is the namespace of the service. Required
 		///
-		var namespace: String
+		public var namespace: String
 
 		///
 		/// `path` is an optional URL path which will be sent in any request to this service.
 		///
-		var path: String?
+		public var path: String?
 
 		///
 		/// If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
 		///
-		var port: Int32?
+		public var port: Int32?
 
 	}
 }

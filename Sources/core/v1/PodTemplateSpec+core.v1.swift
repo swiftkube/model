@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ObjectMeta?
+		public var metadata: meta.v1.ObjectMeta?
 
 		///
 		/// Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var spec: core.v1.PodSpec?
+		public var spec: core.v1.PodSpec?
 
 	}
 }

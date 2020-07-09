@@ -25,27 +25,27 @@ public extension networking.v1beta1 {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "networking.k8s.io/v1beta1"
+		public let apiVersion: String = "networking.k8s.io/v1beta1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "Ingress"
+		public let kind: String = "Ingress"
 
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ObjectMeta?
+		public var metadata: meta.v1.ObjectMeta?
 
 		///
 		/// Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var spec: networking.v1beta1.IngressSpec?
+		public var spec: networking.v1beta1.IngressSpec?
 
 		///
 		/// Status is the current state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var status: networking.v1beta1.IngressStatus?
+		public var status: networking.v1beta1.IngressStatus?
 
 	}
 }

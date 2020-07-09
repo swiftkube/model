@@ -25,7 +25,7 @@ public extension extensions.v1beta1 {
 		///
 		/// A collection of paths that map requests to backends.
 		///
-		var paths: [extensions.v1beta1.HTTPIngressPath]
+		public var paths: [extensions.v1beta1.HTTPIngressPath]
 
 	}
 }

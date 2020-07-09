@@ -25,12 +25,12 @@ public extension apps.v1beta2 {
 		///
 		/// RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
 		///
-		var rollingUpdate: apps.v1beta2.RollingUpdateStatefulSetStrategy?
+		public var rollingUpdate: apps.v1beta2.RollingUpdateStatefulSetStrategy?
 
 		///
 		/// Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.
 		///
-		var type: String?
+		public var type: String?
 
 	}
 }

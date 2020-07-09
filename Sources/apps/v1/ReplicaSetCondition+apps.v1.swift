@@ -25,27 +25,27 @@ public extension apps.v1 {
 		///
 		/// The last time the condition transitioned from one status to another.
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// A human readable message indicating details about the transition.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// The reason for the condition's last transition.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type of replica set condition.
 		///
-		var type: String
+		public var type: String
 
 	}
 }

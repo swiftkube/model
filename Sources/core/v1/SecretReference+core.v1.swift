@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Name is unique within a namespace to reference a secret resource.
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// Namespace defines the space within which the secret name must be unique.
 		///
-		var namespace: String?
+		public var namespace: String?
 
 	}
 }

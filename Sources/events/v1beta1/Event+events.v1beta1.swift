@@ -25,87 +25,87 @@ public extension events.v1beta1 {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "events.k8s.io/v1beta1"
+		public let apiVersion: String = "events.k8s.io/v1beta1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "Event"
+		public let kind: String = "Event"
 
 		///
 		/// No description
 		///
-		var metadata: meta.v1.ObjectMeta?
+		public var metadata: meta.v1.ObjectMeta?
 
 		///
 		/// What action was taken/failed regarding to the regarding object.
 		///
-		var action: String?
+		public var action: String?
 
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		var deprecatedCount: Int32?
+		public var deprecatedCount: Int32?
 
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		var deprecatedFirstTimestamp: String?
+		public var deprecatedFirstTimestamp: String?
 
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		var deprecatedLastTimestamp: String?
+		public var deprecatedLastTimestamp: String?
 
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		var deprecatedSource: core.v1.EventSource?
+		public var deprecatedSource: core.v1.EventSource?
 
 		///
 		/// Required. Time when this Event was first observed.
 		///
-		var eventTime: String
+		public var eventTime: String
 
 		///
 		/// Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
 		///
-		var note: String?
+		public var note: String?
 
 		///
 		/// Why the action was taken.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// The object this Event is about. In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
 		///
-		var regarding: core.v1.ObjectReference?
+		public var regarding: core.v1.ObjectReference?
 
 		///
 		/// Optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object.
 		///
-		var related: core.v1.ObjectReference?
+		public var related: core.v1.ObjectReference?
 
 		///
 		/// Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.
 		///
-		var reportingController: String?
+		public var reportingController: String?
 
 		///
 		/// ID of the controller instance, e.g. `kubelet-xyzf`.
 		///
-		var reportingInstance: String?
+		public var reportingInstance: String?
 
 		///
 		/// Data about the Event series this event represents or nil if it's a singleton Event.
 		///
-		var series: events.v1beta1.EventSeries?
+		public var series: events.v1beta1.EventSeries?
 
 		///
 		/// Type of this event (Normal, Warning), new types could be added in the future.
 		///
-		var type: String?
+		public var type: String?
 
 	}
 }

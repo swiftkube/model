@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// The label key that the selector applies to.
 		///
-		var key: String
+		public var key: String
 
 		///
 		/// Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
 		///
-		var `operator`: String
+		public var `operator`: String
 
 		///
 		/// An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 		///
-		var values: [String]?
+		public var values: [String]?
 
 	}
 }

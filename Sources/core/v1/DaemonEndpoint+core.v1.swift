@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Port number of the given endpoint.
 		///
-		var Port: Int32
+		public var Port: Int32
 
 	}
 }

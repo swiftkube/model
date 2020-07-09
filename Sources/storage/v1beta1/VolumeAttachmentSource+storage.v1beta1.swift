@@ -25,12 +25,12 @@ public extension storage.v1beta1 {
 		///
 		/// inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource. This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
 		///
-		var inlineVolumeSpec: core.v1.PersistentVolumeSpec?
+		public var inlineVolumeSpec: core.v1.PersistentVolumeSpec?
 
 		///
 		/// Name of the persistent volume to attach.
 		///
-		var persistentVolumeName: String?
+		public var persistentVolumeName: String?
 
 	}
 }

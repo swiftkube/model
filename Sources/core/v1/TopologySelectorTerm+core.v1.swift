@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// A list of topology selector requirements by labels.
 		///
-		var matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]?
+		public var matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]?
 
 	}
 }

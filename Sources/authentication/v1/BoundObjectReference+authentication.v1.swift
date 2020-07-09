@@ -25,22 +25,22 @@ public extension authentication.v1 {
 		///
 		/// API version of the referent.
 		///
-		var apiVersion: String?
+		public var apiVersion: String?
 
 		///
 		/// Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
 		///
-		var kind: String?
+		public var kind: String?
 
 		///
 		/// Name of the referent.
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// UID of the referent.
 		///
-		var uid: String?
+		public var uid: String?
 
 	}
 }

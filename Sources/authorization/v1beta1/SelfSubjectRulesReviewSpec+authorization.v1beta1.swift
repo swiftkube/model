@@ -25,7 +25,7 @@ public extension authorization.v1beta1 {
 		///
 		/// Namespace to evaluate rules for. Required.
 		///
-		var namespace: String?
+		public var namespace: String?
 
 	}
 }

@@ -25,47 +25,47 @@ public extension apps.v1beta1 {
 		///
 		/// collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
 		///
-		var collisionCount: Int32?
+		public var collisionCount: Int32?
 
 		///
 		/// Represents the latest available observations of a statefulset's current state.
 		///
-		var conditions: [apps.v1beta1.StatefulSetCondition]?
+		public var conditions: [apps.v1beta1.StatefulSetCondition]?
 
 		///
 		/// currentReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision.
 		///
-		var currentReplicas: Int32?
+		public var currentReplicas: Int32?
 
 		///
 		/// currentRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [0,currentReplicas).
 		///
-		var currentRevision: String?
+		public var currentRevision: String?
 
 		///
 		/// observedGeneration is the most recent generation observed for this StatefulSet. It corresponds to the StatefulSet's generation, which is updated on mutation by the API Server.
 		///
-		var observedGeneration: Int64?
+		public var observedGeneration: Int64?
 
 		///
 		/// readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
 		///
-		var readyReplicas: Int32?
+		public var readyReplicas: Int32?
 
 		///
 		/// replicas is the number of Pods created by the StatefulSet controller.
 		///
-		var replicas: Int32
+		public var replicas: Int32
 
 		///
 		/// updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)
 		///
-		var updateRevision: String?
+		public var updateRevision: String?
 
 		///
 		/// updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision.
 		///
-		var updatedReplicas: Int32?
+		public var updatedReplicas: Int32?
 
 	}
 }

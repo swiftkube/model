@@ -25,12 +25,12 @@ public extension policy.v1beta1 {
 		///
 		/// rule is the strategy that will dictate the allowable labels that may be set.
 		///
-		var rule: String
+		public var rule: String
 
 		///
 		/// seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 		///
-		var seLinuxOptions: core.v1.SELinuxOptions?
+		public var seLinuxOptions: core.v1.SELinuxOptions?
 
 	}
 }

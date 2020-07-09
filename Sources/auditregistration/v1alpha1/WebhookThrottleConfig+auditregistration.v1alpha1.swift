@@ -25,12 +25,12 @@ public extension auditregistration.v1alpha1 {
 		///
 		/// ThrottleBurst is the maximum number of events sent at the same moment default 15 QPS
 		///
-		var burst: Int64?
+		public var burst: Int64?
 
 		///
 		/// ThrottleQPS maximum number of batches per second default 10 QPS
 		///
-		var qps: Int64?
+		public var qps: Int64?
 
 	}
 }

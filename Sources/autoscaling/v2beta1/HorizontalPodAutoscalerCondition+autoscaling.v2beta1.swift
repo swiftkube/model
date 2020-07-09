@@ -25,27 +25,27 @@ public extension autoscaling.v2beta1 {
 		///
 		/// lastTransitionTime is the last time the condition transitioned from one status to another
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// message is a human-readable explanation containing details about the transition
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// reason is the reason for the condition's last transition.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// status is the status of the condition (True, False, Unknown)
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// type describes the current condition
 		///
-		var type: String
+		public var type: String
 
 	}
 }

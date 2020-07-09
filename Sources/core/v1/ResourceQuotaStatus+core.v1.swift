@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 		///
-		var hard: [String: Quantity]?
+		public var hard: [String: Quantity]?
 
 		///
 		/// Used is the current observed total usage of the resource in the namespace.
 		///
-		var used: [String: Quantity]?
+		public var used: [String: Quantity]?
 
 	}
 }

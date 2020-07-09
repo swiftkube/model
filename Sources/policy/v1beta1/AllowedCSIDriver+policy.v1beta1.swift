@@ -25,7 +25,7 @@ public extension policy.v1beta1 {
 		///
 		/// Name is the registered name of the CSI driver
 		///
-		var name: String
+		public var name: String
 
 	}
 }

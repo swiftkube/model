@@ -25,17 +25,17 @@ public extension autoscaling.v2beta2 {
 		///
 		/// No description
 		///
-		var describedObject: autoscaling.v2beta2.CrossVersionObjectReference
+		public var describedObject: autoscaling.v2beta2.CrossVersionObjectReference
 
 		///
 		/// metric identifies the target metric by name and selector
 		///
-		var metric: autoscaling.v2beta2.MetricIdentifier
+		public var metric: autoscaling.v2beta2.MetricIdentifier
 
 		///
 		/// target specifies the target value for the given metric
 		///
-		var target: autoscaling.v2beta2.MetricTarget
+		public var target: autoscaling.v2beta2.MetricTarget
 
 	}
 }

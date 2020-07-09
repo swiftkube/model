@@ -25,17 +25,17 @@ public extension rbac.v1alpha1 {
 		///
 		/// Kind is the type of resource being referenced
 		///
-		var kind: String
+		public var kind: String
 
 		///
 		/// APIGroup is the group for the resource being referenced
 		///
-		var apiGroup: String
+		public var apiGroup: String
 
 		///
 		/// Name is the name of resource being referenced
 		///
-		var name: String
+		public var name: String
 
 	}
 }

@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// Kind is the type of resource being referenced
 		///
-		var kind: String
+		public var kind: String
 
 		///
 		/// APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
 		///
-		var apiGroup: String?
+		public var apiGroup: String?
 
 		///
 		/// Name is the name of resource being referenced
 		///
-		var name: String
+		public var name: String
 
 	}
 }

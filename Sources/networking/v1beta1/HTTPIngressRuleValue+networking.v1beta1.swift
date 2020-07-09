@@ -25,7 +25,7 @@ public extension networking.v1beta1 {
 		///
 		/// A collection of paths that map requests to backends.
 		///
-		var paths: [networking.v1beta1.HTTPIngressPath]
+		public var paths: [networking.v1beta1.HTTPIngressPath]
 
 	}
 }

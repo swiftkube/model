@@ -25,12 +25,12 @@ public extension storage.v1beta1 {
 		///
 		/// String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// Time the error was encountered.
 		///
-		var time: String?
+		public var time: String?
 
 	}
 }

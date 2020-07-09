@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// ConditionType refers to a condition in the pod's condition list with matching type.
 		///
-		var conditionType: String
+		public var conditionType: String
 
 	}
 }

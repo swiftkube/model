@@ -25,52 +25,52 @@ public extension core.v1 {
 		///
 		/// The Architecture reported by the node
 		///
-		var architecture: String
+		public var architecture: String
 
 		///
 		/// Boot ID reported by the node.
 		///
-		var bootID: String
+		public var bootID: String
 
 		///
 		/// ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
 		///
-		var containerRuntimeVersion: String
+		public var containerRuntimeVersion: String
 
 		///
 		/// Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).
 		///
-		var kernelVersion: String
+		public var kernelVersion: String
 
 		///
 		/// KubeProxy Version reported by the node.
 		///
-		var kubeProxyVersion: String
+		public var kubeProxyVersion: String
 
 		///
 		/// Kubelet Version reported by the node.
 		///
-		var kubeletVersion: String
+		public var kubeletVersion: String
 
 		///
 		/// MachineID reported by the node. For unique machine identification in the cluster this field is preferred. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html
 		///
-		var machineID: String
+		public var machineID: String
 
 		///
 		/// The Operating System reported by the node
 		///
-		var operatingSystem: String
+		public var operatingSystem: String
 
 		///
 		/// OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
 		///
-		var osImage: String
+		public var osImage: String
 
 		///
 		/// SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html
 		///
-		var systemUUID: String
+		public var systemUUID: String
 
 	}
 }

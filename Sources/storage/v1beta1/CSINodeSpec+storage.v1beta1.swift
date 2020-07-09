@@ -25,7 +25,7 @@ public extension storage.v1beta1 {
 		///
 		/// drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
 		///
-		var drivers: [storage.v1beta1.CSINodeDriver]
+		public var drivers: [storage.v1beta1.CSINodeDriver]
 
 	}
 }

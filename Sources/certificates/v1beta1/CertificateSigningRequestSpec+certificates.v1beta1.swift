@@ -25,33 +25,33 @@ public extension certificates.v1beta1 {
 		///
 		/// Extra information about the requesting user. See user.Info interface for details.
 		///
-		var extra: [String: [String]]?
+		public var extra: [String: [String]]?
 
 		///
 		/// Group information about the requesting user. See user.Info interface for details.
 		///
-		var groups: [String]?
+		public var groups: [String]?
 
 		///
 		/// Base64-encoded PKCS#10 CSR data
 		///
-		var request: String
+		public var request: String
 
 		///
 		/// UID information about the requesting user. See user.Info interface for details.
 		///
-		var uid: String?
+		public var uid: String?
 
 		///
 		/// allowedUsages specifies a set of usage contexts the key will be valid for. See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
 		///      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
 		///
-		var usages: [String]?
+		public var usages: [String]?
 
 		///
 		/// Information about the requesting user. See user.Info interface for details.
 		///
-		var username: String?
+		public var username: String?
 
 	}
 }

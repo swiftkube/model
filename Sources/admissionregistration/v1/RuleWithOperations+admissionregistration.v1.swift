@@ -25,17 +25,17 @@ public extension admissionregistration.v1 {
 		///
 		/// APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.
 		///
-		var apiGroups: [String]?
+		public var apiGroups: [String]?
 
 		///
 		/// APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.
 		///
-		var apiVersions: [String]?
+		public var apiVersions: [String]?
 
 		///
 		/// Operations is the operations the admission hook cares about - CREATE, UPDATE, or * for all operations. If '*' is present, the length of the slice must be one. Required.
 		///
-		var operations: [String]?
+		public var operations: [String]?
 
 		///
 		/// Resources is a list of resources this rule applies to.
@@ -46,12 +46,12 @@ public extension admissionregistration.v1 {
 		/// 
 		/// Depending on the enclosing object, subresources might not be allowed. Required.
 		///
-		var resources: [String]?
+		public var resources: [String]?
 
 		///
 		/// scope specifies the scope of this rule. Valid values are "Cluster", "Namespaced", and "*" "Cluster" means that only cluster-scoped resources will match this rule. Namespace API objects are cluster-scoped. "Namespaced" means that only namespaced resources will match this rule. "*" means that there are no scope restrictions. Subresources match the scope of their parent resource. Default is "*".
 		///
-		var scope: String?
+		public var scope: String?
 
 	}
 }

@@ -25,32 +25,32 @@ public extension apps.v1 {
 		///
 		/// The number of available replicas (ready for at least minReadySeconds) for this replica set.
 		///
-		var availableReplicas: Int32?
+		public var availableReplicas: Int32?
 
 		///
 		/// Represents the latest available observations of a replica set's current state.
 		///
-		var conditions: [apps.v1.ReplicaSetCondition]?
+		public var conditions: [apps.v1.ReplicaSetCondition]?
 
 		///
 		/// The number of pods that have labels matching the labels of the pod template of the replicaset.
 		///
-		var fullyLabeledReplicas: Int32?
+		public var fullyLabeledReplicas: Int32?
 
 		///
 		/// ObservedGeneration reflects the generation of the most recently observed ReplicaSet.
 		///
-		var observedGeneration: Int64?
+		public var observedGeneration: Int64?
 
 		///
 		/// The number of ready replicas for this replica set.
 		///
-		var readyReplicas: Int32?
+		public var readyReplicas: Int32?
 
 		///
 		/// Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
 		///
-		var replicas: Int32
+		public var replicas: Int32
 
 	}
 }

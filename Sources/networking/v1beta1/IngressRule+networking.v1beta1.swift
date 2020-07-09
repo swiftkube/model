@@ -30,12 +30,12 @@ public extension networking.v1beta1 {
 		/// 	  :443 for https.
 		/// Both these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 		///
-		var host: String?
+		public var host: String?
 
 		///
 		/// No description
 		///
-		var http: networking.v1beta1.HTTPIngressRuleValue?
+		public var http: networking.v1beta1.HTTPIngressRuleValue?
 
 	}
 }

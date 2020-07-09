@@ -25,22 +25,22 @@ public extension autoscaling.v2beta1 {
 		///
 		/// currentAverageValue is the current value of metric averaged over autoscaled pods.
 		///
-		var currentAverageValue: Quantity?
+		public var currentAverageValue: Quantity?
 
 		///
 		/// currentValue is the current value of the metric (as a quantity)
 		///
-		var currentValue: Quantity
+		public var currentValue: Quantity
 
 		///
 		/// metricName is the name of a metric used for autoscaling in metric system.
 		///
-		var metricName: String
+		public var metricName: String
 
 		///
 		/// metricSelector is used to identify a specific time series within a given metric.
 		///
-		var metricSelector: meta.v1.LabelSelector?
+		public var metricSelector: meta.v1.LabelSelector?
 
 	}
 }

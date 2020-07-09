@@ -25,47 +25,47 @@ public extension core.v1 {
 		///
 		/// Container's ID in the format 'docker://<container_id>'.
 		///
-		var containerID: String?
+		public var containerID: String?
 
 		///
 		/// The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images
 		///
-		var image: String
+		public var image: String
 
 		///
 		/// ImageID of the container's image.
 		///
-		var imageID: String
+		public var imageID: String
 
 		///
 		/// Details about the container's last termination condition.
 		///
-		var lastState: core.v1.ContainerState?
+		public var lastState: core.v1.ContainerState?
 
 		///
 		/// This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated.
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// Specifies whether the container has passed its readiness probe.
 		///
-		var ready: Bool
+		public var ready: Bool
 
 		///
 		/// The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
 		///
-		var restartCount: Int32
+		public var restartCount: Int32
 
 		///
 		/// Specifies whether the container has passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. Is always true when no startupProbe is defined.
 		///
-		var started: Bool?
+		public var started: Bool?
 
 		///
 		/// Details about the container's current condition.
 		///
-		var state: core.v1.ContainerState?
+		public var state: core.v1.ContainerState?
 
 	}
 }

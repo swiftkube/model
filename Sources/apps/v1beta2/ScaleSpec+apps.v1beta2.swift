@@ -25,7 +25,7 @@ public extension apps.v1beta2 {
 		///
 		/// desired number of instances for the scaled object.
 		///
-		var replicas: Int32?
+		public var replicas: Int32?
 
 	}
 }

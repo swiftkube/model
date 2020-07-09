@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
-		var endpoints: String
+		public var endpoints: String
 
 		///
 		/// Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
-		var path: String
+		public var path: String
 
 		///
 		/// ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 		///
-		var readOnly: Bool?
+		public var readOnly: Bool?
 
 	}
 }

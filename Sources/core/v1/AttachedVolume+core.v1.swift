@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// DevicePath represents the device path where the volume should be available
 		///
-		var devicePath: String
+		public var devicePath: String
 
 		///
 		/// Name of the attached volume
 		///
-		var name: String
+		public var name: String
 
 	}
 }

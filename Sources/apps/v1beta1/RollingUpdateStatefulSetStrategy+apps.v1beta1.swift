@@ -25,7 +25,7 @@ public extension apps.v1beta1 {
 		///
 		/// Partition indicates the ordinal at which the StatefulSet should be partitioned.
 		///
-		var partition: Int32?
+		public var partition: Int32?
 
 	}
 }

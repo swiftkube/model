@@ -25,7 +25,7 @@ public extension apiregistration.v1 {
 		///
 		/// Current service state of apiService.
 		///
-		var conditions: [apiregistration.v1.APIServiceCondition]?
+		public var conditions: [apiregistration.v1.APIServiceCondition]?
 
 	}
 }

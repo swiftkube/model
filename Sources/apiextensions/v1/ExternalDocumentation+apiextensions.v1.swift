@@ -25,12 +25,12 @@ public extension apiextensions.v1 {
 		///
 		/// No description
 		///
-		var description: String?
+		public var description: String?
 
 		///
 		/// No description
 		///
-		var url: String?
+		public var url: String?
 
 	}
 }

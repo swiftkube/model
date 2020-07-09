@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// Number of occurrences in this series up to the last heartbeat time
 		///
-		var count: Int32?
+		public var count: Int32?
 
 		///
 		/// Time of the last occurrence observed
 		///
-		var lastObservedTime: String?
+		public var lastObservedTime: String?
 
 		///
 		/// State of this Series: Ongoing or Finished Deprecated. Planned removal for 1.18
 		///
-		var state: String?
+		public var state: String?
 
 	}
 }

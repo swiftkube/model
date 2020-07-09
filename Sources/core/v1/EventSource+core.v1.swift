@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Component from which the event is generated.
 		///
-		var component: String?
+		public var component: String?
 
 		///
 		/// Node name on which the event is generated.
 		///
-		var host: String?
+		public var host: String?
 
 	}
 }

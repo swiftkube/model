@@ -25,17 +25,17 @@ public extension events.v1beta1 {
 		///
 		/// Number of occurrences in this series up to the last heartbeat time
 		///
-		var count: Int32
+		public var count: Int32
 
 		///
 		/// Time when last Event from the series was seen before last heartbeat.
 		///
-		var lastObservedTime: String
+		public var lastObservedTime: String
 
 		///
 		/// Information whether this series is ongoing or finished. Deprecated. Planned removal for 1.18
 		///
-		var state: String
+		public var state: String
 
 	}
 }

@@ -25,22 +25,22 @@ public extension authorization.v1 {
 		///
 		/// EvaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.
 		///
-		var evaluationError: String?
+		public var evaluationError: String?
 
 		///
 		/// Incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
 		///
-		var incomplete: Bool
+		public var incomplete: Bool
 
 		///
 		/// NonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
 		///
-		var nonResourceRules: [authorization.v1.NonResourceRule]
+		public var nonResourceRules: [authorization.v1.NonResourceRule]
 
 		///
 		/// ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
 		///
-		var resourceRules: [authorization.v1.ResourceRule]
+		public var resourceRules: [authorization.v1.ResourceRule]
 
 	}
 }

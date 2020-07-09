@@ -25,17 +25,17 @@ public extension autoscaling.v2beta1 {
 		///
 		/// name is the name of the resource in question.
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
 		///
-		var targetAverageUtilization: Int32?
+		public var targetAverageUtilization: Int32?
 
 		///
 		/// targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the "pods" metric source type.
 		///
-		var targetAverageValue: Quantity?
+		public var targetAverageValue: Quantity?
 
 	}
 }

@@ -25,12 +25,12 @@ public extension auditregistration.v1alpha1 {
 		///
 		/// ClientConfig holds the connection parameters for the webhook required
 		///
-		var clientConfig: auditregistration.v1alpha1.WebhookClientConfig
+		public var clientConfig: auditregistration.v1alpha1.WebhookClientConfig
 
 		///
 		/// Throttle holds the options for throttling the webhook
 		///
-		var throttle: auditregistration.v1alpha1.WebhookThrottleConfig?
+		public var throttle: auditregistration.v1alpha1.WebhookThrottleConfig?
 
 	}
 }

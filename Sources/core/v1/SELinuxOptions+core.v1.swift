@@ -25,22 +25,22 @@ public extension core.v1 {
 		///
 		/// Level is SELinux level label that applies to the container.
 		///
-		var level: String?
+		public var level: String?
 
 		///
 		/// Role is a SELinux role label that applies to the container.
 		///
-		var role: String?
+		public var role: String?
 
 		///
 		/// Type is a SELinux type label that applies to the container.
 		///
-		var type: String?
+		public var type: String?
 
 		///
 		/// User is a SELinux user label that applies to the container.
 		///
-		var user: String?
+		public var user: String?
 
 	}
 }

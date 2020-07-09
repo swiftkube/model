@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Limits is the list of LimitRangeItem objects that are enforced.
 		///
-		var limits: [core.v1.LimitRangeItem]
+		public var limits: [core.v1.LimitRangeItem]
 
 	}
 }

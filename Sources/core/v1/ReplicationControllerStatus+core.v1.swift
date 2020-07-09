@@ -25,32 +25,32 @@ public extension core.v1 {
 		///
 		/// The number of available replicas (ready for at least minReadySeconds) for this replication controller.
 		///
-		var availableReplicas: Int32?
+		public var availableReplicas: Int32?
 
 		///
 		/// Represents the latest available observations of a replication controller's current state.
 		///
-		var conditions: [core.v1.ReplicationControllerCondition]?
+		public var conditions: [core.v1.ReplicationControllerCondition]?
 
 		///
 		/// The number of pods that have labels matching the labels of the pod template of the replication controller.
 		///
-		var fullyLabeledReplicas: Int32?
+		public var fullyLabeledReplicas: Int32?
 
 		///
 		/// ObservedGeneration reflects the generation of the most recently observed replication controller.
 		///
-		var observedGeneration: Int64?
+		public var observedGeneration: Int64?
 
 		///
 		/// The number of ready replicas for this replication controller.
 		///
-		var readyReplicas: Int32?
+		public var readyReplicas: Int32?
 
 		///
 		/// Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller
 		///
-		var replicas: Int32
+		public var replicas: Int32
 
 	}
 }

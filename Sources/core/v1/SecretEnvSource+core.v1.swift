@@ -27,12 +27,12 @@ public extension core.v1 {
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// Specify whether the Secret must be defined
 		///
-		var optional: Bool?
+		public var optional: Bool?
 
 	}
 }

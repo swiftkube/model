@@ -25,37 +25,37 @@ public extension core.v1 {
 		///
 		/// Container's ID in the format 'docker://<container_id>'
 		///
-		var containerID: String?
+		public var containerID: String?
 
 		///
 		/// Exit status from the last termination of the container
 		///
-		var exitCode: Int32
+		public var exitCode: Int32
 
 		///
 		/// Time at which the container last terminated
 		///
-		var finishedAt: String?
+		public var finishedAt: String?
 
 		///
 		/// Message regarding the last termination of the container
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// (brief) reason from the last termination of the container
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Signal from the last termination of the container
 		///
-		var signal: Int32?
+		public var signal: Int32?
 
 		///
 		/// Time at which previous execution of the container started
 		///
-		var startedAt: String?
+		public var startedAt: String?
 
 	}
 }

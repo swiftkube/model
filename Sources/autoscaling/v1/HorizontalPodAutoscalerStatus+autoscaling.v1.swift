@@ -25,27 +25,27 @@ public extension autoscaling.v1 {
 		///
 		/// current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.
 		///
-		var currentCPUUtilizationPercentage: Int32?
+		public var currentCPUUtilizationPercentage: Int32?
 
 		///
 		/// current number of replicas of pods managed by this autoscaler.
 		///
-		var currentReplicas: Int32
+		public var currentReplicas: Int32
 
 		///
 		/// desired number of replicas of pods managed by this autoscaler.
 		///
-		var desiredReplicas: Int32
+		public var desiredReplicas: Int32
 
 		///
 		/// last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.
 		///
-		var lastScaleTime: String?
+		public var lastScaleTime: String?
 
 		///
 		/// most recent generation observed by this autoscaler.
 		///
-		var observedGeneration: Int64?
+		public var observedGeneration: Int64?
 
 	}
 }

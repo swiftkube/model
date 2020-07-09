@@ -25,12 +25,12 @@ public extension policy.v1beta1 {
 		///
 		/// max is the end of the range, inclusive.
 		///
-		var max: Int64
+		public var max: Int64
 
 		///
 		/// min is the start of the range, inclusive.
 		///
-		var min: Int64
+		public var min: Int64
 
 	}
 }

@@ -25,27 +25,27 @@ public extension core.v1 {
 		///
 		/// No description
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// No description
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// No description
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type of namespace controller condition.
 		///
-		var type: String
+		public var type: String
 
 	}
 }

@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Required specifies hard node constraints that must be met.
 		///
-		var required: core.v1.NodeSelector?
+		public var required: core.v1.NodeSelector?
 
 	}
 }

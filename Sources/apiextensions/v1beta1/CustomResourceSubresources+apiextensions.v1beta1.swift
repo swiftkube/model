@@ -25,12 +25,12 @@ public extension apiextensions.v1beta1 {
 		///
 		/// scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
 		///
-		var scale: apiextensions.v1beta1.CustomResourceSubresourceScale?
+		public var scale: apiextensions.v1beta1.CustomResourceSubresourceScale?
 
 		///
 		/// status indicates the custom resource should serve a `/status` subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object. 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
 		///
-		var status: apiextensions.v1beta1.CustomResourceSubresourceStatus?
+		public var status: apiextensions.v1beta1.CustomResourceSubresourceStatus?
 
 	}
 }

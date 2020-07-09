@@ -25,12 +25,12 @@ public extension meta.v1 {
 		///
 		/// Specifies the target ResourceVersion
 		///
-		var resourceVersion: String?
+		public var resourceVersion: String?
 
 		///
 		/// Specifies the target UID.
 		///
-		var uid: String?
+		public var uid: String?
 
 	}
 }

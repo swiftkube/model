@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 		///
-		var readOnly: Bool?
+		public var readOnly: Bool?
 
 		///
 		/// the name of secret that contains Azure Storage Account Name and Key
 		///
-		var secretName: String
+		public var secretName: String
 
 		///
 		/// Share Name
 		///
-		var shareName: String
+		public var shareName: String
 
 	}
 }

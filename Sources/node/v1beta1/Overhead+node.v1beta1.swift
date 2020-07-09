@@ -25,7 +25,7 @@ public extension node.v1beta1 {
 		///
 		/// PodFixed represents the fixed resource overhead associated with running a pod.
 		///
-		var podFixed: [String: Quantity]?
+		public var podFixed: [String: Quantity]?
 
 	}
 }

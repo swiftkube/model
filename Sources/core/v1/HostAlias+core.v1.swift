@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Hostnames for the above IP address.
 		///
-		var hostnames: [String]?
+		public var hostnames: [String]?
 
 		///
 		/// IP address of the host file entry.
 		///
-		var ip: String?
+		public var ip: String?
 
 	}
 }

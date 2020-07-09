@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// ConfigMap is a reference to a Node's ConfigMap
 		///
-		var configMap: core.v1.ConfigMapNodeConfigSource?
+		public var configMap: core.v1.ConfigMapNodeConfigSource?
 
 	}
 }

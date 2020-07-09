@@ -25,27 +25,27 @@ public extension apiregistration.v1beta1 {
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// Human-readable message indicating details about last transition.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// Unique, one-word, CamelCase reason for the condition's last transition.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status is the status of the condition. Can be True, False, Unknown.
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type is the type of the condition.
 		///
-		var type: String
+		public var type: String
 
 	}
 }

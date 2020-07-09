@@ -25,32 +25,32 @@ public extension core.v1 {
 		///
 		/// Last time we got an update on a given condition.
 		///
-		var lastHeartbeatTime: String?
+		public var lastHeartbeatTime: String?
 
 		///
 		/// Last time the condition transit from one status to another.
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// Human readable message indicating details about last transition.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// (brief) reason for the condition's last transition.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type of node condition.
 		///
-		var type: String
+		public var type: String
 
 	}
 }

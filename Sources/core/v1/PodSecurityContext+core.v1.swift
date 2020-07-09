@@ -29,42 +29,42 @@ public extension core.v1 {
 		/// 
 		/// If unset, the Kubelet will not modify the ownership and permissions of any volume.
 		///
-		var fsGroup: Int64?
+		public var fsGroup: Int64?
 
 		///
 		/// The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 		///
-		var runAsGroup: Int64?
+		public var runAsGroup: Int64?
 
 		///
 		/// Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 		///
-		var runAsNonRoot: Bool?
+		public var runAsNonRoot: Bool?
 
 		///
 		/// The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 		///
-		var runAsUser: Int64?
+		public var runAsUser: Int64?
 
 		///
 		/// The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 		///
-		var seLinuxOptions: core.v1.SELinuxOptions?
+		public var seLinuxOptions: core.v1.SELinuxOptions?
 
 		///
 		/// A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.
 		///
-		var supplementalGroups: [Int64]?
+		public var supplementalGroups: [Int64]?
 
 		///
 		/// Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch.
 		///
-		var sysctls: [core.v1.Sysctl]?
+		public var sysctls: [core.v1.Sysctl]?
 
 		///
 		/// The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 		///
-		var windowsOptions: core.v1.WindowsSecurityContextOptions?
+		public var windowsOptions: core.v1.WindowsSecurityContextOptions?
 
 	}
 }

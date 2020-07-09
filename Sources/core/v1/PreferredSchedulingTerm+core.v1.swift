@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// A node selector term, associated with the corresponding weight.
 		///
-		var preference: core.v1.NodeSelectorTerm
+		public var preference: core.v1.NodeSelectorTerm
 
 		///
 		/// Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
 		///
-		var weight: Int32
+		public var weight: Int32
 
 	}
 }

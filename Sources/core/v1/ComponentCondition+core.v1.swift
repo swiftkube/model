@@ -25,22 +25,22 @@ public extension core.v1 {
 		///
 		/// Condition error code for a component. For example, a health check error code.
 		///
-		var error: String?
+		public var error: String?
 
 		///
 		/// Message about the condition for a component. For example, information about a health check.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// Status of the condition for a component. Valid values for "Healthy": "True", "False", or "Unknown".
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type of condition for a component. Valid value: "Healthy"
 		///
-		var type: String
+		public var type: String
 
 	}
 }

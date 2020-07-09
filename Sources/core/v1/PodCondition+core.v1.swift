@@ -25,32 +25,32 @@ public extension core.v1 {
 		///
 		/// Last time we probed the condition.
 		///
-		var lastProbeTime: String?
+		public var lastProbeTime: String?
 
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
-		var lastTransitionTime: String?
+		public var lastTransitionTime: String?
 
 		///
 		/// Human-readable message indicating details about last transition.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// Unique, one-word, CamelCase reason for the condition's last transition.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
 		///
-		var status: String
+		public var status: String
 
 		///
 		/// Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
 		///
-		var type: String
+		public var type: String
 
 	}
 }

@@ -25,12 +25,12 @@ public extension autoscaling.v2beta2 {
 		///
 		/// name is the name of the resource in question.
 		///
-		var name: String
+		public var name: String
 
 		///
 		/// target specifies the target value for the given metric
 		///
-		var target: autoscaling.v2beta2.MetricTarget
+		public var target: autoscaling.v2beta2.MetricTarget
 
 	}
 }

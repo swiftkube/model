@@ -23,26 +23,26 @@ public extension batch.v2alpha1 {
 	///
 	struct CronJobList: KubernetesResource, KubernetesResourceList {
 
-		typealias Resource = batch.v2alpha1.CronJob
+		public typealias Resource = batch.v2alpha1.CronJob
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "batch/v2alpha1"
+		public let apiVersion: String = "batch/v2alpha1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "CronJobList"
+		public let kind: String = "CronJobList"
 
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		var metadata: meta.v1.ListMeta?
+		public var metadata: meta.v1.ListMeta?
 
 		///
 		/// items is the list of CronJobs.
 		///
-		var items: [batch.v2alpha1.CronJob]
+		public var items: [batch.v2alpha1.CronJob]
 
 	}
 }

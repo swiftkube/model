@@ -25,12 +25,12 @@ public extension extensions.v1beta1 {
 		///
 		/// Rolling update config params. Present only if type = "RollingUpdate".
 		///
-		var rollingUpdate: extensions.v1beta1.RollingUpdateDaemonSet?
+		public var rollingUpdate: extensions.v1beta1.RollingUpdateDaemonSet?
 
 		///
 		/// Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is OnDelete.
 		///
-		var type: String?
+		public var type: String?
 
 	}
 }

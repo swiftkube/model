@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Items is a list of DownwardAPIVolume file
 		///
-		var items: [core.v1.DownwardAPIVolumeFile]?
+		public var items: [core.v1.DownwardAPIVolumeFile]?
 
 	}
 }

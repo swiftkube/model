@@ -25,7 +25,7 @@ public extension extensions.v1beta1 {
 		///
 		/// driver is the name of the Flexvolume driver.
 		///
-		var driver: String
+		public var driver: String
 
 	}
 }

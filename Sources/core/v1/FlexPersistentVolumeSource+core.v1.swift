@@ -25,27 +25,27 @@ public extension core.v1 {
 		///
 		/// Driver is the name of the driver to use for this volume.
 		///
-		var driver: String
+		public var driver: String
 
 		///
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
 		///
-		var fsType: String?
+		public var fsType: String?
 
 		///
 		/// Optional: Extra command options if any.
 		///
-		var options: [String: String]?
+		public var options: [String: String]?
 
 		///
 		/// Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 		///
-		var readOnly: Bool?
+		public var readOnly: Bool?
 
 		///
 		/// Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
 		///
-		var secretRef: core.v1.SecretReference?
+		public var secretRef: core.v1.SecretReference?
 
 	}
 }

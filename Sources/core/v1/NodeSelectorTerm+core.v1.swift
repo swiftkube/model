@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// A list of node selector requirements by node's labels.
 		///
-		var matchExpressions: [core.v1.NodeSelectorRequirement]?
+		public var matchExpressions: [core.v1.NodeSelectorRequirement]?
 
 		///
 		/// A list of node selector requirements by node's fields.
 		///
-		var matchFields: [core.v1.NodeSelectorRequirement]?
+		public var matchFields: [core.v1.NodeSelectorRequirement]?
 
 	}
 }

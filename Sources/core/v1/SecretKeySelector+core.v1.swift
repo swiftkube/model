@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// The key of the secret to select from.  Must be a valid secret key.
 		///
-		var key: String
+		public var key: String
 
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// Specify whether the Secret or its key must be defined
 		///
-		var optional: Bool?
+		public var optional: Bool?
 
 	}
 }

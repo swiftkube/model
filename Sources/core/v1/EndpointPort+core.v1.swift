@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// The port number of the endpoint.
 		///
-		var port: Int32
+		public var port: Int32
 
 		///
 		/// The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
 		///
-		var `protocol`: String?
+		public var `protocol`: String?
 
 	}
 }

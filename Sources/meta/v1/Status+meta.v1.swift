@@ -25,42 +25,42 @@ public extension meta.v1 {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
-		let apiVersion: String = "v1"
+		public let apiVersion: String = "v1"
 
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		let kind: String = "Status"
+		public let kind: String = "Status"
 
 		///
 		/// Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
-		var metadata: meta.v1.ListMeta?
+		public var metadata: meta.v1.ListMeta?
 
 		///
 		/// Suggested HTTP return code for this status, 0 if not set.
 		///
-		var code: Int32?
+		public var code: Int32?
 
 		///
 		/// Extended data associated with the reason.  Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.
 		///
-		var details: meta.v1.StatusDetails?
+		public var details: meta.v1.StatusDetails?
 
 		///
 		/// A human-readable description of the status of this operation.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// Status of the operation. One of: "Success" or "Failure". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
-		var status: String?
+		public var status: String?
 
 	}
 }

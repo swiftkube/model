@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Mode bits to use on created files by default. Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 		///
-		var defaultMode: Int32?
+		public var defaultMode: Int32?
 
 		///
 		/// list of volume projections
 		///
-		var sources: [core.v1.VolumeProjection]
+		public var sources: [core.v1.VolumeProjection]
 
 	}
 }

@@ -25,27 +25,27 @@ public extension autoscaling.v2beta1 {
 		///
 		/// averageValue is the current value of the average of the metric across all relevant pods (as a quantity)
 		///
-		var averageValue: Quantity?
+		public var averageValue: Quantity?
 
 		///
 		/// currentValue is the current value of the metric (as a quantity).
 		///
-		var currentValue: Quantity
+		public var currentValue: Quantity
 
 		///
 		/// metricName is the name of the metric in question.
 		///
-		var metricName: String
+		public var metricName: String
 
 		///
 		/// selector is the string-encoded form of a standard kubernetes label selector for the given metric When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping. When unset, just the metricName will be used to gather metrics.
 		///
-		var selector: meta.v1.LabelSelector?
+		public var selector: meta.v1.LabelSelector?
 
 		///
 		/// target is the described Kubernetes object.
 		///
-		var target: autoscaling.v2beta1.CrossVersionObjectReference
+		public var target: autoscaling.v2beta1.CrossVersionObjectReference
 
 	}
 }

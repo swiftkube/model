@@ -19,7 +19,7 @@ import Foundation
 ///
 /// API Groups
 ///
-enum APIGroup: CustomStringConvertible {
+public enum APIGroup: CustomStringConvertible {
 
 	case coreV1
 	case admissionregistrationV1
@@ -65,14 +65,14 @@ enum APIGroup: CustomStringConvertible {
 	case storageV1Beta1
 	case custom(group: String, version: String)
 
-	var description: String {
+	public var description: String {
 		guard group != "" else {
 			return version
 		}
 		return "\(group)/\(version)"
 	}
 
-	var group: String {
+	public var group: String {
 		switch self {
 
 		case .coreV1:
@@ -164,7 +164,7 @@ enum APIGroup: CustomStringConvertible {
 		}
 	}
 
-	var version: String {
+	public var version: String {
 		switch self {
 
 		case .coreV1:

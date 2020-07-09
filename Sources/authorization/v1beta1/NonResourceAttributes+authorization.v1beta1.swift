@@ -25,12 +25,12 @@ public extension authorization.v1beta1 {
 		///
 		/// Path is the URL path of the request
 		///
-		var path: String?
+		public var path: String?
 
 		///
 		/// Verb is the standard HTTP verb
 		///
-		var verb: String?
+		public var verb: String?
 
 	}
 }

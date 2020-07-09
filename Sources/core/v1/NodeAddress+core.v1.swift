@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// The node address.
 		///
-		var address: String
+		public var address: String
 
 		///
 		/// Node address type, one of Hostname, ExternalIP or InternalIP.
 		///
-		var type: String
+		public var type: String
 
 	}
 }

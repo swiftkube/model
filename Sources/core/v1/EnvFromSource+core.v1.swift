@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// The ConfigMap to select from
 		///
-		var configMapRef: core.v1.ConfigMapEnvSource?
+		public var configMapRef: core.v1.ConfigMapEnvSource?
 
 		///
 		/// An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
 		///
-		var prefix: String?
+		public var prefix: String?
 
 		///
 		/// The Secret to select from
 		///
-		var secretRef: core.v1.SecretEnvSource?
+		public var secretRef: core.v1.SecretEnvSource?
 
 	}
 }

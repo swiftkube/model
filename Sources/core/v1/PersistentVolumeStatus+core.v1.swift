@@ -25,17 +25,17 @@ public extension core.v1 {
 		///
 		/// A human-readable message indicating details about why the volume is in this state.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
 		///
-		var phase: String?
+		public var phase: String?
 
 		///
 		/// Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
 		///
-		var reason: String?
+		public var reason: String?
 
 	}
 }

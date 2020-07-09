@@ -25,12 +25,12 @@ public extension autoscaling.v2beta2 {
 		///
 		/// current contains the current value for the given metric
 		///
-		var current: autoscaling.v2beta2.MetricValueStatus
+		public var current: autoscaling.v2beta2.MetricValueStatus
 
 		///
 		/// Name is the name of the resource in question.
 		///
-		var name: String
+		public var name: String
 
 	}
 }

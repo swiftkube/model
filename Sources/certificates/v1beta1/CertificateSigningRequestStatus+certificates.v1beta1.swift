@@ -25,12 +25,12 @@ public extension certificates.v1beta1 {
 		///
 		/// If request was approved, the controller will place the issued certificate here.
 		///
-		var certificate: String?
+		public var certificate: String?
 
 		///
 		/// Conditions applied to the request, such as approval or denial.
 		///
-		var conditions: [certificates.v1beta1.CertificateSigningRequestCondition]?
+		public var conditions: [certificates.v1beta1.CertificateSigningRequestCondition]?
 
 	}
 }

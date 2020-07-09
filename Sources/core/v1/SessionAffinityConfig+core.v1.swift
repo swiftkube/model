@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// clientIP contains the configurations of Client IP based session affinity.
 		///
-		var clientIP: core.v1.ClientIPConfig?
+		public var clientIP: core.v1.ClientIPConfig?
 
 	}
 }

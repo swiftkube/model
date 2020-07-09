@@ -25,37 +25,37 @@ public extension core.v1 {
 		///
 		/// Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
 		///
-		var conditions: [core.v1.PodCondition]?
+		public var conditions: [core.v1.PodCondition]?
 
 		///
 		/// The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
 		///
-		var containerStatuses: [core.v1.ContainerStatus]?
+		public var containerStatuses: [core.v1.ContainerStatus]?
 
 		///
 		/// Status for any ephemeral containers that have run in this pod. This field is alpha-level and is only populated by servers that enable the EphemeralContainers feature.
 		///
-		var ephemeralContainerStatuses: [core.v1.ContainerStatus]?
+		public var ephemeralContainerStatuses: [core.v1.ContainerStatus]?
 
 		///
 		/// IP address of the host to which the pod is assigned. Empty if not yet scheduled.
 		///
-		var hostIP: String?
+		public var hostIP: String?
 
 		///
 		/// The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
 		///
-		var initContainerStatuses: [core.v1.ContainerStatus]?
+		public var initContainerStatuses: [core.v1.ContainerStatus]?
 
 		///
 		/// A human readable message indicating details about why the pod is in this condition.
 		///
-		var message: String?
+		public var message: String?
 
 		///
 		/// nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be scheduled right away as preemption victims receive their graceful termination periods. This field does not guarantee that the pod will be scheduled on this node. Scheduler may decide to place the pod elsewhere if other nodes become available sooner. Scheduler may also decide to give the resources on this node to a higher priority pod that is created after preemption. As a result, this field may be different than PodSpec.nodeName when the pod is scheduled.
 		///
-		var nominatedNodeName: String?
+		public var nominatedNodeName: String?
 
 		///
 		/// The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle. The conditions array, the reason and message fields, and the individual container status arrays contain more detail about the pod's status. There are five possible phase values:
@@ -64,32 +64,32 @@ public extension core.v1 {
 		/// 
 		/// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase
 		///
-		var phase: String?
+		public var phase: String?
 
 		///
 		/// IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
 		///
-		var podIP: String?
+		public var podIP: String?
 
 		///
 		/// podIPs holds the IP addresses allocated to the pod. If this field is specified, the 0th entry must match the podIP field. Pods may be allocated at most 1 value for each of IPv4 and IPv6. This list is empty if no IPs have been allocated yet.
 		///
-		var podIPs: [core.v1.PodIP]?
+		public var podIPs: [core.v1.PodIP]?
 
 		///
 		/// The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
 		///
-		var qosClass: String?
+		public var qosClass: String?
 
 		///
 		/// A brief CamelCase message indicating details about why the pod is in this state. e.g. 'Evicted'
 		///
-		var reason: String?
+		public var reason: String?
 
 		///
 		/// RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
 		///
-		var startTime: String?
+		public var startTime: String?
 
 	}
 }

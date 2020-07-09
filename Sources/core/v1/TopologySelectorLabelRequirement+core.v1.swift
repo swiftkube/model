@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// The label key that the selector applies to.
 		///
-		var key: String
+		public var key: String
 
 		///
 		/// An array of string values. One value must match the label to be selected. Each entry in Values is ORed.
 		///
-		var values: [String]
+		public var values: [String]
 
 	}
 }

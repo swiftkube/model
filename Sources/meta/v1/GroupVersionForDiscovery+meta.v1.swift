@@ -25,12 +25,12 @@ public extension meta.v1 {
 		///
 		/// groupVersion specifies the API group and version in the form "group/version"
 		///
-		var groupVersion: String
+		public var groupVersion: String
 
 		///
 		/// version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
 		///
-		var version: String
+		public var version: String
 
 	}
 }

@@ -25,7 +25,7 @@ public extension extensions.v1beta1 {
 		///
 		/// LoadBalancer contains the current status of the load-balancer.
 		///
-		var loadBalancer: core.v1.LoadBalancerStatus?
+		public var loadBalancer: core.v1.LoadBalancerStatus?
 
 	}
 }

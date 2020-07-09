@@ -25,12 +25,12 @@ public extension core.v1 {
 		///
 		/// Required.
 		///
-		var name: String?
+		public var name: String?
 
 		///
 		/// No description
 		///
-		var value: String?
+		public var value: String?
 
 	}
 }

@@ -29,12 +29,12 @@ public extension meta.v1 {
 		///  * If Type is Error: *Status is recommended; other types may make sense
 		///    depending on context.
 		///
-		var object: [String: Any]
+		public var object: [String: Any]
 
 		///
 		/// No description
 		///
-		var type: String
+		public var type: String
 
 	}
 }

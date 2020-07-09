@@ -25,12 +25,12 @@ public extension networking.v1beta1 {
 		///
 		/// Specifies the name of the referenced service.
 		///
-		var serviceName: String
+		public var serviceName: String
 
 		///
 		/// Specifies the port of the referenced service.
 		///
-		var servicePort: IntOrString
+		public var servicePort: IntOrString
 
 	}
 }

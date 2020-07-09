@@ -25,7 +25,7 @@ public extension core.v1 {
 		///
 		/// Endpoint on which Kubelet is listening.
 		///
-		var kubeletEndpoint: core.v1.DaemonEndpoint?
+		public var kubeletEndpoint: core.v1.DaemonEndpoint?
 
 	}
 }

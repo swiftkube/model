@@ -25,12 +25,12 @@ public extension authentication.v1 {
 		///
 		/// ExpirationTimestamp is the time of expiration of the returned token.
 		///
-		var expirationTimestamp: String
+		public var expirationTimestamp: String
 
 		///
 		/// Token is the opaque bearer token.
 		///
-		var token: String
+		public var token: String
 
 	}
 }

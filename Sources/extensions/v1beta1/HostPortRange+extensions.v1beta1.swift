@@ -25,12 +25,12 @@ public extension extensions.v1beta1 {
 		///
 		/// max is the end of the range, inclusive.
 		///
-		var max: Int32
+		public var max: Int32
 
 		///
 		/// min is the start of the range, inclusive.
 		///
-		var min: Int32
+		public var min: Int32
 
 	}
 }
