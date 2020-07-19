@@ -19,7 +19,7 @@ import Foundation
 ///
 /// API Groups
 ///
-public enum APIGroup: CustomStringConvertible {
+public enum APIGroupVersion: CustomStringConvertible {
 
 	case coreV1
 	case admissionregistrationV1
@@ -70,6 +70,98 @@ public enum APIGroup: CustomStringConvertible {
 			return version
 		}
 		return "\(group)/\(version)"
+	}
+
+	public var urlPath: String {
+		switch self {
+
+		case .coreV1:
+			return "/api/v1"
+		case .admissionregistrationV1:
+			return "apis/admissionregistration.k8s.io/v1"
+		case .admissionregistrationV1Beta1:
+			return "apis/admissionregistration.k8s.io/v1beta1"
+		case .apiextensionsV1:
+			return "apis/apiextensions.k8s.io/v1"
+		case .apiextensionsV1Beta1:
+			return "apis/apiextensions.k8s.io/v1beta1"
+		case .apiregistrationV1:
+			return "apis/apiregistration.k8s.io/v1"
+		case .apiregistrationV1Beta1:
+			return "apis/apiregistration.k8s.io/v1beta1"
+		case .appsV1:
+			return "apis/apps/v1"
+		case .appsV1Beta1:
+			return "apis/apps/v1beta1"
+		case .appsV1Beta2:
+			return "apis/apps/v1beta2"
+		case .auditregistrationV1Alpha1:
+			return "apis/auditregistration.k8s.io/v1alpha1"
+		case .authenticationV1:
+			return "apis/authentication.k8s.io/v1"
+		case .authenticationV1Beta1:
+			return "apis/authentication.k8s.io/v1beta1"
+		case .authorizationV1:
+			return "apis/authorization.k8s.io/v1"
+		case .authorizationV1Beta1:
+			return "apis/authorization.k8s.io/v1beta1"
+		case .autoscalingV1:
+			return "apis/autoscaling/v1"
+		case .autoscalingV2Beta1:
+			return "apis/autoscaling/v2beta1"
+		case .autoscalingV2Beta2:
+			return "apis/autoscaling/v2beta2"
+		case .batchV1:
+			return "apis/batch/v1"
+		case .batchV1Beta1:
+			return "apis/batch/v1beta1"
+		case .batchV2Alpha1:
+			return "apis/batch/v2alpha1"
+		case .certificatesV1Beta1:
+			return "apis/certificates.k8s.io/v1beta1"
+		case .coordinationV1:
+			return "apis/coordination.k8s.io/v1"
+		case .coordinationV1Beta1:
+			return "apis/coordination.k8s.io/v1beta1"
+		case .discoveryV1Alpha1:
+			return "apis/discovery.k8s.io/v1alpha1"
+		case .eventsV1Beta1:
+			return "apis/events.k8s.io/v1beta1"
+		case .extensionsV1Beta1:
+			return "apis/extensions/v1beta1"
+		case .networkingV1:
+			return "apis/networking.k8s.io/v1"
+		case .networkingV1Beta1:
+			return "apis/networking.k8s.io/v1beta1"
+		case .nodeV1Alpha1:
+			return "apis/node.k8s.io/v1alpha1"
+		case .nodeV1Beta1:
+			return "apis/node.k8s.io/v1beta1"
+		case .policyV1Beta1:
+			return "apis/policy/v1beta1"
+		case .rbacV1:
+			return "apis/rbac.authorization.k8s.io/v1"
+		case .rbacV1Alpha1:
+			return "apis/rbac.authorization.k8s.io/v1alpha1"
+		case .rbacV1Beta1:
+			return "apis/rbac.authorization.k8s.io/v1beta1"
+		case .schedulingV1:
+			return "apis/scheduling.k8s.io/v1"
+		case .schedulingV1Alpha1:
+			return "apis/scheduling.k8s.io/v1alpha1"
+		case .schedulingV1Beta1:
+			return "apis/scheduling.k8s.io/v1beta1"
+		case .settingsV1Alpha1:
+			return "apis/settings.k8s.io/v1alpha1"
+		case .storageV1:
+			return "apis/storage.k8s.io/v1"
+		case .storageV1Alpha1:
+			return "apis/storage.k8s.io/v1alpha1"
+		case .storageV1Beta1:
+			return "apis/storage.k8s.io/v1beta1"
+		case let .custom(group, _):
+			return group
+		}
 	}
 
 	public var group: String {
