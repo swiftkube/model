@@ -16,21 +16,21 @@
 
 import Foundation
 
-struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral {
+public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral {
 	let value: String
 
-	init(stringLiteral value: String) {
+	public init(stringLiteral value: String) {
 		self.value = value
 	}
 
-	init(integerLiteral value: Int) {
+	public init(integerLiteral value: Int) {
 		self.value = String(value)
 	}
 }
 
 extension IntOrString: Codable {
 
-	init(from decoder: Decoder) throws {
+	public init(from decoder: Decoder) throws {
 		if let value = try? decoder.singleValueContainer().decode(String.self) {
 			self.value = value
 		} else {
@@ -39,7 +39,7 @@ extension IntOrString: Codable {
 		}
 	}
 
-	func encode(to encoder: Encoder) throws {
+	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()
 		try container.encode(value)
 	}
