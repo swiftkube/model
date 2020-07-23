@@ -26,17 +26,26 @@ public extension apiregistration.v1beta1 {
 		/// Name is the name of the service
 		///
 		public var name: String?
-
 		///
 		/// Namespace is the namespace of the service
 		///
 		public var namespace: String?
-
 		///
 		/// If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
 		///
 		public var port: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String?, 
+			namespace: String?, 
+			port: Int32?
+		) {
+			self.name = name
+			self.namespace = namespace
+			self.port = port
+		}
 	}
 }
 

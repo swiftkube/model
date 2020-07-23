@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// A node selector term, associated with the corresponding weight.
 		///
 		public var preference: core.v1.NodeSelectorTerm
-
 		///
 		/// Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
 		///
 		public var weight: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			preference: core.v1.NodeSelectorTerm, 
+			weight: Int32
+		) {
+			self.preference = preference
+			self.weight = weight
+		}
 	}
 }
 

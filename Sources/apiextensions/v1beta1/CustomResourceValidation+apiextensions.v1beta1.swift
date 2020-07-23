@@ -26,7 +26,14 @@ public extension apiextensions.v1beta1 {
 		/// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 		///
 		public var openAPIV3Schema: [String: Any]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			openAPIV3Schema: [String: Any]?
+		) {
+			self.openAPIV3Schema = openAPIV3Schema
+		}
 	}
 }
 

@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// One and only one of the following should be specified. Exec specifies the action to take.
 		///
 		public var exec: core.v1.ExecAction?
-
 		///
 		/// HTTPGet specifies the http request to perform.
 		///
 		public var httpGet: core.v1.HTTPGetAction?
-
 		///
 		/// TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 		///
 		public var tcpSocket: core.v1.TCPSocketAction?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			exec: core.v1.ExecAction?, 
+			httpGet: core.v1.HTTPGetAction?, 
+			tcpSocket: core.v1.TCPSocketAction?
+		) {
+			self.exec = exec
+			self.httpGet = httpGet
+			self.tcpSocket = tcpSocket
+		}
 	}
 }
 

@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		public var name: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String?
+		) {
+			self.name = name
+		}
 	}
 }
 

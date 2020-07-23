@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Added capabilities
 		///
 		public var add: [String]?
-
 		///
 		/// Removed capabilities
 		///
 		public var drop: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			add: [String]?, 
+			drop: [String]?
+		) {
+			self.add = add
+			self.drop = drop
+		}
 	}
 }
 

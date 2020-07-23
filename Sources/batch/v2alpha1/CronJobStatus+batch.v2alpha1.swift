@@ -26,12 +26,20 @@ public extension batch.v2alpha1 {
 		/// A list of pointers to currently running jobs.
 		///
 		public var active: [core.v1.ObjectReference]?
-
 		///
 		/// Information when was the last time the job was successfully scheduled.
 		///
 		public var lastScheduleTime: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			active: [core.v1.ObjectReference]?, 
+			lastScheduleTime: String?
+		) {
+			self.active = active
+			self.lastScheduleTime = lastScheduleTime
+		}
 	}
 }
 

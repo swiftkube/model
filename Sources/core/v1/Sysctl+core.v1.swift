@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Name of a property to set
 		///
 		public var name: String
-
 		///
 		/// Value of a property to set
 		///
 		public var value: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String, 
+			value: String
+		) {
+			self.name = name
+			self.value = value
+		}
 	}
 }
 

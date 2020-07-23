@@ -26,7 +26,14 @@ public extension apps.v1 {
 		/// Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
 		///
 		public var partition: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			partition: Int32?
+		) {
+			self.partition = partition
+		}
 	}
 }
 

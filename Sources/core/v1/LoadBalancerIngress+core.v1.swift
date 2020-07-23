@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)
 		///
 		public var hostname: String?
-
 		///
 		/// IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)
 		///
 		public var ip: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			hostname: String?, 
+			ip: String?
+		) {
+			self.hostname = hostname
+			self.ip = ip
+		}
 	}
 }
 

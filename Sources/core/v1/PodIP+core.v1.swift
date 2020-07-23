@@ -27,7 +27,14 @@ public extension core.v1 {
 		/// ip is an IP address (IPv4 or IPv6) assigned to the pod
 		///
 		public var ip: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			ip: String?
+		) {
+			self.ip = ip
+		}
 	}
 }
 

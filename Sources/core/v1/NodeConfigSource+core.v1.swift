@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// ConfigMap is a reference to a Node's ConfigMap
 		///
 		public var configMap: core.v1.ConfigMapNodeConfigSource?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			configMap: core.v1.ConfigMapNodeConfigSource?
+		) {
+			self.configMap = configMap
+		}
 	}
 }
 

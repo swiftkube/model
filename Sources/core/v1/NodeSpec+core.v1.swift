@@ -26,37 +26,50 @@ public extension core.v1 {
 		/// If specified, the source to get node configuration from The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field
 		///
 		public var configSource: core.v1.NodeConfigSource?
-
 		///
 		/// Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966
 		///
 		public var externalID: String?
-
 		///
 		/// PodCIDR represents the pod IP range assigned to the node.
 		///
 		public var podCIDR: String?
-
 		///
 		/// podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.
 		///
 		public var podCIDRs: [String]?
-
 		///
 		/// ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>
 		///
 		public var providerID: String?
-
 		///
 		/// If specified, the node's taints.
 		///
 		public var taints: [core.v1.Taint]?
-
 		///
 		/// Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration
 		///
 		public var unschedulable: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			configSource: core.v1.NodeConfigSource?, 
+			externalID: String?, 
+			podCIDR: String?, 
+			podCIDRs: [String]?, 
+			providerID: String?, 
+			taints: [core.v1.Taint]?, 
+			unschedulable: Bool?
+		) {
+			self.configSource = configSource
+			self.externalID = externalID
+			self.podCIDR = podCIDR
+			self.podCIDRs = podCIDRs
+			self.providerID = providerID
+			self.taints = taints
+			self.unschedulable = unschedulable
+		}
 	}
 }
 

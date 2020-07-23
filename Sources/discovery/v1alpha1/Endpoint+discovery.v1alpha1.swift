@@ -26,22 +26,18 @@ public extension discovery.v1alpha1 {
 		/// addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. This allows for cases like dual-stack (IPv4 and IPv6) networking. Consumers (e.g. kube-proxy) must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
 		///
 		public var addresses: [String]
-
 		///
 		/// conditions contains information about the current status of the endpoint.
 		///
 		public var conditions: discovery.v1alpha1.EndpointConditions?
-
 		///
 		/// hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must pass DNS Label (RFC 1123) validation.
 		///
 		public var hostname: String?
-
 		///
 		/// targetRef is a reference to a Kubernetes object that represents this endpoint.
 		///
 		public var targetRef: core.v1.ObjectReference?
-
 		///
 		/// topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node
 		///   where the endpoint is located. This should match the corresponding
@@ -52,7 +48,22 @@ public extension discovery.v1alpha1 {
 		///   endpoint is located. This should match the corresponding node label.
 		///
 		public var topology: [String: String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			addresses: [String], 
+			conditions: discovery.v1alpha1.EndpointConditions?, 
+			hostname: String?, 
+			targetRef: core.v1.ObjectReference?, 
+			topology: [String: String]?
+		) {
+			self.addresses = addresses
+			self.conditions = conditions
+			self.hostname = hostname
+			self.targetRef = targetRef
+			self.topology = topology
+		}
 	}
 }
 

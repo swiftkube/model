@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// A list of topology selector requirements by labels.
 		///
 		public var matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]?
+		) {
+			self.matchLabelExpressions = matchLabelExpressions
+		}
 	}
 }
 

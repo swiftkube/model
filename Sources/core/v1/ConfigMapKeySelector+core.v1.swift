@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// The key to select.
 		///
 		public var key: String
-
 		///
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		public var name: String?
-
 		///
 		/// Specify whether the ConfigMap or its key must be defined
 		///
 		public var optional: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			key: String, 
+			name: String?, 
+			optional: Bool?
+		) {
+			self.key = key
+			self.name = name
+			self.optional = optional
+		}
 	}
 }
 

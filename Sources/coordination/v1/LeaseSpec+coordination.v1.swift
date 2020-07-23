@@ -26,27 +26,38 @@ public extension coordination.v1 {
 		/// acquireTime is a time when the current lease was acquired.
 		///
 		public var acquireTime: String?
-
 		///
 		/// holderIdentity contains the identity of the holder of a current lease.
 		///
 		public var holderIdentity: String?
-
 		///
 		/// leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed RenewTime.
 		///
 		public var leaseDurationSeconds: Int32?
-
 		///
 		/// leaseTransitions is the number of transitions of a lease between holders.
 		///
 		public var leaseTransitions: Int32?
-
 		///
 		/// renewTime is a time when the current holder of a lease has last updated the lease.
 		///
 		public var renewTime: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			acquireTime: String?, 
+			holderIdentity: String?, 
+			leaseDurationSeconds: Int32?, 
+			leaseTransitions: Int32?, 
+			renewTime: String?
+		) {
+			self.acquireTime = acquireTime
+			self.holderIdentity = holderIdentity
+			self.leaseDurationSeconds = leaseDurationSeconds
+			self.leaseTransitions = leaseTransitions
+			self.renewTime = renewTime
+		}
 	}
 }
 

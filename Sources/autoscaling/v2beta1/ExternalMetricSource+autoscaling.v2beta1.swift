@@ -26,22 +26,32 @@ public extension autoscaling.v2beta1 {
 		/// metricName is the name of the metric in question.
 		///
 		public var metricName: String
-
 		///
 		/// metricSelector is used to identify a specific time series within a given metric.
 		///
 		public var metricSelector: meta.v1.LabelSelector?
-
 		///
 		/// targetAverageValue is the target per-pod value of global metric (as a quantity). Mutually exclusive with TargetValue.
 		///
 		public var targetAverageValue: Quantity?
-
 		///
 		/// targetValue is the target value of the metric (as a quantity). Mutually exclusive with TargetAverageValue.
 		///
 		public var targetValue: Quantity?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metricName: String, 
+			metricSelector: meta.v1.LabelSelector?, 
+			targetAverageValue: Quantity?, 
+			targetValue: Quantity?
+		) {
+			self.metricName = metricName
+			self.metricSelector = metricSelector
+			self.targetAverageValue = targetAverageValue
+			self.targetValue = targetValue
+		}
 	}
 }
 

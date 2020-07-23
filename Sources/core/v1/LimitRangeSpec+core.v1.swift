@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Limits is the list of LimitRangeItem objects that are enforced.
 		///
 		public var limits: [core.v1.LimitRangeItem]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			limits: [core.v1.LimitRangeItem]
+		) {
+			self.limits = limits
+		}
 	}
 }
 

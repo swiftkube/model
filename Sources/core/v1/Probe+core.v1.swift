@@ -26,42 +26,56 @@ public extension core.v1 {
 		/// One and only one of the following should be specified. Exec specifies the action to take.
 		///
 		public var exec: core.v1.ExecAction?
-
 		///
 		/// Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
 		///
 		public var failureThreshold: Int32?
-
 		///
 		/// HTTPGet specifies the http request to perform.
 		///
 		public var httpGet: core.v1.HTTPGetAction?
-
 		///
 		/// Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 		///
 		public var initialDelaySeconds: Int32?
-
 		///
 		/// How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 		///
 		public var periodSeconds: Int32?
-
 		///
 		/// Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 		///
 		public var successThreshold: Int32?
-
 		///
 		/// TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 		///
 		public var tcpSocket: core.v1.TCPSocketAction?
-
 		///
 		/// Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 		///
 		public var timeoutSeconds: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			exec: core.v1.ExecAction?, 
+			failureThreshold: Int32?, 
+			httpGet: core.v1.HTTPGetAction?, 
+			initialDelaySeconds: Int32?, 
+			periodSeconds: Int32?, 
+			successThreshold: Int32?, 
+			tcpSocket: core.v1.TCPSocketAction?, 
+			timeoutSeconds: Int32?
+		) {
+			self.exec = exec
+			self.failureThreshold = failureThreshold
+			self.httpGet = httpGet
+			self.initialDelaySeconds = initialDelaySeconds
+			self.periodSeconds = periodSeconds
+			self.successThreshold = successThreshold
+			self.tcpSocket = tcpSocket
+			self.timeoutSeconds = timeoutSeconds
+		}
 	}
 }
 

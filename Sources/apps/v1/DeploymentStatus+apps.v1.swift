@@ -26,42 +26,56 @@ public extension apps.v1 {
 		/// Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.
 		///
 		public var availableReplicas: Int32?
-
 		///
 		/// Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.
 		///
 		public var collisionCount: Int32?
-
 		///
 		/// Represents the latest available observations of a deployment's current state.
 		///
 		public var conditions: [apps.v1.DeploymentCondition]?
-
 		///
 		/// The generation observed by the deployment controller.
 		///
 		public var observedGeneration: Int64?
-
 		///
 		/// Total number of ready pods targeted by this deployment.
 		///
 		public var readyReplicas: Int32?
-
 		///
 		/// Total number of non-terminated pods targeted by this deployment (their labels match the selector).
 		///
 		public var replicas: Int32?
-
 		///
 		/// Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.
 		///
 		public var unavailableReplicas: Int32?
-
 		///
 		/// Total number of non-terminated pods targeted by this deployment that have the desired template spec.
 		///
 		public var updatedReplicas: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			availableReplicas: Int32?, 
+			collisionCount: Int32?, 
+			conditions: [apps.v1.DeploymentCondition]?, 
+			observedGeneration: Int64?, 
+			readyReplicas: Int32?, 
+			replicas: Int32?, 
+			unavailableReplicas: Int32?, 
+			updatedReplicas: Int32?
+		) {
+			self.availableReplicas = availableReplicas
+			self.collisionCount = collisionCount
+			self.conditions = conditions
+			self.observedGeneration = observedGeneration
+			self.readyReplicas = readyReplicas
+			self.replicas = replicas
+			self.unavailableReplicas = unavailableReplicas
+			self.updatedReplicas = updatedReplicas
+		}
 	}
 }
 

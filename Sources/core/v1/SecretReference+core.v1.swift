@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Name is unique within a namespace to reference a secret resource.
 		///
 		public var name: String?
-
 		///
 		/// Namespace defines the space within which the secret name must be unique.
 		///
 		public var namespace: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String?, 
+			namespace: String?
+		) {
+			self.name = name
+			self.namespace = namespace
+		}
 	}
 }
 

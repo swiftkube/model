@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// The node address.
 		///
 		public var address: String
-
 		///
 		/// Node address type, one of Hostname, ExternalIP or InternalIP.
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			address: String, 
+			type: String
+		) {
+			self.address = address
+			self.type = type
+		}
 	}
 }
 

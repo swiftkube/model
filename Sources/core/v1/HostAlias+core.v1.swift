@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Hostnames for the above IP address.
 		///
 		public var hostnames: [String]?
-
 		///
 		/// IP address of the host file entry.
 		///
 		public var ip: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			hostnames: [String]?, 
+			ip: String?
+		) {
+			self.hostnames = hostnames
+			self.ip = ip
+		}
 	}
 }
 

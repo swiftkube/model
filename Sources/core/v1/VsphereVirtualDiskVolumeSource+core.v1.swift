@@ -26,22 +26,32 @@ public extension core.v1 {
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 		///
 		public var fsType: String?
-
 		///
 		/// Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
 		///
 		public var storagePolicyID: String?
-
 		///
 		/// Storage Policy Based Management (SPBM) profile name.
 		///
 		public var storagePolicyName: String?
-
 		///
 		/// Path that identifies vSphere volume vmdk
 		///
 		public var volumePath: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			fsType: String?, 
+			storagePolicyID: String?, 
+			storagePolicyName: String?, 
+			volumePath: String
+		) {
+			self.fsType = fsType
+			self.storagePolicyID = storagePolicyID
+			self.storagePolicyName = storagePolicyName
+			self.volumePath = volumePath
+		}
 	}
 }
 

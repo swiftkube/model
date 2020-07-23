@@ -26,17 +26,26 @@ public extension meta.v1 {
 		/// key is the label key that the selector applies to.
 		///
 		public var key: String
-
 		///
 		/// operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
 		///
 		public var `operator`: String
-
 		///
 		/// values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 		///
 		public var values: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			key: String, 
+			`operator`: String, 
+			values: [String]?
+		) {
+			self.key = key
+			self.`operator` = `operator`
+			self.values = values
+		}
 	}
 }
 

@@ -26,27 +26,38 @@ public extension apiregistration.v1beta1 {
 		/// Last time the condition transitioned from one status to another.
 		///
 		public var lastTransitionTime: String?
-
 		///
 		/// Human-readable message indicating details about last transition.
 		///
 		public var message: String?
-
 		///
 		/// Unique, one-word, CamelCase reason for the condition's last transition.
 		///
 		public var reason: String?
-
 		///
 		/// Status is the status of the condition. Can be True, False, Unknown.
 		///
 		public var status: String
-
 		///
 		/// Type is the type of the condition.
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastTransitionTime: String?, 
+			message: String?, 
+			reason: String?, 
+			status: String, 
+			type: String
+		) {
+			self.lastTransitionTime = lastTransitionTime
+			self.message = message
+			self.reason = reason
+			self.status = status
+			self.type = type
+		}
 	}
 }
 

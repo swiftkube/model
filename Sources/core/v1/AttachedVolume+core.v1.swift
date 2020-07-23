@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// DevicePath represents the device path where the volume should be available
 		///
 		public var devicePath: String
-
 		///
 		/// Name of the attached volume
 		///
 		public var name: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			devicePath: String, 
+			name: String
+		) {
+			self.devicePath = devicePath
+			self.name = name
+		}
 	}
 }
 

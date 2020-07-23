@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// Details about a running container
 		///
 		public var running: core.v1.ContainerStateRunning?
-
 		///
 		/// Details about a terminated container
 		///
 		public var terminated: core.v1.ContainerStateTerminated?
-
 		///
 		/// Details about a waiting container
 		///
 		public var waiting: core.v1.ContainerStateWaiting?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			running: core.v1.ContainerStateRunning?, 
+			terminated: core.v1.ContainerStateTerminated?, 
+			waiting: core.v1.ContainerStateWaiting?
+		) {
+			self.running = running
+			self.terminated = terminated
+			self.waiting = waiting
+		}
 	}
 }
 

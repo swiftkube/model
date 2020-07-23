@@ -26,32 +26,44 @@ public extension core.v1 {
 		/// Last time we probed the condition.
 		///
 		public var lastProbeTime: String?
-
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		public var lastTransitionTime: String?
-
 		///
 		/// Human-readable message indicating details about last transition.
 		///
 		public var message: String?
-
 		///
 		/// Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
 		///
 		public var reason: String?
-
 		///
 		/// No description
 		///
 		public var status: String
-
 		///
 		/// No description
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastProbeTime: String?, 
+			lastTransitionTime: String?, 
+			message: String?, 
+			reason: String?, 
+			status: String, 
+			type: String
+		) {
+			self.lastProbeTime = lastProbeTime
+			self.lastTransitionTime = lastTransitionTime
+			self.message = message
+			self.reason = reason
+			self.status = status
+			self.type = type
+		}
 	}
 }
 

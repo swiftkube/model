@@ -26,22 +26,32 @@ public extension core.v1 {
 		/// Selects a key of a ConfigMap.
 		///
 		public var configMapKeyRef: core.v1.ConfigMapKeySelector?
-
 		///
 		/// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
 		///
 		public var fieldRef: core.v1.ObjectFieldSelector?
-
 		///
 		/// Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 		///
 		public var resourceFieldRef: core.v1.ResourceFieldSelector?
-
 		///
 		/// Selects a key of a secret in the pod's namespace
 		///
 		public var secretKeyRef: core.v1.SecretKeySelector?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			configMapKeyRef: core.v1.ConfigMapKeySelector?, 
+			fieldRef: core.v1.ObjectFieldSelector?, 
+			resourceFieldRef: core.v1.ResourceFieldSelector?, 
+			secretKeyRef: core.v1.SecretKeySelector?
+		) {
+			self.configMapKeyRef = configMapKeyRef
+			self.fieldRef = fieldRef
+			self.resourceFieldRef = resourceFieldRef
+			self.secretKeyRef = secretKeyRef
+		}
 	}
 }
 

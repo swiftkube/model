@@ -26,12 +26,20 @@ public extension apps.v1beta2 {
 		/// Rolling update config params. Present only if type = "RollingUpdate".
 		///
 		public var rollingUpdate: apps.v1beta2.RollingUpdateDaemonSet?
-
 		///
 		/// Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
 		///
 		public var type: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			rollingUpdate: apps.v1beta2.RollingUpdateDaemonSet?, 
+			type: String?
+		) {
+			self.rollingUpdate = rollingUpdate
+			self.type = type
+		}
 	}
 }
 

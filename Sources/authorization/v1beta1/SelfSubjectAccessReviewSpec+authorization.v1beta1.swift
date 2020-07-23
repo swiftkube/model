@@ -26,12 +26,20 @@ public extension authorization.v1beta1 {
 		/// NonResourceAttributes describes information for a non-resource access request
 		///
 		public var nonResourceAttributes: authorization.v1beta1.NonResourceAttributes?
-
 		///
 		/// ResourceAuthorizationAttributes describes information for a resource access request
 		///
 		public var resourceAttributes: authorization.v1beta1.ResourceAttributes?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			nonResourceAttributes: authorization.v1beta1.NonResourceAttributes?, 
+			resourceAttributes: authorization.v1beta1.ResourceAttributes?
+		) {
+			self.nonResourceAttributes = nonResourceAttributes
+			self.resourceAttributes = resourceAttributes
+		}
 	}
 }
 

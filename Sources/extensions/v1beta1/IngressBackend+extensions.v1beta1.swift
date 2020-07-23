@@ -26,12 +26,20 @@ public extension extensions.v1beta1 {
 		/// Specifies the name of the referenced service.
 		///
 		public var serviceName: String
-
 		///
 		/// Specifies the port of the referenced service.
 		///
 		public var servicePort: IntOrString
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			serviceName: String, 
+			servicePort: IntOrString
+		) {
+			self.serviceName = serviceName
+			self.servicePort = servicePort
+		}
 	}
 }
 

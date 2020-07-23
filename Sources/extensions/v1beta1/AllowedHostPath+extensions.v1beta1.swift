@@ -28,12 +28,20 @@ public extension extensions.v1beta1 {
 		/// Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`
 		///
 		public var pathPrefix: String?
-
 		///
 		/// when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
 		///
 		public var readOnly: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			pathPrefix: String?, 
+			readOnly: Bool?
+		) {
+			self.pathPrefix = pathPrefix
+			self.readOnly = readOnly
+		}
 	}
 }
 

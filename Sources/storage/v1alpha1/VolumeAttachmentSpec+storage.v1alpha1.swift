@@ -26,17 +26,26 @@ public extension storage.v1alpha1 {
 		/// Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().
 		///
 		public var attacher: String
-
 		///
 		/// The node that the volume should be attached to.
 		///
 		public var nodeName: String
-
 		///
 		/// Source represents the volume that should be attached.
 		///
 		public var source: storage.v1alpha1.VolumeAttachmentSource
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			attacher: String, 
+			nodeName: String, 
+			source: storage.v1alpha1.VolumeAttachmentSource
+		) {
+			self.attacher = attacher
+			self.nodeName = nodeName
+			self.source = source
+		}
 	}
 }
 

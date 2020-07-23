@@ -26,32 +26,44 @@ public extension apps.v1beta1 {
 		/// Last time the condition transitioned from one status to another.
 		///
 		public var lastTransitionTime: String?
-
 		///
 		/// The last time this condition was updated.
 		///
 		public var lastUpdateTime: String?
-
 		///
 		/// A human readable message indicating details about the transition.
 		///
 		public var message: String?
-
 		///
 		/// The reason for the condition's last transition.
 		///
 		public var reason: String?
-
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		public var status: String
-
 		///
 		/// Type of deployment condition.
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastTransitionTime: String?, 
+			lastUpdateTime: String?, 
+			message: String?, 
+			reason: String?, 
+			status: String, 
+			type: String
+		) {
+			self.lastTransitionTime = lastTransitionTime
+			self.lastUpdateTime = lastUpdateTime
+			self.message = message
+			self.reason = reason
+			self.status = status
+			self.type = type
+		}
 	}
 }
 

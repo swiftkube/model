@@ -26,22 +26,28 @@ public extension policy.v1beta1 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "policy/v1beta1"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "Eviction"
-
 		///
 		/// ObjectMeta describes the pod that is being evicted.
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// DeleteOptions may be provided
 		///
 		public var deleteOptions: meta.v1.DeleteOptions?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			deleteOptions: meta.v1.DeleteOptions?
+		) {
+			self.metadata = metadata
+			self.deleteOptions = deleteOptions
+		}
 	}
 }
 

@@ -26,37 +26,46 @@ public extension scheduling.v1beta1 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "scheduling.k8s.io/v1beta1"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "PriorityClass"
-
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// description is an arbitrary string that usually provides guidelines on when this priority class should be used.
 		///
 		public var description: String?
-
 		///
 		/// globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
 		///
 		public var globalDefault: Bool?
-
 		///
 		/// PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
 		///
 		public var preemptionPolicy: String?
-
 		///
 		/// The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
 		///
 		public var value: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			description: String?, 
+			globalDefault: Bool?, 
+			preemptionPolicy: String?, 
+			value: Int32
+		) {
+			self.metadata = metadata
+			self.description = description
+			self.globalDefault = globalDefault
+			self.preemptionPolicy = preemptionPolicy
+			self.value = value
+		}
 	}
 }
 

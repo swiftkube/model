@@ -26,7 +26,14 @@ public extension extensions.v1beta1 {
 		/// driver is the name of the Flexvolume driver.
 		///
 		public var driver: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			driver: String
+		) {
+			self.driver = driver
+		}
 	}
 }
 

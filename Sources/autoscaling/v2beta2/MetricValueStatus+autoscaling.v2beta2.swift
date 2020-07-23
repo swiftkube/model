@@ -26,17 +26,26 @@ public extension autoscaling.v2beta2 {
 		/// currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
 		///
 		public var averageUtilization: Int32?
-
 		///
 		/// averageValue is the current value of the average of the metric across all relevant pods (as a quantity)
 		///
 		public var averageValue: Quantity?
-
 		///
 		/// value is the current value of the metric (as a quantity).
 		///
 		public var value: Quantity?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			averageUtilization: Int32?, 
+			averageValue: Quantity?, 
+			value: Quantity?
+		) {
+			self.averageUtilization = averageUtilization
+			self.averageValue = averageValue
+			self.value = value
+		}
 	}
 }
 

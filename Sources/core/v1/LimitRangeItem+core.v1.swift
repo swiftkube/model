@@ -26,32 +26,44 @@ public extension core.v1 {
 		/// Default resource requirement limit value by resource name if resource limit is omitted.
 		///
 		public var `default`: [String: Quantity]?
-
 		///
 		/// DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
 		///
 		public var defaultRequest: [String: Quantity]?
-
 		///
 		/// Max usage constraints on this kind by resource name.
 		///
 		public var max: [String: Quantity]?
-
 		///
 		/// MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
 		///
 		public var maxLimitRequestRatio: [String: Quantity]?
-
 		///
 		/// Min usage constraints on this kind by resource name.
 		///
 		public var min: [String: Quantity]?
-
 		///
 		/// Type of resource that this limit applies to.
 		///
 		public var type: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			`default`: [String: Quantity]?, 
+			defaultRequest: [String: Quantity]?, 
+			max: [String: Quantity]?, 
+			maxLimitRequestRatio: [String: Quantity]?, 
+			min: [String: Quantity]?, 
+			type: String?
+		) {
+			self.`default` = `default`
+			self.defaultRequest = defaultRequest
+			self.max = max
+			self.maxLimitRequestRatio = maxLimitRequestRatio
+			self.min = min
+			self.type = type
+		}
 	}
 }
 

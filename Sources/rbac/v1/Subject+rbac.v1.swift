@@ -26,22 +26,32 @@ public extension rbac.v1 {
 		/// Kind of object being referenced. Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
 		///
 		public var kind: String
-
 		///
 		/// APIGroup holds the API group of the referenced subject. Defaults to "" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects.
 		///
 		public var apiGroup: String?
-
 		///
 		/// Name of the object being referenced.
 		///
 		public var name: String
-
 		///
 		/// Namespace of the referenced object.  If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
 		///
 		public var namespace: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kind: String, 
+			apiGroup: String?, 
+			name: String, 
+			namespace: String?
+		) {
+			self.kind = kind
+			self.apiGroup = apiGroup
+			self.name = name
+			self.namespace = namespace
+		}
 	}
 }
 

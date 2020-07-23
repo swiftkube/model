@@ -26,32 +26,44 @@ public extension apiextensions.v1beta1 {
 		/// kind is the serialized kind of the resource. It is normally CamelCase and singular. Custom resource instances will use this value as the `kind` attribute in API calls.
 		///
 		public var kind: String
-
 		///
 		/// categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like `kubectl get all`.
 		///
 		public var categories: [String]?
-
 		///
 		/// listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
 		///
 		public var listKind: String?
-
 		///
 		/// plural is the plural name of the resource to serve. The custom resources are served under `/apis/<group>/<version>/.../<plural>`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`). Must be all lowercase.
 		///
 		public var plural: String
-
 		///
 		/// shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like `kubectl get <shortname>`. It must be all lowercase.
 		///
 		public var shortNames: [String]?
-
 		///
 		/// singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
 		///
 		public var singular: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kind: String, 
+			categories: [String]?, 
+			listKind: String?, 
+			plural: String, 
+			shortNames: [String]?, 
+			singular: String?
+		) {
+			self.kind = kind
+			self.categories = categories
+			self.listKind = listKind
+			self.plural = plural
+			self.shortNames = shortNames
+			self.singular = singular
+		}
 	}
 }
 

@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 		///
 		public var fsType: String?
-
 		///
 		/// ID that identifies Photon Controller persistent disk
 		///
 		public var pdID: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			fsType: String?, 
+			pdID: String
+		) {
+			self.fsType = fsType
+			self.pdID = pdID
+		}
 	}
 }
 

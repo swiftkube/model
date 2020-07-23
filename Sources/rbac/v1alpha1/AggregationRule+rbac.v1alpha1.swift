@@ -26,7 +26,14 @@ public extension rbac.v1alpha1 {
 		/// ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
 		///
 		public var clusterRoleSelectors: [meta.v1.LabelSelector]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			clusterRoleSelectors: [meta.v1.LabelSelector]?
+		) {
+			self.clusterRoleSelectors = clusterRoleSelectors
+		}
 	}
 }
 

@@ -26,32 +26,44 @@ public extension core.v1 {
 		/// Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
 		///
 		public var kind: String?
-
 		///
 		/// Host Caching mode: None, Read Only, Read Write.
 		///
 		public var cachingMode: String?
-
 		///
 		/// The Name of the data disk in the blob storage
 		///
 		public var diskName: String
-
 		///
 		/// The URI the data disk in the blob storage
 		///
 		public var diskURI: String
-
 		///
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 		///
 		public var fsType: String?
-
 		///
 		/// Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 		///
 		public var readOnly: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kind: String?, 
+			cachingMode: String?, 
+			diskName: String, 
+			diskURI: String, 
+			fsType: String?, 
+			readOnly: Bool?
+		) {
+			self.kind = kind
+			self.cachingMode = cachingMode
+			self.diskName = diskName
+			self.diskURI = diskURI
+			self.fsType = fsType
+			self.readOnly = readOnly
+		}
 	}
 }
 

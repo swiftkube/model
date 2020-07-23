@@ -26,12 +26,20 @@ public extension authorization.v1beta1 {
 		/// Path is the URL path of the request
 		///
 		public var path: String?
-
 		///
 		/// Verb is the standard HTTP verb
 		///
 		public var verb: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			path: String?, 
+			verb: String?
+		) {
+			self.path = path
+			self.verb = verb
+		}
 	}
 }
 

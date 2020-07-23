@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Items is a list of DownwardAPIVolume file
 		///
 		public var items: [core.v1.DownwardAPIVolumeFile]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			items: [core.v1.DownwardAPIVolumeFile]?
+		) {
+			self.items = items
+		}
 	}
 }
 

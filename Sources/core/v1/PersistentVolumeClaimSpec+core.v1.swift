@@ -26,37 +26,50 @@ public extension core.v1 {
 		/// AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
 		///
 		public var accessModes: [String]?
-
 		///
 		/// This field requires the VolumeSnapshotDataSource alpha feature gate to be enabled and currently VolumeSnapshot is the only supported data source. If the provisioner can support VolumeSnapshot data source, it will create a new volume and data will be restored to the volume at the same time. If the provisioner does not support VolumeSnapshot data source, volume will not be created and the failure will be reported as an event. In the future, we plan to support more data source types and the behavior of the provisioner may change.
 		///
 		public var dataSource: core.v1.TypedLocalObjectReference?
-
 		///
 		/// Resources represents the minimum resources the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
 		///
 		public var resources: core.v1.ResourceRequirements?
-
 		///
 		/// A label query over volumes to consider for binding.
 		///
 		public var selector: meta.v1.LabelSelector?
-
 		///
 		/// Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
 		///
 		public var storageClassName: String?
-
 		///
 		/// volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.
 		///
 		public var volumeMode: String?
-
 		///
 		/// VolumeName is the binding reference to the PersistentVolume backing this claim.
 		///
 		public var volumeName: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			accessModes: [String]?, 
+			dataSource: core.v1.TypedLocalObjectReference?, 
+			resources: core.v1.ResourceRequirements?, 
+			selector: meta.v1.LabelSelector?, 
+			storageClassName: String?, 
+			volumeMode: String?, 
+			volumeName: String?
+		) {
+			self.accessModes = accessModes
+			self.dataSource = dataSource
+			self.resources = resources
+			self.selector = selector
+			self.storageClassName = storageClassName
+			self.volumeMode = volumeMode
+			self.volumeName = volumeName
+		}
 	}
 }
 

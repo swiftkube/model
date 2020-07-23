@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Time at which the container was last (re-)started
 		///
 		public var startedAt: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			startedAt: String?
+		) {
+			self.startedAt = startedAt
+		}
 	}
 }
 

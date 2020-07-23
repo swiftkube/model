@@ -26,12 +26,20 @@ public extension authorization.v1beta1 {
 		/// NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  "*" means all.
 		///
 		public var nonResourceURLs: [String]?
-
 		///
 		/// Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
 		///
 		public var verbs: [String]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			nonResourceURLs: [String]?, 
+			verbs: [String]
+		) {
+			self.nonResourceURLs = nonResourceURLs
+			self.verbs = verbs
+		}
 	}
 }
 

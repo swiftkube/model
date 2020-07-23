@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Component from which the event is generated.
 		///
 		public var component: String?
-
 		///
 		/// Node name on which the event is generated.
 		///
 		public var host: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			component: String?, 
+			host: String?
+		) {
+			self.component = component
+			self.host = host
+		}
 	}
 }
 

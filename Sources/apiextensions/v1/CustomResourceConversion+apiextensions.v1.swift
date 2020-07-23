@@ -27,12 +27,20 @@ public extension apiextensions.v1 {
 		///   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
 		///
 		public var strategy: String
-
 		///
 		/// webhook describes how to call the conversion webhook. Required when `strategy` is set to `Webhook`.
 		///
 		public var webhook: apiextensions.v1.WebhookConversion?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			strategy: String, 
+			webhook: apiextensions.v1.WebhookConversion?
+		) {
+			self.strategy = strategy
+			self.webhook = webhook
+		}
 	}
 }
 

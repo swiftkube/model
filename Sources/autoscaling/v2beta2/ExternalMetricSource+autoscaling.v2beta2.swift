@@ -26,12 +26,20 @@ public extension autoscaling.v2beta2 {
 		/// metric identifies the target metric by name and selector
 		///
 		public var metric: autoscaling.v2beta2.MetricIdentifier
-
 		///
 		/// target specifies the target value for the given metric
 		///
 		public var target: autoscaling.v2beta2.MetricTarget
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metric: autoscaling.v2beta2.MetricIdentifier, 
+			target: autoscaling.v2beta2.MetricTarget
+		) {
+			self.metric = metric
+			self.target = target
+		}
 	}
 }
 

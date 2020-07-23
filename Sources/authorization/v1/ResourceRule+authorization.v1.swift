@@ -26,23 +26,33 @@ public extension authorization.v1 {
 		/// APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  "*" means all.
 		///
 		public var apiGroups: [String]?
-
 		///
 		/// ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
 		///
 		public var resourceNames: [String]?
-
 		///
 		/// Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
 		///  "*/foo" represents the subresource 'foo' for all resources in the specified apiGroups.
 		///
 		public var resources: [String]?
-
 		///
 		/// Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
 		///
 		public var verbs: [String]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			apiGroups: [String]?, 
+			resourceNames: [String]?, 
+			resources: [String]?, 
+			verbs: [String]
+		) {
+			self.apiGroups = apiGroups
+			self.resourceNames = resourceNames
+			self.resources = resources
+			self.verbs = verbs
+		}
 	}
 }
 

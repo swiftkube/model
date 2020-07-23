@@ -26,12 +26,20 @@ public extension apiextensions.v1beta1 {
 		/// No description
 		///
 		public var description: String?
-
 		///
 		/// No description
 		///
 		public var url: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			description: String?, 
+			url: String?
+		) {
+			self.description = description
+			self.url = url
+		}
 	}
 }
 

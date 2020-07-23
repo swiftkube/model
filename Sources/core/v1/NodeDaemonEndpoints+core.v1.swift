@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Endpoint on which Kubelet is listening.
 		///
 		public var kubeletEndpoint: core.v1.DaemonEndpoint?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kubeletEndpoint: core.v1.DaemonEndpoint?
+		) {
+			self.kubeletEndpoint = kubeletEndpoint
+		}
 	}
 }
 

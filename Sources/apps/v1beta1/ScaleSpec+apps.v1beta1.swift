@@ -26,7 +26,14 @@ public extension apps.v1beta1 {
 		/// desired number of instances for the scaled object.
 		///
 		public var replicas: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			replicas: Int32?
+		) {
+			self.replicas = replicas
+		}
 	}
 }
 

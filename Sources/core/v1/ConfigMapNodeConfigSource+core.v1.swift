@@ -26,27 +26,38 @@ public extension core.v1 {
 		/// KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.
 		///
 		public var kubeletConfigKey: String
-
 		///
 		/// Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.
 		///
 		public var name: String
-
 		///
 		/// Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.
 		///
 		public var namespace: String
-
 		///
 		/// ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
 		///
 		public var resourceVersion: String?
-
 		///
 		/// UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
 		///
 		public var uid: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kubeletConfigKey: String, 
+			name: String, 
+			namespace: String, 
+			resourceVersion: String?, 
+			uid: String?
+		) {
+			self.kubeletConfigKey = kubeletConfigKey
+			self.name = name
+			self.namespace = namespace
+			self.resourceVersion = resourceVersion
+			self.uid = uid
+		}
 	}
 }
 

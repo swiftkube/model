@@ -26,27 +26,34 @@ public extension extensions.v1beta1 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "extensions/v1beta1"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "DeploymentRollback"
-
 		///
 		/// Required: This must match the Name of a deployment.
 		///
 		public var name: String
-
 		///
 		/// The config of this deployment rollback.
 		///
 		public var rollbackTo: extensions.v1beta1.RollbackConfig
-
 		///
 		/// The annotations to be updated to a deployment
 		///
 		public var updatedAnnotations: [String: String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String, 
+			rollbackTo: extensions.v1beta1.RollbackConfig, 
+			updatedAnnotations: [String: String]?
+		) {
+			self.name = name
+			self.rollbackTo = rollbackTo
+			self.updatedAnnotations = updatedAnnotations
+		}
 	}
 }
 

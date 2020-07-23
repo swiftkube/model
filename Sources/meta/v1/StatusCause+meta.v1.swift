@@ -30,17 +30,26 @@ public extension meta.v1 {
 		///   "items[0].name" - the field "name" on the first array entry in "items"
 		///
 		public var field: String?
-
 		///
 		/// A human-readable description of the cause of the error.  This field may be presented as-is to a reader.
 		///
 		public var message: String?
-
 		///
 		/// A machine-readable description of the cause of the error. If this value is empty there is no information available.
 		///
 		public var reason: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			field: String?, 
+			message: String?, 
+			reason: String?
+		) {
+			self.field = field
+			self.message = message
+			self.reason = reason
+		}
 	}
 }
 

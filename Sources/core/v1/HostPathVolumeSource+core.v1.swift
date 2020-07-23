@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 		///
 		public var path: String
-
 		///
 		/// Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 		///
 		public var type: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			path: String, 
+			type: String?
+		) {
+			self.path = path
+			self.type = type
+		}
 	}
 }
 

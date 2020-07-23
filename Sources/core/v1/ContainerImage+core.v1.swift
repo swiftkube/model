@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Names by which this image is known. e.g. ["k8s.gcr.io/hyperkube:v1.0.7", "dockerhub.io/google_containers/hyperkube:v1.0.7"]
 		///
 		public var names: [String]
-
 		///
 		/// The size of the image in bytes.
 		///
 		public var sizeBytes: Int64?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			names: [String], 
+			sizeBytes: Int64?
+		) {
+			self.names = names
+			self.sizeBytes = sizeBytes
+		}
 	}
 }
 

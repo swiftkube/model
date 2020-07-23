@@ -26,22 +26,32 @@ public extension certificates.v1beta1 {
 		/// timestamp for the last update to this condition
 		///
 		public var lastUpdateTime: String?
-
 		///
 		/// human readable message with details about the request state
 		///
 		public var message: String?
-
 		///
 		/// brief reason for the request state
 		///
 		public var reason: String?
-
 		///
 		/// request approval state, currently Approved or Denied.
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastUpdateTime: String?, 
+			message: String?, 
+			reason: String?, 
+			type: String
+		) {
+			self.lastUpdateTime = lastUpdateTime
+			self.message = message
+			self.reason = reason
+			self.type = type
+		}
 	}
 }
 

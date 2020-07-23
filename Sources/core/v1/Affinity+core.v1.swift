@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// Describes node affinity scheduling rules for the pod.
 		///
 		public var nodeAffinity: core.v1.NodeAffinity?
-
 		///
 		/// Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 		///
 		public var podAffinity: core.v1.PodAffinity?
-
 		///
 		/// Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 		///
 		public var podAntiAffinity: core.v1.PodAntiAffinity?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			nodeAffinity: core.v1.NodeAffinity?, 
+			podAffinity: core.v1.PodAffinity?, 
+			podAntiAffinity: core.v1.PodAntiAffinity?
+		) {
+			self.nodeAffinity = nodeAffinity
+			self.podAffinity = podAffinity
+			self.podAntiAffinity = podAntiAffinity
+		}
 	}
 }
 

@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Required. A pod affinity term, associated with the corresponding weight.
 		///
 		public var podAffinityTerm: core.v1.PodAffinityTerm
-
 		///
 		/// weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 		///
 		public var weight: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			podAffinityTerm: core.v1.PodAffinityTerm, 
+			weight: Int32
+		) {
+			self.podAffinityTerm = podAffinityTerm
+			self.weight = weight
+		}
 	}
 }
 

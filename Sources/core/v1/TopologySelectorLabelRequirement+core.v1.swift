@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// The label key that the selector applies to.
 		///
 		public var key: String
-
 		///
 		/// An array of string values. One value must match the label to be selected. Each entry in Values is ORed.
 		///
 		public var values: [String]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			key: String, 
+			values: [String]
+		) {
+			self.key = key
+			self.values = values
+		}
 	}
 }
 

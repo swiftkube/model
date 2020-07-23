@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 		///
 		public var finalizers: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			finalizers: [String]?
+		) {
+			self.finalizers = finalizers
+		}
 	}
 }
 

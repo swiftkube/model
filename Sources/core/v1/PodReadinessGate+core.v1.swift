@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// ConditionType refers to a condition in the pod's condition list with matching type.
 		///
 		public var conditionType: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			conditionType: String
+		) {
+			self.conditionType = conditionType
+		}
 	}
 }
 

@@ -33,17 +33,26 @@ public extension core.v1 {
 		/// IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.
 		///
 		public var addresses: [core.v1.EndpointAddress]?
-
 		///
 		/// IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
 		///
 		public var notReadyAddresses: [core.v1.EndpointAddress]?
-
 		///
 		/// Port numbers available on the related IP addresses.
 		///
 		public var ports: [core.v1.EndpointPort]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			addresses: [core.v1.EndpointAddress]?, 
+			notReadyAddresses: [core.v1.EndpointAddress]?, 
+			ports: [core.v1.EndpointPort]?
+		) {
+			self.addresses = addresses
+			self.notReadyAddresses = notReadyAddresses
+			self.ports = ports
+		}
 	}
 }
 

@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Port number of the given endpoint.
 		///
 		public var Port: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			Port: Int32
+		) {
+			self.Port = Port
+		}
 	}
 }
 

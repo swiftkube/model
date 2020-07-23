@@ -26,12 +26,20 @@ public extension auditregistration.v1alpha1 {
 		/// Policy defines the policy for selecting which events should be sent to the webhook required
 		///
 		public var policy: auditregistration.v1alpha1.Policy
-
 		///
 		/// Webhook to send events required
 		///
 		public var webhook: auditregistration.v1alpha1.Webhook
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			policy: auditregistration.v1alpha1.Policy, 
+			webhook: auditregistration.v1alpha1.Webhook
+		) {
+			self.policy = policy
+			self.webhook = webhook
+		}
 	}
 }
 

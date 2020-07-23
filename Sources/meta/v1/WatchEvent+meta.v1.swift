@@ -30,12 +30,20 @@ public extension meta.v1 {
 		///    depending on context.
 		///
 		public var object: [String: Any]
-
 		///
 		/// No description
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			object: [String: Any], 
+			type: String
+		) {
+			self.object = object
+			self.type = type
+		}
 	}
 }
 

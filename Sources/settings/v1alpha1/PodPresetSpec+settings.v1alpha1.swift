@@ -26,27 +26,38 @@ public extension settings.v1alpha1 {
 		/// Env defines the collection of EnvVar to inject into containers.
 		///
 		public var env: [core.v1.EnvVar]?
-
 		///
 		/// EnvFrom defines the collection of EnvFromSource to inject into containers.
 		///
 		public var envFrom: [core.v1.EnvFromSource]?
-
 		///
 		/// Selector is a label query over a set of resources, in this case pods. Required.
 		///
 		public var selector: meta.v1.LabelSelector?
-
 		///
 		/// VolumeMounts defines the collection of VolumeMount to inject into containers.
 		///
 		public var volumeMounts: [core.v1.VolumeMount]?
-
 		///
 		/// Volumes defines the collection of Volume to inject into the pod.
 		///
 		public var volumes: [core.v1.Volume]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			env: [core.v1.EnvVar]?, 
+			envFrom: [core.v1.EnvFromSource]?, 
+			selector: meta.v1.LabelSelector?, 
+			volumeMounts: [core.v1.VolumeMount]?, 
+			volumes: [core.v1.Volume]?
+		) {
+			self.env = env
+			self.envFrom = envFrom
+			self.selector = selector
+			self.volumeMounts = volumeMounts
+			self.volumes = volumes
+		}
 	}
 }
 

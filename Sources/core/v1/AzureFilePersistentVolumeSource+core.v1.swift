@@ -26,22 +26,32 @@ public extension core.v1 {
 		/// Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 		///
 		public var readOnly: Bool?
-
 		///
 		/// the name of secret that contains Azure Storage Account Name and Key
 		///
 		public var secretName: String
-
 		///
 		/// the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
 		///
 		public var secretNamespace: String?
-
 		///
 		/// Share Name
 		///
 		public var shareName: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			readOnly: Bool?, 
+			secretName: String, 
+			secretNamespace: String?, 
+			shareName: String
+		) {
+			self.readOnly = readOnly
+			self.secretName = secretName
+			self.secretNamespace = secretNamespace
+			self.shareName = shareName
+		}
 	}
 }
 

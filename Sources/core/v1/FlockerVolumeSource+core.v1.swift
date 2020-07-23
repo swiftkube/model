@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
 		///
 		public var datasetName: String?
-
 		///
 		/// UUID of the dataset. This is unique identifier of a Flocker dataset
 		///
 		public var datasetUUID: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			datasetName: String?, 
+			datasetUUID: String?
+		) {
+			self.datasetName = datasetName
+			self.datasetUUID = datasetUUID
+		}
 	}
 }
 

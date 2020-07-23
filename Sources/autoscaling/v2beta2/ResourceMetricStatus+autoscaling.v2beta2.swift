@@ -26,12 +26,20 @@ public extension autoscaling.v2beta2 {
 		/// current contains the current value for the given metric
 		///
 		public var current: autoscaling.v2beta2.MetricValueStatus
-
 		///
 		/// Name is the name of the resource in question.
 		///
 		public var name: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			current: autoscaling.v2beta2.MetricValueStatus, 
+			name: String
+		) {
+			self.current = current
+			self.name = name
+		}
 	}
 }
 

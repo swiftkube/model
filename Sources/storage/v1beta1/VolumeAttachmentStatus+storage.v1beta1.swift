@@ -26,22 +26,32 @@ public extension storage.v1beta1 {
 		/// The last error encountered during attach operation, if any. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		public var attachError: storage.v1beta1.VolumeError?
-
 		///
 		/// Indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		public var attached: Bool
-
 		///
 		/// Upon successful attach, this field is populated with any information returned by the attach operation that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
 		///
 		public var attachmentMetadata: [String: String]?
-
 		///
 		/// The last error encountered during detach operation, if any. This field must only be set by the entity completing the detach operation, i.e. the external-attacher.
 		///
 		public var detachError: storage.v1beta1.VolumeError?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			attachError: storage.v1beta1.VolumeError?, 
+			attached: Bool, 
+			attachmentMetadata: [String: String]?, 
+			detachError: storage.v1beta1.VolumeError?
+		) {
+			self.attachError = attachError
+			self.attached = attached
+			self.attachmentMetadata = attachmentMetadata
+			self.detachError = detachError
+		}
 	}
 }
 

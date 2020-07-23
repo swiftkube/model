@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// The ConfigMap to select from
 		///
 		public var configMapRef: core.v1.ConfigMapEnvSource?
-
 		///
 		/// An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
 		///
 		public var prefix: String?
-
 		///
 		/// The Secret to select from
 		///
 		public var secretRef: core.v1.SecretEnvSource?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			configMapRef: core.v1.ConfigMapEnvSource?, 
+			prefix: String?, 
+			secretRef: core.v1.SecretEnvSource?
+		) {
+			self.configMapRef = configMapRef
+			self.prefix = prefix
+			self.secretRef = secretRef
+		}
 	}
 }
 

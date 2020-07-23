@@ -26,7 +26,14 @@ public extension authorization.v1 {
 		/// Namespace to evaluate rules for. Required.
 		///
 		public var namespace: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			namespace: String?
+		) {
+			self.namespace = namespace
+		}
 	}
 }
 

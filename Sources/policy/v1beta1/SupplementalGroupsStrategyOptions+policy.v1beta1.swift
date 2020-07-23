@@ -26,12 +26,20 @@ public extension policy.v1beta1 {
 		/// ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
 		///
 		public var ranges: [policy.v1beta1.IDRange]?
-
 		///
 		/// rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
 		///
 		public var rule: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			ranges: [policy.v1beta1.IDRange]?, 
+			rule: String?
+		) {
+			self.ranges = ranges
+			self.rule = rule
+		}
 	}
 }
 

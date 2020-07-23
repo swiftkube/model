@@ -26,12 +26,20 @@ public extension auditregistration.v1alpha1 {
 		/// The Level that all requests are recorded at. available options: None, Metadata, Request, RequestResponse required
 		///
 		public var level: String
-
 		///
 		/// Stages is a list of stages for which events are created.
 		///
 		public var stages: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			level: String, 
+			stages: [String]?
+		) {
+			self.level = level
+			self.stages = stages
+		}
 	}
 }
 

@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Required specifies hard node constraints that must be met.
 		///
 		public var required: core.v1.NodeSelector?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			required: core.v1.NodeSelector?
+		) {
+			self.required = required
+		}
 	}
 }
 

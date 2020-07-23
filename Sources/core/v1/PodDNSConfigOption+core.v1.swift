@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Required.
 		///
 		public var name: String?
-
 		///
 		/// No description
 		///
 		public var value: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String?, 
+			value: String?
+		) {
+			self.name = name
+			self.value = value
+		}
 	}
 }
 

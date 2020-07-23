@@ -26,12 +26,20 @@ public extension autoscaling.v2beta2 {
 		/// current contains the current value for the given metric
 		///
 		public var current: autoscaling.v2beta2.MetricValueStatus
-
 		///
 		/// metric identifies the target metric by name and selector
 		///
 		public var metric: autoscaling.v2beta2.MetricIdentifier
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			current: autoscaling.v2beta2.MetricValueStatus, 
+			metric: autoscaling.v2beta2.MetricIdentifier
+		) {
+			self.current = current
+			self.metric = metric
+		}
 	}
 }
 

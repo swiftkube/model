@@ -26,12 +26,20 @@ public extension policy.v1beta1 {
 		/// max is the end of the range, inclusive.
 		///
 		public var max: Int32
-
 		///
 		/// min is the start of the range, inclusive.
 		///
 		public var min: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			max: Int32, 
+			min: Int32
+		) {
+			self.max = max
+			self.min = min
+		}
 	}
 }
 

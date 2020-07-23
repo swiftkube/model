@@ -26,7 +26,14 @@ public extension apiregistration.v1beta1 {
 		/// Current service state of apiService.
 		///
 		public var conditions: [apiregistration.v1beta1.APIServiceCondition]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			conditions: [apiregistration.v1beta1.APIServiceCondition]?
+		) {
+			self.conditions = conditions
+		}
 	}
 }
 

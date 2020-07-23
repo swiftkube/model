@@ -26,17 +26,26 @@ public extension autoscaling.v2beta1 {
 		/// API version of the referent
 		///
 		public var apiVersion: String?
-
 		///
 		/// Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
 		///
 		public var kind: String
-
 		///
 		/// Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
 		///
 		public var name: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			apiVersion: String?, 
+			kind: String, 
+			name: String
+		) {
+			self.apiVersion = apiVersion
+			self.kind = kind
+			self.name = name
+		}
 	}
 }
 

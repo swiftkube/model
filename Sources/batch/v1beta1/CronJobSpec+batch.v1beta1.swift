@@ -26,37 +26,50 @@ public extension batch.v1beta1 {
 		/// Specifies how to treat concurrent executions of a Job. Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
 		///
 		public var concurrencyPolicy: String?
-
 		///
 		/// The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
 		///
 		public var failedJobsHistoryLimit: Int32?
-
 		///
 		/// Specifies the job that will be created when executing a CronJob.
 		///
 		public var jobTemplate: batch.v1beta1.JobTemplateSpec
-
 		///
 		/// The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
 		///
 		public var schedule: String
-
 		///
 		/// Optional deadline in seconds for starting the job if it misses scheduled time for any reason.  Missed jobs executions will be counted as failed ones.
 		///
 		public var startingDeadlineSeconds: Int64?
-
 		///
 		/// The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 3.
 		///
 		public var successfulJobsHistoryLimit: Int32?
-
 		///
 		/// This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.  Defaults to false.
 		///
 		public var suspend: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			concurrencyPolicy: String?, 
+			failedJobsHistoryLimit: Int32?, 
+			jobTemplate: batch.v1beta1.JobTemplateSpec, 
+			schedule: String, 
+			startingDeadlineSeconds: Int64?, 
+			successfulJobsHistoryLimit: Int32?, 
+			suspend: Bool?
+		) {
+			self.concurrencyPolicy = concurrencyPolicy
+			self.failedJobsHistoryLimit = failedJobsHistoryLimit
+			self.jobTemplate = jobTemplate
+			self.schedule = schedule
+			self.startingDeadlineSeconds = startingDeadlineSeconds
+			self.successfulJobsHistoryLimit = successfulJobsHistoryLimit
+			self.suspend = suspend
+		}
 	}
 }
 

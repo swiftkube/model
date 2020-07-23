@@ -26,7 +26,14 @@ public extension policy.v1beta1 {
 		/// Name is the registered name of the CSI driver
 		///
 		public var name: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String
+		) {
+			self.name = name
+		}
 	}
 }
 

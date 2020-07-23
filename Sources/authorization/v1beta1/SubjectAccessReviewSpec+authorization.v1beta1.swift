@@ -26,32 +26,44 @@ public extension authorization.v1beta1 {
 		/// Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
 		///
 		public var extra: [String: [String]]?
-
 		///
 		/// Groups is the groups you're testing for.
 		///
 		public var group: [String]?
-
 		///
 		/// NonResourceAttributes describes information for a non-resource access request
 		///
 		public var nonResourceAttributes: authorization.v1beta1.NonResourceAttributes?
-
 		///
 		/// ResourceAuthorizationAttributes describes information for a resource access request
 		///
 		public var resourceAttributes: authorization.v1beta1.ResourceAttributes?
-
 		///
 		/// UID information about the requesting user.
 		///
 		public var uid: String?
-
 		///
 		/// User is the user you're testing for. If you specify "User" but not "Group", then is it interpreted as "What if User were not a member of any groups
 		///
 		public var user: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			extra: [String: [String]]?, 
+			group: [String]?, 
+			nonResourceAttributes: authorization.v1beta1.NonResourceAttributes?, 
+			resourceAttributes: authorization.v1beta1.ResourceAttributes?, 
+			uid: String?, 
+			user: String?
+		) {
+			self.extra = extra
+			self.group = group
+			self.nonResourceAttributes = nonResourceAttributes
+			self.resourceAttributes = resourceAttributes
+			self.uid = uid
+			self.user = user
+		}
 	}
 }
 

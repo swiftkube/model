@@ -26,27 +26,38 @@ public extension core.v1 {
 		/// Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 		///
 		public var fsType: String?
-
 		///
 		/// Optional: FC target lun number
 		///
 		public var lun: Int32?
-
 		///
 		/// Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 		///
 		public var readOnly: Bool?
-
 		///
 		/// Optional: FC target worldwide names (WWNs)
 		///
 		public var targetWWNs: [String]?
-
 		///
 		/// Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
 		///
 		public var wwids: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			fsType: String?, 
+			lun: Int32?, 
+			readOnly: Bool?, 
+			targetWWNs: [String]?, 
+			wwids: [String]?
+		) {
+			self.fsType = fsType
+			self.lun = lun
+			self.readOnly = readOnly
+			self.targetWWNs = targetWWNs
+			self.wwids = wwids
+		}
 	}
 }
 

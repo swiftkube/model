@@ -26,7 +26,14 @@ public extension node.v1alpha1 {
 		/// PodFixed represents the fixed resource overhead associated with running a pod.
 		///
 		public var podFixed: [String: Quantity]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			podFixed: [String: Quantity]?
+		) {
+			self.podFixed = podFixed
+		}
 	}
 }
 

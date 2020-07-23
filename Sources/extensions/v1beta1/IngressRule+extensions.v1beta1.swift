@@ -31,12 +31,20 @@ public extension extensions.v1beta1 {
 		/// Both these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 		///
 		public var host: String?
-
 		///
 		/// No description
 		///
 		public var http: extensions.v1beta1.HTTPIngressRuleValue?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			host: String?, 
+			http: extensions.v1beta1.HTTPIngressRuleValue?
+		) {
+			self.host = host
+			self.http = http
+		}
 	}
 }
 

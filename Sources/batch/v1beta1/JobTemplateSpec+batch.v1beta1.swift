@@ -26,12 +26,20 @@ public extension batch.v1beta1 {
 		/// Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
 		public var spec: batch.v1.JobSpec?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			spec: batch.v1.JobSpec?
+		) {
+			self.metadata = metadata
+			self.spec = spec
+		}
 	}
 }
 

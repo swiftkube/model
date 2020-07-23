@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Version of the schema the FieldPath is written in terms of, defaults to "v1".
 		///
 		public var apiVersion: String?
-
 		///
 		/// Path of the field to select in the specified API version.
 		///
 		public var fieldPath: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			apiVersion: String?, 
+			fieldPath: String
+		) {
+			self.apiVersion = apiVersion
+			self.fieldPath = fieldPath
+		}
 	}
 }
 

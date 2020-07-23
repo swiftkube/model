@@ -26,32 +26,44 @@ public extension core.v1 {
 		/// Group to map volume access to Default is no group
 		///
 		public var group: String?
-
 		///
 		/// ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
 		///
 		public var readOnly: Bool?
-
 		///
 		/// Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
 		///
 		public var registry: String
-
 		///
 		/// Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
 		///
 		public var tenant: String?
-
 		///
 		/// User to map volume access to Defaults to serivceaccount user
 		///
 		public var user: String?
-
 		///
 		/// Volume is a string that references an already created Quobyte volume by name.
 		///
 		public var volume: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			group: String?, 
+			readOnly: Bool?, 
+			registry: String, 
+			tenant: String?, 
+			user: String?, 
+			volume: String
+		) {
+			self.group = group
+			self.readOnly = readOnly
+			self.registry = registry
+			self.tenant = tenant
+			self.user = user
+			self.volume = volume
+		}
 	}
 }
 

@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// The header field name
 		///
 		public var name: String
-
 		///
 		/// The header field value
 		///
 		public var value: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String, 
+			value: String
+		) {
+			self.name = name
+			self.value = value
+		}
 	}
 }
 

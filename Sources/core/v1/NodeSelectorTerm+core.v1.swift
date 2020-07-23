@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// A list of node selector requirements by node's labels.
 		///
 		public var matchExpressions: [core.v1.NodeSelectorRequirement]?
-
 		///
 		/// A list of node selector requirements by node's fields.
 		///
 		public var matchFields: [core.v1.NodeSelectorRequirement]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			matchExpressions: [core.v1.NodeSelectorRequirement]?, 
+			matchFields: [core.v1.NodeSelectorRequirement]?
+		) {
+			self.matchExpressions = matchExpressions
+			self.matchFields = matchFields
+		}
 	}
 }
 

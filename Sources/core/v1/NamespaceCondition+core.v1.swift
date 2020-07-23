@@ -26,27 +26,38 @@ public extension core.v1 {
 		/// No description
 		///
 		public var lastTransitionTime: String?
-
 		///
 		/// No description
 		///
 		public var message: String?
-
 		///
 		/// No description
 		///
 		public var reason: String?
-
 		///
 		/// Status of the condition, one of True, False, Unknown.
 		///
 		public var status: String
-
 		///
 		/// Type of namespace controller condition.
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastTransitionTime: String?, 
+			message: String?, 
+			reason: String?, 
+			status: String, 
+			type: String
+		) {
+			self.lastTransitionTime = lastTransitionTime
+			self.message = message
+			self.reason = reason
+			self.status = status
+			self.type = type
+		}
 	}
 }
 

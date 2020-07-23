@@ -26,27 +26,34 @@ public extension core.v1 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "v1"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "Pod"
-
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
 		public var spec: core.v1.PodSpec?
-
 		///
 		/// Most recently observed status of the pod. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 		///
 		public var status: core.v1.PodStatus?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			spec: core.v1.PodSpec?, 
+			status: core.v1.PodStatus?
+		) {
+			self.metadata = metadata
+			self.spec = spec
+			self.status = status
+		}
 	}
 }
 

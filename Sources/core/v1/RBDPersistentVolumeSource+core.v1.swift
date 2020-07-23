@@ -26,42 +26,56 @@ public extension core.v1 {
 		/// Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
 		///
 		public var fsType: String?
-
 		///
 		/// The rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var image: String
-
 		///
 		/// Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var keyring: String?
-
 		///
 		/// A collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var monitors: [String]
-
 		///
 		/// The rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var pool: String?
-
 		///
 		/// ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var readOnly: Bool?
-
 		///
 		/// SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var secretRef: core.v1.SecretReference?
-
 		///
 		/// The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 		///
 		public var user: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			fsType: String?, 
+			image: String, 
+			keyring: String?, 
+			monitors: [String], 
+			pool: String?, 
+			readOnly: Bool?, 
+			secretRef: core.v1.SecretReference?, 
+			user: String?
+		) {
+			self.fsType = fsType
+			self.image = image
+			self.keyring = keyring
+			self.monitors = monitors
+			self.pool = pool
+			self.readOnly = readOnly
+			self.secretRef = secretRef
+			self.user = user
+		}
 	}
 }
 

@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
 		///
 		public var claimName: String
-
 		///
 		/// Will force the ReadOnly setting in VolumeMounts. Default false.
 		///
 		public var readOnly: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			claimName: String, 
+			readOnly: Bool?
+		) {
+			self.claimName = claimName
+			self.readOnly = readOnly
+		}
 	}
 }
 

@@ -26,32 +26,44 @@ public extension extensions.v1beta1 {
 		/// The number of available replicas (ready for at least minReadySeconds) for this replica set.
 		///
 		public var availableReplicas: Int32?
-
 		///
 		/// Represents the latest available observations of a replica set's current state.
 		///
 		public var conditions: [extensions.v1beta1.ReplicaSetCondition]?
-
 		///
 		/// The number of pods that have labels matching the labels of the pod template of the replicaset.
 		///
 		public var fullyLabeledReplicas: Int32?
-
 		///
 		/// ObservedGeneration reflects the generation of the most recently observed ReplicaSet.
 		///
 		public var observedGeneration: Int64?
-
 		///
 		/// The number of ready replicas for this replica set.
 		///
 		public var readyReplicas: Int32?
-
 		///
 		/// Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
 		///
 		public var replicas: Int32
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			availableReplicas: Int32?, 
+			conditions: [extensions.v1beta1.ReplicaSetCondition]?, 
+			fullyLabeledReplicas: Int32?, 
+			observedGeneration: Int64?, 
+			readyReplicas: Int32?, 
+			replicas: Int32
+		) {
+			self.availableReplicas = availableReplicas
+			self.conditions = conditions
+			self.fullyLabeledReplicas = fullyLabeledReplicas
+			self.observedGeneration = observedGeneration
+			self.readyReplicas = readyReplicas
+			self.replicas = replicas
+		}
 	}
 }
 

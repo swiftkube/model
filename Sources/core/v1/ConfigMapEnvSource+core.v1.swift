@@ -28,12 +28,20 @@ public extension core.v1 {
 		/// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 		///
 		public var name: String?
-
 		///
 		/// Specify whether the ConfigMap must be defined
 		///
 		public var optional: Bool?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String?, 
+			optional: Bool?
+		) {
+			self.name = name
+			self.optional = optional
+		}
 	}
 }
 

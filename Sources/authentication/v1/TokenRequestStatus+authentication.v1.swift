@@ -26,12 +26,20 @@ public extension authentication.v1 {
 		/// ExpirationTimestamp is the time of expiration of the returned token.
 		///
 		public var expirationTimestamp: String
-
 		///
 		/// Token is the opaque bearer token.
 		///
 		public var token: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			expirationTimestamp: String, 
+			token: String
+		) {
+			self.expirationTimestamp = expirationTimestamp
+			self.token = token
+		}
 	}
 }
 

@@ -26,17 +26,26 @@ public extension core.v1 {
 		/// Container name: required for volumes, optional for env vars
 		///
 		public var containerName: String?
-
 		///
 		/// Specifies the output format of the exposed resources, defaults to "1"
 		///
 		public var divisor: Quantity?
-
 		///
 		/// Required: resource to select
 		///
 		public var resource: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			containerName: String?, 
+			divisor: Quantity?, 
+			resource: String
+		) {
+			self.containerName = containerName
+			self.divisor = divisor
+			self.resource = resource
+		}
 	}
 }
 

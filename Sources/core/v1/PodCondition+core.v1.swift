@@ -26,32 +26,44 @@ public extension core.v1 {
 		/// Last time we probed the condition.
 		///
 		public var lastProbeTime: String?
-
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
 		public var lastTransitionTime: String?
-
 		///
 		/// Human-readable message indicating details about last transition.
 		///
 		public var message: String?
-
 		///
 		/// Unique, one-word, CamelCase reason for the condition's last transition.
 		///
 		public var reason: String?
-
 		///
 		/// Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
 		///
 		public var status: String
-
 		///
 		/// Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
 		///
 		public var type: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			lastProbeTime: String?, 
+			lastTransitionTime: String?, 
+			message: String?, 
+			reason: String?, 
+			status: String, 
+			type: String
+		) {
+			self.lastProbeTime = lastProbeTime
+			self.lastTransitionTime = lastTransitionTime
+			self.message = message
+			self.reason = reason
+			self.status = status
+			self.type = type
+		}
 	}
 }
 

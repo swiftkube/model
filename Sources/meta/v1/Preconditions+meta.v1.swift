@@ -26,12 +26,20 @@ public extension meta.v1 {
 		/// Specifies the target ResourceVersion
 		///
 		public var resourceVersion: String?
-
 		///
 		/// Specifies the target UID.
 		///
 		public var uid: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			resourceVersion: String?, 
+			uid: String?
+		) {
+			self.resourceVersion = resourceVersion
+			self.uid = uid
+		}
 	}
 }
 

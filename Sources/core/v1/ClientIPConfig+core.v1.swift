@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// timeoutSeconds specifies the seconds of ClientIP type session sticky time. The value must be >0 && <=86400(for 1 day) if ServiceAffinity == "ClientIP". Default value is 10800(for 3 hours).
 		///
 		public var timeoutSeconds: Int32?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			timeoutSeconds: Int32?
+		) {
+			self.timeoutSeconds = timeoutSeconds
+		}
 	}
 }
 

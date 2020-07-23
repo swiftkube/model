@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.
 		///
 		public var ingress: [core.v1.LoadBalancerIngress]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			ingress: [core.v1.LoadBalancerIngress]?
+		) {
+			self.ingress = ingress
+		}
 	}
 }
 

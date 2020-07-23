@@ -26,27 +26,34 @@ public extension apiextensions.v1 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "apiextensions.k8s.io/v1"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "CustomResourceDefinition"
-
 		///
 		/// No description
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// spec describes how the user wants the resources to appear
 		///
 		public var spec: apiextensions.v1.CustomResourceDefinitionSpec
-
 		///
 		/// status indicates the actual state of the CustomResourceDefinition
 		///
 		public var status: apiextensions.v1.CustomResourceDefinitionStatus?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			spec: apiextensions.v1.CustomResourceDefinitionSpec, 
+			status: apiextensions.v1.CustomResourceDefinitionStatus?
+		) {
+			self.metadata = metadata
+			self.spec = spec
+			self.status = status
+		}
 	}
 }
 

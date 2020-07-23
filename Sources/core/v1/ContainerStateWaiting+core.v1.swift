@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Message regarding why the container is not yet running.
 		///
 		public var message: String?
-
 		///
 		/// (brief) reason the container is not yet running.
 		///
 		public var reason: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			message: String?, 
+			reason: String?
+		) {
+			self.message = message
+			self.reason = reason
+		}
 	}
 }
 

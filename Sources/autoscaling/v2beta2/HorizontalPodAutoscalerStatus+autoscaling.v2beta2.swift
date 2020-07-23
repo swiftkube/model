@@ -26,32 +26,44 @@ public extension autoscaling.v2beta2 {
 		/// conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.
 		///
 		public var conditions: [autoscaling.v2beta2.HorizontalPodAutoscalerCondition]
-
 		///
 		/// currentMetrics is the last read state of the metrics used by this autoscaler.
 		///
 		public var currentMetrics: [autoscaling.v2beta2.MetricStatus]?
-
 		///
 		/// currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.
 		///
 		public var currentReplicas: Int32
-
 		///
 		/// desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.
 		///
 		public var desiredReplicas: Int32
-
 		///
 		/// lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.
 		///
 		public var lastScaleTime: String?
-
 		///
 		/// observedGeneration is the most recent generation observed by this autoscaler.
 		///
 		public var observedGeneration: Int64?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			conditions: [autoscaling.v2beta2.HorizontalPodAutoscalerCondition], 
+			currentMetrics: [autoscaling.v2beta2.MetricStatus]?, 
+			currentReplicas: Int32, 
+			desiredReplicas: Int32, 
+			lastScaleTime: String?, 
+			observedGeneration: Int64?
+		) {
+			self.conditions = conditions
+			self.currentMetrics = currentMetrics
+			self.currentReplicas = currentReplicas
+			self.desiredReplicas = desiredReplicas
+			self.lastScaleTime = lastScaleTime
+			self.observedGeneration = observedGeneration
+		}
 	}
 }
 

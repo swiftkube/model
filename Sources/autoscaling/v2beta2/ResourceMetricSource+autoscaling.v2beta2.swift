@@ -26,12 +26,20 @@ public extension autoscaling.v2beta2 {
 		/// name is the name of the resource in question.
 		///
 		public var name: String
-
 		///
 		/// target specifies the target value for the given metric
 		///
 		public var target: autoscaling.v2beta2.MetricTarget
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			name: String, 
+			target: autoscaling.v2beta2.MetricTarget
+		) {
+			self.name = name
+			self.target = target
+		}
 	}
 }
 

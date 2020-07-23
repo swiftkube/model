@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// Required. A list of node selector terms. The terms are ORed.
 		///
 		public var nodeSelectorTerms: [core.v1.NodeSelectorTerm]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			nodeSelectorTerms: [core.v1.NodeSelectorTerm]
+		) {
+			self.nodeSelectorTerms = nodeSelectorTerms
+		}
 	}
 }
 

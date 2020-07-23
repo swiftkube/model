@@ -26,12 +26,20 @@ public extension networking.v1 {
 		/// CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24"
 		///
 		public var cidr: String
-
 		///
 		/// Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range
 		///
 		public var except: [String]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			cidr: String, 
+			except: [String]?
+		) {
+			self.cidr = cidr
+			self.except = except
+		}
 	}
 }
 

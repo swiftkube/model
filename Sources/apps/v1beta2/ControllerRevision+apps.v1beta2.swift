@@ -26,27 +26,34 @@ public extension apps.v1beta2 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "apps/v1beta2"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "ControllerRevision"
-
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// Data is the serialized representation of the state.
 		///
 		public var data: [String: Any]?
-
 		///
 		/// Revision indicates the revision of the state represented by Data.
 		///
 		public var revision: Int64
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			data: [String: Any]?, 
+			revision: Int64
+		) {
+			self.metadata = metadata
+			self.data = data
+			self.revision = revision
+		}
 	}
 }
 

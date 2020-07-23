@@ -26,17 +26,26 @@ public extension rbac.v1beta1 {
 		/// Kind is the type of resource being referenced
 		///
 		public var kind: String
-
 		///
 		/// APIGroup is the group for the resource being referenced
 		///
 		public var apiGroup: String
-
 		///
 		/// Name is the name of resource being referenced
 		///
 		public var name: String
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			kind: String, 
+			apiGroup: String, 
+			name: String
+		) {
+			self.kind = kind
+			self.apiGroup = apiGroup
+			self.name = name
+		}
 	}
 }
 

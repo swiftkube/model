@@ -26,7 +26,14 @@ public extension extensions.v1beta1 {
 		/// A collection of paths that map requests to backends.
 		///
 		public var paths: [extensions.v1beta1.HTTPIngressPath]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			paths: [extensions.v1beta1.HTTPIngressPath]
+		) {
+			self.paths = paths
+		}
 	}
 }
 

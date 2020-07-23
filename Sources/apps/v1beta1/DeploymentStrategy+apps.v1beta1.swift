@@ -26,12 +26,20 @@ public extension apps.v1beta1 {
 		/// Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
 		///
 		public var rollingUpdate: apps.v1beta1.RollingUpdateDeployment?
-
 		///
 		/// Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
 		///
 		public var type: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			rollingUpdate: apps.v1beta1.RollingUpdateDeployment?, 
+			type: String?
+		) {
+			self.rollingUpdate = rollingUpdate
+			self.type = type
+		}
 	}
 }
 

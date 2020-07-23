@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Represents the latest available observations of a namespace's current state.
 		///
 		public var conditions: [core.v1.NamespaceCondition]?
-
 		///
 		/// Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 		///
 		public var phase: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			conditions: [core.v1.NamespaceCondition]?, 
+			phase: String?
+		) {
+			self.conditions = conditions
+			self.phase = phase
+		}
 	}
 }
 

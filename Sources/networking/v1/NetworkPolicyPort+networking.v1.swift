@@ -26,12 +26,20 @@ public extension networking.v1 {
 		/// The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers.
 		///
 		public var port: IntOrString?
-
 		///
 		/// The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
 		///
 		public var `protocol`: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			port: IntOrString?, 
+			`protocol`: String?
+		) {
+			self.port = port
+			self.`protocol` = `protocol`
+		}
 	}
 }
 

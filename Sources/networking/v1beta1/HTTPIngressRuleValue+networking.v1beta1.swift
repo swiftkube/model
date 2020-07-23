@@ -26,7 +26,14 @@ public extension networking.v1beta1 {
 		/// A collection of paths that map requests to backends.
 		///
 		public var paths: [networking.v1beta1.HTTPIngressPath]
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			paths: [networking.v1beta1.HTTPIngressPath]
+		) {
+			self.paths = paths
+		}
 	}
 }
 

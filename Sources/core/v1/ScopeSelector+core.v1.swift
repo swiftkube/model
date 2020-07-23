@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// A list of scope selector requirements by scope of the resources.
 		///
 		public var matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
+		) {
+			self.matchExpressions = matchExpressions
+		}
 	}
 }
 

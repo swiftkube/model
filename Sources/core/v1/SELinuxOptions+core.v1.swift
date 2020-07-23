@@ -26,22 +26,32 @@ public extension core.v1 {
 		/// Level is SELinux level label that applies to the container.
 		///
 		public var level: String?
-
 		///
 		/// Role is a SELinux role label that applies to the container.
 		///
 		public var role: String?
-
 		///
 		/// Type is a SELinux type label that applies to the container.
 		///
 		public var type: String?
-
 		///
 		/// User is a SELinux user label that applies to the container.
 		///
 		public var user: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			level: String?, 
+			role: String?, 
+			type: String?, 
+			user: String?
+		) {
+			self.level = level
+			self.role = role
+			self.type = type
+			self.user = user
+		}
 	}
 }
 

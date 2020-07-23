@@ -26,27 +26,34 @@ public extension autoscaling.v2beta2 {
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "autoscaling/v2beta2"
-
 		///
 		/// Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
 		///
 		public let kind: String = "HorizontalPodAutoscaler"
-
 		///
 		/// metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
 		public var metadata: meta.v1.ObjectMeta?
-
 		///
 		/// spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
 		///
 		public var spec: autoscaling.v2beta2.HorizontalPodAutoscalerSpec?
-
 		///
 		/// status is the current information about the autoscaler.
 		///
 		public var status: autoscaling.v2beta2.HorizontalPodAutoscalerStatus?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			metadata: meta.v1.ObjectMeta?, 
+			spec: autoscaling.v2beta2.HorizontalPodAutoscalerSpec?, 
+			status: autoscaling.v2beta2.HorizontalPodAutoscalerStatus?
+		) {
+			self.metadata = metadata
+			self.spec = spec
+			self.status = status
+		}
 	}
 }
 

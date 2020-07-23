@@ -26,12 +26,20 @@ public extension core.v1 {
 		/// Optional: Host name to connect to, defaults to the pod IP.
 		///
 		public var host: String?
-
 		///
 		/// Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 		///
 		public var port: IntOrString
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			host: String?, 
+			port: IntOrString
+		) {
+			self.host = host
+			self.port = port
+		}
 	}
 }
 

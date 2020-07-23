@@ -26,7 +26,14 @@ public extension apps.v1beta1 {
 		/// The revision to rollback to. If set to 0, rollback to the last revision.
 		///
 		public var revision: Int64?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			revision: Int64?
+		) {
+			self.revision = revision
+		}
 	}
 }
 

@@ -26,7 +26,14 @@ public extension core.v1 {
 		/// LoadBalancer contains the current status of the load-balancer, if one is present.
 		///
 		public var loadBalancer: core.v1.LoadBalancerStatus?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			loadBalancer: core.v1.LoadBalancerStatus?
+		) {
+			self.loadBalancer = loadBalancer
+		}
 	}
 }
 

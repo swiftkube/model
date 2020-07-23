@@ -26,12 +26,20 @@ public extension storage.v1alpha1 {
 		/// String detailing the error encountered during Attach or Detach operation. This string maybe logged, so it should not contain sensitive information.
 		///
 		public var message: String?
-
 		///
 		/// Time the error was encountered.
 		///
 		public var time: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			message: String?, 
+			time: String?
+		) {
+			self.message = message
+			self.time = time
+		}
 	}
 }
 

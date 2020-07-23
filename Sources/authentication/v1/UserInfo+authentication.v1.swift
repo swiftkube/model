@@ -26,22 +26,32 @@ public extension authentication.v1 {
 		/// Any additional information provided by the authenticator.
 		///
 		public var extra: [String: [String]]?
-
 		///
 		/// The names of groups this user is a part of.
 		///
 		public var groups: [String]?
-
 		///
 		/// A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.
 		///
 		public var uid: String?
-
 		///
 		/// The name that uniquely identifies this user among all active users.
 		///
 		public var username: String?
-
+		///
+		/// Default memberwise initializer
+		///
+		public init(
+			extra: [String: [String]]?, 
+			groups: [String]?, 
+			uid: String?, 
+			username: String?
+		) {
+			self.extra = extra
+			self.groups = groups
+			self.uid = uid
+			self.username = username
+		}
 	}
 }
 
