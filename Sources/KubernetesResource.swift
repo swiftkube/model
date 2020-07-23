@@ -20,7 +20,7 @@ public protocol KubernetesResource: Codable {
 }
 
 public protocol KubernetesResourceList: Codable {
-	associatedtype Resource
+	associatedtype Item
 
-	var items: [Resource] { get }
+	var items: [Item] { get }
 }
