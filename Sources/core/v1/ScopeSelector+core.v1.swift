@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			matchExpressions: [core.v1.ScopedResourceSelectorRequirement]?
+			matchExpressions: [core.v1.ScopedResourceSelectorRequirement]? = nil
 		) {
 			self.matchExpressions = matchExpressions
 		}

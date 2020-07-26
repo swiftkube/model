@@ -106,22 +106,22 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			annotations: [String: String]?, 
-			clusterName: String?, 
-			creationTimestamp: String?, 
-			deletionGracePeriodSeconds: Int64?, 
-			deletionTimestamp: String?, 
-			finalizers: [String]?, 
-			generateName: String?, 
-			generation: Int64?, 
-			labels: [String: String]?, 
-			managedFields: [meta.v1.ManagedFieldsEntry]?, 
-			name: String?, 
-			namespace: String?, 
-			ownerReferences: [meta.v1.OwnerReference]?, 
-			resourceVersion: String?, 
-			selfLink: String?, 
-			uid: String?
+			annotations: [String: String]? = nil,
+			clusterName: String? = nil,
+			creationTimestamp: String? = nil,
+			deletionGracePeriodSeconds: Int64? = nil,
+			deletionTimestamp: String? = nil,
+			finalizers: [String]? = nil,
+			generateName: String? = nil,
+			generation: Int64? = nil,
+			labels: [String: String]? = nil,
+			managedFields: [meta.v1.ManagedFieldsEntry]? = nil,
+			name: String? = nil,
+			namespace: String? = nil,
+			ownerReferences: [meta.v1.OwnerReference]? = nil,
+			resourceVersion: String? = nil,
+			selfLink: String? = nil,
+			uid: String? = nil
 		) {
 			self.annotations = annotations
 			self.clusterName = clusterName

@@ -34,8 +34,8 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ports: [networking.v1.NetworkPolicyPort]?, 
-			to: [networking.v1.NetworkPolicyPeer]?
+			ports: [networking.v1.NetworkPolicyPort]? = nil,
+			to: [networking.v1.NetworkPolicyPeer]? = nil
 		) {
 			self.ports = ports
 			self.to = to

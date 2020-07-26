@@ -30,7 +30,7 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			maxUnavailable: IntOrString?
+			maxUnavailable: IntOrString? = nil
 		) {
 			self.maxUnavailable = maxUnavailable
 		}

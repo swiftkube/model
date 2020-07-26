@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			endpoints: String, 
-			path: String, 
-			readOnly: Bool?
+			endpoints: String,
+			path: String,
+			readOnly: Bool? = nil
 		) {
 			self.endpoints = endpoints
 			self.path = path

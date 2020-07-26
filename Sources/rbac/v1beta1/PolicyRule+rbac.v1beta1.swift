@@ -46,10 +46,10 @@ public extension rbac.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiGroups: [String]?, 
-			nonResourceURLs: [String]?, 
-			resourceNames: [String]?, 
-			resources: [String]?, 
+			apiGroups: [String]? = nil,
+			nonResourceURLs: [String]? = nil,
+			resourceNames: [String]? = nil,
+			resources: [String]? = nil,
 			verbs: [String]
 		) {
 			self.apiGroups = apiGroups

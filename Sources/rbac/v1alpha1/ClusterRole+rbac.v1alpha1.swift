@@ -46,9 +46,9 @@ public extension rbac.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			aggregationRule: rbac.v1alpha1.AggregationRule?, 
-			rules: [rbac.v1alpha1.PolicyRule]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			aggregationRule: rbac.v1alpha1.AggregationRule? = nil,
+			rules: [rbac.v1alpha1.PolicyRule]? = nil
 		) {
 			self.metadata = metadata
 			self.aggregationRule = aggregationRule

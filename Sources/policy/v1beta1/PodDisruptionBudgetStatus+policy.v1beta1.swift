@@ -50,12 +50,12 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			currentHealthy: Int32, 
-			desiredHealthy: Int32, 
-			disruptedPods: [String: String]?, 
-			disruptionsAllowed: Int32, 
-			expectedPods: Int32, 
-			observedGeneration: Int64?
+			currentHealthy: Int32,
+			desiredHealthy: Int32,
+			disruptedPods: [String: String]? = nil,
+			disruptionsAllowed: Int32,
+			expectedPods: Int32,
+			observedGeneration: Int64? = nil
 		) {
 			self.currentHealthy = currentHealthy
 			self.desiredHealthy = desiredHealthy

@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			hostname: String?, 
-			ip: String, 
-			nodeName: String?, 
-			targetRef: core.v1.ObjectReference?
+			hostname: String? = nil,
+			ip: String,
+			nodeName: String? = nil,
+			targetRef: core.v1.ObjectReference? = nil
 		) {
 			self.hostname = hostname
 			self.ip = ip

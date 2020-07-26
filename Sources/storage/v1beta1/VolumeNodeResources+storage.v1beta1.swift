@@ -30,7 +30,7 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			count: Int32?
+			count: Int32? = nil
 		) {
 			self.count = count
 		}

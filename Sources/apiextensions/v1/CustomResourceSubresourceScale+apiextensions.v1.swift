@@ -38,8 +38,8 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			labelSelectorPath: String?, 
-			specReplicasPath: String, 
+			labelSelectorPath: String? = nil,
+			specReplicasPath: String,
 			statusReplicasPath: String
 		) {
 			self.labelSelectorPath = labelSelectorPath

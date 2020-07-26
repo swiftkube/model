@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			host: String?, 
-			httpHeaders: [core.v1.HTTPHeader]?, 
-			path: String?, 
-			port: IntOrString, 
-			scheme: String?
+			host: String? = nil,
+			httpHeaders: [core.v1.HTTPHeader]? = nil,
+			path: String? = nil,
+			port: IntOrString,
+			scheme: String? = nil
 		) {
 			self.host = host
 			self.httpHeaders = httpHeaders

@@ -44,9 +44,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			partition: Int32?, 
-			readOnly: Bool?, 
+			fsType: String? = nil,
+			partition: Int32? = nil,
+			readOnly: Bool? = nil,
 			volumeID: String
 		) {
 			self.fsType = fsType

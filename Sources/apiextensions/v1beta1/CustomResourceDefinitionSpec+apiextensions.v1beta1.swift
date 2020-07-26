@@ -66,16 +66,16 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			additionalPrinterColumns: [apiextensions.v1beta1.CustomResourceColumnDefinition]?, 
-			conversion: apiextensions.v1beta1.CustomResourceConversion?, 
-			group: String, 
-			names: apiextensions.v1beta1.CustomResourceDefinitionNames, 
-			preserveUnknownFields: Bool?, 
-			scope: String, 
-			subresources: apiextensions.v1beta1.CustomResourceSubresources?, 
-			validation: apiextensions.v1beta1.CustomResourceValidation?, 
-			version: String?, 
-			versions: [apiextensions.v1beta1.CustomResourceDefinitionVersion]?
+			additionalPrinterColumns: [apiextensions.v1beta1.CustomResourceColumnDefinition]? = nil,
+			conversion: apiextensions.v1beta1.CustomResourceConversion? = nil,
+			group: String,
+			names: apiextensions.v1beta1.CustomResourceDefinitionNames,
+			preserveUnknownFields: Bool? = nil,
+			scope: String,
+			subresources: apiextensions.v1beta1.CustomResourceSubresources? = nil,
+			validation: apiextensions.v1beta1.CustomResourceValidation? = nil,
+			version: String? = nil,
+			versions: [apiextensions.v1beta1.CustomResourceDefinitionVersion]? = nil
 		) {
 			self.additionalPrinterColumns = additionalPrinterColumns
 			self.conversion = conversion

@@ -50,12 +50,12 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String?, 
-			causes: [meta.v1.StatusCause]?, 
-			group: String?, 
-			name: String?, 
-			retryAfterSeconds: Int32?, 
-			uid: String?
+			kind: String? = nil,
+			causes: [meta.v1.StatusCause]? = nil,
+			group: String? = nil,
+			name: String? = nil,
+			retryAfterSeconds: Int32? = nil,
+			uid: String? = nil
 		) {
 			self.kind = kind
 			self.causes = causes

@@ -54,13 +54,13 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			configSource: core.v1.NodeConfigSource?, 
-			externalID: String?, 
-			podCIDR: String?, 
-			podCIDRs: [String]?, 
-			providerID: String?, 
-			taints: [core.v1.Taint]?, 
-			unschedulable: Bool?
+			configSource: core.v1.NodeConfigSource? = nil,
+			externalID: String? = nil,
+			podCIDR: String? = nil,
+			podCIDRs: [String]? = nil,
+			providerID: String? = nil,
+			taints: [core.v1.Taint]? = nil,
+			unschedulable: Bool? = nil
 		) {
 			self.configSource = configSource
 			self.externalID = externalID

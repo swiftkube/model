@@ -54,13 +54,13 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
-			kind: String?, 
-			fieldPath: String?, 
-			name: String?, 
-			namespace: String?, 
-			resourceVersion: String?, 
-			uid: String?
+			apiVersion: String? = nil,
+			kind: String? = nil,
+			fieldPath: String? = nil,
+			name: String? = nil,
+			namespace: String? = nil,
+			resourceVersion: String? = nil,
+			uid: String? = nil
 		) {
 			self.apiVersion = apiVersion
 			self.kind = kind

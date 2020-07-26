@@ -54,10 +54,10 @@ public extension scheduling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			description: String?, 
-			globalDefault: Bool?, 
-			preemptionPolicy: String?, 
+			metadata: meta.v1.ObjectMeta? = nil,
+			description: String? = nil,
+			globalDefault: Bool? = nil,
+			preemptionPolicy: String? = nil,
 			value: Int32
 		) {
 			self.metadata = metadata

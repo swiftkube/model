@@ -36,8 +36,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			optional: Bool?
+			name: String? = nil,
+			optional: Bool? = nil
 		) {
 			self.name = name
 			self.optional = optional

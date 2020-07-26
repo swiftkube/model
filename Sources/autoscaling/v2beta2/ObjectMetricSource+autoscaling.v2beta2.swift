@@ -38,8 +38,8 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			describedObject: autoscaling.v2beta2.CrossVersionObjectReference, 
-			metric: autoscaling.v2beta2.MetricIdentifier, 
+			describedObject: autoscaling.v2beta2.CrossVersionObjectReference,
+			metric: autoscaling.v2beta2.MetricIdentifier,
 			target: autoscaling.v2beta2.MetricTarget
 		) {
 			self.describedObject = describedObject

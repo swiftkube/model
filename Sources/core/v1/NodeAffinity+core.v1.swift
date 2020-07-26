@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			preferredDuringSchedulingIgnoredDuringExecution: [core.v1.PreferredSchedulingTerm]?, 
-			requiredDuringSchedulingIgnoredDuringExecution: core.v1.NodeSelector?
+			preferredDuringSchedulingIgnoredDuringExecution: [core.v1.PreferredSchedulingTerm]? = nil,
+			requiredDuringSchedulingIgnoredDuringExecution: core.v1.NodeSelector? = nil
 		) {
 			self.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution
 			self.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution

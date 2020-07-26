@@ -31,7 +31,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ip: String?
+			ip: String? = nil
 		) {
 			self.ip = ip
 		}

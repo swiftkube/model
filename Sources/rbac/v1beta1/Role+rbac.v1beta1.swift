@@ -42,8 +42,8 @@ public extension rbac.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			rules: [rbac.v1beta1.PolicyRule]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			rules: [rbac.v1beta1.PolicyRule]? = nil
 		) {
 			self.metadata = metadata
 			self.rules = rules

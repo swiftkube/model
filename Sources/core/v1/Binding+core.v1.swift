@@ -42,7 +42,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
+			metadata: meta.v1.ObjectMeta? = nil,
 			target: core.v1.ObjectReference
 		) {
 			self.metadata = metadata

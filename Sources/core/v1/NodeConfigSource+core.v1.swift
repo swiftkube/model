@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			configMap: core.v1.ConfigMapNodeConfigSource?
+			configMap: core.v1.ConfigMapNodeConfigSource? = nil
 		) {
 			self.configMap = configMap
 		}

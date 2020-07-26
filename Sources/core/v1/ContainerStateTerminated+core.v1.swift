@@ -54,13 +54,13 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			containerID: String?, 
-			exitCode: Int32, 
-			finishedAt: String?, 
-			message: String?, 
-			reason: String?, 
-			signal: Int32?, 
-			startedAt: String?
+			containerID: String? = nil,
+			exitCode: Int32,
+			finishedAt: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			signal: Int32? = nil,
+			startedAt: String? = nil
 		) {
 			self.containerID = containerID
 			self.exitCode = exitCode

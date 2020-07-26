@@ -50,9 +50,9 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			preferredVersion: meta.v1.GroupVersionForDiscovery?, 
-			serverAddressByClientCIDRs: [meta.v1.ServerAddressByClientCIDR]?, 
+			name: String,
+			preferredVersion: meta.v1.GroupVersionForDiscovery? = nil,
+			serverAddressByClientCIDRs: [meta.v1.ServerAddressByClientCIDR]? = nil,
 			versions: [meta.v1.GroupVersionForDiscovery]
 		) {
 			self.name = name

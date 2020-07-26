@@ -46,9 +46,9 @@ public extension networking.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: networking.v1beta1.IngressSpec?, 
-			status: networking.v1beta1.IngressStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: networking.v1beta1.IngressSpec? = nil,
+			status: networking.v1beta1.IngressStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

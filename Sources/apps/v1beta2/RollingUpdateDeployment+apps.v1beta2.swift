@@ -34,8 +34,8 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			maxSurge: IntOrString?, 
-			maxUnavailable: IntOrString?
+			maxSurge: IntOrString? = nil,
+			maxUnavailable: IntOrString? = nil
 		) {
 			self.maxSurge = maxSurge
 			self.maxUnavailable = maxUnavailable

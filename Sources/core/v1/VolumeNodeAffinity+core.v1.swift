@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			required: core.v1.NodeSelector?
+			required: core.v1.NodeSelector? = nil
 		) {
 			self.required = required
 		}

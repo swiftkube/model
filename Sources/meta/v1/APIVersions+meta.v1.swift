@@ -42,7 +42,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			serverAddressByClientCIDRs: [meta.v1.ServerAddressByClientCIDR], 
+			serverAddressByClientCIDRs: [meta.v1.ServerAddressByClientCIDR],
 			versions: [String]
 		) {
 			self.serverAddressByClientCIDRs = serverAddressByClientCIDRs

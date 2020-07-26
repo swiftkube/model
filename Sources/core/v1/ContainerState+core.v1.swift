@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			running: core.v1.ContainerStateRunning?, 
-			terminated: core.v1.ContainerStateTerminated?, 
-			waiting: core.v1.ContainerStateWaiting?
+			running: core.v1.ContainerStateRunning? = nil,
+			terminated: core.v1.ContainerStateTerminated? = nil,
+			waiting: core.v1.ContainerStateWaiting? = nil
 		) {
 			self.running = running
 			self.terminated = terminated

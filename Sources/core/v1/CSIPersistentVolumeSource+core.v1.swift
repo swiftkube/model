@@ -62,14 +62,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			controllerExpandSecretRef: core.v1.SecretReference?, 
-			controllerPublishSecretRef: core.v1.SecretReference?, 
-			driver: String, 
-			fsType: String?, 
-			nodePublishSecretRef: core.v1.SecretReference?, 
-			nodeStageSecretRef: core.v1.SecretReference?, 
-			readOnly: Bool?, 
-			volumeAttributes: [String: String]?, 
+			controllerExpandSecretRef: core.v1.SecretReference? = nil,
+			controllerPublishSecretRef: core.v1.SecretReference? = nil,
+			driver: String,
+			fsType: String? = nil,
+			nodePublishSecretRef: core.v1.SecretReference? = nil,
+			nodeStageSecretRef: core.v1.SecretReference? = nil,
+			readOnly: Bool? = nil,
+			volumeAttributes: [String: String]? = nil,
 			volumeHandle: String
 		) {
 			self.controllerExpandSecretRef = controllerExpandSecretRef

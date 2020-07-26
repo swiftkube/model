@@ -34,8 +34,8 @@ public extension batch.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			active: [core.v1.ObjectReference]?, 
-			lastScheduleTime: String?
+			active: [core.v1.ObjectReference]? = nil,
+			lastScheduleTime: String? = nil
 		) {
 			self.active = active
 			self.lastScheduleTime = lastScheduleTime

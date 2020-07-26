@@ -34,7 +34,7 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			policy: auditregistration.v1alpha1.Policy, 
+			policy: auditregistration.v1alpha1.Policy,
 			webhook: auditregistration.v1alpha1.Webhook
 		) {
 			self.policy = policy

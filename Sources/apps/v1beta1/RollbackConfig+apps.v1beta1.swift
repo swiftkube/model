@@ -30,7 +30,7 @@ public extension apps.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			revision: Int64?
+			revision: Int64? = nil
 		) {
 			self.revision = revision
 		}

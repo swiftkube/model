@@ -30,7 +30,7 @@ public extension node.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			podFixed: [String: Quantity]?
+			podFixed: [String: Quantity]? = nil
 		) {
 			self.podFixed = podFixed
 		}

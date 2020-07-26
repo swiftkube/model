@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			path: String, 
-			type: String?
+			path: String,
+			type: String? = nil
 		) {
 			self.path = path
 			self.type = type

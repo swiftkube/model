@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			podAffinityTerm: core.v1.PodAffinityTerm, 
+			podAffinityTerm: core.v1.PodAffinityTerm,
 			weight: Int32
 		) {
 			self.podAffinityTerm = podAffinityTerm

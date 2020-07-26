@@ -35,8 +35,8 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			strategy: String, 
-			webhook: apiextensions.v1.WebhookConversion?
+			strategy: String,
+			webhook: apiextensions.v1.WebhookConversion? = nil
 		) {
 			self.strategy = strategy
 			self.webhook = webhook

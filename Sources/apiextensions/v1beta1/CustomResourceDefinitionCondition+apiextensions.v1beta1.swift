@@ -46,10 +46,10 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastTransitionTime: String?, 
-			message: String?, 
-			reason: String?, 
-			status: String, 
+			lastTransitionTime: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			status: String,
 			type: String
 		) {
 			self.lastTransitionTime = lastTransitionTime

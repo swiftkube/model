@@ -42,8 +42,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: core.v1.LimitRangeSpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: core.v1.LimitRangeSpec? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

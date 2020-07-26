@@ -58,14 +58,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			image: String, 
-			keyring: String?, 
-			monitors: [String], 
-			pool: String?, 
-			readOnly: Bool?, 
-			secretRef: core.v1.LocalObjectReference?, 
-			user: String?
+			fsType: String? = nil,
+			image: String,
+			keyring: String? = nil,
+			monitors: [String],
+			pool: String? = nil,
+			readOnly: Bool? = nil,
+			secretRef: core.v1.LocalObjectReference? = nil,
+			user: String? = nil
 		) {
 			self.fsType = fsType
 			self.image = image

@@ -30,7 +30,7 @@ public extension apiregistration.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conditions: [apiregistration.v1beta1.APIServiceCondition]?
+			conditions: [apiregistration.v1beta1.APIServiceCondition]? = nil
 		) {
 			self.conditions = conditions
 		}

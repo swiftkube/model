@@ -46,9 +46,9 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: apiextensions.v1beta1.CustomResourceDefinitionSpec, 
-			status: apiextensions.v1beta1.CustomResourceDefinitionStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: apiextensions.v1beta1.CustomResourceDefinitionSpec,
+			status: apiextensions.v1beta1.CustomResourceDefinitionStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

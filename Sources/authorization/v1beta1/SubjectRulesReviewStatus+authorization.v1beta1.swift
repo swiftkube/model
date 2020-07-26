@@ -42,9 +42,9 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			evaluationError: String?, 
-			incomplete: Bool, 
-			nonResourceRules: [authorization.v1beta1.NonResourceRule], 
+			evaluationError: String? = nil,
+			incomplete: Bool,
+			nonResourceRules: [authorization.v1beta1.NonResourceRule],
 			resourceRules: [authorization.v1beta1.ResourceRule]
 		) {
 			self.evaluationError = evaluationError

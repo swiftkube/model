@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			audience: String?, 
-			expirationSeconds: Int64?, 
+			audience: String? = nil,
+			expirationSeconds: Int64? = nil,
 			path: String
 		) {
 			self.audience = audience

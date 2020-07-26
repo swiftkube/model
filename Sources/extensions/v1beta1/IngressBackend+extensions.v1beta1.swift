@@ -34,7 +34,7 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			serviceName: String, 
+			serviceName: String,
 			servicePort: IntOrString
 		) {
 			self.serviceName = serviceName

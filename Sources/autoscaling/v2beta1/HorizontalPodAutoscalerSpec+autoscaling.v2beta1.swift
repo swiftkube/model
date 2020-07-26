@@ -42,9 +42,9 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			maxReplicas: Int32, 
-			metrics: [autoscaling.v2beta1.MetricSpec]?, 
-			minReplicas: Int32?, 
+			maxReplicas: Int32,
+			metrics: [autoscaling.v2beta1.MetricSpec]? = nil,
+			minReplicas: Int32? = nil,
 			scaleTargetRef: autoscaling.v2beta1.CrossVersionObjectReference
 		) {
 			self.maxReplicas = maxReplicas

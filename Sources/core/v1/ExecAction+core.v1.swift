@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			command: [String]?
+			command: [String]? = nil
 		) {
 			self.command = command
 		}

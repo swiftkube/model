@@ -70,16 +70,16 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			chapAuthDiscovery: Bool?, 
-			chapAuthSession: Bool?, 
-			fsType: String?, 
-			initiatorName: String?, 
-			iqn: String, 
-			iscsiInterface: String?, 
-			lun: Int32, 
-			portals: [String]?, 
-			readOnly: Bool?, 
-			secretRef: core.v1.LocalObjectReference?, 
+			chapAuthDiscovery: Bool? = nil,
+			chapAuthSession: Bool? = nil,
+			fsType: String? = nil,
+			initiatorName: String? = nil,
+			iqn: String,
+			iscsiInterface: String? = nil,
+			lun: Int32,
+			portals: [String]? = nil,
+			readOnly: Bool? = nil,
+			secretRef: core.v1.LocalObjectReference? = nil,
 			targetPortal: String
 		) {
 			self.chapAuthDiscovery = chapAuthDiscovery

@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clientIP: core.v1.ClientIPConfig?
+			clientIP: core.v1.ClientIPConfig? = nil
 		) {
 			self.clientIP = clientIP
 		}

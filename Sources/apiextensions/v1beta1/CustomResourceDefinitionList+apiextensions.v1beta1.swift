@@ -44,7 +44,7 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [apiextensions.v1beta1.CustomResourceDefinition]
 		) {
 			self.metadata = metadata

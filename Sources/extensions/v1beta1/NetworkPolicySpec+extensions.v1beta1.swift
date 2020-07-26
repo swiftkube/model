@@ -42,10 +42,10 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			egress: [extensions.v1beta1.NetworkPolicyEgressRule]?, 
-			ingress: [extensions.v1beta1.NetworkPolicyIngressRule]?, 
-			podSelector: meta.v1.LabelSelector, 
-			policyTypes: [String]?
+			egress: [extensions.v1beta1.NetworkPolicyEgressRule]? = nil,
+			ingress: [extensions.v1beta1.NetworkPolicyIngressRule]? = nil,
+			podSelector: meta.v1.LabelSelector,
+			policyTypes: [String]? = nil
 		) {
 			self.egress = egress
 			self.ingress = ingress

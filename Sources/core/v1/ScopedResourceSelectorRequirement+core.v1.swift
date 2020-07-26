@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`operator`: String, 
-			scopeName: String, 
-			values: [String]?
+			`operator`: String,
+			scopeName: String,
+			values: [String]? = nil
 		) {
 			self.`operator` = `operator`
 			self.scopeName = scopeName

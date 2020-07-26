@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			hard: [String: Quantity]?, 
-			used: [String: Quantity]?
+			hard: [String: Quantity]? = nil,
+			used: [String: Quantity]? = nil
 		) {
 			self.hard = hard
 			self.used = used

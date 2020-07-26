@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			exec: core.v1.ExecAction?, 
-			httpGet: core.v1.HTTPGetAction?, 
-			tcpSocket: core.v1.TCPSocketAction?
+			exec: core.v1.ExecAction? = nil,
+			httpGet: core.v1.HTTPGetAction? = nil,
+			tcpSocket: core.v1.TCPSocketAction? = nil
 		) {
 			self.exec = exec
 			self.httpGet = httpGet

@@ -70,17 +70,17 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			addresses: [core.v1.NodeAddress]?, 
-			allocatable: [String: Quantity]?, 
-			capacity: [String: Quantity]?, 
-			conditions: [core.v1.NodeCondition]?, 
-			config: core.v1.NodeConfigStatus?, 
-			daemonEndpoints: core.v1.NodeDaemonEndpoints?, 
-			images: [core.v1.ContainerImage]?, 
-			nodeInfo: core.v1.NodeSystemInfo?, 
-			phase: String?, 
-			volumesAttached: [core.v1.AttachedVolume]?, 
-			volumesInUse: [String]?
+			addresses: [core.v1.NodeAddress]? = nil,
+			allocatable: [String: Quantity]? = nil,
+			capacity: [String: Quantity]? = nil,
+			conditions: [core.v1.NodeCondition]? = nil,
+			config: core.v1.NodeConfigStatus? = nil,
+			daemonEndpoints: core.v1.NodeDaemonEndpoints? = nil,
+			images: [core.v1.ContainerImage]? = nil,
+			nodeInfo: core.v1.NodeSystemInfo? = nil,
+			phase: String? = nil,
+			volumesAttached: [core.v1.AttachedVolume]? = nil,
+			volumesInUse: [String]? = nil
 		) {
 			self.addresses = addresses
 			self.allocatable = allocatable

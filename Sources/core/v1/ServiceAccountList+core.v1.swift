@@ -44,7 +44,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [core.v1.ServiceAccount]
 		) {
 			self.metadata = metadata

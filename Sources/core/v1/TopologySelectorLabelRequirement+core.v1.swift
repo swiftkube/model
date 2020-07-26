@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			key: String, 
+			key: String,
 			values: [String]
 		) {
 			self.key = key

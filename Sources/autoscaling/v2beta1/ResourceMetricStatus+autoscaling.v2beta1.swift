@@ -38,8 +38,8 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			currentAverageUtilization: Int32?, 
-			currentAverageValue: Quantity, 
+			currentAverageUtilization: Int32? = nil,
+			currentAverageValue: Quantity,
 			name: String
 		) {
 			self.currentAverageUtilization = currentAverageUtilization

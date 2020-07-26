@@ -46,9 +46,9 @@ public extension apps.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: apps.v1beta1.ScaleSpec?, 
-			status: apps.v1beta1.ScaleStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: apps.v1beta1.ScaleSpec? = nil,
+			status: apps.v1beta1.ScaleStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

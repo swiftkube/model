@@ -34,8 +34,8 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			level: String, 
-			stages: [String]?
+			level: String,
+			stages: [String]? = nil
 		) {
 			self.level = level
 			self.stages = stages

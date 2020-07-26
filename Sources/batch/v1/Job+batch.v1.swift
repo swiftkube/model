@@ -46,9 +46,9 @@ public extension batch.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: batch.v1.JobSpec?, 
-			status: batch.v1.JobStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: batch.v1.JobSpec? = nil,
+			status: batch.v1.JobStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

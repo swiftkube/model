@@ -58,13 +58,13 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			paused: Bool?, 
-			progressDeadlineSeconds: Int32?, 
-			replicas: Int32?, 
-			revisionHistoryLimit: Int32?, 
-			selector: meta.v1.LabelSelector, 
-			strategy: apps.v1.DeploymentStrategy?, 
+			minReadySeconds: Int32? = nil,
+			paused: Bool? = nil,
+			progressDeadlineSeconds: Int32? = nil,
+			replicas: Int32? = nil,
+			revisionHistoryLimit: Int32? = nil,
+			selector: meta.v1.LabelSelector,
+			strategy: apps.v1.DeploymentStrategy? = nil,
 			template: core.v1.PodTemplateSpec
 		) {
 			self.minReadySeconds = minReadySeconds

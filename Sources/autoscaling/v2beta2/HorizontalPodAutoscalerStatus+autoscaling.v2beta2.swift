@@ -50,12 +50,12 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conditions: [autoscaling.v2beta2.HorizontalPodAutoscalerCondition], 
-			currentMetrics: [autoscaling.v2beta2.MetricStatus]?, 
-			currentReplicas: Int32, 
-			desiredReplicas: Int32, 
-			lastScaleTime: String?, 
-			observedGeneration: Int64?
+			conditions: [autoscaling.v2beta2.HorizontalPodAutoscalerCondition],
+			currentMetrics: [autoscaling.v2beta2.MetricStatus]? = nil,
+			currentReplicas: Int32,
+			desiredReplicas: Int32,
+			lastScaleTime: String? = nil,
+			observedGeneration: Int64? = nil
 		) {
 			self.conditions = conditions
 			self.currentMetrics = currentMetrics

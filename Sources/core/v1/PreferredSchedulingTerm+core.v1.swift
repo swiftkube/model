@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			preference: core.v1.NodeSelectorTerm, 
+			preference: core.v1.NodeSelectorTerm,
 			weight: Int32
 		) {
 			self.preference = preference

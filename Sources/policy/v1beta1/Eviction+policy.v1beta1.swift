@@ -42,8 +42,8 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			deleteOptions: meta.v1.DeleteOptions?
+			metadata: meta.v1.ObjectMeta? = nil,
+			deleteOptions: meta.v1.DeleteOptions? = nil
 		) {
 			self.metadata = metadata
 			self.deleteOptions = deleteOptions

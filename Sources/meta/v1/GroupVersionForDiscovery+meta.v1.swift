@@ -34,7 +34,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			groupVersion: String, 
+			groupVersion: String,
 			version: String
 		) {
 			self.groupVersion = groupVersion

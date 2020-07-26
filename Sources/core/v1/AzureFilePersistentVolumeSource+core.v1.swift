@@ -42,9 +42,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			readOnly: Bool?, 
-			secretName: String, 
-			secretNamespace: String?, 
+			readOnly: Bool? = nil,
+			secretName: String,
+			secretNamespace: String? = nil,
 			shareName: String
 		) {
 			self.readOnly = readOnly

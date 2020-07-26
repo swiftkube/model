@@ -38,8 +38,8 @@ public extension storage.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			attacher: String, 
-			nodeName: String, 
+			attacher: String,
+			nodeName: String,
 			source: storage.v1alpha1.VolumeAttachmentSource
 		) {
 			self.attacher = attacher

@@ -42,8 +42,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			template: core.v1.PodTemplateSpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			template: core.v1.PodTemplateSpec? = nil
 		) {
 			self.metadata = metadata
 			self.template = template

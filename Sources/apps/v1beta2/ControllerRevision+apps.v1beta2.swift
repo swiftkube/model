@@ -46,8 +46,8 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			data: [String: Any]?, 
+			metadata: meta.v1.ObjectMeta? = nil,
+			data: [String: Any]? = nil,
 			revision: Int64
 		) {
 			self.metadata = metadata

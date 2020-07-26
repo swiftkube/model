@@ -46,9 +46,9 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: authorization.v1beta1.SelfSubjectAccessReviewSpec, 
-			status: authorization.v1beta1.SubjectAccessReviewStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: authorization.v1beta1.SelfSubjectAccessReviewSpec,
+			status: authorization.v1beta1.SubjectAccessReviewStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

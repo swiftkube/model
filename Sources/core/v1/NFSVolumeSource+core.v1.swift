@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			path: String, 
-			readOnly: Bool?, 
+			path: String,
+			readOnly: Bool? = nil,
 			server: String
 		) {
 			self.path = path

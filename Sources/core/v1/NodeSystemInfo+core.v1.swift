@@ -66,15 +66,15 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			architecture: String, 
-			bootID: String, 
-			containerRuntimeVersion: String, 
-			kernelVersion: String, 
-			kubeProxyVersion: String, 
-			kubeletVersion: String, 
-			machineID: String, 
-			operatingSystem: String, 
-			osImage: String, 
+			architecture: String,
+			bootID: String,
+			containerRuntimeVersion: String,
+			kernelVersion: String,
+			kubeProxyVersion: String,
+			kubeletVersion: String,
+			machineID: String,
+			operatingSystem: String,
+			osImage: String,
 			systemUUID: String
 		) {
 			self.architecture = architecture

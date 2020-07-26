@@ -43,9 +43,9 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiGroups: [String]?, 
-			resourceNames: [String]?, 
-			resources: [String]?, 
+			apiGroups: [String]? = nil,
+			resourceNames: [String]? = nil,
+			resources: [String]? = nil,
 			verbs: [String]
 		) {
 			self.apiGroups = apiGroups

@@ -34,8 +34,8 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			allowedRuntimeClassNames: [String], 
-			defaultRuntimeClassName: String?
+			allowedRuntimeClassNames: [String],
+			defaultRuntimeClassName: String? = nil
 		) {
 			self.allowedRuntimeClassNames = allowedRuntimeClassNames
 			self.defaultRuntimeClassName = defaultRuntimeClassName

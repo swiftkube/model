@@ -38,9 +38,9 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			key: String, 
-			`operator`: String, 
-			values: [String]?
+			key: String,
+			`operator`: String,
+			values: [String]? = nil
 		) {
 			self.key = key
 			self.`operator` = `operator`

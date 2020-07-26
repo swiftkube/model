@@ -34,8 +34,8 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			description: String?, 
-			url: String?
+			description: String? = nil,
+			url: String? = nil
 		) {
 			self.description = description
 			self.url = url

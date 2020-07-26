@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			accessModes: [String]?, 
-			capacity: [String: Quantity]?, 
-			conditions: [core.v1.PersistentVolumeClaimCondition]?, 
-			phase: String?
+			accessModes: [String]? = nil,
+			capacity: [String: Quantity]? = nil,
+			conditions: [core.v1.PersistentVolumeClaimCondition]? = nil,
+			phase: String? = nil
 		) {
 			self.accessModes = accessModes
 			self.capacity = capacity

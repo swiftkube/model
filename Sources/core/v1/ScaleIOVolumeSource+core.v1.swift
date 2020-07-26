@@ -66,16 +66,16 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			gateway: String, 
-			protectionDomain: String?, 
-			readOnly: Bool?, 
-			secretRef: core.v1.LocalObjectReference, 
-			sslEnabled: Bool?, 
-			storageMode: String?, 
-			storagePool: String?, 
-			system: String, 
-			volumeName: String?
+			fsType: String? = nil,
+			gateway: String,
+			protectionDomain: String? = nil,
+			readOnly: Bool? = nil,
+			secretRef: core.v1.LocalObjectReference,
+			sslEnabled: Bool? = nil,
+			storageMode: String? = nil,
+			storagePool: String? = nil,
+			system: String,
+			volumeName: String? = nil
 		) {
 			self.fsType = fsType
 			self.gateway = gateway

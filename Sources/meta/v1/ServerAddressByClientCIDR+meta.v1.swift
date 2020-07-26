@@ -34,7 +34,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clientCIDR: String, 
+			clientCIDR: String,
 			serverAddress: String
 		) {
 			self.clientCIDR = clientCIDR

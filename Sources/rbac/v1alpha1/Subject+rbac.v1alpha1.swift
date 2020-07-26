@@ -42,10 +42,10 @@ public extension rbac.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
-			kind: String, 
-			name: String, 
-			namespace: String?
+			apiVersion: String? = nil,
+			kind: String,
+			name: String,
+			namespace: String? = nil
 		) {
 			self.apiVersion = apiVersion
 			self.kind = kind

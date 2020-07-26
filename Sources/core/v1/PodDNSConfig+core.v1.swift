@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			nameservers: [String]?, 
-			options: [core.v1.PodDNSConfigOption]?, 
-			searches: [String]?
+			nameservers: [String]? = nil,
+			options: [core.v1.PodDNSConfigOption]? = nil,
+			searches: [String]? = nil
 		) {
 			self.nameservers = nameservers
 			self.options = options

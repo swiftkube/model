@@ -34,8 +34,8 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clientConfig: auditregistration.v1alpha1.WebhookClientConfig, 
-			throttle: auditregistration.v1alpha1.WebhookThrottleConfig?
+			clientConfig: auditregistration.v1alpha1.WebhookClientConfig,
+			throttle: auditregistration.v1alpha1.WebhookThrottleConfig? = nil
 		) {
 			self.clientConfig = clientConfig
 			self.throttle = throttle

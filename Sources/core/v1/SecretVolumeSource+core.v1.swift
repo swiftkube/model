@@ -44,10 +44,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			defaultMode: Int32?, 
-			items: [core.v1.KeyToPath]?, 
-			optional: Bool?, 
-			secretName: String?
+			defaultMode: Int32? = nil,
+			items: [core.v1.KeyToPath]? = nil,
+			optional: Bool? = nil,
+			secretName: String? = nil
 		) {
 			self.defaultMode = defaultMode
 			self.items = items

@@ -66,16 +66,16 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String, 
-			categories: [String]?, 
-			group: String?, 
-			name: String, 
-			namespaced: Bool, 
-			shortNames: [String]?, 
-			singularName: String, 
-			storageVersionHash: String?, 
-			verbs: [String], 
-			version: String?
+			kind: String,
+			categories: [String]? = nil,
+			group: String? = nil,
+			name: String,
+			namespaced: Bool,
+			shortNames: [String]? = nil,
+			singularName: String,
+			storageVersionHash: String? = nil,
+			verbs: [String],
+			version: String? = nil
 		) {
 			self.kind = kind
 			self.categories = categories

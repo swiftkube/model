@@ -38,9 +38,9 @@ public extension apps.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			replicas: Int32, 
-			selector: [String: String]?, 
-			targetSelector: String?
+			replicas: Int32,
+			selector: [String: String]? = nil,
+			targetSelector: String? = nil
 		) {
 			self.replicas = replicas
 			self.selector = selector

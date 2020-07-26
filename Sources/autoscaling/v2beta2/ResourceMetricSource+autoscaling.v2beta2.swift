@@ -34,7 +34,7 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
+			name: String,
 			target: autoscaling.v2beta2.MetricTarget
 		) {
 			self.name = name

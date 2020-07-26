@@ -30,7 +30,7 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			partition: Int32?
+			partition: Int32? = nil
 		) {
 			self.partition = partition
 		}

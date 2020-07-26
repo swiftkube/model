@@ -42,8 +42,8 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: policy.v1beta1.PodSecurityPolicySpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: policy.v1beta1.PodSecurityPolicySpec? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

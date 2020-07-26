@@ -48,9 +48,9 @@ public extension storage.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: storage.v1alpha1.VolumeAttachmentSpec, 
-			status: storage.v1alpha1.VolumeAttachmentStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: storage.v1alpha1.VolumeAttachmentSpec,
+			status: storage.v1alpha1.VolumeAttachmentStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

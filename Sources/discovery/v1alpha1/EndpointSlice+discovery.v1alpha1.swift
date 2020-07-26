@@ -50,10 +50,10 @@ public extension discovery.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			addressType: String?, 
-			endpoints: [discovery.v1alpha1.Endpoint], 
-			ports: [discovery.v1alpha1.EndpointPort]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			addressType: String? = nil,
+			endpoints: [discovery.v1alpha1.Endpoint],
+			ports: [discovery.v1alpha1.EndpointPort]? = nil
 		) {
 			self.metadata = metadata
 			self.addressType = addressType

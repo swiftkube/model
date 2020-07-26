@@ -42,7 +42,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			groupVersion: String, 
+			groupVersion: String,
 			resources: [meta.v1.APIResource]
 		) {
 			self.groupVersion = groupVersion

@@ -44,7 +44,7 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [apps.v1.ControllerRevision]
 		) {
 			self.metadata = metadata

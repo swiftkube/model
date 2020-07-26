@@ -66,16 +66,16 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			allowPrivilegeEscalation: Bool?, 
-			capabilities: core.v1.Capabilities?, 
-			privileged: Bool?, 
-			procMount: String?, 
-			readOnlyRootFilesystem: Bool?, 
-			runAsGroup: Int64?, 
-			runAsNonRoot: Bool?, 
-			runAsUser: Int64?, 
-			seLinuxOptions: core.v1.SELinuxOptions?, 
-			windowsOptions: core.v1.WindowsSecurityContextOptions?
+			allowPrivilegeEscalation: Bool? = nil,
+			capabilities: core.v1.Capabilities? = nil,
+			privileged: Bool? = nil,
+			procMount: String? = nil,
+			readOnlyRootFilesystem: Bool? = nil,
+			runAsGroup: Int64? = nil,
+			runAsNonRoot: Bool? = nil,
+			runAsUser: Int64? = nil,
+			seLinuxOptions: core.v1.SELinuxOptions? = nil,
+			windowsOptions: core.v1.WindowsSecurityContextOptions? = nil
 		) {
 			self.allowPrivilegeEscalation = allowPrivilegeEscalation
 			self.capabilities = capabilities

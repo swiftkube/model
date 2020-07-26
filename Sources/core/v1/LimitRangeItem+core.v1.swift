@@ -50,12 +50,12 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`default`: [String: Quantity]?, 
-			defaultRequest: [String: Quantity]?, 
-			max: [String: Quantity]?, 
-			maxLimitRequestRatio: [String: Quantity]?, 
-			min: [String: Quantity]?, 
-			type: String?
+			`default`: [String: Quantity]? = nil,
+			defaultRequest: [String: Quantity]? = nil,
+			max: [String: Quantity]? = nil,
+			maxLimitRequestRatio: [String: Quantity]? = nil,
+			min: [String: Quantity]? = nil,
+			type: String? = nil
 		) {
 			self.`default` = `default`
 			self.defaultRequest = defaultRequest

@@ -46,9 +46,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: core.v1.ReplicationControllerSpec?, 
-			status: core.v1.ReplicationControllerStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: core.v1.ReplicationControllerSpec? = nil,
+			status: core.v1.ReplicationControllerStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

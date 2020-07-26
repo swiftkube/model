@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			address: String, 
+			address: String,
 			type: String
 		) {
 			self.address = address

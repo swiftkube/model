@@ -38,9 +38,9 @@ public extension authentication.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			audiences: [String], 
-			boundObjectRef: authentication.v1.BoundObjectReference?, 
-			expirationSeconds: Int64?
+			audiences: [String],
+			boundObjectRef: authentication.v1.BoundObjectReference? = nil,
+			expirationSeconds: Int64? = nil
 		) {
 			self.audiences = audiences
 			self.boundObjectRef = boundObjectRef

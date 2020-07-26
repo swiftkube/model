@@ -50,12 +50,12 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			mountPath: String, 
-			mountPropagation: String?, 
-			name: String, 
-			readOnly: Bool?, 
-			subPath: String?, 
-			subPathExpr: String?
+			mountPath: String,
+			mountPropagation: String? = nil,
+			name: String,
+			readOnly: Bool? = nil,
+			subPath: String? = nil,
+			subPathExpr: String? = nil
 		) {
 			self.mountPath = mountPath
 			self.mountPropagation = mountPropagation

@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			nodePort: Int32?, 
-			port: Int32, 
-			`protocol`: String?, 
-			targetPort: IntOrString?
+			name: String? = nil,
+			nodePort: Int32? = nil,
+			port: Int32,
+			`protocol`: String? = nil,
+			targetPort: IntOrString? = nil
 		) {
 			self.name = name
 			self.nodePort = nodePort

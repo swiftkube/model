@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]?
+			matchLabelExpressions: [core.v1.TopologySelectorLabelRequirement]? = nil
 		) {
 			self.matchLabelExpressions = matchLabelExpressions
 		}

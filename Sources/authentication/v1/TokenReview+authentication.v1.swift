@@ -46,9 +46,9 @@ public extension authentication.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: authentication.v1.TokenReviewSpec, 
-			status: authentication.v1.TokenReviewStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: authentication.v1.TokenReviewSpec,
+			status: authentication.v1.TokenReviewStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

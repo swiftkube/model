@@ -30,7 +30,7 @@ public extension rbac.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clusterRoleSelectors: [meta.v1.LabelSelector]?
+			clusterRoleSelectors: [meta.v1.LabelSelector]? = nil
 		) {
 			self.clusterRoleSelectors = clusterRoleSelectors
 		}

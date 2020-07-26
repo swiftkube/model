@@ -94,21 +94,21 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta, 
-			action: String?, 
-			count: Int32?, 
-			eventTime: String?, 
-			firstTimestamp: String?, 
-			involvedObject: core.v1.ObjectReference, 
-			lastTimestamp: String?, 
-			message: String?, 
-			reason: String?, 
-			related: core.v1.ObjectReference?, 
-			reportingComponent: String?, 
-			reportingInstance: String?, 
-			series: core.v1.EventSeries?, 
-			source: core.v1.EventSource?, 
-			type: String?
+			metadata: meta.v1.ObjectMeta,
+			action: String? = nil,
+			count: Int32? = nil,
+			eventTime: String? = nil,
+			firstTimestamp: String? = nil,
+			involvedObject: core.v1.ObjectReference,
+			lastTimestamp: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			related: core.v1.ObjectReference? = nil,
+			reportingComponent: String? = nil,
+			reportingInstance: String? = nil,
+			series: core.v1.EventSeries? = nil,
+			source: core.v1.EventSource? = nil,
+			type: String? = nil
 		) {
 			self.metadata = metadata
 			self.action = action

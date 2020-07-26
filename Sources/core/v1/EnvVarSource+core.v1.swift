@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			configMapKeyRef: core.v1.ConfigMapKeySelector?, 
-			fieldRef: core.v1.ObjectFieldSelector?, 
-			resourceFieldRef: core.v1.ResourceFieldSelector?, 
-			secretKeyRef: core.v1.SecretKeySelector?
+			configMapKeyRef: core.v1.ConfigMapKeySelector? = nil,
+			fieldRef: core.v1.ObjectFieldSelector? = nil,
+			resourceFieldRef: core.v1.ResourceFieldSelector? = nil,
+			secretKeyRef: core.v1.SecretKeySelector? = nil
 		) {
 			self.configMapKeyRef = configMapKeyRef
 			self.fieldRef = fieldRef

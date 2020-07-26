@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			driver: String, 
-			fsType: String?, 
-			options: [String: String]?, 
-			readOnly: Bool?, 
-			secretRef: core.v1.SecretReference?
+			driver: String,
+			fsType: String? = nil,
+			options: [String: String]? = nil,
+			readOnly: Bool? = nil,
+			secretRef: core.v1.SecretReference? = nil
 		) {
 			self.driver = driver
 			self.fsType = fsType

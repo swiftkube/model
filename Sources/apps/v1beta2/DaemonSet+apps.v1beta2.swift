@@ -46,9 +46,9 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: apps.v1beta2.DaemonSetSpec?, 
-			status: apps.v1beta2.DaemonSetStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: apps.v1beta2.DaemonSetSpec? = nil,
+			status: apps.v1beta2.DaemonSetStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

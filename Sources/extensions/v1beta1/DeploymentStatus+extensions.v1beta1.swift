@@ -58,14 +58,14 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			availableReplicas: Int32?, 
-			collisionCount: Int32?, 
-			conditions: [extensions.v1beta1.DeploymentCondition]?, 
-			observedGeneration: Int64?, 
-			readyReplicas: Int32?, 
-			replicas: Int32?, 
-			unavailableReplicas: Int32?, 
-			updatedReplicas: Int32?
+			availableReplicas: Int32? = nil,
+			collisionCount: Int32? = nil,
+			conditions: [extensions.v1beta1.DeploymentCondition]? = nil,
+			observedGeneration: Int64? = nil,
+			readyReplicas: Int32? = nil,
+			replicas: Int32? = nil,
+			unavailableReplicas: Int32? = nil,
+			updatedReplicas: Int32? = nil
 		) {
 			self.availableReplicas = availableReplicas
 			self.collisionCount = collisionCount

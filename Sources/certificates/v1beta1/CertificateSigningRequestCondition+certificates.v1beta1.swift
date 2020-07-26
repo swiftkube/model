@@ -42,9 +42,9 @@ public extension certificates.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastUpdateTime: String?, 
-			message: String?, 
-			reason: String?, 
+			lastUpdateTime: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
 			type: String
 		) {
 			self.lastUpdateTime = lastUpdateTime

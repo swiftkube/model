@@ -36,8 +36,8 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			pathPrefix: String?, 
-			readOnly: Bool?
+			pathPrefix: String? = nil,
+			readOnly: Bool? = nil
 		) {
 			self.pathPrefix = pathPrefix
 			self.readOnly = readOnly

@@ -102,16 +102,16 @@ public extension admissionregistration.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			admissionReviewVersions: [String], 
-			clientConfig: admissionregistration.v1.WebhookClientConfig, 
-			failurePolicy: String?, 
-			matchPolicy: String?, 
-			name: String, 
-			namespaceSelector: meta.v1.LabelSelector?, 
-			objectSelector: meta.v1.LabelSelector?, 
-			rules: [admissionregistration.v1.RuleWithOperations]?, 
-			sideEffects: String, 
-			timeoutSeconds: Int32?
+			admissionReviewVersions: [String],
+			clientConfig: admissionregistration.v1.WebhookClientConfig,
+			failurePolicy: String? = nil,
+			matchPolicy: String? = nil,
+			name: String,
+			namespaceSelector: meta.v1.LabelSelector? = nil,
+			objectSelector: meta.v1.LabelSelector? = nil,
+			rules: [admissionregistration.v1.RuleWithOperations]? = nil,
+			sideEffects: String,
+			timeoutSeconds: Int32? = nil
 		) {
 			self.admissionReviewVersions = admissionReviewVersions
 			self.clientConfig = clientConfig

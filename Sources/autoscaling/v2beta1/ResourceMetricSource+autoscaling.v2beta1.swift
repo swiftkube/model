@@ -38,9 +38,9 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			targetAverageUtilization: Int32?, 
-			targetAverageValue: Quantity?
+			name: String,
+			targetAverageUtilization: Int32? = nil,
+			targetAverageValue: Quantity? = nil
 		) {
 			self.name = name
 			self.targetAverageUtilization = targetAverageUtilization

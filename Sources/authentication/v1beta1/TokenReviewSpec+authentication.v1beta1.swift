@@ -34,8 +34,8 @@ public extension authentication.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			audiences: [String]?, 
-			token: String?
+			audiences: [String]? = nil,
+			token: String? = nil
 		) {
 			self.audiences = audiences
 			self.token = token

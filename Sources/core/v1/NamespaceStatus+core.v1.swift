@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conditions: [core.v1.NamespaceCondition]?, 
-			phase: String?
+			conditions: [core.v1.NamespaceCondition]? = nil,
+			phase: String? = nil
 		) {
 			self.conditions = conditions
 			self.phase = phase

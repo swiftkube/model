@@ -40,9 +40,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			items: [core.v1.KeyToPath]?, 
-			name: String?, 
-			optional: Bool?
+			items: [core.v1.KeyToPath]? = nil,
+			name: String? = nil,
+			optional: Bool? = nil
 		) {
 			self.items = items
 			self.name = name

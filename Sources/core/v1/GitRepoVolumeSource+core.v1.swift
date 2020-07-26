@@ -40,9 +40,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			directory: String?, 
-			repository: String, 
-			revision: String?
+			directory: String? = nil,
+			repository: String,
+			revision: String? = nil
 		) {
 			self.directory = directory
 			self.repository = repository

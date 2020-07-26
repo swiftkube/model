@@ -42,10 +42,10 @@ public extension autoscaling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			maxReplicas: Int32, 
-			minReplicas: Int32?, 
-			scaleTargetRef: autoscaling.v1.CrossVersionObjectReference, 
-			targetCPUUtilizationPercentage: Int32?
+			maxReplicas: Int32,
+			minReplicas: Int32? = nil,
+			scaleTargetRef: autoscaling.v1.CrossVersionObjectReference,
+			targetCPUUtilizationPercentage: Int32? = nil
 		) {
 			self.maxReplicas = maxReplicas
 			self.minReplicas = minReplicas

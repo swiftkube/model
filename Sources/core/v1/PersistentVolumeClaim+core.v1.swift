@@ -46,9 +46,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: core.v1.PersistentVolumeClaimSpec?, 
-			status: core.v1.PersistentVolumeClaimStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: core.v1.PersistentVolumeClaimSpec? = nil,
+			status: core.v1.PersistentVolumeClaimStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

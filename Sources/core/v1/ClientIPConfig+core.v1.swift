@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			timeoutSeconds: Int32?
+			timeoutSeconds: Int32? = nil
 		) {
 			self.timeoutSeconds = timeoutSeconds
 		}

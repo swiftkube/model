@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			effect: String, 
-			key: String, 
-			timeAdded: String?, 
-			value: String?
+			effect: String,
+			key: String,
+			timeAdded: String? = nil,
+			value: String? = nil
 		) {
 			self.effect = effect
 			self.key = key

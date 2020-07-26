@@ -44,7 +44,7 @@ public extension batch.v2alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [batch.v2alpha1.CronJob]
 		) {
 			self.metadata = metadata

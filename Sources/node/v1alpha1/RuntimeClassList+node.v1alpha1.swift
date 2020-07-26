@@ -44,7 +44,7 @@ public extension node.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [node.v1alpha1.RuntimeClass]
 		) {
 			self.metadata = metadata

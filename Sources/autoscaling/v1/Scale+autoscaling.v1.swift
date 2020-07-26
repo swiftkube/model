@@ -46,9 +46,9 @@ public extension autoscaling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: autoscaling.v1.ScaleSpec?, 
-			status: autoscaling.v1.ScaleStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: autoscaling.v1.ScaleSpec? = nil,
+			status: autoscaling.v1.ScaleStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

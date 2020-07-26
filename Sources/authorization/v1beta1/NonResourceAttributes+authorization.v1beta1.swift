@@ -34,8 +34,8 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			path: String?, 
-			verb: String?
+			path: String? = nil,
+			verb: String? = nil
 		) {
 			self.path = path
 			self.verb = verb

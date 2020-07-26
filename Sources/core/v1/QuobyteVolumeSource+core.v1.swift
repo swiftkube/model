@@ -50,11 +50,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			group: String?, 
-			readOnly: Bool?, 
-			registry: String, 
-			tenant: String?, 
-			user: String?, 
+			group: String? = nil,
+			readOnly: Bool? = nil,
+			registry: String,
+			tenant: String? = nil,
+			user: String? = nil,
 			volume: String
 		) {
 			self.group = group

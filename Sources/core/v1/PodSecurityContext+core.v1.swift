@@ -62,14 +62,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsGroup: Int64?, 
-			runAsGroup: Int64?, 
-			runAsNonRoot: Bool?, 
-			runAsUser: Int64?, 
-			seLinuxOptions: core.v1.SELinuxOptions?, 
-			supplementalGroups: [Int64]?, 
-			sysctls: [core.v1.Sysctl]?, 
-			windowsOptions: core.v1.WindowsSecurityContextOptions?
+			fsGroup: Int64? = nil,
+			runAsGroup: Int64? = nil,
+			runAsNonRoot: Bool? = nil,
+			runAsUser: Int64? = nil,
+			seLinuxOptions: core.v1.SELinuxOptions? = nil,
+			supplementalGroups: [Int64]? = nil,
+			sysctls: [core.v1.Sysctl]? = nil,
+			windowsOptions: core.v1.WindowsSecurityContextOptions? = nil
 		) {
 			self.fsGroup = fsGroup
 			self.runAsGroup = runAsGroup

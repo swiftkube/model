@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			namespace: String?
+			name: String? = nil,
+			namespace: String? = nil
 		) {
 			self.name = name
 			self.namespace = namespace

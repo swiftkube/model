@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kubeletEndpoint: core.v1.DaemonEndpoint?
+			kubeletEndpoint: core.v1.DaemonEndpoint? = nil
 		) {
 			self.kubeletEndpoint = kubeletEndpoint
 		}

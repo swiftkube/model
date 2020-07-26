@@ -62,15 +62,15 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			containerID: String?, 
-			image: String, 
-			imageID: String, 
-			lastState: core.v1.ContainerState?, 
-			name: String, 
-			ready: Bool, 
-			restartCount: Int32, 
-			started: Bool?, 
-			state: core.v1.ContainerState?
+			containerID: String? = nil,
+			image: String,
+			imageID: String,
+			lastState: core.v1.ContainerState? = nil,
+			name: String,
+			ready: Bool,
+			restartCount: Int32,
+			started: Bool? = nil,
+			state: core.v1.ContainerState? = nil
 		) {
 			self.containerID = containerID
 			self.image = image

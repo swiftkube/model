@@ -34,7 +34,7 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			nonResourceURLs: [String]?, 
+			nonResourceURLs: [String]? = nil,
 			verbs: [String]
 		) {
 			self.nonResourceURLs = nonResourceURLs

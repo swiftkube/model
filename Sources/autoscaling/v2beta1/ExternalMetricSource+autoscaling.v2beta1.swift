@@ -42,10 +42,10 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metricName: String, 
-			metricSelector: meta.v1.LabelSelector?, 
-			targetAverageValue: Quantity?, 
-			targetValue: Quantity?
+			metricName: String,
+			metricSelector: meta.v1.LabelSelector? = nil,
+			targetAverageValue: Quantity? = nil,
+			targetValue: Quantity? = nil
 		) {
 			self.metricName = metricName
 			self.metricSelector = metricSelector

@@ -50,12 +50,12 @@ public extension batch.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			active: Int32?, 
-			completionTime: String?, 
-			conditions: [batch.v1.JobCondition]?, 
-			failed: Int32?, 
-			startTime: String?, 
-			succeeded: Int32?
+			active: Int32? = nil,
+			completionTime: String? = nil,
+			conditions: [batch.v1.JobCondition]? = nil,
+			failed: Int32? = nil,
+			startTime: String? = nil,
+			succeeded: Int32? = nil
 		) {
 			self.active = active
 			self.completionTime = completionTime

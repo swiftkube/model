@@ -34,8 +34,8 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			rule: String, 
-			seLinuxOptions: core.v1.SELinuxOptions?
+			rule: String,
+			seLinuxOptions: core.v1.SELinuxOptions? = nil
 		) {
 			self.rule = rule
 			self.seLinuxOptions = seLinuxOptions

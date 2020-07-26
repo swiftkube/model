@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			loadBalancer: core.v1.LoadBalancerStatus?
+			loadBalancer: core.v1.LoadBalancerStatus? = nil
 		) {
 			self.loadBalancer = loadBalancer
 		}

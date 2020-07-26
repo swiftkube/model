@@ -34,8 +34,8 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			cidr: String, 
-			except: [String]?
+			cidr: String,
+			except: [String]? = nil
 		) {
 			self.cidr = cidr
 			self.except = except

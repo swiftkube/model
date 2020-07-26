@@ -66,16 +66,16 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			collisionCount: Int32?, 
-			conditions: [apps.v1beta2.DaemonSetCondition]?, 
-			currentNumberScheduled: Int32, 
-			desiredNumberScheduled: Int32, 
-			numberAvailable: Int32?, 
-			numberMisscheduled: Int32, 
-			numberReady: Int32, 
-			numberUnavailable: Int32?, 
-			observedGeneration: Int64?, 
-			updatedNumberScheduled: Int32?
+			collisionCount: Int32? = nil,
+			conditions: [apps.v1beta2.DaemonSetCondition]? = nil,
+			currentNumberScheduled: Int32,
+			desiredNumberScheduled: Int32,
+			numberAvailable: Int32? = nil,
+			numberMisscheduled: Int32,
+			numberReady: Int32,
+			numberUnavailable: Int32? = nil,
+			observedGeneration: Int64? = nil,
+			updatedNumberScheduled: Int32? = nil
 		) {
 			self.collisionCount = collisionCount
 			self.conditions = conditions

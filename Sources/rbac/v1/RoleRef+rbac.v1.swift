@@ -38,8 +38,8 @@ public extension rbac.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String, 
-			apiGroup: String, 
+			kind: String,
+			apiGroup: String,
 			name: String
 		) {
 			self.kind = kind

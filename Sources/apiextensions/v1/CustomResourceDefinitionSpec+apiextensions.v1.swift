@@ -50,11 +50,11 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conversion: apiextensions.v1.CustomResourceConversion?, 
-			group: String, 
-			names: apiextensions.v1.CustomResourceDefinitionNames, 
-			preserveUnknownFields: Bool?, 
-			scope: String, 
+			conversion: apiextensions.v1.CustomResourceConversion? = nil,
+			group: String,
+			names: apiextensions.v1.CustomResourceDefinitionNames,
+			preserveUnknownFields: Bool? = nil,
+			scope: String,
 			versions: [apiextensions.v1.CustomResourceDefinitionVersion]
 		) {
 			self.conversion = conversion

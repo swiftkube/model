@@ -50,12 +50,12 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			additionalPrinterColumns: [apiextensions.v1.CustomResourceColumnDefinition]?, 
-			name: String, 
-			schema: apiextensions.v1.CustomResourceValidation?, 
-			served: Bool, 
-			storage: Bool, 
-			subresources: apiextensions.v1.CustomResourceSubresources?
+			additionalPrinterColumns: [apiextensions.v1.CustomResourceColumnDefinition]? = nil,
+			name: String,
+			schema: apiextensions.v1.CustomResourceValidation? = nil,
+			served: Bool,
+			storage: Bool,
+			subresources: apiextensions.v1.CustomResourceSubresources? = nil
 		) {
 			self.additionalPrinterColumns = additionalPrinterColumns
 			self.name = name

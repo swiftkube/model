@@ -42,9 +42,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			labelSelector: meta.v1.LabelSelector?, 
-			maxSkew: Int32, 
-			topologyKey: String, 
+			labelSelector: meta.v1.LabelSelector? = nil,
+			maxSkew: Int32,
+			topologyKey: String,
 			whenUnsatisfiable: String
 		) {
 			self.labelSelector = labelSelector

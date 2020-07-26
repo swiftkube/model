@@ -39,9 +39,9 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conversionReviewVersions: [String]?, 
-			strategy: String, 
-			webhookClientConfig: apiextensions.v1beta1.WebhookClientConfig?
+			conversionReviewVersions: [String]? = nil,
+			strategy: String,
+			webhookClientConfig: apiextensions.v1beta1.WebhookClientConfig? = nil
 		) {
 			self.conversionReviewVersions = conversionReviewVersions
 			self.strategy = strategy

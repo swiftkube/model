@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kubeletConfigKey: String, 
-			name: String, 
-			namespace: String, 
-			resourceVersion: String?, 
-			uid: String?
+			kubeletConfigKey: String,
+			name: String,
+			namespace: String,
+			resourceVersion: String? = nil,
+			uid: String? = nil
 		) {
 			self.kubeletConfigKey = kubeletConfigKey
 			self.name = name

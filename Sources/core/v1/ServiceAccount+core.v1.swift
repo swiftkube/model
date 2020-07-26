@@ -50,10 +50,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			automountServiceAccountToken: Bool?, 
-			imagePullSecrets: [core.v1.LocalObjectReference]?, 
-			secrets: [core.v1.ObjectReference]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			automountServiceAccountToken: Bool? = nil,
+			imagePullSecrets: [core.v1.LocalObjectReference]? = nil,
+			secrets: [core.v1.ObjectReference]? = nil
 		) {
 			self.metadata = metadata
 			self.automountServiceAccountToken = automountServiceAccountToken

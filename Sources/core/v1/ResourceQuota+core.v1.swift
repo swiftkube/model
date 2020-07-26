@@ -46,9 +46,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: core.v1.ResourceQuotaSpec?, 
-			status: core.v1.ResourceQuotaStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: core.v1.ResourceQuotaSpec? = nil,
+			status: core.v1.ResourceQuotaStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

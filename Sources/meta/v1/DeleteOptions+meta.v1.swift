@@ -54,11 +54,11 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			dryRun: [String]?, 
-			gracePeriodSeconds: Int64?, 
-			orphanDependents: Bool?, 
-			preconditions: meta.v1.Preconditions?, 
-			propagationPolicy: String?
+			dryRun: [String]? = nil,
+			gracePeriodSeconds: Int64? = nil,
+			orphanDependents: Bool? = nil,
+			preconditions: meta.v1.Preconditions? = nil,
+			propagationPolicy: String? = nil
 		) {
 			self.dryRun = dryRun
 			self.gracePeriodSeconds = gracePeriodSeconds

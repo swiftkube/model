@@ -34,8 +34,8 @@ public extension certificates.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			certificate: String?, 
-			conditions: [certificates.v1beta1.CertificateSigningRequestCondition]?
+			certificate: String? = nil,
+			conditions: [certificates.v1beta1.CertificateSigningRequestCondition]? = nil
 		) {
 			self.certificate = certificate
 			self.conditions = conditions

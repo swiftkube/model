@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			preferredDuringSchedulingIgnoredDuringExecution: [core.v1.WeightedPodAffinityTerm]?, 
-			requiredDuringSchedulingIgnoredDuringExecution: [core.v1.PodAffinityTerm]?
+			preferredDuringSchedulingIgnoredDuringExecution: [core.v1.WeightedPodAffinityTerm]? = nil,
+			requiredDuringSchedulingIgnoredDuringExecution: [core.v1.PodAffinityTerm]? = nil
 		) {
 			self.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution
 			self.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution

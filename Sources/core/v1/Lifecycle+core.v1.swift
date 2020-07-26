@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			postStart: core.v1.Handler?, 
-			preStop: core.v1.Handler?
+			postStart: core.v1.Handler? = nil,
+			preStop: core.v1.Handler? = nil
 		) {
 			self.postStart = postStart
 			self.preStop = preStop

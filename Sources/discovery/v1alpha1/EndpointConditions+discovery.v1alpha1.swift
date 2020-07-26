@@ -30,7 +30,7 @@ public extension discovery.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ready: Bool?
+			ready: Bool? = nil
 		) {
 			self.ready = ready
 		}

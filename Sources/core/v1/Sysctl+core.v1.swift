@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
+			name: String,
 			value: String
 		) {
 			self.name = name

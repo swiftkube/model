@@ -54,13 +54,13 @@ public extension authorization.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			group: String?, 
-			name: String?, 
-			namespace: String?, 
-			resource: String?, 
-			subresource: String?, 
-			verb: String?, 
-			version: String?
+			group: String? = nil,
+			name: String? = nil,
+			namespace: String? = nil,
+			resource: String? = nil,
+			subresource: String? = nil,
+			verb: String? = nil,
+			version: String? = nil
 		) {
 			self.group = group
 			self.name = name

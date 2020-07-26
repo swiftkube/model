@@ -34,8 +34,8 @@ public extension networking.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			backend: networking.v1beta1.IngressBackend, 
-			path: String?
+			backend: networking.v1beta1.IngressBackend,
+			path: String? = nil
 		) {
 			self.backend = backend
 			self.path = path

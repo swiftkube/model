@@ -42,9 +42,9 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			field: String?, 
-			message: String?, 
-			reason: String?
+			field: String? = nil,
+			message: String? = nil,
+			reason: String? = nil
 		) {
 			self.field = field
 			self.message = message

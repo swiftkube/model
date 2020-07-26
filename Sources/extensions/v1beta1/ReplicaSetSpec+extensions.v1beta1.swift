@@ -42,10 +42,10 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			replicas: Int32?, 
-			selector: meta.v1.LabelSelector?, 
-			template: core.v1.PodTemplateSpec?
+			minReadySeconds: Int32? = nil,
+			replicas: Int32? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			template: core.v1.PodTemplateSpec? = nil
 		) {
 			self.minReadySeconds = minReadySeconds
 			self.replicas = replicas

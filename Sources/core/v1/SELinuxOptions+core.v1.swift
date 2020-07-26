@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			level: String?, 
-			role: String?, 
-			type: String?, 
-			user: String?
+			level: String? = nil,
+			role: String? = nil,
+			type: String? = nil,
+			user: String? = nil
 		) {
 			self.level = level
 			self.role = role

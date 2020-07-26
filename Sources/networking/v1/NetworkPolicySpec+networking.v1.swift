@@ -42,10 +42,10 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			egress: [networking.v1.NetworkPolicyEgressRule]?, 
-			ingress: [networking.v1.NetworkPolicyIngressRule]?, 
-			podSelector: meta.v1.LabelSelector, 
-			policyTypes: [String]?
+			egress: [networking.v1.NetworkPolicyEgressRule]? = nil,
+			ingress: [networking.v1.NetworkPolicyIngressRule]? = nil,
+			podSelector: meta.v1.LabelSelector,
+			policyTypes: [String]? = nil
 		) {
 			self.egress = egress
 			self.ingress = ingress

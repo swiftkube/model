@@ -50,12 +50,12 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			monitors: [String], 
-			path: String?, 
-			readOnly: Bool?, 
-			secretFile: String?, 
-			secretRef: core.v1.SecretReference?, 
-			user: String?
+			monitors: [String],
+			path: String? = nil,
+			readOnly: Bool? = nil,
+			secretFile: String? = nil,
+			secretRef: core.v1.SecretReference? = nil,
+			user: String? = nil
 		) {
 			self.monitors = monitors
 			self.path = path

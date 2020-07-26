@@ -62,15 +62,15 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			collisionCount: Int32?, 
-			conditions: [apps.v1beta2.StatefulSetCondition]?, 
-			currentReplicas: Int32?, 
-			currentRevision: String?, 
-			observedGeneration: Int64?, 
-			readyReplicas: Int32?, 
-			replicas: Int32, 
-			updateRevision: String?, 
-			updatedReplicas: Int32?
+			collisionCount: Int32? = nil,
+			conditions: [apps.v1beta2.StatefulSetCondition]? = nil,
+			currentReplicas: Int32? = nil,
+			currentRevision: String? = nil,
+			observedGeneration: Int64? = nil,
+			readyReplicas: Int32? = nil,
+			replicas: Int32,
+			updateRevision: String? = nil,
+			updatedReplicas: Int32? = nil
 		) {
 			self.collisionCount = collisionCount
 			self.conditions = conditions

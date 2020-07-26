@@ -46,9 +46,9 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: extensions.v1beta1.IngressSpec?, 
-			status: extensions.v1beta1.IngressStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: extensions.v1beta1.IngressSpec? = nil,
+			status: extensions.v1beta1.IngressStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

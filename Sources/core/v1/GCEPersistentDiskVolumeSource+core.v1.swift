@@ -44,10 +44,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			partition: Int32?, 
-			pdName: String, 
-			readOnly: Bool?
+			fsType: String? = nil,
+			partition: Int32? = nil,
+			pdName: String,
+			readOnly: Bool? = nil
 		) {
 			self.fsType = fsType
 			self.partition = partition

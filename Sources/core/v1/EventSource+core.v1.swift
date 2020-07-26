@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			component: String?, 
-			host: String?
+			component: String? = nil,
+			host: String? = nil
 		) {
 			self.component = component
 			self.host = host

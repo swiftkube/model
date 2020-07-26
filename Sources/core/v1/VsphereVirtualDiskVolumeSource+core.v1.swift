@@ -42,9 +42,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			storagePolicyID: String?, 
-			storagePolicyName: String?, 
+			fsType: String? = nil,
+			storagePolicyID: String? = nil,
+			storagePolicyName: String? = nil,
 			volumePath: String
 		) {
 			self.fsType = fsType

@@ -44,7 +44,7 @@ public extension discovery.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [discovery.v1alpha1.EndpointSlice]
 		) {
 			self.metadata = metadata

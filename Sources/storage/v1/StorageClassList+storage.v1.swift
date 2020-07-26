@@ -44,7 +44,7 @@ public extension storage.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [storage.v1.StorageClass]
 		) {
 			self.metadata = metadata

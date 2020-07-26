@@ -50,11 +50,11 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String, 
-			kind: String, 
-			blockOwnerDeletion: Bool?, 
-			controller: Bool?, 
-			name: String, 
+			apiVersion: String,
+			kind: String,
+			blockOwnerDeletion: Bool? = nil,
+			controller: Bool? = nil,
+			name: String,
 			uid: String
 		) {
 			self.apiVersion = apiVersion

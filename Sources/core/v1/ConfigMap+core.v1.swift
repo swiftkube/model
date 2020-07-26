@@ -46,9 +46,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			binaryData: [String: String]?, 
-			data: [String: String]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			binaryData: [String: String]? = nil,
+			data: [String: String]? = nil
 		) {
 			self.metadata = metadata
 			self.binaryData = binaryData

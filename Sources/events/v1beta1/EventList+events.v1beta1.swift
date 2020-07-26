@@ -44,7 +44,7 @@ public extension events.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [events.v1beta1.Event]
 		) {
 			self.metadata = metadata

@@ -44,10 +44,10 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`continue`: String?, 
-			remainingItemCount: Int64?, 
-			resourceVersion: String?, 
-			selfLink: String?
+			`continue`: String? = nil,
+			remainingItemCount: Int64? = nil,
+			resourceVersion: String? = nil,
+			selfLink: String? = nil
 		) {
 			self.`continue` = `continue`
 			self.remainingItemCount = remainingItemCount

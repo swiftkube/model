@@ -34,8 +34,8 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			selector: meta.v1.LabelSelector?
+			name: String,
+			selector: meta.v1.LabelSelector? = nil
 		) {
 			self.name = name
 			self.selector = selector

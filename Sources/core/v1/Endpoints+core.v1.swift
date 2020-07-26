@@ -53,8 +53,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			subsets: [core.v1.EndpointSubset]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			subsets: [core.v1.EndpointSubset]? = nil
 		) {
 			self.metadata = metadata
 			self.subsets = subsets

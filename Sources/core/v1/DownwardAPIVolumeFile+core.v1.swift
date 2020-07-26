@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fieldRef: core.v1.ObjectFieldSelector?, 
-			mode: Int32?, 
-			path: String, 
-			resourceFieldRef: core.v1.ResourceFieldSelector?
+			fieldRef: core.v1.ObjectFieldSelector? = nil,
+			mode: Int32? = nil,
+			path: String,
+			resourceFieldRef: core.v1.ResourceFieldSelector? = nil
 		) {
 			self.fieldRef = fieldRef
 			self.mode = mode

@@ -42,8 +42,8 @@ public extension settings.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: settings.v1alpha1.PodPresetSpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: settings.v1alpha1.PodPresetSpec? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

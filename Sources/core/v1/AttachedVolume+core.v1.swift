@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			devicePath: String, 
+			devicePath: String,
 			name: String
 		) {
 			self.devicePath = devicePath

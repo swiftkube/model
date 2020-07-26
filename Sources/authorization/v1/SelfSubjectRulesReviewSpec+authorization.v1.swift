@@ -30,7 +30,7 @@ public extension authorization.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			namespace: String?
+			namespace: String? = nil
 		) {
 			self.namespace = namespace
 		}

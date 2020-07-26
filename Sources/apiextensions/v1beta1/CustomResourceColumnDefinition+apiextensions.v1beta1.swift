@@ -50,11 +50,11 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			JSONPath: String, 
-			description: String?, 
-			format: String?, 
-			name: String, 
-			priority: Int32?, 
+			JSONPath: String,
+			description: String? = nil,
+			format: String? = nil,
+			name: String,
+			priority: Int32? = nil,
 			type: String
 		) {
 			self.JSONPath = JSONPath

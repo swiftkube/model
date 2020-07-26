@@ -50,11 +50,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastHeartbeatTime: String?, 
-			lastTransitionTime: String?, 
-			message: String?, 
-			reason: String?, 
-			status: String, 
+			lastHeartbeatTime: String? = nil,
+			lastTransitionTime: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			status: String,
 			type: String
 		) {
 			self.lastHeartbeatTime = lastHeartbeatTime

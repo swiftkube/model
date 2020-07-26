@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			message: String?, 
-			reason: String?
+			message: String? = nil,
+			reason: String? = nil
 		) {
 			self.message = message
 			self.reason = reason

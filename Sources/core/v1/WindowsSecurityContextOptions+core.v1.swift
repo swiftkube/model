@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			gmsaCredentialSpec: String?, 
-			gmsaCredentialSpecName: String?, 
-			runAsUserName: String?
+			gmsaCredentialSpec: String? = nil,
+			gmsaCredentialSpecName: String? = nil,
+			runAsUserName: String? = nil
 		) {
 			self.gmsaCredentialSpec = gmsaCredentialSpec
 			self.gmsaCredentialSpecName = gmsaCredentialSpecName

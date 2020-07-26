@@ -34,8 +34,8 @@ public extension node.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			nodeSelector: [String: String]?, 
-			tolerations: [core.v1.Toleration]?
+			nodeSelector: [String: String]? = nil,
+			tolerations: [core.v1.Toleration]? = nil
 		) {
 			self.nodeSelector = nodeSelector
 			self.tolerations = tolerations

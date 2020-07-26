@@ -50,12 +50,12 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String?, 
-			cachingMode: String?, 
-			diskName: String, 
-			diskURI: String, 
-			fsType: String?, 
-			readOnly: Bool?
+			kind: String? = nil,
+			cachingMode: String? = nil,
+			diskName: String,
+			diskURI: String,
+			fsType: String? = nil,
+			readOnly: Bool? = nil
 		) {
 			self.kind = kind
 			self.cachingMode = cachingMode

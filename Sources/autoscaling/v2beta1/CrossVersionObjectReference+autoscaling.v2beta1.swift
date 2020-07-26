@@ -38,8 +38,8 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
-			kind: String, 
+			apiVersion: String? = nil,
+			kind: String,
 			name: String
 		) {
 			self.apiVersion = apiVersion

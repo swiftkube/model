@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			finalizers: [String]?
+			finalizers: [String]? = nil
 		) {
 			self.finalizers = finalizers
 		}

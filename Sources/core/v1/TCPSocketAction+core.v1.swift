@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			host: String?, 
+			host: String? = nil,
 			port: IntOrString
 		) {
 			self.host = host

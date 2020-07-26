@@ -44,7 +44,7 @@ public extension apiregistration.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [apiregistration.v1beta1.APIService]
 		) {
 			self.metadata = metadata

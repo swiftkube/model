@@ -30,7 +30,7 @@ public extension autoscaling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			replicas: Int32?
+			replicas: Int32? = nil
 		) {
 			self.replicas = replicas
 		}

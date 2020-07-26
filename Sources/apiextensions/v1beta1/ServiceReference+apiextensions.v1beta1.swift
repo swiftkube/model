@@ -42,10 +42,10 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			namespace: String, 
-			path: String?, 
-			port: Int32?
+			name: String,
+			namespace: String,
+			path: String? = nil,
+			port: Int32? = nil
 		) {
 			self.name = name
 			self.namespace = namespace

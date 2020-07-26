@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			containerPort: Int32, 
-			hostIP: String?, 
-			hostPort: Int32?, 
-			name: String?, 
-			`protocol`: String?
+			containerPort: Int32,
+			hostIP: String? = nil,
+			hostPort: Int32? = nil,
+			name: String? = nil,
+			`protocol`: String? = nil
 		) {
 			self.containerPort = containerPort
 			self.hostIP = hostIP

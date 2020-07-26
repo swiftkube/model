@@ -50,12 +50,12 @@ public extension authorization.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			extra: [String: [String]]?, 
-			groups: [String]?, 
-			nonResourceAttributes: authorization.v1.NonResourceAttributes?, 
-			resourceAttributes: authorization.v1.ResourceAttributes?, 
-			uid: String?, 
-			user: String?
+			extra: [String: [String]]? = nil,
+			groups: [String]? = nil,
+			nonResourceAttributes: authorization.v1.NonResourceAttributes? = nil,
+			resourceAttributes: authorization.v1.ResourceAttributes? = nil,
+			uid: String? = nil,
+			user: String? = nil
 		) {
 			self.extra = extra
 			self.groups = groups

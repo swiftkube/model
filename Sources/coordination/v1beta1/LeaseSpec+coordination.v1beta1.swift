@@ -46,11 +46,11 @@ public extension coordination.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			acquireTime: String?, 
-			holderIdentity: String?, 
-			leaseDurationSeconds: Int32?, 
-			leaseTransitions: Int32?, 
-			renewTime: String?
+			acquireTime: String? = nil,
+			holderIdentity: String? = nil,
+			leaseDurationSeconds: Int32? = nil,
+			leaseTransitions: Int32? = nil,
+			renewTime: String? = nil
 		) {
 			self.acquireTime = acquireTime
 			self.holderIdentity = holderIdentity

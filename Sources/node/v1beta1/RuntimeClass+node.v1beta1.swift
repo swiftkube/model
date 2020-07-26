@@ -50,10 +50,10 @@ public extension node.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			handler: String, 
-			overhead: node.v1beta1.Overhead?, 
-			scheduling: node.v1beta1.Scheduling?
+			metadata: meta.v1.ObjectMeta? = nil,
+			handler: String,
+			overhead: node.v1beta1.Overhead? = nil,
+			scheduling: node.v1beta1.Scheduling? = nil
 		) {
 			self.metadata = metadata
 			self.handler = handler

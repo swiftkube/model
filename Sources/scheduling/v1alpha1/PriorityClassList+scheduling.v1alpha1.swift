@@ -44,7 +44,7 @@ public extension scheduling.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [scheduling.v1alpha1.PriorityClass]
 		) {
 			self.metadata = metadata

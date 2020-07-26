@@ -54,13 +54,13 @@ public extension batch.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			concurrencyPolicy: String?, 
-			failedJobsHistoryLimit: Int32?, 
-			jobTemplate: batch.v1beta1.JobTemplateSpec, 
-			schedule: String, 
-			startingDeadlineSeconds: Int64?, 
-			successfulJobsHistoryLimit: Int32?, 
-			suspend: Bool?
+			concurrencyPolicy: String? = nil,
+			failedJobsHistoryLimit: Int32? = nil,
+			jobTemplate: batch.v1beta1.JobTemplateSpec,
+			schedule: String,
+			startingDeadlineSeconds: Int64? = nil,
+			successfulJobsHistoryLimit: Int32? = nil,
+			suspend: Bool? = nil
 		) {
 			self.concurrencyPolicy = concurrencyPolicy
 			self.failedJobsHistoryLimit = failedJobsHistoryLimit

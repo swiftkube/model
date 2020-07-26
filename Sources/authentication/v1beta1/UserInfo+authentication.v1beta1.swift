@@ -42,10 +42,10 @@ public extension authentication.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			extra: [String: [String]]?, 
-			groups: [String]?, 
-			uid: String?, 
-			username: String?
+			extra: [String: [String]]? = nil,
+			groups: [String]? = nil,
+			uid: String? = nil,
+			username: String? = nil
 		) {
 			self.extra = extra
 			self.groups = groups

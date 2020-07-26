@@ -58,14 +58,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			exec: core.v1.ExecAction?, 
-			failureThreshold: Int32?, 
-			httpGet: core.v1.HTTPGetAction?, 
-			initialDelaySeconds: Int32?, 
-			periodSeconds: Int32?, 
-			successThreshold: Int32?, 
-			tcpSocket: core.v1.TCPSocketAction?, 
-			timeoutSeconds: Int32?
+			exec: core.v1.ExecAction? = nil,
+			failureThreshold: Int32? = nil,
+			httpGet: core.v1.HTTPGetAction? = nil,
+			initialDelaySeconds: Int32? = nil,
+			periodSeconds: Int32? = nil,
+			successThreshold: Int32? = nil,
+			tcpSocket: core.v1.TCPSocketAction? = nil,
+			timeoutSeconds: Int32? = nil
 		) {
 			self.exec = exec
 			self.failureThreshold = failureThreshold

@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			replicas: Int32?, 
-			selector: [String: String]?, 
-			template: core.v1.PodTemplateSpec?
+			minReadySeconds: Int32? = nil,
+			replicas: Int32? = nil,
+			selector: [String: String]? = nil,
+			template: core.v1.PodTemplateSpec? = nil
 		) {
 			self.minReadySeconds = minReadySeconds
 			self.replicas = replicas

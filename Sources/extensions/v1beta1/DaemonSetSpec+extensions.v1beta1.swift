@@ -50,12 +50,12 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			revisionHistoryLimit: Int32?, 
-			selector: meta.v1.LabelSelector?, 
-			template: core.v1.PodTemplateSpec, 
-			templateGeneration: Int64?, 
-			updateStrategy: extensions.v1beta1.DaemonSetUpdateStrategy?
+			minReadySeconds: Int32? = nil,
+			revisionHistoryLimit: Int32? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			template: core.v1.PodTemplateSpec,
+			templateGeneration: Int64? = nil,
+			updateStrategy: extensions.v1beta1.DaemonSetUpdateStrategy? = nil
 		) {
 			self.minReadySeconds = minReadySeconds
 			self.revisionHistoryLimit = revisionHistoryLimit

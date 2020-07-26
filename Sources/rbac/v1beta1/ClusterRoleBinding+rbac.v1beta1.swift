@@ -46,9 +46,9 @@ public extension rbac.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			roleRef: rbac.v1beta1.RoleRef, 
-			subjects: [rbac.v1beta1.Subject]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			roleRef: rbac.v1beta1.RoleRef,
+			subjects: [rbac.v1beta1.Subject]? = nil
 		) {
 			self.metadata = metadata
 			self.roleRef = roleRef

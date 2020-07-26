@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			value: String?, 
-			valueFrom: core.v1.EnvVarSource?
+			name: String,
+			value: String? = nil,
+			valueFrom: core.v1.EnvVarSource? = nil
 		) {
 			self.name = name
 			self.value = value

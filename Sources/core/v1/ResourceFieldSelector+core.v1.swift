@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			containerName: String?, 
-			divisor: Quantity?, 
+			containerName: String? = nil,
+			divisor: Quantity? = nil,
 			resource: String
 		) {
 			self.containerName = containerName

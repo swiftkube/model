@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			active: core.v1.NodeConfigSource?, 
-			assigned: core.v1.NodeConfigSource?, 
-			error: String?, 
-			lastKnownGood: core.v1.NodeConfigSource?
+			active: core.v1.NodeConfigSource? = nil,
+			assigned: core.v1.NodeConfigSource? = nil,
+			error: String? = nil,
+			lastKnownGood: core.v1.NodeConfigSource? = nil
 		) {
 			self.active = active
 			self.assigned = assigned

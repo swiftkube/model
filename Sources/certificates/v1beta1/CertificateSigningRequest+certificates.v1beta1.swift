@@ -46,9 +46,9 @@ public extension certificates.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: certificates.v1beta1.CertificateSigningRequestSpec?, 
-			status: certificates.v1beta1.CertificateSigningRequestStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: certificates.v1beta1.CertificateSigningRequestSpec? = nil,
+			status: certificates.v1beta1.CertificateSigningRequestStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

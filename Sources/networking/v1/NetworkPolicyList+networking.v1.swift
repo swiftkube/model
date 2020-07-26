@@ -44,7 +44,7 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [networking.v1.NetworkPolicy]
 		) {
 			self.metadata = metadata

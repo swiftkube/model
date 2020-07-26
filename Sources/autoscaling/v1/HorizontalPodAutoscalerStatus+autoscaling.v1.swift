@@ -46,11 +46,11 @@ public extension autoscaling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			currentCPUUtilizationPercentage: Int32?, 
-			currentReplicas: Int32, 
-			desiredReplicas: Int32, 
-			lastScaleTime: String?, 
-			observedGeneration: Int64?
+			currentCPUUtilizationPercentage: Int32? = nil,
+			currentReplicas: Int32,
+			desiredReplicas: Int32,
+			lastScaleTime: String? = nil,
+			observedGeneration: Int64? = nil
 		) {
 			self.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage
 			self.currentReplicas = currentReplicas

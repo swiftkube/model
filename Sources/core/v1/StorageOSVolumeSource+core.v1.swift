@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			readOnly: Bool?, 
-			secretRef: core.v1.LocalObjectReference?, 
-			volumeName: String?, 
-			volumeNamespace: String?
+			fsType: String? = nil,
+			readOnly: Bool? = nil,
+			secretRef: core.v1.LocalObjectReference? = nil,
+			volumeName: String? = nil,
+			volumeNamespace: String? = nil
 		) {
 			self.fsType = fsType
 			self.readOnly = readOnly

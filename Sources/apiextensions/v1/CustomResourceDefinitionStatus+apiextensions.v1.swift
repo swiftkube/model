@@ -38,8 +38,8 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			acceptedNames: apiextensions.v1.CustomResourceDefinitionNames, 
-			conditions: [apiextensions.v1.CustomResourceDefinitionCondition]?, 
+			acceptedNames: apiextensions.v1.CustomResourceDefinitionNames,
+			conditions: [apiextensions.v1.CustomResourceDefinitionCondition]? = nil,
 			storedVersions: [String]
 		) {
 			self.acceptedNames = acceptedNames

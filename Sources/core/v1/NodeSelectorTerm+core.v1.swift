@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			matchExpressions: [core.v1.NodeSelectorRequirement]?, 
-			matchFields: [core.v1.NodeSelectorRequirement]?
+			matchExpressions: [core.v1.NodeSelectorRequirement]? = nil,
+			matchFields: [core.v1.NodeSelectorRequirement]? = nil
 		) {
 			self.matchExpressions = matchExpressions
 			self.matchFields = matchFields

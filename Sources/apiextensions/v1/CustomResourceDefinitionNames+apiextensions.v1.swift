@@ -50,12 +50,12 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String, 
-			categories: [String]?, 
-			listKind: String?, 
-			plural: String, 
-			shortNames: [String]?, 
-			singular: String?
+			kind: String,
+			categories: [String]? = nil,
+			listKind: String? = nil,
+			plural: String,
+			shortNames: [String]? = nil,
+			singular: String? = nil
 		) {
 			self.kind = kind
 			self.categories = categories

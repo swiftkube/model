@@ -82,19 +82,19 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			conditions: [core.v1.PodCondition]?, 
-			containerStatuses: [core.v1.ContainerStatus]?, 
-			ephemeralContainerStatuses: [core.v1.ContainerStatus]?, 
-			hostIP: String?, 
-			initContainerStatuses: [core.v1.ContainerStatus]?, 
-			message: String?, 
-			nominatedNodeName: String?, 
-			phase: String?, 
-			podIP: String?, 
-			podIPs: [core.v1.PodIP]?, 
-			qosClass: String?, 
-			reason: String?, 
-			startTime: String?
+			conditions: [core.v1.PodCondition]? = nil,
+			containerStatuses: [core.v1.ContainerStatus]? = nil,
+			ephemeralContainerStatuses: [core.v1.ContainerStatus]? = nil,
+			hostIP: String? = nil,
+			initContainerStatuses: [core.v1.ContainerStatus]? = nil,
+			message: String? = nil,
+			nominatedNodeName: String? = nil,
+			phase: String? = nil,
+			podIP: String? = nil,
+			podIPs: [core.v1.PodIP]? = nil,
+			qosClass: String? = nil,
+			reason: String? = nil,
+			startTime: String? = nil
 		) {
 			self.conditions = conditions
 			self.containerStatuses = containerStatuses

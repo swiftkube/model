@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			key: String, 
-			mode: Int32?, 
+			key: String,
+			mode: Int32? = nil,
 			path: String
 		) {
 			self.key = key

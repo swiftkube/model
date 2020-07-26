@@ -42,10 +42,10 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			currentAverageValue: Quantity?, 
-			currentValue: Quantity, 
-			metricName: String, 
-			metricSelector: meta.v1.LabelSelector?
+			currentAverageValue: Quantity? = nil,
+			currentValue: Quantity,
+			metricName: String,
+			metricSelector: meta.v1.LabelSelector? = nil
 		) {
 			self.currentAverageValue = currentAverageValue
 			self.currentValue = currentValue

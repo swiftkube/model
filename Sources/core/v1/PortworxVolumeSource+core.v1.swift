@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			readOnly: Bool?, 
+			fsType: String? = nil,
+			readOnly: Bool? = nil,
 			volumeID: String
 		) {
 			self.fsType = fsType

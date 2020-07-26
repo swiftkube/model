@@ -46,11 +46,11 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			revisionHistoryLimit: Int32?, 
-			selector: meta.v1.LabelSelector, 
-			template: core.v1.PodTemplateSpec, 
-			updateStrategy: apps.v1.DaemonSetUpdateStrategy?
+			minReadySeconds: Int32? = nil,
+			revisionHistoryLimit: Int32? = nil,
+			selector: meta.v1.LabelSelector,
+			template: core.v1.PodTemplateSpec,
+			updateStrategy: apps.v1.DaemonSetUpdateStrategy? = nil
 		) {
 			self.minReadySeconds = minReadySeconds
 			self.revisionHistoryLimit = revisionHistoryLimit

@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			datasetName: String?, 
-			datasetUUID: String?
+			datasetName: String? = nil,
+			datasetUUID: String? = nil
 		) {
 			self.datasetName = datasetName
 			self.datasetUUID = datasetUUID

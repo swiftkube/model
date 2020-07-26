@@ -68,14 +68,14 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			allowVolumeExpansion: Bool?, 
-			allowedTopologies: [core.v1.TopologySelectorTerm]?, 
-			mountOptions: [String]?, 
-			parameters: [String: String]?, 
-			provisioner: String, 
-			reclaimPolicy: String?, 
-			volumeBindingMode: String?
+			metadata: meta.v1.ObjectMeta? = nil,
+			allowVolumeExpansion: Bool? = nil,
+			allowedTopologies: [core.v1.TopologySelectorTerm]? = nil,
+			mountOptions: [String]? = nil,
+			parameters: [String: String]? = nil,
+			provisioner: String,
+			reclaimPolicy: String? = nil,
+			volumeBindingMode: String? = nil
 		) {
 			self.metadata = metadata
 			self.allowVolumeExpansion = allowVolumeExpansion

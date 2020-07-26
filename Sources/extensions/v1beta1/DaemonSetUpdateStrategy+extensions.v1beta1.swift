@@ -34,8 +34,8 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			rollingUpdate: extensions.v1beta1.RollingUpdateDaemonSet?, 
-			type: String?
+			rollingUpdate: extensions.v1beta1.RollingUpdateDaemonSet? = nil,
+			type: String? = nil
 		) {
 			self.rollingUpdate = rollingUpdate
 			self.type = type

@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			count: Int32?, 
-			lastObservedTime: String?, 
-			state: String?
+			count: Int32? = nil,
+			lastObservedTime: String? = nil,
+			state: String? = nil
 		) {
 			self.count = count
 			self.lastObservedTime = lastObservedTime

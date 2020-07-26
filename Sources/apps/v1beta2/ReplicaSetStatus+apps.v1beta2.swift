@@ -50,11 +50,11 @@ public extension apps.v1beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			availableReplicas: Int32?, 
-			conditions: [apps.v1beta2.ReplicaSetCondition]?, 
-			fullyLabeledReplicas: Int32?, 
-			observedGeneration: Int64?, 
-			readyReplicas: Int32?, 
+			availableReplicas: Int32? = nil,
+			conditions: [apps.v1beta2.ReplicaSetCondition]? = nil,
+			fullyLabeledReplicas: Int32? = nil,
+			observedGeneration: Int64? = nil,
+			readyReplicas: Int32? = nil,
 			replicas: Int32
 		) {
 			self.availableReplicas = availableReplicas

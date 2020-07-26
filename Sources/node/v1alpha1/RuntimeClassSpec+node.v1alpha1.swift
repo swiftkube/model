@@ -38,9 +38,9 @@ public extension node.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			overhead: node.v1alpha1.Overhead?, 
-			runtimeHandler: String, 
-			scheduling: node.v1alpha1.Scheduling?
+			overhead: node.v1alpha1.Overhead? = nil,
+			runtimeHandler: String,
+			scheduling: node.v1alpha1.Scheduling? = nil
 		) {
 			self.overhead = overhead
 			self.runtimeHandler = runtimeHandler

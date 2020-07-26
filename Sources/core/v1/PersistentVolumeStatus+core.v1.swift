@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			message: String?, 
-			phase: String?, 
-			reason: String?
+			message: String? = nil,
+			phase: String? = nil,
+			reason: String? = nil
 		) {
 			self.message = message
 			self.phase = phase

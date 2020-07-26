@@ -82,20 +82,20 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clusterIP: String?, 
-			externalIPs: [String]?, 
-			externalName: String?, 
-			externalTrafficPolicy: String?, 
-			healthCheckNodePort: Int32?, 
-			ipFamily: String?, 
-			loadBalancerIP: String?, 
-			loadBalancerSourceRanges: [String]?, 
-			ports: [core.v1.ServicePort]?, 
-			publishNotReadyAddresses: Bool?, 
-			selector: [String: String]?, 
-			sessionAffinity: String?, 
-			sessionAffinityConfig: core.v1.SessionAffinityConfig?, 
-			type: String?
+			clusterIP: String? = nil,
+			externalIPs: [String]? = nil,
+			externalName: String? = nil,
+			externalTrafficPolicy: String? = nil,
+			healthCheckNodePort: Int32? = nil,
+			ipFamily: String? = nil,
+			loadBalancerIP: String? = nil,
+			loadBalancerSourceRanges: [String]? = nil,
+			ports: [core.v1.ServicePort]? = nil,
+			publishNotReadyAddresses: Bool? = nil,
+			selector: [String: String]? = nil,
+			sessionAffinity: String? = nil,
+			sessionAffinityConfig: core.v1.SessionAffinityConfig? = nil,
+			type: String? = nil
 		) {
 			self.clusterIP = clusterIP
 			self.externalIPs = externalIPs

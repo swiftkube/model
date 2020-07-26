@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			hard: [String: Quantity]?, 
-			scopeSelector: core.v1.ScopeSelector?, 
-			scopes: [String]?
+			hard: [String: Quantity]? = nil,
+			scopeSelector: core.v1.ScopeSelector? = nil,
+			scopes: [String]? = nil
 		) {
 			self.hard = hard
 			self.scopeSelector = scopeSelector

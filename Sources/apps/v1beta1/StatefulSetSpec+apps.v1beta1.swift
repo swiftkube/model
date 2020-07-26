@@ -58,14 +58,14 @@ public extension apps.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			podManagementPolicy: String?, 
-			replicas: Int32?, 
-			revisionHistoryLimit: Int32?, 
-			selector: meta.v1.LabelSelector?, 
-			serviceName: String, 
-			template: core.v1.PodTemplateSpec, 
-			updateStrategy: apps.v1beta1.StatefulSetUpdateStrategy?, 
-			volumeClaimTemplates: [core.v1.PersistentVolumeClaim]?
+			podManagementPolicy: String? = nil,
+			replicas: Int32? = nil,
+			revisionHistoryLimit: Int32? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			serviceName: String,
+			template: core.v1.PodTemplateSpec,
+			updateStrategy: apps.v1beta1.StatefulSetUpdateStrategy? = nil,
+			volumeClaimTemplates: [core.v1.PersistentVolumeClaim]? = nil
 		) {
 			self.podManagementPolicy = podManagementPolicy
 			self.replicas = replicas

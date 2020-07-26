@@ -50,11 +50,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastProbeTime: String?, 
-			lastTransitionTime: String?, 
-			message: String?, 
-			reason: String?, 
-			status: String, 
+			lastProbeTime: String? = nil,
+			lastTransitionTime: String? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			status: String,
 			type: String
 		) {
 			self.lastProbeTime = lastProbeTime

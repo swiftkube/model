@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			labelSelector: meta.v1.LabelSelector?, 
-			namespaces: [String]?, 
+			labelSelector: meta.v1.LabelSelector? = nil,
+			namespaces: [String]? = nil,
 			topologyKey: String
 		) {
 			self.labelSelector = labelSelector

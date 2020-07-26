@@ -34,8 +34,8 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			matchExpressions: [meta.v1.LabelSelectorRequirement]?, 
-			matchLabels: [String: String]?
+			matchExpressions: [meta.v1.LabelSelectorRequirement]? = nil,
+			matchLabels: [String: String]? = nil
 		) {
 			self.matchExpressions = matchExpressions
 			self.matchLabels = matchLabels

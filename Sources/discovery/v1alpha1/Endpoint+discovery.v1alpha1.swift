@@ -52,11 +52,11 @@ public extension discovery.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			addresses: [String], 
-			conditions: discovery.v1alpha1.EndpointConditions?, 
-			hostname: String?, 
-			targetRef: core.v1.ObjectReference?, 
-			topology: [String: String]?
+			addresses: [String],
+			conditions: discovery.v1alpha1.EndpointConditions? = nil,
+			hostname: String? = nil,
+			targetRef: core.v1.ObjectReference? = nil,
+			topology: [String: String]? = nil
 		) {
 			self.addresses = addresses
 			self.conditions = conditions

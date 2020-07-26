@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			hostname: String?, 
-			ip: String?
+			hostname: String? = nil,
+			ip: String? = nil
 		) {
 			self.hostname = hostname
 			self.ip = ip

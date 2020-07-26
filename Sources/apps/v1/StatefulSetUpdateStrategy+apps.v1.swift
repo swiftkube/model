@@ -34,8 +34,8 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			rollingUpdate: apps.v1.RollingUpdateStatefulSetStrategy?, 
-			type: String?
+			rollingUpdate: apps.v1.RollingUpdateStatefulSetStrategy? = nil,
+			type: String? = nil
 		) {
 			self.rollingUpdate = rollingUpdate
 			self.type = type

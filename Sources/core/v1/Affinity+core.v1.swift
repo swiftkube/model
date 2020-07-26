@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			nodeAffinity: core.v1.NodeAffinity?, 
-			podAffinity: core.v1.PodAffinity?, 
-			podAntiAffinity: core.v1.PodAntiAffinity?
+			nodeAffinity: core.v1.NodeAffinity? = nil,
+			podAffinity: core.v1.PodAffinity? = nil,
+			podAntiAffinity: core.v1.PodAntiAffinity? = nil
 		) {
 			self.nodeAffinity = nodeAffinity
 			self.podAffinity = podAffinity

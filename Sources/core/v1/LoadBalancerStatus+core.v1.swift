@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ingress: [core.v1.LoadBalancerIngress]?
+			ingress: [core.v1.LoadBalancerIngress]? = nil
 		) {
 			self.ingress = ingress
 		}

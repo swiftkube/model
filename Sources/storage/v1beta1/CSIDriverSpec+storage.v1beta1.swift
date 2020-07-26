@@ -41,9 +41,9 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			attachRequired: Bool?, 
-			podInfoOnMount: Bool?, 
-			volumeLifecycleModes: [String]?
+			attachRequired: Bool? = nil,
+			podInfoOnMount: Bool? = nil,
+			volumeLifecycleModes: [String]? = nil
 		) {
 			self.attachRequired = attachRequired
 			self.podInfoOnMount = podInfoOnMount

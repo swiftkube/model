@@ -38,8 +38,8 @@ public extension events.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			count: Int32, 
-			lastObservedTime: String, 
+			count: Int32,
+			lastObservedTime: String,
 			state: String
 		) {
 			self.count = count

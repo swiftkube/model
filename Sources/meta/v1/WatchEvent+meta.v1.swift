@@ -38,7 +38,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			object: [String: Any], 
+			object: [String: Any],
 			type: String
 		) {
 			self.object = object

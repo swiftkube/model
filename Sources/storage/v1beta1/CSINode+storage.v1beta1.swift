@@ -42,7 +42,7 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
+			metadata: meta.v1.ObjectMeta? = nil,
 			spec: storage.v1beta1.CSINodeSpec
 		) {
 			self.metadata = metadata

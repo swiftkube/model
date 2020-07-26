@@ -44,7 +44,7 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [autoscaling.v2beta1.HorizontalPodAutoscaler]
 		) {
 			self.metadata = metadata

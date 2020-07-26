@@ -51,12 +51,12 @@ public extension certificates.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			extra: [String: [String]]?, 
-			groups: [String]?, 
-			request: String, 
-			uid: String?, 
-			usages: [String]?, 
-			username: String?
+			extra: [String: [String]]? = nil,
+			groups: [String]? = nil,
+			request: String,
+			uid: String? = nil,
+			usages: [String]? = nil,
+			username: String? = nil
 		) {
 			self.extra = extra
 			self.groups = groups

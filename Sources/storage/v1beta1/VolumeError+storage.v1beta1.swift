@@ -34,8 +34,8 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			message: String?, 
-			time: String?
+			message: String? = nil,
+			time: String? = nil
 		) {
 			self.message = message
 			self.time = time

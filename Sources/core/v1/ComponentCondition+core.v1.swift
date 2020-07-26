@@ -42,9 +42,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			error: String?, 
-			message: String?, 
-			status: String, 
+			error: String? = nil,
+			message: String? = nil,
+			status: String,
 			type: String
 		) {
 			self.error = error

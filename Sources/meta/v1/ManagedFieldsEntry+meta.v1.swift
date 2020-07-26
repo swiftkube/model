@@ -50,12 +50,12 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
-			fieldsType: String?, 
-			fieldsV1: [String: Any]?, 
-			manager: String?, 
-			operation: String?, 
-			time: String?
+			apiVersion: String? = nil,
+			fieldsType: String? = nil,
+			fieldsV1: [String: Any]? = nil,
+			manager: String? = nil,
+			operation: String? = nil,
+			time: String? = nil
 		) {
 			self.apiVersion = apiVersion
 			self.fieldsType = fieldsType

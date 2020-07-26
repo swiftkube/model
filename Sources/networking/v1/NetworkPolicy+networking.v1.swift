@@ -42,8 +42,8 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: networking.v1.NetworkPolicySpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: networking.v1.NetworkPolicySpec? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

@@ -34,8 +34,8 @@ public extension autoscaling.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			replicas: Int32, 
-			selector: String?
+			replicas: Int32,
+			selector: String? = nil
 		) {
 			self.replicas = replicas
 			self.selector = selector

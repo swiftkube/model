@@ -50,11 +50,11 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			description: String?, 
-			format: String?, 
-			jsonPath: String, 
-			name: String, 
-			priority: Int32?, 
+			description: String? = nil,
+			format: String? = nil,
+			jsonPath: String,
+			name: String,
+			priority: Int32? = nil,
 			type: String
 		) {
 			self.description = description

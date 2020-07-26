@@ -46,10 +46,10 @@ public extension autoscaling.v2beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			averageValue: Quantity?, 
-			currentValue: Quantity, 
-			metricName: String, 
-			selector: meta.v1.LabelSelector?, 
+			averageValue: Quantity? = nil,
+			currentValue: Quantity,
+			metricName: String,
+			selector: meta.v1.LabelSelector? = nil,
 			target: autoscaling.v2beta1.CrossVersionObjectReference
 		) {
 			self.averageValue = averageValue

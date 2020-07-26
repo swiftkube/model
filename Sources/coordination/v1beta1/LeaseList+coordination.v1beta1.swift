@@ -44,7 +44,7 @@ public extension coordination.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [coordination.v1beta1.Lease]
 		) {
 			self.metadata = metadata

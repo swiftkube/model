@@ -39,8 +39,8 @@ public extension networking.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			host: String?, 
-			http: networking.v1beta1.HTTPIngressRuleValue?
+			host: String? = nil,
+			http: networking.v1beta1.HTTPIngressRuleValue? = nil
 		) {
 			self.host = host
 			self.http = http

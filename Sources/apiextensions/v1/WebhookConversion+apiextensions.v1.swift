@@ -34,7 +34,7 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			clientConfig: apiextensions.v1.WebhookClientConfig?, 
+			clientConfig: apiextensions.v1.WebhookClientConfig? = nil,
 			conversionReviewVersions: [String]
 		) {
 			self.clientConfig = clientConfig

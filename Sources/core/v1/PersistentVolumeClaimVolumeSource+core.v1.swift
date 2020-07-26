@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			claimName: String, 
-			readOnly: Bool?
+			claimName: String,
+			readOnly: Bool? = nil
 		) {
 			self.claimName = claimName
 			self.readOnly = readOnly

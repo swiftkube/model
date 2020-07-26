@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			key: String, 
-			name: String?, 
-			optional: Bool?
+			key: String,
+			name: String? = nil,
+			optional: Bool? = nil
 		) {
 			self.key = key
 			self.name = name

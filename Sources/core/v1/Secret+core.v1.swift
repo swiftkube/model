@@ -50,10 +50,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			data: [String: String]?, 
-			stringData: [String: String]?, 
-			type: String?
+			metadata: meta.v1.ObjectMeta? = nil,
+			data: [String: String]? = nil,
+			stringData: [String: String]? = nil,
+			type: String? = nil
 		) {
 			self.metadata = metadata
 			self.data = data

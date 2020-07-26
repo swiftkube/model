@@ -34,7 +34,7 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			max: Int64, 
+			max: Int64,
 			min: Int64
 		) {
 			self.max = max

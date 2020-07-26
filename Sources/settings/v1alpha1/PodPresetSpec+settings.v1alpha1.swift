@@ -46,11 +46,11 @@ public extension settings.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			env: [core.v1.EnvVar]?, 
-			envFrom: [core.v1.EnvFromSource]?, 
-			selector: meta.v1.LabelSelector?, 
-			volumeMounts: [core.v1.VolumeMount]?, 
-			volumes: [core.v1.Volume]?
+			env: [core.v1.EnvVar]? = nil,
+			envFrom: [core.v1.EnvFromSource]? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			volumeMounts: [core.v1.VolumeMount]? = nil,
+			volumes: [core.v1.Volume]? = nil
 		) {
 			self.env = env
 			self.envFrom = envFrom

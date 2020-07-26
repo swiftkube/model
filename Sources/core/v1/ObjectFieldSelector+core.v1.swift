@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
+			apiVersion: String? = nil,
 			fieldPath: String
 		) {
 			self.apiVersion = apiVersion

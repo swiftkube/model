@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			names: [String], 
-			sizeBytes: Int64?
+			names: [String],
+			sizeBytes: Int64? = nil
 		) {
 			self.names = names
 			self.sizeBytes = sizeBytes

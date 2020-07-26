@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			value: String?
+			name: String? = nil,
+			value: String? = nil
 		) {
 			self.name = name
 			self.value = value

@@ -42,8 +42,8 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: auditregistration.v1alpha1.AuditSinkSpec?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: auditregistration.v1alpha1.AuditSinkSpec? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

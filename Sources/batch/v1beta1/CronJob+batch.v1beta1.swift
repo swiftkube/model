@@ -46,9 +46,9 @@ public extension batch.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: batch.v1beta1.CronJobSpec?, 
-			status: batch.v1beta1.CronJobStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: batch.v1beta1.CronJobSpec? = nil,
+			status: batch.v1beta1.CronJobStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

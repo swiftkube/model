@@ -42,10 +42,10 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			allocatable: storage.v1beta1.VolumeNodeResources?, 
-			name: String, 
-			nodeID: String, 
-			topologyKeys: [String]?
+			allocatable: storage.v1beta1.VolumeNodeResources? = nil,
+			name: String,
+			nodeID: String,
+			topologyKeys: [String]? = nil
 		) {
 			self.allocatable = allocatable
 			self.name = name

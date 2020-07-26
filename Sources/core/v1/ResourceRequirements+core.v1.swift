@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			limits: [String: Quantity]?, 
-			requests: [String: Quantity]?
+			limits: [String: Quantity]? = nil,
+			requests: [String: Quantity]? = nil
 		) {
 			self.limits = limits
 			self.requests = requests

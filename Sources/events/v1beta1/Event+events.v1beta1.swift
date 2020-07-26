@@ -94,21 +94,21 @@ public extension events.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			action: String?, 
-			deprecatedCount: Int32?, 
-			deprecatedFirstTimestamp: String?, 
-			deprecatedLastTimestamp: String?, 
-			deprecatedSource: core.v1.EventSource?, 
-			eventTime: String, 
-			note: String?, 
-			reason: String?, 
-			regarding: core.v1.ObjectReference?, 
-			related: core.v1.ObjectReference?, 
-			reportingController: String?, 
-			reportingInstance: String?, 
-			series: events.v1beta1.EventSeries?, 
-			type: String?
+			metadata: meta.v1.ObjectMeta? = nil,
+			action: String? = nil,
+			deprecatedCount: Int32? = nil,
+			deprecatedFirstTimestamp: String? = nil,
+			deprecatedLastTimestamp: String? = nil,
+			deprecatedSource: core.v1.EventSource? = nil,
+			eventTime: String,
+			note: String? = nil,
+			reason: String? = nil,
+			regarding: core.v1.ObjectReference? = nil,
+			related: core.v1.ObjectReference? = nil,
+			reportingController: String? = nil,
+			reportingInstance: String? = nil,
+			series: events.v1beta1.EventSeries? = nil,
+			type: String? = nil
 		) {
 			self.metadata = metadata
 			self.action = action

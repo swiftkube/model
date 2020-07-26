@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			configMap: core.v1.ConfigMapProjection?, 
-			downwardAPI: core.v1.DownwardAPIProjection?, 
-			secret: core.v1.SecretProjection?, 
-			serviceAccountToken: core.v1.ServiceAccountTokenProjection?
+			configMap: core.v1.ConfigMapProjection? = nil,
+			downwardAPI: core.v1.DownwardAPIProjection? = nil,
+			secret: core.v1.SecretProjection? = nil,
+			serviceAccountToken: core.v1.ServiceAccountTokenProjection? = nil
 		) {
 			self.configMap = configMap
 			self.downwardAPI = downwardAPI

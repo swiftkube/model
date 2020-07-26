@@ -38,9 +38,9 @@ public extension networking.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			backend: networking.v1beta1.IngressBackend?, 
-			rules: [networking.v1beta1.IngressRule]?, 
-			tls: [networking.v1beta1.IngressTLS]?
+			backend: networking.v1beta1.IngressBackend? = nil,
+			rules: [networking.v1beta1.IngressRule]? = nil,
+			tls: [networking.v1beta1.IngressTLS]? = nil
 		) {
 			self.backend = backend
 			self.rules = rules

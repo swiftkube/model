@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			readOnly: Bool?, 
-			secretName: String, 
+			readOnly: Bool? = nil,
+			secretName: String,
 			shareName: String
 		) {
 			self.readOnly = readOnly

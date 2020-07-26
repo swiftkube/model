@@ -42,10 +42,10 @@ public extension authentication.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			audiences: [String]?, 
-			authenticated: Bool?, 
-			error: String?, 
-			user: authentication.v1beta1.UserInfo?
+			audiences: [String]? = nil,
+			authenticated: Bool? = nil,
+			error: String? = nil,
+			user: authentication.v1beta1.UserInfo? = nil
 		) {
 			self.audiences = audiences
 			self.authenticated = authenticated

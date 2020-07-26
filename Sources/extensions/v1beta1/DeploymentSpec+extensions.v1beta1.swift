@@ -62,14 +62,14 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			minReadySeconds: Int32?, 
-			paused: Bool?, 
-			progressDeadlineSeconds: Int32?, 
-			replicas: Int32?, 
-			revisionHistoryLimit: Int32?, 
-			rollbackTo: extensions.v1beta1.RollbackConfig?, 
-			selector: meta.v1.LabelSelector?, 
-			strategy: extensions.v1beta1.DeploymentStrategy?, 
+			minReadySeconds: Int32? = nil,
+			paused: Bool? = nil,
+			progressDeadlineSeconds: Int32? = nil,
+			replicas: Int32? = nil,
+			revisionHistoryLimit: Int32? = nil,
+			rollbackTo: extensions.v1beta1.RollbackConfig? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			strategy: extensions.v1beta1.DeploymentStrategy? = nil,
 			template: core.v1.PodTemplateSpec
 		) {
 			self.minReadySeconds = minReadySeconds

@@ -42,10 +42,10 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			endpoints: String, 
-			endpointsNamespace: String?, 
-			path: String, 
-			readOnly: Bool?
+			endpoints: String,
+			endpointsNamespace: String? = nil,
+			path: String,
+			readOnly: Bool? = nil
 		) {
 			self.endpoints = endpoints
 			self.endpointsNamespace = endpointsNamespace

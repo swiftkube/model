@@ -42,8 +42,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			conditions: [core.v1.ComponentCondition]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			conditions: [core.v1.ComponentCondition]? = nil
 		) {
 			self.metadata = metadata
 			self.conditions = conditions

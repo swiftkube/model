@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			port: Int32, 
-			`protocol`: String?
+			name: String? = nil,
+			port: Int32,
+			`protocol`: String? = nil
 		) {
 			self.name = name
 			self.port = port

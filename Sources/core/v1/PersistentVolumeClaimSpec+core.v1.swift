@@ -54,13 +54,13 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			accessModes: [String]?, 
-			dataSource: core.v1.TypedLocalObjectReference?, 
-			resources: core.v1.ResourceRequirements?, 
-			selector: meta.v1.LabelSelector?, 
-			storageClassName: String?, 
-			volumeMode: String?, 
-			volumeName: String?
+			accessModes: [String]? = nil,
+			dataSource: core.v1.TypedLocalObjectReference? = nil,
+			resources: core.v1.ResourceRequirements? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			storageClassName: String? = nil,
+			volumeMode: String? = nil,
+			volumeName: String? = nil
 		) {
 			self.accessModes = accessModes
 			self.dataSource = dataSource

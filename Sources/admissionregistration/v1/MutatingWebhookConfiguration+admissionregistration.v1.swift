@@ -42,8 +42,8 @@ public extension admissionregistration.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			webhooks: [admissionregistration.v1.MutatingWebhook]?
+			metadata: meta.v1.ObjectMeta? = nil,
+			webhooks: [admissionregistration.v1.MutatingWebhook]? = nil
 		) {
 			self.metadata = metadata
 			self.webhooks = webhooks

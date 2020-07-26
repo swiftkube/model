@@ -54,12 +54,12 @@ public extension apiregistration.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			caBundle: String?, 
-			group: String?, 
-			groupPriorityMinimum: Int32, 
-			insecureSkipTLSVerify: Bool?, 
-			service: apiregistration.v1.ServiceReference, 
-			version: String?, 
+			caBundle: String? = nil,
+			group: String? = nil,
+			groupPriorityMinimum: Int32,
+			insecureSkipTLSVerify: Bool? = nil,
+			service: apiregistration.v1.ServiceReference,
+			version: String? = nil,
 			versionPriority: Int32
 		) {
 			self.caBundle = caBundle

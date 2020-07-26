@@ -34,8 +34,8 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ranges: [policy.v1beta1.IDRange]?, 
-			rule: String?
+			ranges: [policy.v1beta1.IDRange]? = nil,
+			rule: String? = nil
 		) {
 			self.ranges = ranges
 			self.rule = rule

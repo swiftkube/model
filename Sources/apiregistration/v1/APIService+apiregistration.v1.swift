@@ -46,9 +46,9 @@ public extension apiregistration.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ObjectMeta?, 
-			spec: apiregistration.v1.APIServiceSpec?, 
-			status: apiregistration.v1.APIServiceStatus?
+			metadata: meta.v1.ObjectMeta? = nil,
+			spec: apiregistration.v1.APIServiceSpec? = nil,
+			status: apiregistration.v1.APIServiceStatus? = nil
 		) {
 			self.metadata = metadata
 			self.spec = spec

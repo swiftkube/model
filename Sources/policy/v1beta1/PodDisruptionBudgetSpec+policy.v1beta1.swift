@@ -38,9 +38,9 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			maxUnavailable: IntOrString?, 
-			minAvailable: IntOrString?, 
-			selector: meta.v1.LabelSelector?
+			maxUnavailable: IntOrString? = nil,
+			minAvailable: IntOrString? = nil,
+			selector: meta.v1.LabelSelector? = nil
 		) {
 			self.maxUnavailable = maxUnavailable
 			self.minAvailable = minAvailable

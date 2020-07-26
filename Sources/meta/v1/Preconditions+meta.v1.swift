@@ -34,8 +34,8 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			resourceVersion: String?, 
-			uid: String?
+			resourceVersion: String? = nil,
+			uid: String? = nil
 		) {
 			self.resourceVersion = resourceVersion
 			self.uid = uid

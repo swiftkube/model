@@ -58,12 +58,12 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
-			code: Int32?, 
-			details: meta.v1.StatusDetails?, 
-			message: String?, 
-			reason: String?, 
-			status: String?
+			metadata: meta.v1.ListMeta? = nil,
+			code: Int32? = nil,
+			details: meta.v1.StatusDetails? = nil,
+			message: String? = nil,
+			reason: String? = nil,
+			status: String? = nil
 		) {
 			self.metadata = metadata
 			self.code = code

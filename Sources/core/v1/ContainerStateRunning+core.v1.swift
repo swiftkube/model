@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			startedAt: String?
+			startedAt: String? = nil
 		) {
 			self.startedAt = startedAt
 		}

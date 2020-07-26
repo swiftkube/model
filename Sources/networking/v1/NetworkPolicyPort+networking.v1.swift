@@ -34,8 +34,8 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			port: IntOrString?, 
-			`protocol`: String?
+			port: IntOrString? = nil,
+			`protocol`: String? = nil
 		) {
 			self.port = port
 			self.`protocol` = `protocol`

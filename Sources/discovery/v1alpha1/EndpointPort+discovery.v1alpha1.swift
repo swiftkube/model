@@ -38,9 +38,9 @@ public extension discovery.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String?, 
-			port: Int32?, 
-			`protocol`: String?
+			name: String? = nil,
+			port: Int32? = nil,
+			`protocol`: String? = nil
 		) {
 			self.name = name
 			self.port = port

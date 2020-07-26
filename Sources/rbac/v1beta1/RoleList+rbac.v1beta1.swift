@@ -44,7 +44,7 @@ public extension rbac.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [rbac.v1beta1.Role]
 		) {
 			self.metadata = metadata

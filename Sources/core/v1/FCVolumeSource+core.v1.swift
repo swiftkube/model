@@ -46,11 +46,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
-			lun: Int32?, 
-			readOnly: Bool?, 
-			targetWWNs: [String]?, 
-			wwids: [String]?
+			fsType: String? = nil,
+			lun: Int32? = nil,
+			readOnly: Bool? = nil,
+			targetWWNs: [String]? = nil,
+			wwids: [String]? = nil
 		) {
 			self.fsType = fsType
 			self.lun = lun

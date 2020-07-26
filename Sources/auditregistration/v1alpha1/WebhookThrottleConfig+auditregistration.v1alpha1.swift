@@ -34,8 +34,8 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			burst: Int64?, 
-			qps: Int64?
+			burst: Int64? = nil,
+			qps: Int64? = nil
 		) {
 			self.burst = burst
 			self.qps = qps

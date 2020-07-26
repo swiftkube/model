@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			defaultMode: Int32?, 
+			defaultMode: Int32? = nil,
 			sources: [core.v1.VolumeProjection]
 		) {
 			self.defaultMode = defaultMode

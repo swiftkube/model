@@ -30,7 +30,7 @@ public extension apiextensions.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			openAPIV3Schema: [String: Any]?
+			openAPIV3Schema: [String: Any]? = nil
 		) {
 			self.openAPIV3Schema = openAPIV3Schema
 		}

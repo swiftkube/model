@@ -38,9 +38,9 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			backend: extensions.v1beta1.IngressBackend?, 
-			rules: [extensions.v1beta1.IngressRule]?, 
-			tls: [extensions.v1beta1.IngressTLS]?
+			backend: extensions.v1beta1.IngressBackend? = nil,
+			rules: [extensions.v1beta1.IngressRule]? = nil,
+			tls: [extensions.v1beta1.IngressTLS]? = nil
 		) {
 			self.backend = backend
 			self.rules = rules

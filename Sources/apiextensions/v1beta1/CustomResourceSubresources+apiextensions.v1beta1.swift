@@ -34,8 +34,8 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			scale: apiextensions.v1beta1.CustomResourceSubresourceScale?, 
-			status: apiextensions.v1beta1.CustomResourceSubresourceStatus?
+			scale: apiextensions.v1beta1.CustomResourceSubresourceScale? = nil,
+			status: apiextensions.v1beta1.CustomResourceSubresourceStatus? = nil
 		) {
 			self.scale = scale
 			self.status = status

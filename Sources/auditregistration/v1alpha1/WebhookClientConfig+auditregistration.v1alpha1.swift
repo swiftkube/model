@@ -50,9 +50,9 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			caBundle: String?, 
-			service: auditregistration.v1alpha1.ServiceReference?, 
-			url: String?
+			caBundle: String? = nil,
+			service: auditregistration.v1alpha1.ServiceReference? = nil,
+			url: String? = nil
 		) {
 			self.caBundle = caBundle
 			self.service = service

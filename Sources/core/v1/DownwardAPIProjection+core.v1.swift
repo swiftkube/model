@@ -30,7 +30,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			items: [core.v1.DownwardAPIVolumeFile]?
+			items: [core.v1.DownwardAPIVolumeFile]? = nil
 		) {
 			self.items = items
 		}

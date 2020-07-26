@@ -34,7 +34,7 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			current: autoscaling.v2beta2.MetricValueStatus, 
+			current: autoscaling.v2beta2.MetricValueStatus,
 			name: String
 		) {
 			self.current = current

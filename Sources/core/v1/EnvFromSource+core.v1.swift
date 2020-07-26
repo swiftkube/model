@@ -38,9 +38,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			configMapRef: core.v1.ConfigMapEnvSource?, 
-			prefix: String?, 
-			secretRef: core.v1.SecretEnvSource?
+			configMapRef: core.v1.ConfigMapEnvSource? = nil,
+			prefix: String? = nil,
+			secretRef: core.v1.SecretEnvSource? = nil
 		) {
 			self.configMapRef = configMapRef
 			self.prefix = prefix

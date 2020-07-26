@@ -34,7 +34,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			fsType: String?, 
+			fsType: String? = nil,
 			path: String
 		) {
 			self.fsType = fsType

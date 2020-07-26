@@ -42,10 +42,10 @@ public extension storage.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			attachError: storage.v1beta1.VolumeError?, 
-			attached: Bool, 
-			attachmentMetadata: [String: String]?, 
-			detachError: storage.v1beta1.VolumeError?
+			attachError: storage.v1beta1.VolumeError? = nil,
+			attached: Bool,
+			attachmentMetadata: [String: String]? = nil,
+			detachError: storage.v1beta1.VolumeError? = nil
 		) {
 			self.attachError = attachError
 			self.attached = attached

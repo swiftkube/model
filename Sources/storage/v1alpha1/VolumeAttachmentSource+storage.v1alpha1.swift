@@ -34,8 +34,8 @@ public extension storage.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			inlineVolumeSpec: core.v1.PersistentVolumeSpec?, 
-			persistentVolumeName: String?
+			inlineVolumeSpec: core.v1.PersistentVolumeSpec? = nil,
+			persistentVolumeName: String? = nil
 		) {
 			self.inlineVolumeSpec = inlineVolumeSpec
 			self.persistentVolumeName = persistentVolumeName

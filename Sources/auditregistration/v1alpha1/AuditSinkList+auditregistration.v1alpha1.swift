@@ -44,7 +44,7 @@ public extension auditregistration.v1alpha1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [auditregistration.v1alpha1.AuditSink]
 		) {
 			self.metadata = metadata

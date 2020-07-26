@@ -34,8 +34,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			medium: String?, 
-			sizeLimit: Quantity?
+			medium: String? = nil,
+			sizeLimit: Quantity? = nil
 		) {
 			self.medium = medium
 			self.sizeLimit = sizeLimit

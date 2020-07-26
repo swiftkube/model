@@ -58,14 +58,14 @@ public extension batch.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			activeDeadlineSeconds: Int64?, 
-			backoffLimit: Int32?, 
-			completions: Int32?, 
-			manualSelector: Bool?, 
-			parallelism: Int32?, 
-			selector: meta.v1.LabelSelector?, 
-			template: core.v1.PodTemplateSpec, 
-			ttlSecondsAfterFinished: Int32?
+			activeDeadlineSeconds: Int64? = nil,
+			backoffLimit: Int32? = nil,
+			completions: Int32? = nil,
+			manualSelector: Bool? = nil,
+			parallelism: Int32? = nil,
+			selector: meta.v1.LabelSelector? = nil,
+			template: core.v1.PodTemplateSpec,
+			ttlSecondsAfterFinished: Int32? = nil
 		) {
 			self.activeDeadlineSeconds = activeDeadlineSeconds
 			self.backoffLimit = backoffLimit

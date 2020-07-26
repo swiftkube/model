@@ -34,8 +34,8 @@ public extension authorization.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			nonResourceAttributes: authorization.v1.NonResourceAttributes?, 
-			resourceAttributes: authorization.v1.ResourceAttributes?
+			nonResourceAttributes: authorization.v1.NonResourceAttributes? = nil,
+			resourceAttributes: authorization.v1.ResourceAttributes? = nil
 		) {
 			self.nonResourceAttributes = nonResourceAttributes
 			self.resourceAttributes = resourceAttributes

@@ -46,9 +46,9 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			name: String, 
-			rollbackTo: extensions.v1beta1.RollbackConfig, 
-			updatedAnnotations: [String: String]?
+			name: String,
+			rollbackTo: extensions.v1beta1.RollbackConfig,
+			updatedAnnotations: [String: String]? = nil
 		) {
 			self.name = name
 			self.rollbackTo = rollbackTo

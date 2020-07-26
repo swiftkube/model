@@ -42,10 +42,10 @@ public extension authentication.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiVersion: String?, 
-			kind: String?, 
-			name: String?, 
-			uid: String?
+			apiVersion: String? = nil,
+			kind: String? = nil,
+			name: String? = nil,
+			uid: String? = nil
 		) {
 			self.apiVersion = apiVersion
 			self.kind = kind

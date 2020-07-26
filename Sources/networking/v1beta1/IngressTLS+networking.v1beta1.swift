@@ -34,8 +34,8 @@ public extension networking.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			hosts: [String]?, 
-			secretName: String?
+			hosts: [String]? = nil,
+			secretName: String? = nil
 		) {
 			self.hosts = hosts
 			self.secretName = secretName

@@ -42,9 +42,9 @@ public extension networking.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ipBlock: networking.v1.IPBlock?, 
-			namespaceSelector: meta.v1.LabelSelector?, 
-			podSelector: meta.v1.LabelSelector?
+			ipBlock: networking.v1.IPBlock? = nil,
+			namespaceSelector: meta.v1.LabelSelector? = nil,
+			podSelector: meta.v1.LabelSelector? = nil
 		) {
 			self.ipBlock = ipBlock
 			self.namespaceSelector = namespaceSelector

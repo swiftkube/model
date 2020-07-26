@@ -42,10 +42,10 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			averageUtilization: Int32?, 
-			averageValue: Quantity?, 
-			type: String, 
-			value: Quantity?
+			averageUtilization: Int32? = nil,
+			averageValue: Quantity? = nil,
+			type: String,
+			value: Quantity? = nil
 		) {
 			self.averageUtilization = averageUtilization
 			self.averageValue = averageValue

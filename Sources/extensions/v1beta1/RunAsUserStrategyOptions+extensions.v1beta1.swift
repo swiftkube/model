@@ -34,7 +34,7 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			ranges: [extensions.v1beta1.IDRange]?, 
+			ranges: [extensions.v1beta1.IDRange]? = nil,
 			rule: String
 		) {
 			self.ranges = ranges

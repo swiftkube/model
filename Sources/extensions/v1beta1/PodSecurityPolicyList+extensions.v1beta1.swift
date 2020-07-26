@@ -44,7 +44,7 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [extensions.v1beta1.PodSecurityPolicy]
 		) {
 			self.metadata = metadata

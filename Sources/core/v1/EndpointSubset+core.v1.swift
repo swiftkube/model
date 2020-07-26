@@ -45,9 +45,9 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			addresses: [core.v1.EndpointAddress]?, 
-			notReadyAddresses: [core.v1.EndpointAddress]?, 
-			ports: [core.v1.EndpointPort]?
+			addresses: [core.v1.EndpointAddress]? = nil,
+			notReadyAddresses: [core.v1.EndpointAddress]? = nil,
+			ports: [core.v1.EndpointPort]? = nil
 		) {
 			self.addresses = addresses
 			self.notReadyAddresses = notReadyAddresses

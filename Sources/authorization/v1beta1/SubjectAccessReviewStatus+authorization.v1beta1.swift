@@ -42,10 +42,10 @@ public extension authorization.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			allowed: Bool, 
-			denied: Bool?, 
-			evaluationError: String?, 
-			reason: String?
+			allowed: Bool,
+			denied: Bool? = nil,
+			evaluationError: String? = nil,
+			reason: String? = nil
 		) {
 			self.allowed = allowed
 			self.denied = denied

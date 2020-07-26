@@ -44,7 +44,7 @@ public extension policy.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			metadata: meta.v1.ListMeta?, 
+			metadata: meta.v1.ListMeta? = nil,
 			items: [policy.v1beta1.PodDisruptionBudget]
 		) {
 			self.metadata = metadata

@@ -46,10 +46,10 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
-			external: autoscaling.v2beta2.ExternalMetricSource?, 
-			object: autoscaling.v2beta2.ObjectMetricSource?, 
-			pods: autoscaling.v2beta2.PodsMetricSource?, 
-			resource: autoscaling.v2beta2.ResourceMetricSource?, 
+			external: autoscaling.v2beta2.ExternalMetricSource? = nil,
+			object: autoscaling.v2beta2.ObjectMetricSource? = nil,
+			pods: autoscaling.v2beta2.PodsMetricSource? = nil,
+			resource: autoscaling.v2beta2.ResourceMetricSource? = nil,
 			type: String
 		) {
 			self.external = external

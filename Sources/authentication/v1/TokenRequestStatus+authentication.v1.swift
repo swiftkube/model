@@ -34,7 +34,7 @@ public extension authentication.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			expirationTimestamp: String, 
+			expirationTimestamp: String,
 			token: String
 		) {
 			self.expirationTimestamp = expirationTimestamp

@@ -38,8 +38,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			kind: String, 
-			apiGroup: String?, 
+			kind: String,
+			apiGroup: String? = nil,
 			name: String
 		) {
 			self.kind = kind

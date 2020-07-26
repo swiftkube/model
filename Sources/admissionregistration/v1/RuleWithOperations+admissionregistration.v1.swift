@@ -52,11 +52,11 @@ public extension admissionregistration.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			apiGroups: [String]?, 
-			apiVersions: [String]?, 
-			operations: [String]?, 
-			resources: [String]?, 
-			scope: String?
+			apiGroups: [String]? = nil,
+			apiVersions: [String]? = nil,
+			operations: [String]? = nil,
+			resources: [String]? = nil,
+			scope: String? = nil
 		) {
 			self.apiGroups = apiGroups
 			self.apiVersions = apiVersions

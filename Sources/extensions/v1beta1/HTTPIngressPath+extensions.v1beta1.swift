@@ -34,8 +34,8 @@ public extension extensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			backend: extensions.v1beta1.IngressBackend, 
-			path: String?
+			backend: extensions.v1beta1.IngressBackend,
+			path: String? = nil
 		) {
 			self.backend = backend
 			self.path = path
