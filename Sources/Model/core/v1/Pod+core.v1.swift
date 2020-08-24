@@ -21,7 +21,7 @@ public extension core.v1 {
 	///
 	/// Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.
 	///
-	struct Pod: KubernetesResource {
+	struct Pod: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

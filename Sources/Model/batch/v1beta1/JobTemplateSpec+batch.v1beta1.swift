@@ -21,7 +21,7 @@ public extension batch.v1beta1 {
 	///
 	/// JobTemplateSpec describes the data a Job should have when created from a template
 	///
-	struct JobTemplateSpec: KubernetesResource {
+	struct JobTemplateSpec: KubernetesResource, ResourceWithMetadata {
 		///
 		/// Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///

@@ -21,7 +21,7 @@ public extension coordination.v1 {
 	///
 	/// Lease defines a lease concept.
 	///
-	struct Lease: KubernetesResource {
+	struct Lease: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

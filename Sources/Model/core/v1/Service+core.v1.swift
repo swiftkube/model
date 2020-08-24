@@ -21,7 +21,7 @@ public extension core.v1 {
 	///
 	/// Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
 	///
-	struct Service: KubernetesResource {
+	struct Service: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

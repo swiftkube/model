@@ -21,7 +21,7 @@ public extension scheduling.v1beta1 {
 	///
 	/// DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
 	///
-	struct PriorityClass: KubernetesResource {
+	struct PriorityClass: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

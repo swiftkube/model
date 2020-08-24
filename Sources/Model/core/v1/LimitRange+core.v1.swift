@@ -21,7 +21,7 @@ public extension core.v1 {
 	///
 	/// LimitRange sets resource usage limits for each kind of resource in a Namespace.
 	///
-	struct LimitRange: KubernetesResource {
+	struct LimitRange: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

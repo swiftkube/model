@@ -21,7 +21,7 @@ public extension policy.v1beta1 {
 	///
 	/// PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
 	///
-	struct PodDisruptionBudget: KubernetesResource {
+	struct PodDisruptionBudget: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

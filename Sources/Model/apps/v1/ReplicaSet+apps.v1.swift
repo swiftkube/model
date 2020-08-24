@@ -21,7 +21,7 @@ public extension apps.v1 {
 	///
 	/// ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 	///
-	struct ReplicaSet: KubernetesResource {
+	struct ReplicaSet: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

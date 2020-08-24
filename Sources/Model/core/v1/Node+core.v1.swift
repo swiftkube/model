@@ -21,7 +21,7 @@ public extension core.v1 {
 	///
 	/// Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd).
 	///
-	struct Node: KubernetesResource {
+	struct Node: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

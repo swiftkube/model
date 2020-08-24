@@ -24,7 +24,7 @@ public extension apps.v1 {
 	///  - Storage: As many VolumeClaims as requested.
 	/// The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 	///
-	struct StatefulSet: KubernetesResource {
+	struct StatefulSet: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

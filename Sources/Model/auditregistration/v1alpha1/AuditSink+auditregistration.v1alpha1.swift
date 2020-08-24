@@ -21,7 +21,7 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// AuditSink represents a cluster level audit sink
 	///
-	struct AuditSink: KubernetesResource {
+	struct AuditSink: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

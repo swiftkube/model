@@ -21,7 +21,7 @@ public extension autoscaling.v2beta1 {
 	///
 	/// HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
 	///
-	struct HorizontalPodAutoscaler: KubernetesResource {
+	struct HorizontalPodAutoscaler: KubernetesResource, ResourceWithMetadata {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

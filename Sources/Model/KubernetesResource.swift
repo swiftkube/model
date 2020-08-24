@@ -20,7 +20,20 @@ public protocol KubernetesResource: Codable {
 }
 
 public protocol KubernetesResourceList: Codable {
-	associatedtype Item
+	associatedtype Item: KubernetesResource
 
 	var items: [Item] { get }
+}
+
+public protocol ResourceWithMetadata {
+
+	var metadata: meta.v1.ObjectMeta? { get }
+	var name: String? { get }
+}
+
+extension ResourceWithMetadata {
+
+	public var name: String? {
+		return self.metadata?.name
+	}
 }
