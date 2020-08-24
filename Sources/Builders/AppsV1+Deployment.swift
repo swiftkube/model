@@ -18,15 +18,11 @@ import Foundation
 
 public extension sk {
 
-	static func pod(_ block: (inout core.v1.Pod) -> Void) -> core.v1.Pod {
-		return build(core.v1.Pod(), with: block)
+	static func deployment(_ block: (inout apps.v1.Deployment) -> Void) -> apps.v1.Deployment {
+		return build(apps.v1.Deployment(), with: block)
 	}
 
-	static func podSpec(_ block: (inout core.v1.PodSpec) -> Void) -> core.v1.PodSpec {
-		return build(core.v1.PodSpec(containers: []), with: block)
-	}
-
-	static func podTemplate(_ block: (inout core.v1.PodTemplateSpec) -> Void) -> core.v1.PodTemplateSpec {
-		return build(core.v1.PodTemplateSpec(), with: block)
+	static func deploymentSpec(_ block: (inout apps.v1.DeploymentSpec) -> Void) -> apps.v1.DeploymentSpec {
+		return build(apps.v1.DeploymentSpec(selector: meta.v1.LabelSelector(), template: core.v1.PodTemplateSpec()), with: block)
 	}
 }
