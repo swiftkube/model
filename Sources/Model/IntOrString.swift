@@ -17,7 +17,12 @@
 import Foundation
 
 public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral {
-	let value: String
+
+	private let value: String
+
+	var isInt: Bool {
+		return Int(value) != nil
+	}
 
 	public init(stringLiteral value: String) {
 		self.value = value
