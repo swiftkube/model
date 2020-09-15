@@ -65,11 +65,15 @@ public enum APIGroupVersion: CustomStringConvertible {
 	case storageV1Beta1
 	case custom(group: String, version: String)
 
-	public var description: String {
+	public var apiVersion: String {
 		guard group != "" else {
 			return version
 		}
 		return "\(group)/\(version)"
+	}
+
+	public var description: String {
+		return apiVersion
 	}
 
 	public var urlPath: String {
