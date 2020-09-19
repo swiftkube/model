@@ -18,8 +18,8 @@ import Foundation
 
 public extension sk {
 
-	static func deployment(_ block: (inout apps.v1.Deployment) -> Void) -> apps.v1.Deployment {
-		return build(apps.v1.Deployment(), with: block)
+	static func deployment(name: String, _ block: (inout apps.v1.Deployment) -> Void) -> apps.v1.Deployment {
+		return build(apps.v1.Deployment(metadata: meta.v1.ObjectMeta(name: name)), with: block)
 	}
 
 	static func deploymentSpec(_ block: (inout apps.v1.DeploymentSpec) -> Void) -> apps.v1.DeploymentSpec {

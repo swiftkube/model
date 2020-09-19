@@ -43,9 +43,8 @@ class Foo {
 			sk.match(key: "fdfs", .notIn(["dasda"]))
 		]
 
-		var config = sk.configMap {
+		var config = sk.configMap(name: "test") {
 			$0.metadata = sk.metadata {
-				$0.name = "test"
 				$0.namespace = "test"
 			}
 		}

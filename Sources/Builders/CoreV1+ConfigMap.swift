@@ -18,8 +18,8 @@ import Foundation
 
 public extension sk {
 
-	static func configMap(_ block: (inout core.v1.ConfigMap) -> Void) -> core.v1.ConfigMap {
-		return build(core.v1.ConfigMap(), with: block)
+	static func configMap(name: String, _ block: ((inout core.v1.ConfigMap) -> Void)? = nil) -> core.v1.ConfigMap {
+		return build(core.v1.ConfigMap(metadata: meta.v1.ObjectMeta(name: name)), with: block ?? { _ in })
 	}
 }
 
