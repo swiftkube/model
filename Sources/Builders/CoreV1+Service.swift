@@ -49,31 +49,3 @@ public extension core.v1.ServiceSpec {
 		})
 	}
 }
-
-public extension apps.v1.Deployment {
-
-	mutating func expose(on servicePort: Int32, type: ServiceType = .clusterIP) -> core.v1.Service? {
-		guard
-			let name = self.name,
-			var metadata = self.metadata,
-			let containerPort = self.spec?.template.spec?.containers.first?.ports?.first?.containerPort
-		else {
-			return nil
-		}
-
-		if metadata.labels == nil {
-			metadata.labels = ["app": name]
-		}
-
-		return sk.service {
-			$0.metadata = sk.metadata {
-				$0.name = name
-			}
-			$0.spec = sk.serviceSpec {
-				$0.type = type.rawValue
-				$0.selector = metadata.labels
-				$0.serve(port: servicePort, targetPort: IntOrString(integerLiteral: Int(containerPort)))
-			}
-		}
-	}
-}
