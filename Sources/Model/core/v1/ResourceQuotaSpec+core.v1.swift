@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ResourceQuotaSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case hard = "hard"
+		case scopeSelector = "scopeSelector"
+		case scopes = "scopes"
+	}
+
+}
+

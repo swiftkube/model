@@ -49,3 +49,16 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.PodsMetricSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case metricName = "metricName"
+		case selector = "selector"
+		case targetAverageValue = "targetAverageValue"
+	}
+
+}
+

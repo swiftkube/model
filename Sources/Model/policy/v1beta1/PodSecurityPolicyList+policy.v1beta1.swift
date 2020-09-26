@@ -53,6 +53,21 @@ public extension policy.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension policy.v1beta1.PodSecurityPolicyList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension policy.v1beta1.PodSecurityPolicyList: Sequence {
 
 	public typealias Element = policy.v1beta1.PodSecurityPolicy

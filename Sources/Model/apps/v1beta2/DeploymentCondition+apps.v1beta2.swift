@@ -67,3 +67,19 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.DeploymentCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastTransitionTime = "lastTransitionTime"
+		case lastUpdateTime = "lastUpdateTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

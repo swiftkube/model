@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EnvFromSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case configMapRef = "configMapRef"
+		case prefix = "prefix"
+		case secretRef = "secretRef"
+	}
+
+}
+

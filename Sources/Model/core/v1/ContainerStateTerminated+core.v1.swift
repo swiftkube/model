@@ -73,3 +73,20 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ContainerStateTerminated {
+
+	private enum CodingKeys: String, CodingKey {
+		case containerID = "containerID"
+		case exitCode = "exitCode"
+		case finishedAt = "finishedAt"
+		case message = "message"
+		case reason = "reason"
+		case signal = "signal"
+		case startedAt = "startedAt"
+	}
+
+}
+

@@ -67,3 +67,19 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.NodeCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastHeartbeatTime = "lastHeartbeatTime"
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

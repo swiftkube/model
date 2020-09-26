@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ObjectFieldSelector {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiVersion = "apiVersion"
+		case fieldPath = "fieldPath"
+	}
+
+}
+

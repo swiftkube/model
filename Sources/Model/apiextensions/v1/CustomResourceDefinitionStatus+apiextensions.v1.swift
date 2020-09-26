@@ -49,3 +49,16 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceDefinitionStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case acceptedNames = "acceptedNames"
+		case conditions = "conditions"
+		case storedVersions = "storedVersions"
+	}
+
+}
+

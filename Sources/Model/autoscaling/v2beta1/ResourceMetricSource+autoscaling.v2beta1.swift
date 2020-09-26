@@ -49,3 +49,16 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.ResourceMetricSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case targetAverageUtilization = "targetAverageUtilization"
+		case targetAverageValue = "targetAverageValue"
+	}
+
+}
+

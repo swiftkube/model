@@ -51,3 +51,15 @@ public extension node.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension node.v1alpha1.RuntimeClass {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

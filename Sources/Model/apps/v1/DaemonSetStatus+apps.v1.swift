@@ -91,3 +91,23 @@ public extension apps.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1.DaemonSetStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case collisionCount = "collisionCount"
+		case conditions = "conditions"
+		case currentNumberScheduled = "currentNumberScheduled"
+		case desiredNumberScheduled = "desiredNumberScheduled"
+		case numberAvailable = "numberAvailable"
+		case numberMisscheduled = "numberMisscheduled"
+		case numberReady = "numberReady"
+		case numberUnavailable = "numberUnavailable"
+		case observedGeneration = "observedGeneration"
+		case updatedNumberScheduled = "updatedNumberScheduled"
+	}
+
+}
+

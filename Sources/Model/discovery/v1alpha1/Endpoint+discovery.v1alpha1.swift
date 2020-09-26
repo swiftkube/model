@@ -67,3 +67,18 @@ public extension discovery.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension discovery.v1alpha1.Endpoint {
+
+	private enum CodingKeys: String, CodingKey {
+		case addresses = "addresses"
+		case conditions = "conditions"
+		case hostname = "hostname"
+		case targetRef = "targetRef"
+		case topology = "topology"
+	}
+
+}
+

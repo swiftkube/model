@@ -51,3 +51,15 @@ public extension networking.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1.NetworkPolicy {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

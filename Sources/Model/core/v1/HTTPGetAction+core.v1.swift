@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.HTTPGetAction {
+
+	private enum CodingKeys: String, CodingKey {
+		case host = "host"
+		case httpHeaders = "httpHeaders"
+		case path = "path"
+		case port = "port"
+		case scheme = "scheme"
+	}
+
+}
+

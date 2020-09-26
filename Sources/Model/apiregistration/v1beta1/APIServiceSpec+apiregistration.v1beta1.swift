@@ -73,3 +73,20 @@ public extension apiregistration.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiregistration.v1beta1.APIServiceSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case caBundle = "caBundle"
+		case group = "group"
+		case groupPriorityMinimum = "groupPriorityMinimum"
+		case insecureSkipTLSVerify = "insecureSkipTLSVerify"
+		case service = "service"
+		case version = "version"
+		case versionPriority = "versionPriority"
+	}
+
+}
+

@@ -57,3 +57,16 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.HorizontalPodAutoscaler {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

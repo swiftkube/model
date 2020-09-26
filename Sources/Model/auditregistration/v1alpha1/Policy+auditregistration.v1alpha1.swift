@@ -43,3 +43,15 @@ public extension auditregistration.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension auditregistration.v1alpha1.Policy {
+
+	private enum CodingKeys: String, CodingKey {
+		case level = "level"
+		case stages = "stages"
+	}
+
+}
+

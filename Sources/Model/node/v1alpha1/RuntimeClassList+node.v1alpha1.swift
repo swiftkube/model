@@ -53,6 +53,21 @@ public extension node.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension node.v1alpha1.RuntimeClassList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension node.v1alpha1.RuntimeClassList: Sequence {
 
 	public typealias Element = node.v1alpha1.RuntimeClass

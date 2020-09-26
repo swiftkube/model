@@ -53,6 +53,21 @@ public extension discovery.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension discovery.v1alpha1.EndpointSliceList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension discovery.v1alpha1.EndpointSliceList: Sequence {
 
 	public typealias Element = discovery.v1alpha1.EndpointSlice

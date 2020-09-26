@@ -115,3 +115,27 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ServiceSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case clusterIP = "clusterIP"
+		case externalIPs = "externalIPs"
+		case externalName = "externalName"
+		case externalTrafficPolicy = "externalTrafficPolicy"
+		case healthCheckNodePort = "healthCheckNodePort"
+		case ipFamily = "ipFamily"
+		case loadBalancerIP = "loadBalancerIP"
+		case loadBalancerSourceRanges = "loadBalancerSourceRanges"
+		case ports = "ports"
+		case publishNotReadyAddresses = "publishNotReadyAddresses"
+		case selector = "selector"
+		case sessionAffinity = "sessionAffinity"
+		case sessionAffinityConfig = "sessionAffinityConfig"
+		case type = "type"
+	}
+
+}
+

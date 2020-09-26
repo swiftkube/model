@@ -51,3 +51,15 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.APIVersions {
+
+	private enum CodingKeys: String, CodingKey {
+		case serverAddressByClientCIDRs = "serverAddressByClientCIDRs"
+		case versions = "versions"
+	}
+
+}
+

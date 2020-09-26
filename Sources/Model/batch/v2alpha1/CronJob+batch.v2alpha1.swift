@@ -57,3 +57,16 @@ public extension batch.v2alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v2alpha1.CronJob {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

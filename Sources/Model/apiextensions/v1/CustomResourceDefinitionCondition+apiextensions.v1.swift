@@ -61,3 +61,18 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceDefinitionCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

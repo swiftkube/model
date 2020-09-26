@@ -57,3 +57,16 @@ public extension policy.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension policy.v1beta1.PodDisruptionBudget {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

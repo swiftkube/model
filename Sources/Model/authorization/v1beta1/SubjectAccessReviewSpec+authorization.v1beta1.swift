@@ -67,3 +67,19 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.SubjectAccessReviewSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case extra = "extra"
+		case group = "group"
+		case nonResourceAttributes = "nonResourceAttributes"
+		case resourceAttributes = "resourceAttributes"
+		case uid = "uid"
+		case user = "user"
+	}
+
+}
+

@@ -53,6 +53,21 @@ public extension batch.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1beta1.CronJobList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension batch.v1beta1.CronJobList: Sequence {
 
 	public typealias Element = batch.v1beta1.CronJob

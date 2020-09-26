@@ -43,3 +43,15 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.PodsMetricStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case current = "current"
+		case metric = "metric"
+	}
+
+}
+

@@ -79,3 +79,21 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.RBDPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsType = "fsType"
+		case image = "image"
+		case keyring = "keyring"
+		case monitors = "monitors"
+		case pool = "pool"
+		case readOnly = "readOnly"
+		case secretRef = "secretRef"
+		case user = "user"
+	}
+
+}
+

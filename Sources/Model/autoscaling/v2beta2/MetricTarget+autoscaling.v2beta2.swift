@@ -55,3 +55,17 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.MetricTarget {
+
+	private enum CodingKeys: String, CodingKey {
+		case averageUtilization = "averageUtilization"
+		case averageValue = "averageValue"
+		case type = "type"
+		case value = "value"
+	}
+
+}
+

@@ -143,3 +143,29 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.ObjectMeta {
+
+	private enum CodingKeys: String, CodingKey {
+		case annotations = "annotations"
+		case clusterName = "clusterName"
+		case creationTimestamp = "creationTimestamp"
+		case deletionGracePeriodSeconds = "deletionGracePeriodSeconds"
+		case deletionTimestamp = "deletionTimestamp"
+		case finalizers = "finalizers"
+		case generateName = "generateName"
+		case generation = "generation"
+		case labels = "labels"
+		case managedFields = "managedFields"
+		case name = "name"
+		case namespace = "namespace"
+		case ownerReferences = "ownerReferences"
+		case resourceVersion = "resourceVersion"
+		case selfLink = "selfLink"
+		case uid = "uid"
+	}
+
+}
+

@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ComponentCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case error = "error"
+		case message = "message"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

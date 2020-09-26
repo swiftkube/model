@@ -53,6 +53,21 @@ public extension apiregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiregistration.v1.APIServiceList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension apiregistration.v1.APIServiceList: Sequence {
 
 	public typealias Element = apiregistration.v1.APIService

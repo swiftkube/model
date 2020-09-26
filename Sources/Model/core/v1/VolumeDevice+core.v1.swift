@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.VolumeDevice {
+
+	private enum CodingKeys: String, CodingKey {
+		case devicePath = "devicePath"
+		case name = "name"
+	}
+
+}
+

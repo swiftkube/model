@@ -79,3 +79,21 @@ public extension apps.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1.DeploymentStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case availableReplicas = "availableReplicas"
+		case collisionCount = "collisionCount"
+		case conditions = "conditions"
+		case observedGeneration = "observedGeneration"
+		case readyReplicas = "readyReplicas"
+		case replicas = "replicas"
+		case unavailableReplicas = "unavailableReplicas"
+		case updatedReplicas = "updatedReplicas"
+	}
+
+}
+

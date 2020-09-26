@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ResourceRequirements {
+
+	private enum CodingKeys: String, CodingKey {
+		case limits = "limits"
+		case requests = "requests"
+	}
+
+}
+

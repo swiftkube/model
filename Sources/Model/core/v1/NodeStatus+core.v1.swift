@@ -97,3 +97,24 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.NodeStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case addresses = "addresses"
+		case allocatable = "allocatable"
+		case capacity = "capacity"
+		case conditions = "conditions"
+		case config = "config"
+		case daemonEndpoints = "daemonEndpoints"
+		case images = "images"
+		case nodeInfo = "nodeInfo"
+		case phase = "phase"
+		case volumesAttached = "volumesAttached"
+		case volumesInUse = "volumesInUse"
+	}
+
+}
+

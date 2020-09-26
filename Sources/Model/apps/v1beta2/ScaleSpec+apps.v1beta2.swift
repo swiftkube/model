@@ -37,3 +37,14 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.ScaleSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case replicas = "replicas"
+	}
+
+}
+

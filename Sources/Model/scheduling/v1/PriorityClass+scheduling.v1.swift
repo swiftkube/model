@@ -69,3 +69,18 @@ public extension scheduling.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension scheduling.v1.PriorityClass {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case description = "description"
+		case globalDefault = "globalDefault"
+		case preemptionPolicy = "preemptionPolicy"
+		case value = "value"
+	}
+
+}
+

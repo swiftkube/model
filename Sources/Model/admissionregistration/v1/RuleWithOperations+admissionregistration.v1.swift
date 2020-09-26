@@ -67,3 +67,18 @@ public extension admissionregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension admissionregistration.v1.RuleWithOperations {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiGroups = "apiGroups"
+		case apiVersions = "apiVersions"
+		case operations = "operations"
+		case resources = "resources"
+		case scope = "scope"
+	}
+
+}
+

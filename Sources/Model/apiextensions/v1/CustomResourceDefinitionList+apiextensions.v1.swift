@@ -53,6 +53,21 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceDefinitionList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension apiextensions.v1.CustomResourceDefinitionList: Sequence {
 
 	public typealias Element = apiextensions.v1.CustomResourceDefinition

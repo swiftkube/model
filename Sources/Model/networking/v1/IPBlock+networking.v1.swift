@@ -43,3 +43,15 @@ public extension networking.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1.IPBlock {
+
+	private enum CodingKeys: String, CodingKey {
+		case cidr = "cidr"
+		case except = "except"
+	}
+
+}
+

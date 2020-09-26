@@ -57,3 +57,16 @@ public extension certificates.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension certificates.v1beta1.CertificateSigningRequest {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

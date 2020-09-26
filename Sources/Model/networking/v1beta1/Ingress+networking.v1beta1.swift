@@ -57,3 +57,16 @@ public extension networking.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1beta1.Ingress {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

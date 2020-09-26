@@ -61,3 +61,18 @@ public extension apiregistration.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiregistration.v1beta1.APIServiceCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

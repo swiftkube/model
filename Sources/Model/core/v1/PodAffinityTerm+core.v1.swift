@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodAffinityTerm {
+
+	private enum CodingKeys: String, CodingKey {
+		case labelSelector = "labelSelector"
+		case namespaces = "namespaces"
+		case topologyKey = "topologyKey"
+	}
+
+}
+

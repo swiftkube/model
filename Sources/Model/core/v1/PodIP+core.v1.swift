@@ -38,3 +38,14 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodIP {
+
+	private enum CodingKeys: String, CodingKey {
+		case ip = "ip"
+	}
+
+}
+

@@ -61,3 +61,18 @@ public extension rbac.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1alpha1.PolicyRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiGroups = "apiGroups"
+		case nonResourceURLs = "nonResourceURLs"
+		case resourceNames = "resourceNames"
+		case resources = "resources"
+		case verbs = "verbs"
+	}
+
+}
+

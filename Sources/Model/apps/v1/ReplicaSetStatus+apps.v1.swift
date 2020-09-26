@@ -67,3 +67,19 @@ public extension apps.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1.ReplicaSetStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case availableReplicas = "availableReplicas"
+		case conditions = "conditions"
+		case fullyLabeledReplicas = "fullyLabeledReplicas"
+		case observedGeneration = "observedGeneration"
+		case readyReplicas = "readyReplicas"
+		case replicas = "replicas"
+	}
+
+}
+

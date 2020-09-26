@@ -53,6 +53,21 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.LimitRangeList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension core.v1.LimitRangeList: Sequence {
 
 	public typealias Element = core.v1.LimitRange

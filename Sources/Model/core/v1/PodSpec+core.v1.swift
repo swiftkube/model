@@ -235,3 +235,47 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case activeDeadlineSeconds = "activeDeadlineSeconds"
+		case affinity = "affinity"
+		case automountServiceAccountToken = "automountServiceAccountToken"
+		case containers = "containers"
+		case dnsConfig = "dnsConfig"
+		case dnsPolicy = "dnsPolicy"
+		case enableServiceLinks = "enableServiceLinks"
+		case ephemeralContainers = "ephemeralContainers"
+		case hostAliases = "hostAliases"
+		case hostIPC = "hostIPC"
+		case hostNetwork = "hostNetwork"
+		case hostPID = "hostPID"
+		case hostname = "hostname"
+		case imagePullSecrets = "imagePullSecrets"
+		case initContainers = "initContainers"
+		case nodeName = "nodeName"
+		case nodeSelector = "nodeSelector"
+		case overhead = "overhead"
+		case preemptionPolicy = "preemptionPolicy"
+		case priority = "priority"
+		case priorityClassName = "priorityClassName"
+		case readinessGates = "readinessGates"
+		case restartPolicy = "restartPolicy"
+		case runtimeClassName = "runtimeClassName"
+		case schedulerName = "schedulerName"
+		case securityContext = "securityContext"
+		case serviceAccount = "serviceAccount"
+		case serviceAccountName = "serviceAccountName"
+		case shareProcessNamespace = "shareProcessNamespace"
+		case subdomain = "subdomain"
+		case terminationGracePeriodSeconds = "terminationGracePeriodSeconds"
+		case tolerations = "tolerations"
+		case topologySpreadConstraints = "topologySpreadConstraints"
+		case volumes = "volumes"
+	}
+
+}
+

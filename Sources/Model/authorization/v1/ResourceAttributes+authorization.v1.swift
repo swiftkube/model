@@ -73,3 +73,20 @@ public extension authorization.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1.ResourceAttributes {
+
+	private enum CodingKeys: String, CodingKey {
+		case group = "group"
+		case name = "name"
+		case namespace = "namespace"
+		case resource = "resource"
+		case subresource = "subresource"
+		case verb = "verb"
+		case version = "version"
+	}
+
+}
+

@@ -53,3 +53,16 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.StatusCause {
+
+	private enum CodingKeys: String, CodingKey {
+		case field = "field"
+		case message = "message"
+		case reason = "reason"
+	}
+
+}
+

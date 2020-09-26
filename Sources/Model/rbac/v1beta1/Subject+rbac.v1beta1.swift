@@ -55,3 +55,17 @@ public extension rbac.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1beta1.Subject {
+
+	private enum CodingKeys: String, CodingKey {
+		case kind = "kind"
+		case apiGroup = "apiGroup"
+		case name = "name"
+		case namespace = "namespace"
+	}
+
+}
+

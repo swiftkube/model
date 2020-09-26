@@ -63,3 +63,17 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.APIGroup {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case preferredVersion = "preferredVersion"
+		case serverAddressByClientCIDRs = "serverAddressByClientCIDRs"
+		case versions = "versions"
+	}
+
+}
+

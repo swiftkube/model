@@ -45,3 +45,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ConfigMapEnvSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case optional = "optional"
+	}
+
+}
+

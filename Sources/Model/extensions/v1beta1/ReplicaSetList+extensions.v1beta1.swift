@@ -53,6 +53,21 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.ReplicaSetList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension extensions.v1beta1.ReplicaSetList: Sequence {
 
 	public typealias Element = extensions.v1beta1.ReplicaSet

@@ -61,3 +61,16 @@ public extension auditregistration.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension auditregistration.v1alpha1.WebhookClientConfig {
+
+	private enum CodingKeys: String, CodingKey {
+		case caBundle = "caBundle"
+		case service = "service"
+		case url = "url"
+	}
+
+}
+

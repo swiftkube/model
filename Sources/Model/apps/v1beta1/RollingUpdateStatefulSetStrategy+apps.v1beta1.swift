@@ -37,3 +37,14 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta1.RollingUpdateStatefulSetStrategy {
+
+	private enum CodingKeys: String, CodingKey {
+		case partition = "partition"
+	}
+
+}
+

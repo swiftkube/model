@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.SELinuxOptions {
+
+	private enum CodingKeys: String, CodingKey {
+		case level = "level"
+		case role = "role"
+		case type = "type"
+		case user = "user"
+	}
+
+}
+

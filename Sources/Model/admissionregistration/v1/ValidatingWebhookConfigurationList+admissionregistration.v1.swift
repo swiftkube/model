@@ -53,6 +53,21 @@ public extension admissionregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension admissionregistration.v1.ValidatingWebhookConfigurationList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension admissionregistration.v1.ValidatingWebhookConfigurationList: Sequence {
 
 	public typealias Element = admissionregistration.v1.ValidatingWebhookConfiguration

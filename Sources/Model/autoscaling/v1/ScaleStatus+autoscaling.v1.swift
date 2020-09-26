@@ -43,3 +43,15 @@ public extension autoscaling.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v1.ScaleStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case replicas = "replicas"
+		case selector = "selector"
+	}
+
+}
+

@@ -37,3 +37,14 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta1.RollbackConfig {
+
+	private enum CodingKeys: String, CodingKey {
+		case revision = "revision"
+	}
+
+}
+

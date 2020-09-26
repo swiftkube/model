@@ -67,3 +67,19 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.DaemonSetSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case minReadySeconds = "minReadySeconds"
+		case revisionHistoryLimit = "revisionHistoryLimit"
+		case selector = "selector"
+		case template = "template"
+		case templateGeneration = "templateGeneration"
+		case updateStrategy = "updateStrategy"
+	}
+
+}
+

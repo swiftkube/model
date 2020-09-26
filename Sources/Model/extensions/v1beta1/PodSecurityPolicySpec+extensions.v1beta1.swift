@@ -179,3 +179,37 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.PodSecurityPolicySpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case allowPrivilegeEscalation = "allowPrivilegeEscalation"
+		case allowedCSIDrivers = "allowedCSIDrivers"
+		case allowedCapabilities = "allowedCapabilities"
+		case allowedFlexVolumes = "allowedFlexVolumes"
+		case allowedHostPaths = "allowedHostPaths"
+		case allowedProcMountTypes = "allowedProcMountTypes"
+		case allowedUnsafeSysctls = "allowedUnsafeSysctls"
+		case defaultAddCapabilities = "defaultAddCapabilities"
+		case defaultAllowPrivilegeEscalation = "defaultAllowPrivilegeEscalation"
+		case forbiddenSysctls = "forbiddenSysctls"
+		case fsGroup = "fsGroup"
+		case hostIPC = "hostIPC"
+		case hostNetwork = "hostNetwork"
+		case hostPID = "hostPID"
+		case hostPorts = "hostPorts"
+		case privileged = "privileged"
+		case readOnlyRootFilesystem = "readOnlyRootFilesystem"
+		case requiredDropCapabilities = "requiredDropCapabilities"
+		case runAsGroup = "runAsGroup"
+		case runAsUser = "runAsUser"
+		case runtimeClass = "runtimeClass"
+		case seLinux = "seLinux"
+		case supplementalGroups = "supplementalGroups"
+		case volumes = "volumes"
+	}
+
+}
+

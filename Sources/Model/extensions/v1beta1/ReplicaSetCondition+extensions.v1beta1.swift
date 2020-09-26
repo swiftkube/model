@@ -61,3 +61,18 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.ReplicaSetCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

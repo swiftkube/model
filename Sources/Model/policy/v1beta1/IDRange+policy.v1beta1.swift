@@ -43,3 +43,15 @@ public extension policy.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension policy.v1beta1.IDRange {
+
+	private enum CodingKeys: String, CodingKey {
+		case max = "max"
+		case min = "min"
+	}
+
+}
+

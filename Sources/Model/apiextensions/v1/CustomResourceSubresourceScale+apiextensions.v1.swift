@@ -49,3 +49,16 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceSubresourceScale {
+
+	private enum CodingKeys: String, CodingKey {
+		case labelSelectorPath = "labelSelectorPath"
+		case specReplicasPath = "specReplicasPath"
+		case statusReplicasPath = "statusReplicasPath"
+	}
+
+}
+

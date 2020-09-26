@@ -55,3 +55,17 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.VolumeAttachmentStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case attachError = "attachError"
+		case attached = "attached"
+		case attachmentMetadata = "attachmentMetadata"
+		case detachError = "detachError"
+	}
+
+}
+

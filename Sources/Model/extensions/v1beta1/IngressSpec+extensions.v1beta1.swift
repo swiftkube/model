@@ -49,3 +49,16 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.IngressSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case backend = "backend"
+		case rules = "rules"
+		case tls = "tls"
+	}
+
+}
+

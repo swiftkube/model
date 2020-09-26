@@ -85,3 +85,22 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta1.StatefulSetStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case collisionCount = "collisionCount"
+		case conditions = "conditions"
+		case currentReplicas = "currentReplicas"
+		case currentRevision = "currentRevision"
+		case observedGeneration = "observedGeneration"
+		case readyReplicas = "readyReplicas"
+		case replicas = "replicas"
+		case updateRevision = "updateRevision"
+		case updatedReplicas = "updatedReplicas"
+	}
+
+}
+

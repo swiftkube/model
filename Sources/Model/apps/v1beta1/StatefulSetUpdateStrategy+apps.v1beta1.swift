@@ -43,3 +43,15 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta1.StatefulSetUpdateStrategy {
+
+	private enum CodingKeys: String, CodingKey {
+		case rollingUpdate = "rollingUpdate"
+		case type = "type"
+	}
+
+}
+

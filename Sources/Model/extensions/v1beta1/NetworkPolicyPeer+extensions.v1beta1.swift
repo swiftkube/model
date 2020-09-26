@@ -53,3 +53,16 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.NetworkPolicyPeer {
+
+	private enum CodingKeys: String, CodingKey {
+		case ipBlock = "ipBlock"
+		case namespaceSelector = "namespaceSelector"
+		case podSelector = "podSelector"
+	}
+
+}
+

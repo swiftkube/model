@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.WeightedPodAffinityTerm {
+
+	private enum CodingKeys: String, CodingKey {
+		case podAffinityTerm = "podAffinityTerm"
+		case weight = "weight"
+	}
+
+}
+

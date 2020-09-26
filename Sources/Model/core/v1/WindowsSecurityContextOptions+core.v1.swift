@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.WindowsSecurityContextOptions {
+
+	private enum CodingKeys: String, CodingKey {
+		case gmsaCredentialSpec = "gmsaCredentialSpec"
+		case gmsaCredentialSpecName = "gmsaCredentialSpecName"
+		case runAsUserName = "runAsUserName"
+	}
+
+}
+

@@ -51,3 +51,15 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.CSIDriver {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

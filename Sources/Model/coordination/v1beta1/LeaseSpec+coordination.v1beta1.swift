@@ -61,3 +61,18 @@ public extension coordination.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension coordination.v1beta1.LeaseSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case acquireTime = "acquireTime"
+		case holderIdentity = "holderIdentity"
+		case leaseDurationSeconds = "leaseDurationSeconds"
+		case leaseTransitions = "leaseTransitions"
+		case renewTime = "renewTime"
+	}
+
+}
+

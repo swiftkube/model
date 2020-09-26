@@ -91,3 +91,23 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.APIResource {
+
+	private enum CodingKeys: String, CodingKey {
+		case kind = "kind"
+		case categories = "categories"
+		case group = "group"
+		case name = "name"
+		case namespaced = "namespaced"
+		case shortNames = "shortNames"
+		case singularName = "singularName"
+		case storageVersionHash = "storageVersionHash"
+		case verbs = "verbs"
+		case version = "version"
+	}
+
+}
+

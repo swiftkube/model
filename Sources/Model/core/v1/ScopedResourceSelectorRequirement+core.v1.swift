@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ScopedResourceSelectorRequirement {
+
+	private enum CodingKeys: String, CodingKey {
+		case `operator` = "operator"
+		case scopeName = "scopeName"
+		case values = "values"
+	}
+
+}
+

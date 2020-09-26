@@ -57,3 +57,16 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.DaemonSet {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

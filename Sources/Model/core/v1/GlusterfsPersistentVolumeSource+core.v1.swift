@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.GlusterfsPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case endpoints = "endpoints"
+		case endpointsNamespace = "endpointsNamespace"
+		case path = "path"
+		case readOnly = "readOnly"
+	}
+
+}
+

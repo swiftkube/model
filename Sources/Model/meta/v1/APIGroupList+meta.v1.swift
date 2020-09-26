@@ -45,3 +45,14 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.APIGroupList {
+
+	private enum CodingKeys: String, CodingKey {
+		case groups = "groups"
+	}
+
+}
+

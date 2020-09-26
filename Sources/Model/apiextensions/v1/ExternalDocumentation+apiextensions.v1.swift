@@ -43,3 +43,15 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.ExternalDocumentation {
+
+	private enum CodingKeys: String, CodingKey {
+		case description = "description"
+		case url = "url"
+	}
+
+}
+

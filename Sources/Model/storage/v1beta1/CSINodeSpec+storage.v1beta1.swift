@@ -37,3 +37,14 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.CSINodeSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case drivers = "drivers"
+	}
+
+}
+

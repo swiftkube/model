@@ -49,3 +49,16 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.ObjectMetricStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case current = "current"
+		case describedObject = "describedObject"
+		case metric = "metric"
+	}
+
+}
+

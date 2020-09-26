@@ -67,3 +67,19 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.StatusDetails {
+
+	private enum CodingKeys: String, CodingKey {
+		case kind = "kind"
+		case causes = "causes"
+		case group = "group"
+		case name = "name"
+		case retryAfterSeconds = "retryAfterSeconds"
+		case uid = "uid"
+	}
+
+}
+

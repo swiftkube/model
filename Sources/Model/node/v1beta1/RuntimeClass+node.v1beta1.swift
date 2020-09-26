@@ -63,3 +63,17 @@ public extension node.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension node.v1beta1.RuntimeClass {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case handler = "handler"
+		case overhead = "overhead"
+		case scheduling = "scheduling"
+	}
+
+}
+

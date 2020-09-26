@@ -73,3 +73,20 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PersistentVolumeClaimSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case accessModes = "accessModes"
+		case dataSource = "dataSource"
+		case resources = "resources"
+		case selector = "selector"
+		case storageClassName = "storageClassName"
+		case volumeMode = "volumeMode"
+		case volumeName = "volumeName"
+	}
+
+}
+

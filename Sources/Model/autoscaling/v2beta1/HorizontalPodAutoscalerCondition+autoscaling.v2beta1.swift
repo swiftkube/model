@@ -61,3 +61,18 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.HorizontalPodAutoscalerCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

@@ -113,3 +113,26 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case conditions = "conditions"
+		case containerStatuses = "containerStatuses"
+		case ephemeralContainerStatuses = "ephemeralContainerStatuses"
+		case hostIP = "hostIP"
+		case initContainerStatuses = "initContainerStatuses"
+		case message = "message"
+		case nominatedNodeName = "nominatedNodeName"
+		case phase = "phase"
+		case podIP = "podIP"
+		case podIPs = "podIPs"
+		case qosClass = "qosClass"
+		case reason = "reason"
+		case startTime = "startTime"
+	}
+
+}
+

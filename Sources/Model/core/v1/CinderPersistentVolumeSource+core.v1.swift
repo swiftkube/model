@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.CinderPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsType = "fsType"
+		case readOnly = "readOnly"
+		case secretRef = "secretRef"
+		case volumeID = "volumeID"
+	}
+
+}
+

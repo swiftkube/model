@@ -67,3 +67,19 @@ public extension batch.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1.JobCondition {
+
+	private enum CodingKeys: String, CodingKey {
+		case lastProbeTime = "lastProbeTime"
+		case lastTransitionTime = "lastTransitionTime"
+		case message = "message"
+		case reason = "reason"
+		case status = "status"
+		case type = "type"
+	}
+
+}
+

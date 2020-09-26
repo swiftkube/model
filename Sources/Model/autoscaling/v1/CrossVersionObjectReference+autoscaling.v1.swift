@@ -49,3 +49,16 @@ public extension autoscaling.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v1.CrossVersionObjectReference {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiVersion = "apiVersion"
+		case kind = "kind"
+		case name = "name"
+	}
+
+}
+

@@ -163,3 +163,35 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Container {
+
+	private enum CodingKeys: String, CodingKey {
+		case args = "args"
+		case command = "command"
+		case env = "env"
+		case envFrom = "envFrom"
+		case image = "image"
+		case imagePullPolicy = "imagePullPolicy"
+		case lifecycle = "lifecycle"
+		case livenessProbe = "livenessProbe"
+		case name = "name"
+		case ports = "ports"
+		case readinessProbe = "readinessProbe"
+		case resources = "resources"
+		case securityContext = "securityContext"
+		case startupProbe = "startupProbe"
+		case stdin = "stdin"
+		case stdinOnce = "stdinOnce"
+		case terminationMessagePath = "terminationMessagePath"
+		case terminationMessagePolicy = "terminationMessagePolicy"
+		case tty = "tty"
+		case volumeDevices = "volumeDevices"
+		case volumeMounts = "volumeMounts"
+		case workingDir = "workingDir"
+	}
+
+}
+

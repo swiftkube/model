@@ -56,3 +56,17 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.ResourceRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiGroups = "apiGroups"
+		case resourceNames = "resourceNames"
+		case resources = "resources"
+		case verbs = "verbs"
+	}
+
+}
+

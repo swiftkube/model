@@ -85,3 +85,22 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.CSIPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case controllerExpandSecretRef = "controllerExpandSecretRef"
+		case controllerPublishSecretRef = "controllerPublishSecretRef"
+		case driver = "driver"
+		case fsType = "fsType"
+		case nodePublishSecretRef = "nodePublishSecretRef"
+		case nodeStageSecretRef = "nodeStageSecretRef"
+		case readOnly = "readOnly"
+		case volumeAttributes = "volumeAttributes"
+		case volumeHandle = "volumeHandle"
+	}
+
+}
+

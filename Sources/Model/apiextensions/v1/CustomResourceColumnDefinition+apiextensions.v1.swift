@@ -67,3 +67,19 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceColumnDefinition {
+
+	private enum CodingKeys: String, CodingKey {
+		case description = "description"
+		case format = "format"
+		case jsonPath = "jsonPath"
+		case name = "name"
+		case priority = "priority"
+		case type = "type"
+	}
+
+}
+

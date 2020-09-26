@@ -67,3 +67,19 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceDefinitionNames {
+
+	private enum CodingKeys: String, CodingKey {
+		case kind = "kind"
+		case categories = "categories"
+		case listKind = "listKind"
+		case plural = "plural"
+		case shortNames = "shortNames"
+		case singular = "singular"
+	}
+
+}
+

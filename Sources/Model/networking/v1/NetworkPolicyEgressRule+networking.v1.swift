@@ -43,3 +43,15 @@ public extension networking.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1.NetworkPolicyEgressRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case ports = "ports"
+		case to = "to"
+	}
+
+}
+

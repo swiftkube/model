@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.KeyToPath {
+
+	private enum CodingKeys: String, CodingKey {
+		case key = "key"
+		case mode = "mode"
+		case path = "path"
+	}
+
+}
+

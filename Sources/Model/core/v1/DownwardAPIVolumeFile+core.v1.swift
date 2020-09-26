@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.DownwardAPIVolumeFile {
+
+	private enum CodingKeys: String, CodingKey {
+		case fieldRef = "fieldRef"
+		case mode = "mode"
+		case path = "path"
+		case resourceFieldRef = "resourceFieldRef"
+	}
+
+}
+

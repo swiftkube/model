@@ -43,3 +43,15 @@ public extension apps.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1.DeploymentStrategy {
+
+	private enum CodingKeys: String, CodingKey {
+		case rollingUpdate = "rollingUpdate"
+		case type = "type"
+	}
+
+}
+

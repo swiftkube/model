@@ -83,3 +83,21 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodSecurityContext {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsGroup = "fsGroup"
+		case runAsGroup = "runAsGroup"
+		case runAsNonRoot = "runAsNonRoot"
+		case runAsUser = "runAsUser"
+		case seLinuxOptions = "seLinuxOptions"
+		case supplementalGroups = "supplementalGroups"
+		case sysctls = "sysctls"
+		case windowsOptions = "windowsOptions"
+	}
+
+}
+

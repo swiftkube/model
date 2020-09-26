@@ -57,3 +57,16 @@ public extension autoscaling.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v1.Scale {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

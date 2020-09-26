@@ -61,3 +61,18 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.ObjectMetricSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case averageValue = "averageValue"
+		case metricName = "metricName"
+		case selector = "selector"
+		case target = "target"
+		case targetValue = "targetValue"
+	}
+
+}
+

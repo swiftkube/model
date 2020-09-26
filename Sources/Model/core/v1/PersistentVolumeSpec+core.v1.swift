@@ -211,3 +211,43 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PersistentVolumeSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case accessModes = "accessModes"
+		case awsElasticBlockStore = "awsElasticBlockStore"
+		case azureDisk = "azureDisk"
+		case azureFile = "azureFile"
+		case capacity = "capacity"
+		case cephfs = "cephfs"
+		case cinder = "cinder"
+		case claimRef = "claimRef"
+		case csi = "csi"
+		case fc = "fc"
+		case flexVolume = "flexVolume"
+		case flocker = "flocker"
+		case gcePersistentDisk = "gcePersistentDisk"
+		case glusterfs = "glusterfs"
+		case hostPath = "hostPath"
+		case iscsi = "iscsi"
+		case local = "local"
+		case mountOptions = "mountOptions"
+		case nfs = "nfs"
+		case nodeAffinity = "nodeAffinity"
+		case persistentVolumeReclaimPolicy = "persistentVolumeReclaimPolicy"
+		case photonPersistentDisk = "photonPersistentDisk"
+		case portworxVolume = "portworxVolume"
+		case quobyte = "quobyte"
+		case rbd = "rbd"
+		case scaleIO = "scaleIO"
+		case storageClassName = "storageClassName"
+		case storageos = "storageos"
+		case volumeMode = "volumeMode"
+		case vsphereVolume = "vsphereVolume"
+	}
+
+}
+

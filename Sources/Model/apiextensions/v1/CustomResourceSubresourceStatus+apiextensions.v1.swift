@@ -30,4 +30,3 @@ public extension apiextensions.v1 {
 		}
 	}
 }
-

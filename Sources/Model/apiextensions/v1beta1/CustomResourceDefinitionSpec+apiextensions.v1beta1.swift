@@ -91,3 +91,23 @@ public extension apiextensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1beta1.CustomResourceDefinitionSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case additionalPrinterColumns = "additionalPrinterColumns"
+		case conversion = "conversion"
+		case group = "group"
+		case names = "names"
+		case preserveUnknownFields = "preserveUnknownFields"
+		case scope = "scope"
+		case subresources = "subresources"
+		case validation = "validation"
+		case version = "version"
+		case versions = "versions"
+	}
+
+}
+

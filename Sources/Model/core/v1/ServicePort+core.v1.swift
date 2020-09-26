@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ServicePort {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case nodePort = "nodePort"
+		case port = "port"
+		case `protocol` = "protocol"
+		case targetPort = "targetPort"
+	}
+
+}
+

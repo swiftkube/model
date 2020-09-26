@@ -67,3 +67,19 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.CephFSVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case monitors = "monitors"
+		case path = "path"
+		case readOnly = "readOnly"
+		case secretFile = "secretFile"
+		case secretRef = "secretRef"
+		case user = "user"
+	}
+
+}
+

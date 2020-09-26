@@ -67,3 +67,19 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.HorizontalPodAutoscalerStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case conditions = "conditions"
+		case currentMetrics = "currentMetrics"
+		case currentReplicas = "currentReplicas"
+		case desiredReplicas = "desiredReplicas"
+		case lastScaleTime = "lastScaleTime"
+		case observedGeneration = "observedGeneration"
+	}
+
+}
+

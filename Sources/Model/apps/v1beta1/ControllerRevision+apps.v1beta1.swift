@@ -57,6 +57,9 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
 extension apps.v1beta1.ControllerRevision {
 
 	private enum CodingKeys: String, CodingKey {
@@ -78,5 +81,6 @@ extension apps.v1beta1.ControllerRevision {
 		try container.encode(self.data, forKey: .data)
 		try container.encode(self.revision, forKey: .revision)
 	}
+
 }
 

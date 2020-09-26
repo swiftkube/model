@@ -53,6 +53,21 @@ public extension rbac.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1beta1.RoleList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension rbac.v1beta1.RoleList: Sequence {
 
 	public typealias Element = rbac.v1beta1.Role

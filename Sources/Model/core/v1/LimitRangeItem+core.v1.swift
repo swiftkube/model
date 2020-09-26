@@ -67,3 +67,19 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.LimitRangeItem {
+
+	private enum CodingKeys: String, CodingKey {
+		case `default` = "default"
+		case defaultRequest = "defaultRequest"
+		case max = "max"
+		case maxLimitRequestRatio = "maxLimitRequestRatio"
+		case min = "min"
+		case type = "type"
+	}
+
+}
+

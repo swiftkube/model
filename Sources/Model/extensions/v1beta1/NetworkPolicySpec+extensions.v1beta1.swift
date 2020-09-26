@@ -55,3 +55,17 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.NetworkPolicySpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case egress = "egress"
+		case ingress = "ingress"
+		case podSelector = "podSelector"
+		case policyTypes = "policyTypes"
+	}
+
+}
+

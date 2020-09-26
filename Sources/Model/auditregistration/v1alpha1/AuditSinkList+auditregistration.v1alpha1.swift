@@ -53,6 +53,21 @@ public extension auditregistration.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension auditregistration.v1alpha1.AuditSinkList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension auditregistration.v1alpha1.AuditSinkList: Sequence {
 
 	public typealias Element = auditregistration.v1alpha1.AuditSink

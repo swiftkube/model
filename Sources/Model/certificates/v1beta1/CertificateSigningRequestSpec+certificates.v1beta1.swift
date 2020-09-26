@@ -68,3 +68,19 @@ public extension certificates.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension certificates.v1beta1.CertificateSigningRequestSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case extra = "extra"
+		case groups = "groups"
+		case request = "request"
+		case uid = "uid"
+		case usages = "usages"
+		case username = "username"
+	}
+
+}
+

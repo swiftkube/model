@@ -73,3 +73,20 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.NodeSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case configSource = "configSource"
+		case externalID = "externalID"
+		case podCIDR = "podCIDR"
+		case podCIDRs = "podCIDRs"
+		case providerID = "providerID"
+		case taints = "taints"
+		case unschedulable = "unschedulable"
+	}
+
+}
+

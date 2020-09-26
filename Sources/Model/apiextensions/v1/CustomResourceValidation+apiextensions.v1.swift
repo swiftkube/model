@@ -37,6 +37,9 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
 extension apiextensions.v1.CustomResourceValidation {
 
 	private enum CodingKeys: String, CodingKey {
@@ -52,5 +55,6 @@ extension apiextensions.v1.CustomResourceValidation {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(self.openAPIV3Schema, forKey: .openAPIV3Schema)
 	}
+
 }
 

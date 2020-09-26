@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Toleration {
+
+	private enum CodingKeys: String, CodingKey {
+		case effect = "effect"
+		case key = "key"
+		case `operator` = "operator"
+		case tolerationSeconds = "tolerationSeconds"
+		case value = "value"
+	}
+
+}
+

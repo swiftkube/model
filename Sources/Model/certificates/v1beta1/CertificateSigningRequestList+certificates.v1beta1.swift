@@ -53,6 +53,21 @@ public extension certificates.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension certificates.v1beta1.CertificateSigningRequestList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension certificates.v1beta1.CertificateSigningRequestList: Sequence {
 
 	public typealias Element = certificates.v1beta1.CertificateSigningRequest

@@ -43,3 +43,15 @@ public extension node.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension node.v1alpha1.Scheduling {
+
+	private enum CodingKeys: String, CodingKey {
+		case nodeSelector = "nodeSelector"
+		case tolerations = "tolerations"
+	}
+
+}
+

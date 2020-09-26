@@ -61,3 +61,16 @@ public extension apiextensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1beta1.WebhookClientConfig {
+
+	private enum CodingKeys: String, CodingKey {
+		case caBundle = "caBundle"
+		case service = "service"
+		case url = "url"
+	}
+
+}
+

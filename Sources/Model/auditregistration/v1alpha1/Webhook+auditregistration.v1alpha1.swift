@@ -43,3 +43,15 @@ public extension auditregistration.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension auditregistration.v1alpha1.Webhook {
+
+	private enum CodingKeys: String, CodingKey {
+		case clientConfig = "clientConfig"
+		case throttle = "throttle"
+	}
+
+}
+

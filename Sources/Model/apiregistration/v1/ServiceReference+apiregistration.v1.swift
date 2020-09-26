@@ -49,3 +49,16 @@ public extension apiregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiregistration.v1.ServiceReference {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case namespace = "namespace"
+		case port = "port"
+	}
+
+}
+

@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.NodeConfigStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case active = "active"
+		case assigned = "assigned"
+		case error = "error"
+		case lastKnownGood = "lastKnownGood"
+	}
+
+}
+

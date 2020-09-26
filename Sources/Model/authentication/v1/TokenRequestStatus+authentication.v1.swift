@@ -43,3 +43,15 @@ public extension authentication.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1.TokenRequestStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case expirationTimestamp = "expirationTimestamp"
+		case token = "token"
+	}
+
+}
+

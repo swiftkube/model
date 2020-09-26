@@ -57,3 +57,16 @@ public extension rbac.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1alpha1.ClusterRole {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case aggregationRule = "aggregationRule"
+		case rules = "rules"
+	}
+
+}
+

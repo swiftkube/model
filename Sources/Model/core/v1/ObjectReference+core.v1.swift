@@ -73,3 +73,20 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ObjectReference {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiVersion = "apiVersion"
+		case kind = "kind"
+		case fieldPath = "fieldPath"
+		case name = "name"
+		case namespace = "namespace"
+		case resourceVersion = "resourceVersion"
+		case uid = "uid"
+	}
+
+}
+

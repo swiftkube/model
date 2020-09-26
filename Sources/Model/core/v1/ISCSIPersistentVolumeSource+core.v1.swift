@@ -97,3 +97,24 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ISCSIPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case chapAuthDiscovery = "chapAuthDiscovery"
+		case chapAuthSession = "chapAuthSession"
+		case fsType = "fsType"
+		case initiatorName = "initiatorName"
+		case iqn = "iqn"
+		case iscsiInterface = "iscsiInterface"
+		case lun = "lun"
+		case portals = "portals"
+		case readOnly = "readOnly"
+		case secretRef = "secretRef"
+		case targetPortal = "targetPortal"
+	}
+
+}
+

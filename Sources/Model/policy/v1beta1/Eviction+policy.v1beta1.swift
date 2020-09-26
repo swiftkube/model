@@ -51,3 +51,15 @@ public extension policy.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension policy.v1beta1.Eviction {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case deleteOptions = "deleteOptions"
+	}
+
+}
+

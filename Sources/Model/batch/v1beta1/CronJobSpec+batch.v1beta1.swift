@@ -73,3 +73,20 @@ public extension batch.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1beta1.CronJobSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case concurrencyPolicy = "concurrencyPolicy"
+		case failedJobsHistoryLimit = "failedJobsHistoryLimit"
+		case jobTemplate = "jobTemplate"
+		case schedule = "schedule"
+		case startingDeadlineSeconds = "startingDeadlineSeconds"
+		case successfulJobsHistoryLimit = "successfulJobsHistoryLimit"
+		case suspend = "suspend"
+	}
+
+}
+

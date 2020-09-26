@@ -55,3 +55,17 @@ public extension authentication.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1beta1.UserInfo {
+
+	private enum CodingKeys: String, CodingKey {
+		case extra = "extra"
+		case groups = "groups"
+		case uid = "uid"
+		case username = "username"
+	}
+
+}
+

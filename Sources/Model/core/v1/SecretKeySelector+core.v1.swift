@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.SecretKeySelector {
+
+	private enum CodingKeys: String, CodingKey {
+		case key = "key"
+		case name = "name"
+		case optional = "optional"
+	}
+
+}
+

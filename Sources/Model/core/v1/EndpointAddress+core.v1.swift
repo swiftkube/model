@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EndpointAddress {
+
+	private enum CodingKeys: String, CodingKey {
+		case hostname = "hostname"
+		case ip = "ip"
+		case nodeName = "nodeName"
+		case targetRef = "targetRef"
+	}
+
+}
+

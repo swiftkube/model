@@ -53,6 +53,21 @@ public extension scheduling.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension scheduling.v1alpha1.PriorityClassList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension scheduling.v1alpha1.PriorityClassList: Sequence {
 
 	public typealias Element = scheduling.v1alpha1.PriorityClass

@@ -37,3 +37,14 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ClientIPConfig {
+
+	private enum CodingKeys: String, CodingKey {
+		case timeoutSeconds = "timeoutSeconds"
+	}
+
+}
+

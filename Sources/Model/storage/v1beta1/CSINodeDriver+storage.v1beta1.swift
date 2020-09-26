@@ -55,3 +55,17 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.CSINodeDriver {
+
+	private enum CodingKeys: String, CodingKey {
+		case allocatable = "allocatable"
+		case name = "name"
+		case nodeID = "nodeID"
+		case topologyKeys = "topologyKeys"
+	}
+
+}
+

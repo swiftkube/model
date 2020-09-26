@@ -51,3 +51,15 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.APIResourceList {
+
+	private enum CodingKeys: String, CodingKey {
+		case groupVersion = "groupVersion"
+		case resources = "resources"
+	}
+
+}
+

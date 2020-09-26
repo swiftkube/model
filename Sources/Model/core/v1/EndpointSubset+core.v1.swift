@@ -56,3 +56,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EndpointSubset {
+
+	private enum CodingKeys: String, CodingKey {
+		case addresses = "addresses"
+		case notReadyAddresses = "notReadyAddresses"
+		case ports = "ports"
+	}
+
+}
+

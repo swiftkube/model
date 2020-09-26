@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ProjectedVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case defaultMode = "defaultMode"
+		case sources = "sources"
+	}
+
+}
+

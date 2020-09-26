@@ -53,6 +53,21 @@ public extension settings.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension settings.v1alpha1.PodPresetList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension settings.v1alpha1.PodPresetList: Sequence {
 
 	public typealias Element = settings.v1alpha1.PodPreset

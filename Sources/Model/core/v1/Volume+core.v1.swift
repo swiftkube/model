@@ -205,3 +205,42 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Volume {
+
+	private enum CodingKeys: String, CodingKey {
+		case awsElasticBlockStore = "awsElasticBlockStore"
+		case azureDisk = "azureDisk"
+		case azureFile = "azureFile"
+		case cephfs = "cephfs"
+		case cinder = "cinder"
+		case configMap = "configMap"
+		case csi = "csi"
+		case downwardAPI = "downwardAPI"
+		case emptyDir = "emptyDir"
+		case fc = "fc"
+		case flexVolume = "flexVolume"
+		case flocker = "flocker"
+		case gcePersistentDisk = "gcePersistentDisk"
+		case gitRepo = "gitRepo"
+		case glusterfs = "glusterfs"
+		case hostPath = "hostPath"
+		case iscsi = "iscsi"
+		case name = "name"
+		case nfs = "nfs"
+		case persistentVolumeClaim = "persistentVolumeClaim"
+		case photonPersistentDisk = "photonPersistentDisk"
+		case portworxVolume = "portworxVolume"
+		case projected = "projected"
+		case quobyte = "quobyte"
+		case rbd = "rbd"
+		case scaleIO = "scaleIO"
+		case secret = "secret"
+		case storageos = "storageos"
+		case vsphereVolume = "vsphereVolume"
+	}
+
+}
+

@@ -69,3 +69,18 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.DeleteOptions {
+
+	private enum CodingKeys: String, CodingKey {
+		case dryRun = "dryRun"
+		case gracePeriodSeconds = "gracePeriodSeconds"
+		case orphanDependents = "orphanDependents"
+		case preconditions = "preconditions"
+		case propagationPolicy = "propagationPolicy"
+	}
+
+}
+

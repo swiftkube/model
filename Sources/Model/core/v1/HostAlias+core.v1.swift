@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.HostAlias {
+
+	private enum CodingKeys: String, CodingKey {
+		case hostnames = "hostnames"
+		case ip = "ip"
+	}
+
+}
+

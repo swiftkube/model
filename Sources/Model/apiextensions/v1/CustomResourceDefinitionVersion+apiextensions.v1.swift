@@ -67,3 +67,19 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceDefinitionVersion {
+
+	private enum CodingKeys: String, CodingKey {
+		case additionalPrinterColumns = "additionalPrinterColumns"
+		case name = "name"
+		case schema = "schema"
+		case served = "served"
+		case storage = "storage"
+		case subresources = "subresources"
+	}
+
+}
+

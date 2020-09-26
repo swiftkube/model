@@ -43,3 +43,15 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.NetworkPolicyEgressRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case ports = "ports"
+		case to = "to"
+	}
+
+}
+

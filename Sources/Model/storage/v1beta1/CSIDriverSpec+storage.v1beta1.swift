@@ -52,3 +52,16 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.CSIDriverSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case attachRequired = "attachRequired"
+		case podInfoOnMount = "podInfoOnMount"
+		case volumeLifecycleModes = "volumeLifecycleModes"
+	}
+
+}
+

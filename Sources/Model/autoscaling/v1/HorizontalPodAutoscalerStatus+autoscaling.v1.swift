@@ -61,3 +61,18 @@ public extension autoscaling.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v1.HorizontalPodAutoscalerStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case currentCPUUtilizationPercentage = "currentCPUUtilizationPercentage"
+		case currentReplicas = "currentReplicas"
+		case desiredReplicas = "desiredReplicas"
+		case lastScaleTime = "lastScaleTime"
+		case observedGeneration = "observedGeneration"
+	}
+
+}
+

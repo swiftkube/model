@@ -43,3 +43,15 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceSubresources {
+
+	private enum CodingKeys: String, CodingKey {
+		case scale = "scale"
+		case status = "status"
+	}
+
+}
+

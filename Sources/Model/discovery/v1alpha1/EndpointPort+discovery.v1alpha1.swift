@@ -49,3 +49,16 @@ public extension discovery.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension discovery.v1alpha1.EndpointPort {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case port = "port"
+		case `protocol` = "protocol"
+	}
+
+}
+

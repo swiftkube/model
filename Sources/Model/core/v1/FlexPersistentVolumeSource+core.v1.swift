@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.FlexPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case driver = "driver"
+		case fsType = "fsType"
+		case options = "options"
+		case readOnly = "readOnly"
+		case secretRef = "secretRef"
+	}
+
+}
+

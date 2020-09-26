@@ -53,6 +53,21 @@ public extension events.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension events.v1beta1.EventList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension events.v1beta1.EventList: Sequence {
 
 	public typealias Element = events.v1beta1.Event

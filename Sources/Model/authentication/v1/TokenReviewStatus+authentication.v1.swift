@@ -55,3 +55,17 @@ public extension authentication.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1.TokenReviewStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case audiences = "audiences"
+		case authenticated = "authenticated"
+		case error = "error"
+		case user = "user"
+	}
+
+}
+

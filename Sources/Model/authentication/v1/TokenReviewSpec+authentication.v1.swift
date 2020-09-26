@@ -43,3 +43,15 @@ public extension authentication.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1.TokenReviewSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case audiences = "audiences"
+		case token = "token"
+	}
+
+}
+

@@ -51,3 +51,15 @@ public extension settings.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension settings.v1alpha1.PodPreset {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

@@ -91,3 +91,23 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.SecurityContext {
+
+	private enum CodingKeys: String, CodingKey {
+		case allowPrivilegeEscalation = "allowPrivilegeEscalation"
+		case capabilities = "capabilities"
+		case privileged = "privileged"
+		case procMount = "procMount"
+		case readOnlyRootFilesystem = "readOnlyRootFilesystem"
+		case runAsGroup = "runAsGroup"
+		case runAsNonRoot = "runAsNonRoot"
+		case runAsUser = "runAsUser"
+		case seLinuxOptions = "seLinuxOptions"
+		case windowsOptions = "windowsOptions"
+	}
+
+}
+

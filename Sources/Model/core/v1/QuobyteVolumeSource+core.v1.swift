@@ -67,3 +67,19 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.QuobyteVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case group = "group"
+		case readOnly = "readOnly"
+		case registry = "registry"
+		case tenant = "tenant"
+		case user = "user"
+		case volume = "volume"
+	}
+
+}
+

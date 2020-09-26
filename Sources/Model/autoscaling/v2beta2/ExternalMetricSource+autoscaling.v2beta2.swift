@@ -43,3 +43,15 @@ public extension autoscaling.v2beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta2.ExternalMetricSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case metric = "metric"
+		case target = "target"
+	}
+
+}
+

@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PersistentVolumeStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case message = "message"
+		case phase = "phase"
+		case reason = "reason"
+	}
+
+}
+

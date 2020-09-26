@@ -61,3 +61,18 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.DaemonSetSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case minReadySeconds = "minReadySeconds"
+		case revisionHistoryLimit = "revisionHistoryLimit"
+		case selector = "selector"
+		case template = "template"
+		case updateStrategy = "updateStrategy"
+	}
+
+}
+

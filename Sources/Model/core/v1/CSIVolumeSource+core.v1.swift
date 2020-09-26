@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.CSIVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case driver = "driver"
+		case fsType = "fsType"
+		case nodePublishSecretRef = "nodePublishSecretRef"
+		case readOnly = "readOnly"
+		case volumeAttributes = "volumeAttributes"
+	}
+
+}
+

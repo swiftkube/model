@@ -43,3 +43,15 @@ public extension batch.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1beta1.JobTemplateSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

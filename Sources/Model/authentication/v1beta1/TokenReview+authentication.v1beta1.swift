@@ -57,3 +57,16 @@ public extension authentication.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1beta1.TokenReview {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

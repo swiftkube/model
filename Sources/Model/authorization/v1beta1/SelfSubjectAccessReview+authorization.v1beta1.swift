@@ -57,3 +57,16 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.SelfSubjectAccessReview {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+		case status = "status"
+	}
+
+}
+

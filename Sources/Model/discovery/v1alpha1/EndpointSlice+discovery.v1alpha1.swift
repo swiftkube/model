@@ -63,3 +63,17 @@ public extension discovery.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension discovery.v1alpha1.EndpointSlice {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case addressType = "addressType"
+		case endpoints = "endpoints"
+		case ports = "ports"
+	}
+
+}
+

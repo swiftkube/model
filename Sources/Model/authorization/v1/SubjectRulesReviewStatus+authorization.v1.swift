@@ -55,3 +55,17 @@ public extension authorization.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1.SubjectRulesReviewStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case evaluationError = "evaluationError"
+		case incomplete = "incomplete"
+		case nonResourceRules = "nonResourceRules"
+		case resourceRules = "resourceRules"
+	}
+
+}
+

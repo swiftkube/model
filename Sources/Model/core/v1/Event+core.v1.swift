@@ -129,3 +129,28 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Event {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case action = "action"
+		case count = "count"
+		case eventTime = "eventTime"
+		case firstTimestamp = "firstTimestamp"
+		case involvedObject = "involvedObject"
+		case lastTimestamp = "lastTimestamp"
+		case message = "message"
+		case reason = "reason"
+		case related = "related"
+		case reportingComponent = "reportingComponent"
+		case reportingInstance = "reportingInstance"
+		case series = "series"
+		case source = "source"
+		case type = "type"
+	}
+
+}
+

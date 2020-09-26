@@ -61,3 +61,18 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.MetricSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case external = "external"
+		case object = "object"
+		case pods = "pods"
+		case resource = "resource"
+		case type = "type"
+	}
+
+}
+

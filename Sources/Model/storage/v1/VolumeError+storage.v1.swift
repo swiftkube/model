@@ -43,3 +43,15 @@ public extension storage.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1.VolumeError {
+
+	private enum CodingKeys: String, CodingKey {
+		case message = "message"
+		case time = "time"
+	}
+
+}
+

@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.AzureFileVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case readOnly = "readOnly"
+		case secretName = "secretName"
+		case shareName = "shareName"
+	}
+
+}
+

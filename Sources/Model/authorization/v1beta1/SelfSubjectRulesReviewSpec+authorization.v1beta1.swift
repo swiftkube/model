@@ -37,3 +37,14 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.SelfSubjectRulesReviewSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case namespace = "namespace"
+	}
+
+}
+

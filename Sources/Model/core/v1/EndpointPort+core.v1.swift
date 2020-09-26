@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EndpointPort {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case port = "port"
+		case `protocol` = "protocol"
+	}
+
+}
+

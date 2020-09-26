@@ -48,3 +48,15 @@ public extension networking.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1beta1.IngressRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case host = "host"
+		case http = "http"
+	}
+
+}
+

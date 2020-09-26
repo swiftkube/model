@@ -37,3 +37,14 @@ public extension discovery.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension discovery.v1alpha1.EndpointConditions {
+
+	private enum CodingKeys: String, CodingKey {
+		case ready = "ready"
+	}
+
+}
+

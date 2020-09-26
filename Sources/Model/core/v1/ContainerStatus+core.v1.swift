@@ -85,3 +85,22 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ContainerStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case containerID = "containerID"
+		case image = "image"
+		case imageID = "imageID"
+		case lastState = "lastState"
+		case name = "name"
+		case ready = "ready"
+		case restartCount = "restartCount"
+		case started = "started"
+		case state = "state"
+	}
+
+}
+

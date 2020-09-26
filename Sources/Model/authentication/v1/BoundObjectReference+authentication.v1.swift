@@ -55,3 +55,17 @@ public extension authentication.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authentication.v1.BoundObjectReference {
+
+	private enum CodingKeys: String, CodingKey {
+		case apiVersion = "apiVersion"
+		case kind = "kind"
+		case name = "name"
+		case uid = "uid"
+	}
+
+}
+

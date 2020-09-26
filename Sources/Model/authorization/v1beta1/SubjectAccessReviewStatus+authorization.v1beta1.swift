@@ -55,3 +55,17 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.SubjectAccessReviewStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case allowed = "allowed"
+		case denied = "denied"
+		case evaluationError = "evaluationError"
+		case reason = "reason"
+	}
+
+}
+

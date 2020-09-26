@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PreferredSchedulingTerm {
+
+	private enum CodingKeys: String, CodingKey {
+		case preference = "preference"
+		case weight = "weight"
+	}
+
+}
+

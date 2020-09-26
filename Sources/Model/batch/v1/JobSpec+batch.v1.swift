@@ -79,3 +79,21 @@ public extension batch.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1.JobSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case activeDeadlineSeconds = "activeDeadlineSeconds"
+		case backoffLimit = "backoffLimit"
+		case completions = "completions"
+		case manualSelector = "manualSelector"
+		case parallelism = "parallelism"
+		case selector = "selector"
+		case template = "template"
+		case ttlSecondsAfterFinished = "ttlSecondsAfterFinished"
+	}
+
+}
+

@@ -43,3 +43,15 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension meta.v1.Preconditions {
+
+	private enum CodingKeys: String, CodingKey {
+		case resourceVersion = "resourceVersion"
+		case uid = "uid"
+	}
+
+}
+

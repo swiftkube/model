@@ -55,3 +55,17 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.ReplicaSetSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case minReadySeconds = "minReadySeconds"
+		case replicas = "replicas"
+		case selector = "selector"
+		case template = "template"
+	}
+
+}
+

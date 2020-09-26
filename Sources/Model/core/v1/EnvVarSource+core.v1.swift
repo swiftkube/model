@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EnvVarSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case configMapKeyRef = "configMapKeyRef"
+		case fieldRef = "fieldRef"
+		case resourceFieldRef = "resourceFieldRef"
+		case secretKeyRef = "secretKeyRef"
+	}
+
+}
+

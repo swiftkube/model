@@ -89,3 +89,21 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.StorageClass {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case allowVolumeExpansion = "allowVolumeExpansion"
+		case allowedTopologies = "allowedTopologies"
+		case mountOptions = "mountOptions"
+		case parameters = "parameters"
+		case provisioner = "provisioner"
+		case reclaimPolicy = "reclaimPolicy"
+		case volumeBindingMode = "volumeBindingMode"
+	}
+
+}
+

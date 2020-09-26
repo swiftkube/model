@@ -61,3 +61,18 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ContainerPort {
+
+	private enum CodingKeys: String, CodingKey {
+		case containerPort = "containerPort"
+		case hostIP = "hostIP"
+		case hostPort = "hostPort"
+		case name = "name"
+		case `protocol` = "protocol"
+	}
+
+}
+

@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.SecretReference {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case namespace = "namespace"
+	}
+
+}
+

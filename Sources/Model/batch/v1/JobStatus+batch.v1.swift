@@ -67,3 +67,19 @@ public extension batch.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v1.JobStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case active = "active"
+		case completionTime = "completionTime"
+		case conditions = "conditions"
+		case failed = "failed"
+		case startTime = "startTime"
+		case succeeded = "succeeded"
+	}
+
+}
+

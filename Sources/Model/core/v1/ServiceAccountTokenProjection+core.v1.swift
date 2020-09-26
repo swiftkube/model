@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ServiceAccountTokenProjection {
+
+	private enum CodingKeys: String, CodingKey {
+		case audience = "audience"
+		case expirationSeconds = "expirationSeconds"
+		case path = "path"
+	}
+
+}
+

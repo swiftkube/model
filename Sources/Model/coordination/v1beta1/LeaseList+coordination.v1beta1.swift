@@ -53,6 +53,21 @@ public extension coordination.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension coordination.v1beta1.LeaseList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension coordination.v1beta1.LeaseList: Sequence {
 
 	public typealias Element = coordination.v1beta1.Lease

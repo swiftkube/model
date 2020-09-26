@@ -51,3 +51,15 @@ public extension coordination.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension coordination.v1beta1.Lease {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case spec = "spec"
+	}
+
+}
+

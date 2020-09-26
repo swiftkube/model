@@ -43,3 +43,15 @@ public extension networking.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1beta1.HTTPIngressPath {
+
+	private enum CodingKeys: String, CodingKey {
+		case backend = "backend"
+		case path = "path"
+	}
+
+}
+

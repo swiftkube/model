@@ -57,3 +57,16 @@ public extension rbac.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1.RoleBinding {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case roleRef = "roleRef"
+		case subjects = "subjects"
+	}
+
+}
+

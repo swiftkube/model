@@ -53,6 +53,21 @@ public extension storage.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1beta1.StorageClassList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension storage.v1beta1.StorageClassList: Sequence {
 
 	public typealias Element = storage.v1beta1.StorageClass

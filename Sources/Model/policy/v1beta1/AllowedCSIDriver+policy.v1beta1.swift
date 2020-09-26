@@ -37,3 +37,14 @@ public extension policy.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension policy.v1beta1.AllowedCSIDriver {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+	}
+
+}
+

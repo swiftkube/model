@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ContainerStateWaiting {
+
+	private enum CodingKeys: String, CodingKey {
+		case message = "message"
+		case reason = "reason"
+	}
+
+}
+

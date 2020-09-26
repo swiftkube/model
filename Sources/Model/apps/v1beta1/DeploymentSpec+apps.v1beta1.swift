@@ -85,3 +85,22 @@ public extension apps.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta1.DeploymentSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case minReadySeconds = "minReadySeconds"
+		case paused = "paused"
+		case progressDeadlineSeconds = "progressDeadlineSeconds"
+		case replicas = "replicas"
+		case revisionHistoryLimit = "revisionHistoryLimit"
+		case rollbackTo = "rollbackTo"
+		case selector = "selector"
+		case strategy = "strategy"
+		case template = "template"
+	}
+
+}
+

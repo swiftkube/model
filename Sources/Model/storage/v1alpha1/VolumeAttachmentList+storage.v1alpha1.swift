@@ -53,6 +53,21 @@ public extension storage.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1alpha1.VolumeAttachmentList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension storage.v1alpha1.VolumeAttachmentList: Sequence {
 
 	public typealias Element = storage.v1alpha1.VolumeAttachment

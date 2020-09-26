@@ -43,3 +43,15 @@ public extension batch.v2alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension batch.v2alpha1.CronJobStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case active = "active"
+		case lastScheduleTime = "lastScheduleTime"
+	}
+
+}
+

@@ -53,6 +53,21 @@ public extension networking.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1.NetworkPolicyList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension networking.v1.NetworkPolicyList: Sequence {
 
 	public typealias Element = networking.v1.NetworkPolicy

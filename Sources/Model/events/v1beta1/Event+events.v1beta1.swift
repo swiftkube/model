@@ -129,3 +129,28 @@ public extension events.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension events.v1beta1.Event {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case action = "action"
+		case deprecatedCount = "deprecatedCount"
+		case deprecatedFirstTimestamp = "deprecatedFirstTimestamp"
+		case deprecatedLastTimestamp = "deprecatedLastTimestamp"
+		case deprecatedSource = "deprecatedSource"
+		case eventTime = "eventTime"
+		case note = "note"
+		case reason = "reason"
+		case regarding = "regarding"
+		case related = "related"
+		case reportingController = "reportingController"
+		case reportingInstance = "reportingInstance"
+		case series = "series"
+		case type = "type"
+	}
+
+}
+

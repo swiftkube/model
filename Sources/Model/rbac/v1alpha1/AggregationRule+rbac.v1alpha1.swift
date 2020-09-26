@@ -37,3 +37,14 @@ public extension rbac.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension rbac.v1alpha1.AggregationRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case clusterRoleSelectors = "clusterRoleSelectors"
+	}
+
+}
+

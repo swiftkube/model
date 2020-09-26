@@ -49,3 +49,16 @@ public extension events.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension events.v1beta1.EventSeries {
+
+	private enum CodingKeys: String, CodingKey {
+		case count = "count"
+		case lastObservedTime = "lastObservedTime"
+		case state = "state"
+	}
+
+}
+

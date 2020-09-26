@@ -43,3 +43,15 @@ public extension networking.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1beta1.IngressBackend {
+
+	private enum CodingKeys: String, CodingKey {
+		case serviceName = "serviceName"
+		case servicePort = "servicePort"
+	}
+
+}
+

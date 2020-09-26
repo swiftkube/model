@@ -67,3 +67,19 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ReplicationControllerStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case availableReplicas = "availableReplicas"
+		case conditions = "conditions"
+		case fullyLabeledReplicas = "fullyLabeledReplicas"
+		case observedGeneration = "observedGeneration"
+		case readyReplicas = "readyReplicas"
+		case replicas = "replicas"
+	}
+
+}
+

@@ -91,3 +91,23 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ScaleIOPersistentVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsType = "fsType"
+		case gateway = "gateway"
+		case protectionDomain = "protectionDomain"
+		case readOnly = "readOnly"
+		case secretRef = "secretRef"
+		case sslEnabled = "sslEnabled"
+		case storageMode = "storageMode"
+		case storagePool = "storagePool"
+		case system = "system"
+		case volumeName = "volumeName"
+	}
+
+}
+

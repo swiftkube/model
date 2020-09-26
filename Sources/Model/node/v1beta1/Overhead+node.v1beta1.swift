@@ -37,3 +37,14 @@ public extension node.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension node.v1beta1.Overhead {
+
+	private enum CodingKeys: String, CodingKey {
+		case podFixed = "podFixed"
+	}
+
+}
+

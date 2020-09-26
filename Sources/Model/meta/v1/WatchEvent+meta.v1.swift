@@ -47,6 +47,9 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
 extension meta.v1.WatchEvent {
 
 	private enum CodingKeys: String, CodingKey {
@@ -65,5 +68,6 @@ extension meta.v1.WatchEvent {
 		try container.encode(self.object, forKey: .object)
 		try container.encode(self.type, forKey: .type)
 	}
+
 }
 

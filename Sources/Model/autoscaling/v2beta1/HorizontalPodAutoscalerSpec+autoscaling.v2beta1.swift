@@ -55,3 +55,17 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.HorizontalPodAutoscalerSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case maxReplicas = "maxReplicas"
+		case metrics = "metrics"
+		case minReplicas = "minReplicas"
+		case scaleTargetRef = "scaleTargetRef"
+	}
+
+}
+

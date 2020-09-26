@@ -37,3 +37,14 @@ public extension apiregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiregistration.v1.APIServiceStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case conditions = "conditions"
+	}
+
+}
+

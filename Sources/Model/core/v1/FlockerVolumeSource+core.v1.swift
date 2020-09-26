@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.FlockerVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case datasetName = "datasetName"
+		case datasetUUID = "datasetUUID"
+	}
+
+}
+

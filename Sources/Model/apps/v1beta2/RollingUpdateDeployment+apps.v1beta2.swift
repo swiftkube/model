@@ -43,3 +43,15 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.RollingUpdateDeployment {
+
+	private enum CodingKeys: String, CodingKey {
+		case maxSurge = "maxSurge"
+		case maxUnavailable = "maxUnavailable"
+	}
+
+}
+

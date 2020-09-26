@@ -49,3 +49,16 @@ public extension storage.v1alpha1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension storage.v1alpha1.VolumeAttachmentSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case attacher = "attacher"
+		case nodeName = "nodeName"
+		case source = "source"
+	}
+
+}
+

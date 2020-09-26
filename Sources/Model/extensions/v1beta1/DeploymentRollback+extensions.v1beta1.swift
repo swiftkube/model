@@ -57,3 +57,16 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.DeploymentRollback {
+
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case rollbackTo = "rollbackTo"
+		case updatedAnnotations = "updatedAnnotations"
+	}
+
+}
+

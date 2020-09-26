@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.NFSVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case path = "path"
+		case readOnly = "readOnly"
+		case server = "server"
+	}
+
+}
+

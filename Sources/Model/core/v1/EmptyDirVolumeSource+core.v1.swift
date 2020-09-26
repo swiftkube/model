@@ -43,3 +43,15 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.EmptyDirVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case medium = "medium"
+		case sizeLimit = "sizeLimit"
+	}
+
+}
+

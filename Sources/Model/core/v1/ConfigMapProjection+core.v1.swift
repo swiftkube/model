@@ -51,3 +51,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ConfigMapProjection {
+
+	private enum CodingKeys: String, CodingKey {
+		case items = "items"
+		case name = "name"
+		case optional = "optional"
+	}
+
+}
+

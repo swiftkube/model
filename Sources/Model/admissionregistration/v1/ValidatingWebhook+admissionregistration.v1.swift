@@ -127,3 +127,23 @@ public extension admissionregistration.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension admissionregistration.v1.ValidatingWebhook {
+
+	private enum CodingKeys: String, CodingKey {
+		case admissionReviewVersions = "admissionReviewVersions"
+		case clientConfig = "clientConfig"
+		case failurePolicy = "failurePolicy"
+		case matchPolicy = "matchPolicy"
+		case name = "name"
+		case namespaceSelector = "namespaceSelector"
+		case objectSelector = "objectSelector"
+		case rules = "rules"
+		case sideEffects = "sideEffects"
+		case timeoutSeconds = "timeoutSeconds"
+	}
+
+}
+

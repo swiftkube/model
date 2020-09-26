@@ -43,3 +43,15 @@ public extension certificates.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension certificates.v1beta1.CertificateSigningRequestStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case certificate = "certificate"
+		case conditions = "conditions"
+	}
+
+}
+

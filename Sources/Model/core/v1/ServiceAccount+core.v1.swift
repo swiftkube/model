@@ -63,3 +63,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ServiceAccount {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case automountServiceAccountToken = "automountServiceAccountToken"
+		case imagePullSecrets = "imagePullSecrets"
+		case secrets = "secrets"
+	}
+
+}
+

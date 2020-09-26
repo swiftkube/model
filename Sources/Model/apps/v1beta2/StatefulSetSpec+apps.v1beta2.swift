@@ -79,3 +79,21 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.StatefulSetSpec {
+
+	private enum CodingKeys: String, CodingKey {
+		case podManagementPolicy = "podManagementPolicy"
+		case replicas = "replicas"
+		case revisionHistoryLimit = "revisionHistoryLimit"
+		case selector = "selector"
+		case serviceName = "serviceName"
+		case template = "template"
+		case updateStrategy = "updateStrategy"
+		case volumeClaimTemplates = "volumeClaimTemplates"
+	}
+
+}
+

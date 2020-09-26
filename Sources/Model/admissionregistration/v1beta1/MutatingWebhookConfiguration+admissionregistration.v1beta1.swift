@@ -51,3 +51,15 @@ public extension admissionregistration.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension admissionregistration.v1beta1.MutatingWebhookConfiguration {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case webhooks = "webhooks"
+	}
+
+}
+

@@ -57,3 +57,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.ConfigMap {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case binaryData = "binaryData"
+		case data = "data"
+	}
+
+}
+

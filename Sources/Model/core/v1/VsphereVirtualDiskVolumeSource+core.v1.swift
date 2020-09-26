@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.VsphereVirtualDiskVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsType = "fsType"
+		case storagePolicyID = "storagePolicyID"
+		case storagePolicyName = "storagePolicyName"
+		case volumePath = "volumePath"
+	}
+
+}
+

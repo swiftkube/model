@@ -79,3 +79,21 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Probe {
+
+	private enum CodingKeys: String, CodingKey {
+		case exec = "exec"
+		case failureThreshold = "failureThreshold"
+		case httpGet = "httpGet"
+		case initialDelaySeconds = "initialDelaySeconds"
+		case periodSeconds = "periodSeconds"
+		case successThreshold = "successThreshold"
+		case tcpSocket = "tcpSocket"
+		case timeoutSeconds = "timeoutSeconds"
+	}
+
+}
+

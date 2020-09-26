@@ -67,6 +67,9 @@ public extension meta.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
 extension meta.v1.ManagedFieldsEntry {
 
 	private enum CodingKeys: String, CodingKey {
@@ -97,5 +100,6 @@ extension meta.v1.ManagedFieldsEntry {
 		try container.encode(self.operation, forKey: .operation)
 		try container.encode(self.time, forKey: .time)
 	}
+
 }
 

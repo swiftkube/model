@@ -49,3 +49,16 @@ public extension apps.v1beta2 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apps.v1beta2.ScaleStatus {
+
+	private enum CodingKeys: String, CodingKey {
+		case replicas = "replicas"
+		case selector = "selector"
+		case targetSelector = "targetSelector"
+	}
+
+}
+

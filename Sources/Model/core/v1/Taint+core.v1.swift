@@ -55,3 +55,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Taint {
+
+	private enum CodingKeys: String, CodingKey {
+		case effect = "effect"
+		case key = "key"
+		case timeAdded = "timeAdded"
+		case value = "value"
+	}
+
+}
+

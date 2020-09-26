@@ -37,3 +37,14 @@ public extension networking.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension networking.v1beta1.HTTPIngressRuleValue {
+
+	private enum CodingKeys: String, CodingKey {
+		case paths = "paths"
+	}
+
+}
+

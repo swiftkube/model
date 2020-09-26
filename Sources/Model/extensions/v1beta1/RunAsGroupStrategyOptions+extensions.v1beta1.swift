@@ -43,3 +43,15 @@ public extension extensions.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension extensions.v1beta1.RunAsGroupStrategyOptions {
+
+	private enum CodingKeys: String, CodingKey {
+		case ranges = "ranges"
+		case rule = "rule"
+	}
+
+}
+

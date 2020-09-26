@@ -43,3 +43,15 @@ public extension authorization.v1beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension authorization.v1beta1.NonResourceRule {
+
+	private enum CodingKeys: String, CodingKey {
+		case nonResourceURLs = "nonResourceURLs"
+		case verbs = "verbs"
+	}
+
+}
+

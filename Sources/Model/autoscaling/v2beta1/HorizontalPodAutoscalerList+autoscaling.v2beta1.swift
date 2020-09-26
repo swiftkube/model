@@ -53,6 +53,21 @@ public extension autoscaling.v2beta1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension autoscaling.v2beta1.HorizontalPodAutoscalerList {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case items = "items"
+	}
+
+}
+
+///
+/// Sequence iterator for KubernetesResourceList items
+///
 extension autoscaling.v2beta1.HorizontalPodAutoscalerList: Sequence {
 
 	public typealias Element = autoscaling.v2beta1.HorizontalPodAutoscaler

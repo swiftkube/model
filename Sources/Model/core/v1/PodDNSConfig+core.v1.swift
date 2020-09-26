@@ -49,3 +49,16 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.PodDNSConfig {
+
+	private enum CodingKeys: String, CodingKey {
+		case nameservers = "nameservers"
+		case options = "options"
+		case searches = "searches"
+	}
+
+}
+

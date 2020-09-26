@@ -57,3 +57,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.AWSElasticBlockStoreVolumeSource {
+
+	private enum CodingKeys: String, CodingKey {
+		case fsType = "fsType"
+		case partition = "partition"
+		case readOnly = "readOnly"
+		case volumeID = "volumeID"
+	}
+
+}
+

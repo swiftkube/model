@@ -44,3 +44,15 @@ public extension apiextensions.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension apiextensions.v1.CustomResourceConversion {
+
+	private enum CodingKeys: String, CodingKey {
+		case strategy = "strategy"
+		case webhook = "webhook"
+	}
+
+}
+

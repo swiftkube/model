@@ -63,3 +63,17 @@ public extension core.v1 {
 	}
 }
 
+///
+/// Codable conformance
+///
+extension core.v1.Secret {
+
+	private enum CodingKeys: String, CodingKey {
+		case metadata = "metadata"
+		case data = "data"
+		case stringData = "stringData"
+		case type = "type"
+	}
+
+}
+
