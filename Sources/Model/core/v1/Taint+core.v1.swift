@@ -35,7 +35,7 @@ public extension core.v1 {
 		///
 		public var timeAdded: String?
 		///
-		/// Required. The taint value corresponding to the taint key.
+		/// The taint value corresponding to the taint key.
 		///
 		public var value: String?
 		///

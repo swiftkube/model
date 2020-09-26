@@ -43,16 +43,22 @@ public extension core.v1 {
 		///
 		public var data: [String: String]?
 		///
+		/// Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.
+		///
+		public var immutable: Bool?
+		///
 		/// Default memberwise initializer
 		///
 		public init(
 			metadata: meta.v1.ObjectMeta? = nil,
 			binaryData: [String: String]? = nil,
-			data: [String: String]? = nil
+			data: [String: String]? = nil,
+			immutable: Bool? = nil
 		) {
 			self.metadata = metadata
 			self.binaryData = binaryData
 			self.data = data
+			self.immutable = immutable
 		}
 	}
 }
@@ -66,6 +72,7 @@ extension core.v1.ConfigMap {
 		case metadata = "metadata"
 		case binaryData = "binaryData"
 		case data = "data"
+		case immutable = "immutable"
 	}
 
 }

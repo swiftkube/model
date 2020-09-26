@@ -19,7 +19,7 @@ import Foundation
 public extension rbac.v1alpha1 {
 
 	///
-	/// ClusterRoleBindingList is a collection of ClusterRoleBindings
+	/// ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.20.
 	///
 	struct ClusterRoleBindingList: KubernetesResource, KubernetesResourceList {
 

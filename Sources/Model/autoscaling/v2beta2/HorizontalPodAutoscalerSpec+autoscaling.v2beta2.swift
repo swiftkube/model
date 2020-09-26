@@ -23,6 +23,10 @@ public extension autoscaling.v2beta2 {
 	///
 	struct HorizontalPodAutoscalerSpec: KubernetesResource {
 		///
+		/// behavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively). If not set, the default HPAScalingRules for scale up and scale down are used.
+		///
+		public var behavior: autoscaling.v2beta2.HorizontalPodAutoscalerBehavior?
+		///
 		/// maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.
 		///
 		public var maxReplicas: Int32
@@ -42,11 +46,13 @@ public extension autoscaling.v2beta2 {
 		/// Default memberwise initializer
 		///
 		public init(
+			behavior: autoscaling.v2beta2.HorizontalPodAutoscalerBehavior? = nil,
 			maxReplicas: Int32,
 			metrics: [autoscaling.v2beta2.MetricSpec]? = nil,
 			minReplicas: Int32? = nil,
 			scaleTargetRef: autoscaling.v2beta2.CrossVersionObjectReference
 		) {
+			self.behavior = behavior
 			self.maxReplicas = maxReplicas
 			self.metrics = metrics
 			self.minReplicas = minReplicas
@@ -61,6 +67,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.HorizontalPodAutoscalerSpec {
 
 	private enum CodingKeys: String, CodingKey {
+		case behavior = "behavior"
 		case maxReplicas = "maxReplicas"
 		case metrics = "metrics"
 		case minReplicas = "minReplicas"

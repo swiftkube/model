@@ -27,7 +27,7 @@ public extension core.v1 {
 		///
 		public var configMapKeyRef: core.v1.ConfigMapKeySelector?
 		///
-		/// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
+		/// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 		///
 		public var fieldRef: core.v1.ObjectFieldSelector?
 		///

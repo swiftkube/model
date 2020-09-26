@@ -19,15 +19,15 @@ import Foundation
 public extension networking.v1 {
 
 	///
-	/// IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
+	/// IPBlock describes a particular CIDR (Ex. "192.168.1.1/24","2001:db9::/64") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
 	///
 	struct IPBlock: KubernetesResource {
 		///
-		/// CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24"
+		/// CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64"
 		///
 		public var cidr: String
 		///
-		/// Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range
+		/// Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64" Except values will be rejected if they are outside the CIDR range
 		///
 		public var except: [String]?
 		///

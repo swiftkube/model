@@ -39,6 +39,10 @@ public extension core.v1 {
 		///
 		public var data: [String: String]?
 		///
+		/// Immutable, if set to true, ensures that data stored in the Secret cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.
+		///
+		public var immutable: Bool?
+		///
 		/// stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
 		///
 		public var stringData: [String: String]?
@@ -52,11 +56,13 @@ public extension core.v1 {
 		public init(
 			metadata: meta.v1.ObjectMeta? = nil,
 			data: [String: String]? = nil,
+			immutable: Bool? = nil,
 			stringData: [String: String]? = nil,
 			type: String? = nil
 		) {
 			self.metadata = metadata
 			self.data = data
+			self.immutable = immutable
 			self.stringData = stringData
 			self.type = type
 		}
@@ -71,6 +77,7 @@ extension core.v1.Secret {
 	private enum CodingKeys: String, CodingKey {
 		case metadata = "metadata"
 		case data = "data"
+		case immutable = "immutable"
 		case stringData = "stringData"
 		case type = "type"
 	}

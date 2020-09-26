@@ -29,8 +29,6 @@ public enum APIGroupVersion: CustomStringConvertible {
 	case apiregistrationV1
 	case apiregistrationV1Beta1
 	case appsV1
-	case appsV1Beta1
-	case appsV1Beta2
 	case auditregistrationV1Alpha1
 	case authenticationV1
 	case authenticationV1Beta1
@@ -45,9 +43,10 @@ public enum APIGroupVersion: CustomStringConvertible {
 	case certificatesV1Beta1
 	case coordinationV1
 	case coordinationV1Beta1
-	case discoveryV1Alpha1
+	case discoveryV1Beta1
 	case eventsV1Beta1
 	case extensionsV1Beta1
+	case flowcontrolV1Alpha1
 	case networkingV1
 	case networkingV1Beta1
 	case nodeV1Alpha1
@@ -109,10 +108,6 @@ public enum APIGroupVersion: CustomStringConvertible {
 			return "apiregistration.k8s.io"
 		case .appsV1:
 			return "apps"
-		case .appsV1Beta1:
-			return "apps"
-		case .appsV1Beta2:
-			return "apps"
 		case .auditregistrationV1Alpha1:
 			return "auditregistration.k8s.io"
 		case .authenticationV1:
@@ -141,12 +136,14 @@ public enum APIGroupVersion: CustomStringConvertible {
 			return "coordination.k8s.io"
 		case .coordinationV1Beta1:
 			return "coordination.k8s.io"
-		case .discoveryV1Alpha1:
+		case .discoveryV1Beta1:
 			return "discovery.k8s.io"
 		case .eventsV1Beta1:
 			return "events.k8s.io"
 		case .extensionsV1Beta1:
 			return "extensions"
+		case .flowcontrolV1Alpha1:
+			return "flowcontrol.apiserver.k8s.io"
 		case .networkingV1:
 			return "networking.k8s.io"
 		case .networkingV1Beta1:
@@ -201,10 +198,6 @@ public enum APIGroupVersion: CustomStringConvertible {
 			return "v1beta1"
 		case .appsV1:
 			return "v1"
-		case .appsV1Beta1:
-			return "v1beta1"
-		case .appsV1Beta2:
-			return "v1beta2"
 		case .auditregistrationV1Alpha1:
 			return "v1alpha1"
 		case .authenticationV1:
@@ -233,12 +226,14 @@ public enum APIGroupVersion: CustomStringConvertible {
 			return "v1"
 		case .coordinationV1Beta1:
 			return "v1beta1"
-		case .discoveryV1Alpha1:
-			return "v1alpha1"
+		case .discoveryV1Beta1:
+			return "v1beta1"
 		case .eventsV1Beta1:
 			return "v1beta1"
 		case .extensionsV1Beta1:
 			return "v1beta1"
+		case .flowcontrolV1Alpha1:
+			return "v1alpha1"
 		case .networkingV1:
 			return "v1"
 		case .networkingV1Beta1:

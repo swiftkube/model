@@ -39,7 +39,7 @@ public extension apiextensions.v1 {
 		///
 		public var preserveUnknownFields: Bool?
 		///
-		/// scope indicates whether the defined custom resource is cluster- or namespace-scoped. Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
+		/// scope indicates whether the defined custom resource is cluster- or namespace-scoped. Allowed values are `Cluster` and `Namespaced`.
 		///
 		public var scope: String
 		///

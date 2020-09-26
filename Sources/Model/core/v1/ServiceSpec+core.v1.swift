@@ -75,6 +75,10 @@ public extension core.v1 {
 		///
 		public var sessionAffinityConfig: core.v1.SessionAffinityConfig?
 		///
+		/// topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local. Topology keys must be valid label keys and at most 16 keys may be specified. Endpoints are chosen based on the first topology key with available backends. If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail. The special value "*" may be used to mean "any topology". This catch-all value, if used, only makes sense as the last value in the list. If this is not specified or empty, no topology constraints will be applied.
+		///
+		public var topologyKeys: [String]?
+		///
 		/// type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 		///
 		public var type: String?
@@ -95,6 +99,7 @@ public extension core.v1 {
 			selector: [String: String]? = nil,
 			sessionAffinity: String? = nil,
 			sessionAffinityConfig: core.v1.SessionAffinityConfig? = nil,
+			topologyKeys: [String]? = nil,
 			type: String? = nil
 		) {
 			self.clusterIP = clusterIP
@@ -110,6 +115,7 @@ public extension core.v1 {
 			self.selector = selector
 			self.sessionAffinity = sessionAffinity
 			self.sessionAffinityConfig = sessionAffinityConfig
+			self.topologyKeys = topologyKeys
 			self.type = type
 		}
 	}
@@ -134,6 +140,7 @@ extension core.v1.ServiceSpec {
 		case selector = "selector"
 		case sessionAffinity = "sessionAffinity"
 		case sessionAffinityConfig = "sessionAffinityConfig"
+		case topologyKeys = "topologyKeys"
 		case type = "type"
 	}
 

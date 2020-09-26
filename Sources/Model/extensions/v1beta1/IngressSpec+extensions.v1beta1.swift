@@ -27,6 +27,10 @@ public extension extensions.v1beta1 {
 		///
 		public var backend: extensions.v1beta1.IngressBackend?
 		///
+		/// IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass defines which controller will implement the resource. This replaces the deprecated `kubernetes.io/ingress.class` annotation. For backwards compatibility, when that annotation is set, it must be given precedence over this field. The controller may emit a warning if the field and annotation have different values. Implementations of this API should ignore Ingresses without a class specified. An IngressClass resource may be marked as default, which can be used to set a default value for this field. For more information, refer to the IngressClass documentation.
+		///
+		public var ingressClassName: String?
+		///
 		/// A list of host rules used to configure the Ingress. If unspecified, or no rule matches, all traffic is sent to the default backend.
 		///
 		public var rules: [extensions.v1beta1.IngressRule]?
@@ -39,10 +43,12 @@ public extension extensions.v1beta1 {
 		///
 		public init(
 			backend: extensions.v1beta1.IngressBackend? = nil,
+			ingressClassName: String? = nil,
 			rules: [extensions.v1beta1.IngressRule]? = nil,
 			tls: [extensions.v1beta1.IngressTLS]? = nil
 		) {
 			self.backend = backend
+			self.ingressClassName = ingressClassName
 			self.rules = rules
 			self.tls = tls
 		}
@@ -56,6 +62,7 @@ extension extensions.v1beta1.IngressSpec {
 
 	private enum CodingKeys: String, CodingKey {
 		case backend = "backend"
+		case ingressClassName = "ingressClassName"
 		case rules = "rules"
 		case tls = "tls"
 	}

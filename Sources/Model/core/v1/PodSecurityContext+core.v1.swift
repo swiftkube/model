@@ -31,6 +31,10 @@ public extension core.v1 {
 		///
 		public var fsGroup: Int64?
 		///
+		/// fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are "OnRootMismatch" and "Always". If not specified defaults to "Always".
+		///
+		public var fsGroupChangePolicy: String?
+		///
 		/// The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 		///
 		public var runAsGroup: Int64?
@@ -63,6 +67,7 @@ public extension core.v1 {
 		///
 		public init(
 			fsGroup: Int64? = nil,
+			fsGroupChangePolicy: String? = nil,
 			runAsGroup: Int64? = nil,
 			runAsNonRoot: Bool? = nil,
 			runAsUser: Int64? = nil,
@@ -72,6 +77,7 @@ public extension core.v1 {
 			windowsOptions: core.v1.WindowsSecurityContextOptions? = nil
 		) {
 			self.fsGroup = fsGroup
+			self.fsGroupChangePolicy = fsGroupChangePolicy
 			self.runAsGroup = runAsGroup
 			self.runAsNonRoot = runAsNonRoot
 			self.runAsUser = runAsUser
@@ -90,6 +96,7 @@ extension core.v1.PodSecurityContext {
 
 	private enum CodingKeys: String, CodingKey {
 		case fsGroup = "fsGroup"
+		case fsGroupChangePolicy = "fsGroupChangePolicy"
 		case runAsGroup = "runAsGroup"
 		case runAsNonRoot = "runAsNonRoot"
 		case runAsUser = "runAsUser"

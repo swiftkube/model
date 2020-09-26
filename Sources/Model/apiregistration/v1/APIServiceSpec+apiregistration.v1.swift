@@ -41,7 +41,7 @@ public extension apiregistration.v1 {
 		///
 		/// Service is a reference to the service for this API server.  It must communicate on port 443 If the Service is nil, that means the handling for the API groupversion is handled locally on this server. The call will simply delegate to the normal handler chain to be fulfilled.
 		///
-		public var service: apiregistration.v1.ServiceReference
+		public var service: apiregistration.v1.ServiceReference?
 		///
 		/// Version is the API version this server hosts.  For example, "v1"
 		///
@@ -58,7 +58,7 @@ public extension apiregistration.v1 {
 			group: String? = nil,
 			groupPriorityMinimum: Int32,
 			insecureSkipTLSVerify: Bool? = nil,
-			service: apiregistration.v1.ServiceReference,
+			service: apiregistration.v1.ServiceReference? = nil,
 			version: String? = nil,
 			versionPriority: Int32
 		) {

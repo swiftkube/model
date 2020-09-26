@@ -103,7 +103,7 @@ public extension core.v1 {
 		///
 		public var tty: Bool?
 		///
-		/// volumeDevices is the list of block devices to be used by the container. This is a beta feature.
+		/// volumeDevices is the list of block devices to be used by the container.
 		///
 		public var volumeDevices: [core.v1.VolumeDevice]?
 		///

@@ -23,20 +23,26 @@ public extension networking.v1beta1 {
 	///
 	struct IngressBackend: KubernetesResource {
 		///
+		/// Resource is an ObjectRef to another Kubernetes resource in the namespace of the Ingress object. If resource is specified, serviceName and servicePort must not be specified.
+		///
+		public var resource: core.v1.TypedLocalObjectReference?
+		///
 		/// Specifies the name of the referenced service.
 		///
-		public var serviceName: String
+		public var serviceName: String?
 		///
 		/// Specifies the port of the referenced service.
 		///
-		public var servicePort: IntOrString
+		public var servicePort: IntOrString?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
-			serviceName: String,
-			servicePort: IntOrString
+			resource: core.v1.TypedLocalObjectReference? = nil,
+			serviceName: String? = nil,
+			servicePort: IntOrString? = nil
 		) {
+			self.resource = resource
 			self.serviceName = serviceName
 			self.servicePort = servicePort
 		}
@@ -49,6 +55,7 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.IngressBackend {
 
 	private enum CodingKeys: String, CodingKey {
+		case resource = "resource"
 		case serviceName = "serviceName"
 		case servicePort = "servicePort"
 	}

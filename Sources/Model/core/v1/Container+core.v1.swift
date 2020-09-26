@@ -75,7 +75,7 @@ public extension core.v1 {
 		///
 		public var securityContext: core.v1.SecurityContext?
 		///
-		/// StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. This is an alpha feature enabled by the StartupProbe feature flag. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+		/// StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. This is a beta feature enabled by the StartupProbe feature flag. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 		///
 		public var startupProbe: core.v1.Probe?
 		///
@@ -99,7 +99,7 @@ public extension core.v1 {
 		///
 		public var tty: Bool?
 		///
-		/// volumeDevices is the list of block devices to be used by the container. This is a beta feature.
+		/// volumeDevices is the list of block devices to be used by the container.
 		///
 		public var volumeDevices: [core.v1.VolumeDevice]?
 		///

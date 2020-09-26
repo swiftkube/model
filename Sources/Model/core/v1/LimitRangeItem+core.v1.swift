@@ -45,7 +45,7 @@ public extension core.v1 {
 		///
 		/// Type of resource that this limit applies to.
 		///
-		public var type: String?
+		public var type: String
 		///
 		/// Default memberwise initializer
 		///
@@ -55,7 +55,7 @@ public extension core.v1 {
 			max: [String: Quantity]? = nil,
 			maxLimitRequestRatio: [String: Quantity]? = nil,
 			min: [String: Quantity]? = nil,
-			type: String? = nil
+			type: String
 		) {
 			self.`default` = `default`
 			self.defaultRequest = defaultRequest

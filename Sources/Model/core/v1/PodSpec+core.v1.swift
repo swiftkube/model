@@ -135,7 +135,7 @@ public extension core.v1 {
 		///
 		public var serviceAccountName: String?
 		///
-		/// Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Default to false. This field is beta-level and may be disabled with the PodShareProcessNamespace feature.
+		/// Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Default to false.
 		///
 		public var shareProcessNamespace: Bool?
 		///
@@ -151,7 +151,7 @@ public extension core.v1 {
 		///
 		public var tolerations: [core.v1.Toleration]?
 		///
-		/// TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is alpha-level and is only honored by clusters that enables the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.
+		/// TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.
 		///
 		public var topologySpreadConstraints: [core.v1.TopologySpreadConstraint]?
 		///

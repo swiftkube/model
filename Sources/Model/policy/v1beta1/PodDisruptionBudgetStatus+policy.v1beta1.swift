@@ -43,7 +43,7 @@ public extension policy.v1beta1 {
 		///
 		public var expectedPods: Int32
 		///
-		/// Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status informatio is valid only if observedGeneration equals to PDB's object generation.
+		/// Most recent generation observed when updating this PDB status. DisruptionsAllowed and other status information is valid only if observedGeneration equals to PDB's object generation.
 		///
 		public var observedGeneration: Int64?
 		///

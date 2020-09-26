@@ -135,7 +135,7 @@ public extension core.v1 {
 		///
 		public var storageos: core.v1.StorageOSPersistentVolumeSource?
 		///
-		/// volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec. This is a beta feature.
+		/// volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.
 		///
 		public var volumeMode: String?
 		///

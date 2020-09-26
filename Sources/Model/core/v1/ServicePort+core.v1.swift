@@ -23,6 +23,10 @@ public extension core.v1 {
 	///
 	struct ServicePort: KubernetesResource {
 		///
+		/// The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol. Field can be enabled with ServiceAppProtocol feature gate.
+		///
+		public var appProtocol: String?
+		///
 		/// The name of this port within the service. This must be a DNS_LABEL. All ports within a ServiceSpec must have unique names. When considering the endpoints for a Service, this must match the 'name' field in the EndpointPort. Optional if only one ServicePort is defined on this service.
 		///
 		public var name: String?
@@ -46,12 +50,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
+			appProtocol: String? = nil,
 			name: String? = nil,
 			nodePort: Int32? = nil,
 			port: Int32,
 			`protocol`: String? = nil,
 			targetPort: IntOrString? = nil
 		) {
+			self.appProtocol = appProtocol
 			self.name = name
 			self.nodePort = nodePort
 			self.port = port
@@ -67,6 +73,7 @@ public extension core.v1 {
 extension core.v1.ServicePort {
 
 	private enum CodingKeys: String, CodingKey {
+		case appProtocol = "appProtocol"
 		case name = "name"
 		case nodePort = "nodePort"
 		case port = "port"
