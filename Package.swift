@@ -17,6 +17,11 @@ let package = Package(
 			name: "SwiftkubeModel",
 			dependencies: [],
 			path: "Sources"
-		)
+		),
+		.testTarget(
+			name: "SwiftkubeModelTests",
+			dependencies: [
+				"SwiftkubeModel"
+		]),
 	]
 )
