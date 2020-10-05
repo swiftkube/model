@@ -22,7 +22,7 @@ public extension sk {
 		return core.v1.LocalObjectReference(name: name)
 	}
 
-	static func objectReference(apiGroupVersion: APIGroupVersion, kind: String, _ block: (inout core.v1.ObjectReference) -> Void) -> core.v1.ObjectReference {
-		return build(core.v1.ObjectReference(apiVersion: apiGroupVersion.apiVersion, kind: kind), with: block)
+	static func objectReference(apiVersion: APIVersion, kind: String, _ block: (inout core.v1.ObjectReference) -> Void) -> core.v1.ObjectReference {
+		return build(core.v1.ObjectReference(apiVersion: apiVersion.rawValue, kind: kind), with: block)
 	}
 }
