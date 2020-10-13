@@ -28,8 +28,10 @@ public extension settings.v1alpha1 {
 	/// PodPresetList is a list of PodPreset objects.
 	///
 	struct PodPresetList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = settings.v1alpha1.PodPreset
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = settings.v1alpha1.PodPreset
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

@@ -27,7 +27,15 @@ public extension batch.v1beta1 {
 	///
 	/// CronJob represents the configuration of a single cron job.
 	///
-	struct CronJob: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct CronJob: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = batch.v1beta1.CronJobList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = batch.v1beta1.CronJobList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

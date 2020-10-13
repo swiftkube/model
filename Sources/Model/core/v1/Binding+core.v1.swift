@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// Binding ties one object to another; for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
 	///
-	struct Binding: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Binding: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

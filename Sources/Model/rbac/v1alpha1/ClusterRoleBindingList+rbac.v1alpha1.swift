@@ -28,8 +28,10 @@ public extension rbac.v1alpha1 {
 	/// ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.20.
 	///
 	struct ClusterRoleBindingList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = rbac.v1alpha1.ClusterRoleBinding
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = rbac.v1alpha1.ClusterRoleBinding
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

@@ -27,7 +27,15 @@ public extension admissionregistration.v1beta1 {
 	///
 	/// MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object. Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
 	///
-	struct MutatingWebhookConfiguration: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct MutatingWebhookConfiguration: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = admissionregistration.v1beta1.MutatingWebhookConfigurationList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = admissionregistration.v1beta1.MutatingWebhookConfigurationList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

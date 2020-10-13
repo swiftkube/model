@@ -28,8 +28,10 @@ public extension core.v1 {
 	/// ServiceAccountList is a list of ServiceAccount objects
 	///
 	struct ServiceAccountList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = core.v1.ServiceAccount
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = core.v1.ServiceAccount
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

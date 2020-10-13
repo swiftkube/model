@@ -28,8 +28,10 @@ public extension admissionregistration.v1 {
 	/// MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 	///
 	struct MutatingWebhookConfigurationList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = admissionregistration.v1.MutatingWebhookConfiguration
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = admissionregistration.v1.MutatingWebhookConfiguration
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

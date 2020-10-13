@@ -28,8 +28,10 @@ public extension rbac.v1 {
 	/// RoleList is a collection of Roles
 	///
 	struct RoleList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = rbac.v1.Role
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = rbac.v1.Role
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

@@ -28,8 +28,10 @@ public extension node.v1alpha1 {
 	/// RuntimeClassList is a list of RuntimeClass objects.
 	///
 	struct RuntimeClassList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = node.v1alpha1.RuntimeClass
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = node.v1alpha1.RuntimeClass
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

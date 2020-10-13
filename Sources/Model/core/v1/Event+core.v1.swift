@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// Event is a report of an event somewhere in the cluster.
 	///
-	struct Event: KubernetesResource, KubernetesAPIResource {
+	struct Event: KubernetesResource, KubernetesAPIResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.EventList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.EventList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

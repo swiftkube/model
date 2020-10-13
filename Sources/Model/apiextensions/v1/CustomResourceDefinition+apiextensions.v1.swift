@@ -27,7 +27,15 @@ public extension apiextensions.v1 {
 	///
 	/// CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>.
 	///
-	struct CustomResourceDefinition: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct CustomResourceDefinition: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = apiextensions.v1.CustomResourceDefinitionList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = apiextensions.v1.CustomResourceDefinitionList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

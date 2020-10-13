@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
 	///
-	struct Service: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Service: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.ServiceList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.ServiceList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

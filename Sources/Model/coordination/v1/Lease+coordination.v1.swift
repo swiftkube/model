@@ -27,7 +27,15 @@ public extension coordination.v1 {
 	///
 	/// Lease defines a lease concept.
 	///
-	struct Lease: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Lease: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = coordination.v1.LeaseList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = coordination.v1.LeaseList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

@@ -28,8 +28,10 @@ public extension admissionregistration.v1 {
 	/// ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 	///
 	struct ValidatingWebhookConfigurationList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = admissionregistration.v1.ValidatingWebhookConfiguration
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = admissionregistration.v1.ValidatingWebhookConfiguration
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

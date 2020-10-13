@@ -28,8 +28,10 @@ public extension apiregistration.v1beta1 {
 	/// APIServiceList is a list of APIService objects.
 	///
 	struct APIServiceList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = apiregistration.v1beta1.APIService
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = apiregistration.v1beta1.APIService
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

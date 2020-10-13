@@ -28,8 +28,10 @@ public extension batch.v1 {
 	/// JobList is a collection of jobs.
 	///
 	struct JobList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = batch.v1.Job
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = batch.v1.Job
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

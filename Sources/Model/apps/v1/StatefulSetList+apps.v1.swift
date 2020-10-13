@@ -28,8 +28,10 @@ public extension apps.v1 {
 	/// StatefulSetList is a collection of StatefulSets.
 	///
 	struct StatefulSetList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = apps.v1.StatefulSet
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = apps.v1.StatefulSet
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

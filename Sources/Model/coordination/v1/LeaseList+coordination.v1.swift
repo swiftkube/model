@@ -28,8 +28,10 @@ public extension coordination.v1 {
 	/// LeaseList is a list of Lease objects.
 	///
 	struct LeaseList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = coordination.v1.Lease
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = coordination.v1.Lease
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

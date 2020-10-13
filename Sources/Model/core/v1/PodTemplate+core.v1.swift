@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// PodTemplate describes a template for creating copies of a predefined pod.
 	///
-	struct PodTemplate: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct PodTemplate: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.PodTemplateList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.PodTemplateList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

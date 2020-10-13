@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// PersistentVolume (PV) is a storage resource provisioned by an administrator. It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 	///
-	struct PersistentVolume: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct PersistentVolume: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.PersistentVolumeList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.PersistentVolumeList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

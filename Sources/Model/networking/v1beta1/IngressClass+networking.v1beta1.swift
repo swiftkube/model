@@ -27,7 +27,15 @@ public extension networking.v1beta1 {
 	///
 	/// IngressClass represents the class of the Ingress, referenced by the Ingress Spec. The `ingressclass.kubernetes.io/is-default-class` annotation can be used to indicate that an IngressClass should be considered default. When a single IngressClass resource has this annotation set to true, new Ingress resources without a class specified will be assigned this default class.
 	///
-	struct IngressClass: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct IngressClass: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = networking.v1beta1.IngressClassList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = networking.v1beta1.IngressClassList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

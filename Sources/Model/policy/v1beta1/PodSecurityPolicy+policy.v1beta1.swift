@@ -27,7 +27,15 @@ public extension policy.v1beta1 {
 	///
 	/// PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
 	///
-	struct PodSecurityPolicy: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct PodSecurityPolicy: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = policy.v1beta1.PodSecurityPolicyList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = policy.v1beta1.PodSecurityPolicyList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

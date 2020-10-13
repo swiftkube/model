@@ -27,7 +27,15 @@ public extension rbac.v1beta1 {
 	///
 	/// ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
 	///
-	struct ClusterRole: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct ClusterRole: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = rbac.v1beta1.ClusterRoleList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = rbac.v1beta1.ClusterRoleList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

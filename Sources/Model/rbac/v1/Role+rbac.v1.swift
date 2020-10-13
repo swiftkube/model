@@ -27,7 +27,15 @@ public extension rbac.v1 {
 	///
 	/// Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 	///
-	struct Role: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Role: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = rbac.v1.RoleList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = rbac.v1.RoleList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

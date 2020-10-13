@@ -28,8 +28,10 @@ public extension auditregistration.v1alpha1 {
 	/// AuditSinkList is a list of AuditSink items.
 	///
 	struct AuditSinkList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = auditregistration.v1alpha1.AuditSink
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = auditregistration.v1alpha1.AuditSink
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

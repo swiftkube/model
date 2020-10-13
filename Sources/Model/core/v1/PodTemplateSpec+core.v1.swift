@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// PodTemplateSpec describes the data a pod should have when created from a template
 	///
-	struct PodTemplateSpec: KubernetesResource, ResourceWithMetadata {
+	struct PodTemplateSpec: KubernetesResource, MetadataHavingResource {
 		///
 		/// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///

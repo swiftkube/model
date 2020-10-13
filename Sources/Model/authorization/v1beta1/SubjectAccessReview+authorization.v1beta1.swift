@@ -27,7 +27,7 @@ public extension authorization.v1beta1 {
 	///
 	/// SubjectAccessReview checks whether or not a user or group can perform an action.
 	///
-	struct SubjectAccessReview: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct SubjectAccessReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

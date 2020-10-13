@@ -28,8 +28,10 @@ public extension apps.v1 {
 	/// DaemonSetList is a collection of daemon sets.
 	///
 	struct DaemonSetList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = apps.v1.DaemonSet
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = apps.v1.DaemonSet
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

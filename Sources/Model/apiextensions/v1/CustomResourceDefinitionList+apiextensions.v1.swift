@@ -28,8 +28,10 @@ public extension apiextensions.v1 {
 	/// CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 	///
 	struct CustomResourceDefinitionList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = apiextensions.v1.CustomResourceDefinition
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = apiextensions.v1.CustomResourceDefinition
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

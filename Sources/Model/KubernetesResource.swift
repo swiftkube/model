@@ -24,22 +24,28 @@ public protocol KubernetesResourceList: Codable {
 	var items: [Item] { get }
 }
 
-public protocol ResourceWithMetadata: KubernetesResource {
+public protocol KubernetesAPIResource : KubernetesResource {
+	static var apiVersion: APIVersion { get }
+
+	var apiVersion: String { get }
+	var kind: String { get }
+}
+
+public protocol MetadataHavingResource: KubernetesResource {
 	var metadata: meta.v1.ObjectMeta? { get }
 	var name: String? { get }
 }
 
-extension ResourceWithMetadata {
+extension MetadataHavingResource {
 	public var name: String? {
 		return self.metadata?.name
 	}
 }
 
-public protocol KubernetesAPIResource: KubernetesResource {
-	static var apiVersion: APIVersion { get }
+public protocol ListableResource: KubernetesResource {
+	associatedtype List: KubernetesResourceList
 
-	var apiVersion: String { get }
-	var kind: String { get }
+	static var listType: List.Type { get }
 }
 
 public struct GroupVersionKind {
@@ -51,7 +57,7 @@ public struct GroupVersionKind {
 		return kind.pluralName
 	}
 
-	init?<R>(of resource: R) where R: KubernetesAPIResource {
+	public init?<R>(of resource: R) where R: KubernetesAPIResource {
 		guard let apiVersion = APIVersion(rawValue: resource.apiVersion) else {
 			return nil
 		}
@@ -61,7 +67,7 @@ public struct GroupVersionKind {
 		self.kind = resource.kind
 	}
 
-	init?<R>(of type: R.Type) where R: KubernetesAPIResource {
+	public init?<R>(of type: R.Type) where R: KubernetesAPIResource {
 		self.group = type.apiVersion.group
 		self.version = type.apiVersion.version
 		self.kind = String(describing: type)

@@ -27,7 +27,15 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// AuditSink represents a cluster level audit sink
 	///
-	struct AuditSink: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct AuditSink: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = auditregistration.v1alpha1.AuditSinkList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = auditregistration.v1alpha1.AuditSinkList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

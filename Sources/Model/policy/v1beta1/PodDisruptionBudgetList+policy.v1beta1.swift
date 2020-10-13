@@ -28,8 +28,10 @@ public extension policy.v1beta1 {
 	/// PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
 	///
 	struct PodDisruptionBudgetList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = policy.v1beta1.PodDisruptionBudget
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = policy.v1beta1.PodDisruptionBudget
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

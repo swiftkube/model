@@ -27,7 +27,15 @@ public extension settings.v1alpha1 {
 	///
 	/// PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 	///
-	struct PodPreset: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct PodPreset: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = settings.v1alpha1.PodPresetList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = settings.v1alpha1.PodPresetList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

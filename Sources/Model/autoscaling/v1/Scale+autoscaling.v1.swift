@@ -27,7 +27,7 @@ public extension autoscaling.v1 {
 	///
 	/// Scale represents a scaling request for a resource.
 	///
-	struct Scale: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Scale: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

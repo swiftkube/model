@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd).
 	///
-	struct Node: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Node: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.NodeList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.NodeList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

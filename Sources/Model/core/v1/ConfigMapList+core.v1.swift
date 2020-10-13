@@ -28,8 +28,10 @@ public extension core.v1 {
 	/// ConfigMapList is a resource containing a list of ConfigMap objects.
 	///
 	struct ConfigMapList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = core.v1.ConfigMap
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = core.v1.ConfigMap
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

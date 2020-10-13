@@ -30,7 +30,15 @@ public extension apps.v1 {
 	///  - Storage: As many VolumeClaims as requested.
 	/// The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 	///
-	struct StatefulSet: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct StatefulSet: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = apps.v1.StatefulSetList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = apps.v1.StatefulSetList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

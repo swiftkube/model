@@ -38,7 +38,15 @@ public extension core.v1 {
 	///     },
 	///  ]
 	///
-	struct Endpoints: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Endpoints: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.EndpointsList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.EndpointsList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

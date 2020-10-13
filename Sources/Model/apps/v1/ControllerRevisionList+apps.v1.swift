@@ -28,8 +28,10 @@ public extension apps.v1 {
 	/// ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 	///
 	struct ControllerRevisionList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = apps.v1.ControllerRevision
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = apps.v1.ControllerRevision
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

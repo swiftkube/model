@@ -28,8 +28,10 @@ public extension flowcontrol.v1alpha1 {
 	/// FlowSchemaList is a list of FlowSchema objects.
 	///
 	struct FlowSchemaList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = flowcontrol.v1alpha1.FlowSchema
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = flowcontrol.v1alpha1.FlowSchema
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

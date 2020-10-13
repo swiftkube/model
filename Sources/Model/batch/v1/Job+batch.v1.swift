@@ -27,7 +27,15 @@ public extension batch.v1 {
 	///
 	/// Job represents the configuration of a single job.
 	///
-	struct Job: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Job: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = batch.v1.JobList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = batch.v1.JobList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

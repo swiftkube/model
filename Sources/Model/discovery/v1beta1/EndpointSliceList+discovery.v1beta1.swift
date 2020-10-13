@@ -28,8 +28,10 @@ public extension discovery.v1beta1 {
 	/// EndpointSliceList represents a list of endpoint slices
 	///
 	struct EndpointSliceList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = discovery.v1beta1.EndpointSlice
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = discovery.v1beta1.EndpointSlice
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

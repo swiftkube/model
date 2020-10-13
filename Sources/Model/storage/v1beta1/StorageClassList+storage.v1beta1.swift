@@ -28,8 +28,10 @@ public extension storage.v1beta1 {
 	/// StorageClassList is a collection of storage classes.
 	///
 	struct StorageClassList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = storage.v1beta1.StorageClass
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = storage.v1beta1.StorageClass
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

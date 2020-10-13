@@ -28,8 +28,10 @@ public extension core.v1 {
 	/// Status of all the conditions for the component as a list of ComponentStatus objects.
 	///
 	struct ComponentStatusList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = core.v1.ComponentStatus
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = core.v1.ComponentStatus
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

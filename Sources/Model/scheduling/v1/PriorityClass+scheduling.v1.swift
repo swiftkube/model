@@ -27,7 +27,15 @@ public extension scheduling.v1 {
 	///
 	/// PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
 	///
-	struct PriorityClass: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct PriorityClass: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = scheduling.v1.PriorityClassList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = scheduling.v1.PriorityClassList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

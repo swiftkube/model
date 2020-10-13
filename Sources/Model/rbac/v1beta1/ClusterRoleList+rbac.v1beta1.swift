@@ -28,8 +28,10 @@ public extension rbac.v1beta1 {
 	/// ClusterRoleList is a collection of ClusterRoles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
 	///
 	struct ClusterRoleList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = rbac.v1beta1.ClusterRole
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = rbac.v1beta1.ClusterRole
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

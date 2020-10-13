@@ -27,7 +27,15 @@ public extension networking.v1beta1 {
 	///
 	/// Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend. An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
 	///
-	struct Ingress: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Ingress: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = networking.v1beta1.IngressList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = networking.v1beta1.IngressList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

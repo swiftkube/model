@@ -28,8 +28,10 @@ public extension events.v1beta1 {
 	/// EventList is a list of Event objects.
 	///
 	struct EventList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = events.v1beta1.Event
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = events.v1beta1.Event
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

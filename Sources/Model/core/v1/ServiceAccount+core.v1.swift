@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets
 	///
-	struct ServiceAccount: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct ServiceAccount: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.ServiceAccountList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.ServiceAccountList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

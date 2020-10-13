@@ -27,7 +27,15 @@ public extension autoscaling.v2beta1 {
 	///
 	/// HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
 	///
-	struct HorizontalPodAutoscaler: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct HorizontalPodAutoscaler: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = autoscaling.v2beta1.HorizontalPodAutoscalerList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = autoscaling.v2beta1.HorizontalPodAutoscalerList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

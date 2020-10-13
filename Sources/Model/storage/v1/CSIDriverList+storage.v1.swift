@@ -28,8 +28,10 @@ public extension storage.v1 {
 	/// CSIDriverList is a collection of CSIDriver objects.
 	///
 	struct CSIDriverList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = storage.v1.CSIDriver
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = storage.v1.CSIDriver
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

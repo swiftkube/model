@@ -28,8 +28,10 @@ public extension core.v1 {
 	/// EndpointsList is a list of endpoints.
 	///
 	struct EndpointsList: KubernetesResource, KubernetesResourceList {
-
-		public typealias Resource = core.v1.Endpoints
+		///
+		/// KubernetesResourceList.Item associated type
+		///
+		public typealias Item = core.v1.Endpoints
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

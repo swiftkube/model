@@ -27,7 +27,7 @@ public extension authentication.v1 {
 	///
 	/// TokenRequest requests a token for a given service account.
 	///
-	struct TokenRequest: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct TokenRequest: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

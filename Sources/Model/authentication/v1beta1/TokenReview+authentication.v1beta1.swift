@@ -27,7 +27,7 @@ public extension authentication.v1beta1 {
 	///
 	/// TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
 	///
-	struct TokenReview: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct TokenReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

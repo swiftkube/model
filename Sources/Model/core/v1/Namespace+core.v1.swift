@@ -27,7 +27,15 @@ public extension core.v1 {
 	///
 	/// Namespace provides a scope for Names. Use of multiple namespaces is optional.
 	///
-	struct Namespace: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct Namespace: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = core.v1.NamespaceList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = core.v1.NamespaceList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

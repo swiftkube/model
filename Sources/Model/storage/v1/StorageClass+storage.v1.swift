@@ -29,7 +29,15 @@ public extension storage.v1 {
 	/// 
 	/// StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
 	///
-	struct StorageClass: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct StorageClass: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = storage.v1.StorageClassList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = storage.v1.StorageClassList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

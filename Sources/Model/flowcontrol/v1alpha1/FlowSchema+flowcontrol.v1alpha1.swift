@@ -27,7 +27,15 @@ public extension flowcontrol.v1alpha1 {
 	///
 	/// FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
 	///
-	struct FlowSchema: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct FlowSchema: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = flowcontrol.v1alpha1.FlowSchemaList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = flowcontrol.v1alpha1.FlowSchemaList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///

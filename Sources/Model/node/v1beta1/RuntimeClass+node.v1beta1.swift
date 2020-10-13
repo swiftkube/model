@@ -27,7 +27,15 @@ public extension node.v1beta1 {
 	///
 	/// RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
 	///
-	struct RuntimeClass: KubernetesResource, ResourceWithMetadata, KubernetesAPIResource {
+	struct RuntimeClass: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+		///
+		/// ListableResource.List associated type
+		///
+		public typealias List = node.v1beta1.RuntimeClassList
+		///
+		/// The type of the associated KubernetesResourceList
+		///
+		public static let listType: List.Type = node.v1beta1.RuntimeClassList.self
 		///
 		/// APIVersion of this Kubernetes API Resource.
 		///
