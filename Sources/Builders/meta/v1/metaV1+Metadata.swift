@@ -21,4 +21,8 @@ public extension sk {
 	static func metadata(_ block: (inout meta.v1.ObjectMeta) -> Void) -> meta.v1.ObjectMeta {
 		return build(meta.v1.ObjectMeta(), with: block)
 	}
+
+	static func metadata(name: String, _ block: ((inout meta.v1.ObjectMeta) -> Void)? = nil) -> meta.v1.ObjectMeta {
+		return build(meta.v1.ObjectMeta(name: name), with: block ?? { _ in })
+	}
 }
