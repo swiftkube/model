@@ -1,3 +1,5 @@
 # Swiftkube: Model
 
-Kubernetes API version: v1.16.4
+Kubernetes API version: v1.18.9
+
+# TBD
