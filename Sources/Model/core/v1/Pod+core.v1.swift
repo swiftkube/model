@@ -33,14 +33,6 @@ public extension core.v1 {
 		///
 		public typealias List = core.v1.PodList
 		///
-		/// The type of the associated KubernetesResourceList
-		///
-		public static let listType: List.Type = core.v1.PodList.self
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .coreV1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "v1"

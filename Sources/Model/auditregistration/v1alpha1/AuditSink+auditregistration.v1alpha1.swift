@@ -33,14 +33,6 @@ public extension auditregistration.v1alpha1 {
 		///
 		public typealias List = auditregistration.v1alpha1.AuditSinkList
 		///
-		/// The type of the associated KubernetesResourceList
-		///
-		public static let listType: List.Type = auditregistration.v1alpha1.AuditSinkList.self
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .auditregistrationV1Alpha1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "auditregistration.k8s.io/v1alpha1"

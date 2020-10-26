@@ -33,14 +33,6 @@ public extension networking.v1beta1 {
 		///
 		public typealias List = networking.v1beta1.IngressClassList
 		///
-		/// The type of the associated KubernetesResourceList
-		///
-		public static let listType: List.Type = networking.v1beta1.IngressClassList.self
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .networkingV1Beta1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "networking.k8s.io/v1beta1"

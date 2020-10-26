@@ -27,11 +27,7 @@ public extension meta.v1 {
 	///
 	/// APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path of the legacy v1 API.
 	///
-	struct APIVersions: KubernetesResource, KubernetesAPIResource {
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .coreV1
+	struct APIVersions: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

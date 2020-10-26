@@ -61,8 +61,6 @@ extension MetadataHavingResource {
 /// A type of `KubernetesResource` that has a corresponding API endpoint, i.e. an API group under a specific version.
 ///
 public protocol KubernetesAPIResource : MetadataHavingResource {
-	/// The resource's `APIVersion`.
-	static var apiVersion: APIVersion { get }
 	/// `APIVersion` defines the versioned schema of this representation of an object.
 	var apiVersion: String { get }
 	/// `Kind` is a string value representing the REST resource this object represents.
@@ -76,7 +74,4 @@ public protocol KubernetesAPIResource : MetadataHavingResource {
 public protocol ListableResource: KubernetesResource {
 	/// The associated type of a `KubernetesResourceList`.
 	associatedtype List: KubernetesResourceList
-
-	/// The concrete type of the associated `KubernetesResourceList`.
-	static var listType: List.Type { get }
 }

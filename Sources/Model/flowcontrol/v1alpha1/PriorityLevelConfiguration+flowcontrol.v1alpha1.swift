@@ -33,14 +33,6 @@ public extension flowcontrol.v1alpha1 {
 		///
 		public typealias List = flowcontrol.v1alpha1.PriorityLevelConfigurationList
 		///
-		/// The type of the associated KubernetesResourceList
-		///
-		public static let listType: List.Type = flowcontrol.v1alpha1.PriorityLevelConfigurationList.self
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .flowcontrolV1Alpha1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "flowcontrol.apiserver.k8s.io/v1alpha1"

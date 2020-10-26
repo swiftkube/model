@@ -27,11 +27,7 @@ public extension meta.v1 {
 	///
 	/// APIGroup contains the name, the supported versions, and the preferred version of a group.
 	///
-	struct APIGroup: KubernetesResource, KubernetesAPIResource {
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .coreV1
+	struct APIGroup: KubernetesResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

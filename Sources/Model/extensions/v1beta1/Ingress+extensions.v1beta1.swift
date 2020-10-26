@@ -33,14 +33,6 @@ public extension extensions.v1beta1 {
 		///
 		public typealias List = extensions.v1beta1.IngressList
 		///
-		/// The type of the associated KubernetesResourceList
-		///
-		public static let listType: List.Type = extensions.v1beta1.IngressList.self
-		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .extensionsV1Beta1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "extensions/v1beta1"

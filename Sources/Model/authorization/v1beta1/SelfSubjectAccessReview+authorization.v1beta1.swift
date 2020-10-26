@@ -29,10 +29,6 @@ public extension authorization.v1beta1 {
 	///
 	struct SelfSubjectAccessReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
 		///
-		/// APIVersion of this Kubernetes API Resource.
-		///
-		public static let apiVersion: APIVersion = .authorizationV1Beta1
-		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
 		public let apiVersion: String = "authorization.k8s.io/v1beta1"
