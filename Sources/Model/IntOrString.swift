@@ -16,10 +16,15 @@
 
 import Foundation
 
+/// A type that can hold an `Integer` or a `String`.
+///
+/// When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the
+/// inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
 public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral {
 
 	private let value: String
 
+	/// `true` if the inner value represents an `Integer`, `false` otherwise.
 	var isInt: Bool {
 		return Int(value) != nil
 	}
@@ -33,6 +38,9 @@ public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiter
 	}
 }
 
+///
+/// Codable conformance.
+///
 extension IntOrString: Codable {
 
 	public init(from decoder: Decoder) throws {

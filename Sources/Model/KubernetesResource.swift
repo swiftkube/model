@@ -16,60 +16,67 @@
 
 import Foundation
 
+///
+/// A marker protocol for all Kubernetes resources.
+///
 public protocol KubernetesResource: Codable {}
 
+///
+/// A type that represents a list of Kubernetes resources, e.g. `DeploymentList`.
+///
 public protocol KubernetesResourceList: Codable {
+	/// The associated `KubernetesResource` item type, e.g. `Deployment`
 	associatedtype Item: KubernetesResource
 
+	/// `APIVersion` defines the versioned schema of this representation of an object.
+	var apiVersion: String { get }
+	/// `Kind` is a string value representing the REST resource this object represents.
+	var kind: String { get }
+	/// An array of `KubernetesResource` items.
 	var items: [Item] { get }
 }
 
-public protocol KubernetesAPIResource : KubernetesResource {
-	static var apiVersion: APIVersion { get }
-
-	var apiVersion: String { get }
-	var kind: String { get }
-}
-
+///
+/// A type of `KubernetesResource` that holds metadata: `meta.v1.ObjectMeta`.
+///
 public protocol MetadataHavingResource: KubernetesResource {
+	/// The `meta.v1.ObjectMeta` object.
 	var metadata: meta.v1.ObjectMeta? { get }
+	/// The resurce's name, i.e. `metadata.name`.
 	var name: String? { get }
 }
 
 extension MetadataHavingResource {
+
+	public var metadata: meta.v1.ObjectMeta? {
+		return nil
+	}
+
 	public var name: String? {
 		return self.metadata?.name
 	}
 }
 
-public protocol ListableResource: KubernetesResource {
-	associatedtype List: KubernetesResourceList
-
-	static var listType: List.Type { get }
+///
+/// A type of `KubernetesResource` that has a corresponding API endpoint, i.e. an API group under a specific version.
+///
+public protocol KubernetesAPIResource : MetadataHavingResource {
+	/// The resource's `APIVersion`.
+	static var apiVersion: APIVersion { get }
+	/// `APIVersion` defines the versioned schema of this representation of an object.
+	var apiVersion: String { get }
+	/// `Kind` is a string value representing the REST resource this object represents.
+	var kind: String { get }
 }
 
-public struct GroupVersionKind {
-	public let group: String
-	public let version: String
-	public let kind: String
+/// A type of `KubernetesResource` that is `listable`.
+///
+/// `Listable` resources have a corresponding `KubernetesResourceList`, e.g. a `Pod` and `PodList`,
+/// and support "listing", e.g. `GET /api/v1/pods`
+public protocol ListableResource: KubernetesResource {
+	/// The associated type of a `KubernetesResourceList`.
+	associatedtype List: KubernetesResourceList
 
-	public var pluralName: String {
-		return kind.pluralName
-	}
-
-	public init?<R>(of resource: R) where R: KubernetesAPIResource {
-		guard let apiVersion = APIVersion(rawValue: resource.apiVersion) else {
-			return nil
-		}
-
-		self.group = apiVersion.group
-		self.version = apiVersion.version
-		self.kind = resource.kind
-	}
-
-	public init?<R>(of type: R.Type) where R: KubernetesAPIResource {
-		self.group = type.apiVersion.group
-		self.version = type.apiVersion.version
-		self.kind = String(describing: type)
-	}
+	/// The concrete type of the associated `KubernetesResourceList`.
+	static var listType: List.Type { get }
 }

@@ -33,6 +33,9 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 	}
 }
 
+///
+/// Codable confromace.
+///
 extension Quantity: Codable {
 
 	public init(from decoder: Decoder) throws {
