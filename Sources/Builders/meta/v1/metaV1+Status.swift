@@ -18,15 +18,7 @@ import Foundation
 
 public extension sk {
 
-	static func node(_ block: (inout core.v1.Node) -> Void) -> core.v1.Node {
-		return build(core.v1.Node(), with: block)
-	}
-
-	static func node(name: String, _ block: ((inout core.v1.Node) -> Void)? = nil) -> core.v1.Node {
-		return build(core.v1.Node(metadata: meta.v1.ObjectMeta(name: name)), with: block ?? { _ in })
-	}
-
-	static func nodeSpec(_ block: (inout core.v1.NodeSpec) -> Void) -> core.v1.NodeSpec {
-		return build(core.v1.NodeSpec(), with: block)
+	static func status(_ block: (inout meta.v1.Status) -> Void) -> meta.v1.Status {
+		return build(meta.v1.Status(), with: block)
 	}
 }
