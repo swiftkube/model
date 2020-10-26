@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// Event is a report of an event somewhere in the cluster.
 	///
-	struct Event: KubernetesResource, KubernetesAPIResource, ListableResource {
+	struct Event: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
 		///
 		/// ListableResource.List associated type
 		///
