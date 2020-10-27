@@ -46,8 +46,11 @@ public struct GroupVersionKind {
 	///
 	/// - Parameter type: A type of a `KubernetesAPIResource`, e.g. `core.v1.Pod.self`.
 	public init?<R>(of type: R.Type) where R: KubernetesAPIResource {
-		self.group = type.apiVersion.group
-		self.version = type.apiVersion.version
+		guard let apiVersion = APIVersion(of: type.self) else {
+			return nil
+		}
+		self.group = apiVersion.group
+		self.version = apiVersion.version
 		self.kind = String(describing: type)
 	}
 }
