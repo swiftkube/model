@@ -145,6 +145,9 @@ public extension core.v1 {
 extension core.v1.Event {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case action = "action"
 		case count = "count"

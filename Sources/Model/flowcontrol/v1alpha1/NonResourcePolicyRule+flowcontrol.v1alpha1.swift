@@ -61,6 +61,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.NonResourcePolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nonResourceURLs = "nonResourceURLs"
 		case verbs = "verbs"
 	}

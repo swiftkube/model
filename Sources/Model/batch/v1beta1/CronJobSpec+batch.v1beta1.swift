@@ -85,6 +85,7 @@ public extension batch.v1beta1 {
 extension batch.v1beta1.CronJobSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case concurrencyPolicy = "concurrencyPolicy"
 		case failedJobsHistoryLimit = "failedJobsHistoryLimit"
 		case jobTemplate = "jobTemplate"

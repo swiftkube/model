@@ -55,6 +55,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.ResourceMetricStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case current = "current"
 		case name = "name"
 	}

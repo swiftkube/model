@@ -55,6 +55,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.ServiceAccountSubject {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 		case namespace = "namespace"
 	}

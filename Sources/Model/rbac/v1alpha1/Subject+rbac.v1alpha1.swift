@@ -67,6 +67,7 @@ public extension rbac.v1alpha1 {
 extension rbac.v1alpha1.Subject {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case kind = "kind"
 		case name = "name"

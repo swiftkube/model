@@ -49,6 +49,7 @@ public extension authorization.v1 {
 extension authorization.v1.SelfSubjectRulesReviewSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case namespace = "namespace"
 	}
 

@@ -69,6 +69,9 @@ public extension authorization.v1beta1 {
 extension authorization.v1beta1.SelfSubjectRulesReview {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

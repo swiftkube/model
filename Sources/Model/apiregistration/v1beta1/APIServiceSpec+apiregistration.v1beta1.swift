@@ -85,6 +85,7 @@ public extension apiregistration.v1beta1 {
 extension apiregistration.v1beta1.APIServiceSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case caBundle = "caBundle"
 		case group = "group"
 		case groupPriorityMinimum = "groupPriorityMinimum"

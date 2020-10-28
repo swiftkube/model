@@ -55,6 +55,7 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.IngressTLS {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case hosts = "hosts"
 		case secretName = "secretName"
 	}

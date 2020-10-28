@@ -67,6 +67,9 @@ public extension apiregistration.v1beta1 {
 extension apiregistration.v1beta1.APIServiceList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

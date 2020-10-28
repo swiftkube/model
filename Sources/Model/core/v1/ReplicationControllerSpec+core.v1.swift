@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.ReplicationControllerSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case minReadySeconds = "minReadySeconds"
 		case replicas = "replicas"
 		case selector = "selector"

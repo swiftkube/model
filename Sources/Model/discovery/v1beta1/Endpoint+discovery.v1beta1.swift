@@ -79,6 +79,7 @@ public extension discovery.v1beta1 {
 extension discovery.v1beta1.Endpoint {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case addresses = "addresses"
 		case conditions = "conditions"
 		case hostname = "hostname"

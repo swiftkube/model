@@ -55,6 +55,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.LimitResponse {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case queuing = "queuing"
 		case type = "type"
 	}

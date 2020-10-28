@@ -55,6 +55,7 @@ public extension batch.v1beta1 {
 extension batch.v1beta1.CronJobStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case active = "active"
 		case lastScheduleTime = "lastScheduleTime"
 	}

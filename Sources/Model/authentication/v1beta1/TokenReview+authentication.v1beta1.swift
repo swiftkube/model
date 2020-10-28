@@ -69,6 +69,9 @@ public extension authentication.v1beta1 {
 extension authentication.v1beta1.TokenReview {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

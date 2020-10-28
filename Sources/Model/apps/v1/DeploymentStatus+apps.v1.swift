@@ -91,6 +91,7 @@ public extension apps.v1 {
 extension apps.v1.DeploymentStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case availableReplicas = "availableReplicas"
 		case collisionCount = "collisionCount"
 		case conditions = "conditions"

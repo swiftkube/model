@@ -49,6 +49,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.PriorityLevelConfigurationStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conditions = "conditions"
 	}
 

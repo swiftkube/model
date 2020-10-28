@@ -49,6 +49,7 @@ public extension discovery.v1beta1 {
 extension discovery.v1beta1.EndpointConditions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case ready = "ready"
 	}
 

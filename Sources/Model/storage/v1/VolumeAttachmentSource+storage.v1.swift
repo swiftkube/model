@@ -55,6 +55,7 @@ public extension storage.v1 {
 extension storage.v1.VolumeAttachmentSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case inlineVolumeSpec = "inlineVolumeSpec"
 		case persistentVolumeName = "persistentVolumeName"
 	}

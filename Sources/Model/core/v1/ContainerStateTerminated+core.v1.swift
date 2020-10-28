@@ -85,6 +85,7 @@ public extension core.v1 {
 extension core.v1.ContainerStateTerminated {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case containerID = "containerID"
 		case exitCode = "exitCode"
 		case finishedAt = "finishedAt"

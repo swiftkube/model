@@ -67,6 +67,9 @@ public extension batch.v2alpha1 {
 extension batch.v2alpha1.CronJobList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

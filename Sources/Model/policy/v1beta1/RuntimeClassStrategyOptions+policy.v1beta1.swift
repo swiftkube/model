@@ -55,6 +55,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.RuntimeClassStrategyOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case allowedRuntimeClassNames = "allowedRuntimeClassNames"
 		case defaultRuntimeClassName = "defaultRuntimeClassName"
 	}

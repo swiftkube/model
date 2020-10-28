@@ -67,6 +67,9 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.IngressList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

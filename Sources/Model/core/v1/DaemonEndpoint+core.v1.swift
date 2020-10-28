@@ -49,6 +49,7 @@ public extension core.v1 {
 extension core.v1.DaemonEndpoint {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case Port = "Port"
 	}
 

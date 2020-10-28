@@ -145,6 +145,9 @@ public extension events.v1beta1 {
 extension events.v1beta1.Event {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case action = "action"
 		case deprecatedCount = "deprecatedCount"

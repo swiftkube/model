@@ -49,6 +49,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.FlowSchemaStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conditions = "conditions"
 	}
 

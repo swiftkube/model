@@ -79,6 +79,7 @@ public extension batch.v1 {
 extension batch.v1.JobStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case active = "active"
 		case completionTime = "completionTime"
 		case conditions = "conditions"

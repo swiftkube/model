@@ -67,6 +67,9 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.FlowSchemaList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

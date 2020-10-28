@@ -53,22 +53,22 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 		let decoded: KubernetesAPIResource
 		switch gvk {
 
-		case "admissionregistration.v1beta1.MutatingWebhookConfiguration":
-			decoded = try admissionregistration.v1beta1.MutatingWebhookConfiguration.init(from: decoder)
 		case "admissionregistration.v1.MutatingWebhookConfiguration":
 			decoded = try admissionregistration.v1.MutatingWebhookConfiguration.init(from: decoder)
-		case "admissionregistration.v1.ValidatingWebhookConfiguration":
-			decoded = try admissionregistration.v1.ValidatingWebhookConfiguration.init(from: decoder)
+		case "admissionregistration.v1beta1.MutatingWebhookConfiguration":
+			decoded = try admissionregistration.v1beta1.MutatingWebhookConfiguration.init(from: decoder)
 		case "admissionregistration.v1beta1.ValidatingWebhookConfiguration":
 			decoded = try admissionregistration.v1beta1.ValidatingWebhookConfiguration.init(from: decoder)
+		case "admissionregistration.v1.ValidatingWebhookConfiguration":
+			decoded = try admissionregistration.v1.ValidatingWebhookConfiguration.init(from: decoder)
 		case "apiextensions.v1.CustomResourceDefinition":
 			decoded = try apiextensions.v1.CustomResourceDefinition.init(from: decoder)
 		case "apiextensions.v1beta1.CustomResourceDefinition":
 			decoded = try apiextensions.v1beta1.CustomResourceDefinition.init(from: decoder)
-		case "apiregistration.v1beta1.APIService":
-			decoded = try apiregistration.v1beta1.APIService.init(from: decoder)
 		case "apiregistration.v1.APIService":
 			decoded = try apiregistration.v1.APIService.init(from: decoder)
+		case "apiregistration.v1beta1.APIService":
+			decoded = try apiregistration.v1beta1.APIService.init(from: decoder)
 		case "apps.v1.ControllerRevision":
 			decoded = try apps.v1.ControllerRevision.init(from: decoder)
 		case "apps.v1.DaemonSet":
@@ -87,42 +87,42 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try authentication.v1.TokenReview.init(from: decoder)
 		case "authentication.v1beta1.TokenReview":
 			decoded = try authentication.v1beta1.TokenReview.init(from: decoder)
-		case "authorization.v1beta1.LocalSubjectAccessReview":
-			decoded = try authorization.v1beta1.LocalSubjectAccessReview.init(from: decoder)
 		case "authorization.v1.LocalSubjectAccessReview":
 			decoded = try authorization.v1.LocalSubjectAccessReview.init(from: decoder)
+		case "authorization.v1beta1.LocalSubjectAccessReview":
+			decoded = try authorization.v1beta1.LocalSubjectAccessReview.init(from: decoder)
 		case "authorization.v1.SelfSubjectAccessReview":
 			decoded = try authorization.v1.SelfSubjectAccessReview.init(from: decoder)
 		case "authorization.v1beta1.SelfSubjectAccessReview":
 			decoded = try authorization.v1beta1.SelfSubjectAccessReview.init(from: decoder)
-		case "authorization.v1beta1.SelfSubjectRulesReview":
-			decoded = try authorization.v1beta1.SelfSubjectRulesReview.init(from: decoder)
 		case "authorization.v1.SelfSubjectRulesReview":
 			decoded = try authorization.v1.SelfSubjectRulesReview.init(from: decoder)
+		case "authorization.v1beta1.SelfSubjectRulesReview":
+			decoded = try authorization.v1beta1.SelfSubjectRulesReview.init(from: decoder)
 		case "authorization.v1beta1.SubjectAccessReview":
 			decoded = try authorization.v1beta1.SubjectAccessReview.init(from: decoder)
 		case "authorization.v1.SubjectAccessReview":
 			decoded = try authorization.v1.SubjectAccessReview.init(from: decoder)
-		case "autoscaling.v2beta2.HorizontalPodAutoscaler":
-			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler.init(from: decoder)
 		case "autoscaling.v2beta1.HorizontalPodAutoscaler":
 			decoded = try autoscaling.v2beta1.HorizontalPodAutoscaler.init(from: decoder)
 		case "autoscaling.v1.HorizontalPodAutoscaler":
 			decoded = try autoscaling.v1.HorizontalPodAutoscaler.init(from: decoder)
+		case "autoscaling.v2beta2.HorizontalPodAutoscaler":
+			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler.init(from: decoder)
 		case "autoscaling.v1.Scale":
 			decoded = try autoscaling.v1.Scale.init(from: decoder)
-		case "batch.v2alpha1.CronJob":
-			decoded = try batch.v2alpha1.CronJob.init(from: decoder)
 		case "batch.v1beta1.CronJob":
 			decoded = try batch.v1beta1.CronJob.init(from: decoder)
+		case "batch.v2alpha1.CronJob":
+			decoded = try batch.v2alpha1.CronJob.init(from: decoder)
 		case "batch.v1.Job":
 			decoded = try batch.v1.Job.init(from: decoder)
 		case "certificates.v1beta1.CertificateSigningRequest":
 			decoded = try certificates.v1beta1.CertificateSigningRequest.init(from: decoder)
-		case "coordination.v1beta1.Lease":
-			decoded = try coordination.v1beta1.Lease.init(from: decoder)
 		case "coordination.v1.Lease":
 			decoded = try coordination.v1.Lease.init(from: decoder)
+		case "coordination.v1beta1.Lease":
+			decoded = try coordination.v1beta1.Lease.init(from: decoder)
 		case "core.v1.Binding":
 			decoded = try core.v1.Binding.init(from: decoder)
 		case "core.v1.ComponentStatus":
@@ -185,28 +185,28 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try policy.v1beta1.PodSecurityPolicy.init(from: decoder)
 		case "rbac.v1beta1.ClusterRole":
 			decoded = try rbac.v1beta1.ClusterRole.init(from: decoder)
-		case "rbac.v1alpha1.ClusterRole":
-			decoded = try rbac.v1alpha1.ClusterRole.init(from: decoder)
 		case "rbac.v1.ClusterRole":
 			decoded = try rbac.v1.ClusterRole.init(from: decoder)
+		case "rbac.v1alpha1.ClusterRole":
+			decoded = try rbac.v1alpha1.ClusterRole.init(from: decoder)
+		case "rbac.v1beta1.ClusterRoleBinding":
+			decoded = try rbac.v1beta1.ClusterRoleBinding.init(from: decoder)
 		case "rbac.v1alpha1.ClusterRoleBinding":
 			decoded = try rbac.v1alpha1.ClusterRoleBinding.init(from: decoder)
 		case "rbac.v1.ClusterRoleBinding":
 			decoded = try rbac.v1.ClusterRoleBinding.init(from: decoder)
-		case "rbac.v1beta1.ClusterRoleBinding":
-			decoded = try rbac.v1beta1.ClusterRoleBinding.init(from: decoder)
-		case "rbac.v1alpha1.Role":
-			decoded = try rbac.v1alpha1.Role.init(from: decoder)
 		case "rbac.v1beta1.Role":
 			decoded = try rbac.v1beta1.Role.init(from: decoder)
+		case "rbac.v1alpha1.Role":
+			decoded = try rbac.v1alpha1.Role.init(from: decoder)
 		case "rbac.v1.Role":
 			decoded = try rbac.v1.Role.init(from: decoder)
 		case "rbac.v1alpha1.RoleBinding":
 			decoded = try rbac.v1alpha1.RoleBinding.init(from: decoder)
-		case "rbac.v1.RoleBinding":
-			decoded = try rbac.v1.RoleBinding.init(from: decoder)
 		case "rbac.v1beta1.RoleBinding":
 			decoded = try rbac.v1beta1.RoleBinding.init(from: decoder)
+		case "rbac.v1.RoleBinding":
+			decoded = try rbac.v1.RoleBinding.init(from: decoder)
 		case "scheduling.v1alpha1.PriorityClass":
 			decoded = try scheduling.v1alpha1.PriorityClass.init(from: decoder)
 		case "scheduling.v1.PriorityClass":
@@ -227,12 +227,12 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try storage.v1.StorageClass.init(from: decoder)
 		case "storage.v1beta1.StorageClass":
 			decoded = try storage.v1beta1.StorageClass.init(from: decoder)
-		case "storage.v1alpha1.VolumeAttachment":
-			decoded = try storage.v1alpha1.VolumeAttachment.init(from: decoder)
 		case "storage.v1.VolumeAttachment":
 			decoded = try storage.v1.VolumeAttachment.init(from: decoder)
 		case "storage.v1beta1.VolumeAttachment":
 			decoded = try storage.v1beta1.VolumeAttachment.init(from: decoder)
+		case "storage.v1alpha1.VolumeAttachment":
+			decoded = try storage.v1alpha1.VolumeAttachment.init(from: decoder)
 		default:
 			let context = DecodingError.Context(
 				codingPath: [CodingKeys.apiVersion, CodingKeys.kind],

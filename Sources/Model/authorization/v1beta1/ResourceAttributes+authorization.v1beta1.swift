@@ -85,6 +85,7 @@ public extension authorization.v1beta1 {
 extension authorization.v1beta1.ResourceAttributes {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case group = "group"
 		case name = "name"
 		case namespace = "namespace"

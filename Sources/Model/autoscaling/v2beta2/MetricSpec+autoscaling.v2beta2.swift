@@ -73,6 +73,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.MetricSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case external = "external"
 		case object = "object"
 		case pods = "pods"

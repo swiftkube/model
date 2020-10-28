@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.SecretReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 		case namespace = "namespace"
 	}

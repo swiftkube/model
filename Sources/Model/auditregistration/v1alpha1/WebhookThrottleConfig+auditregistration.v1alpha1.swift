@@ -55,6 +55,7 @@ public extension auditregistration.v1alpha1 {
 extension auditregistration.v1alpha1.WebhookThrottleConfig {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case burst = "burst"
 		case qps = "qps"
 	}

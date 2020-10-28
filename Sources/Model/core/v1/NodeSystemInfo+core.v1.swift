@@ -103,6 +103,7 @@ public extension core.v1 {
 extension core.v1.NodeSystemInfo {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case architecture = "architecture"
 		case bootID = "bootID"
 		case containerRuntimeVersion = "containerRuntimeVersion"

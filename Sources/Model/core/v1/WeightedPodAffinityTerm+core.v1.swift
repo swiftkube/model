@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.WeightedPodAffinityTerm {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case podAffinityTerm = "podAffinityTerm"
 		case weight = "weight"
 	}

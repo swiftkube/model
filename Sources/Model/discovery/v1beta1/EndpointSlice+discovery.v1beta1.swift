@@ -79,6 +79,9 @@ public extension discovery.v1beta1 {
 extension discovery.v1beta1.EndpointSlice {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case addressType = "addressType"
 		case endpoints = "endpoints"

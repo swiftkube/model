@@ -55,6 +55,7 @@ public extension meta.v1 {
 extension meta.v1.GroupVersionForDiscovery {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case groupVersion = "groupVersion"
 		case version = "version"
 	}

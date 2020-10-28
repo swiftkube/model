@@ -63,6 +63,7 @@ public extension core.v1 {
 extension core.v1.SecretProjection {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case items = "items"
 		case name = "name"
 		case optional = "optional"

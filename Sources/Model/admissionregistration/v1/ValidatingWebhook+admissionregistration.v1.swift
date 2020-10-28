@@ -139,6 +139,7 @@ public extension admissionregistration.v1 {
 extension admissionregistration.v1.ValidatingWebhook {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case admissionReviewVersions = "admissionReviewVersions"
 		case clientConfig = "clientConfig"
 		case failurePolicy = "failurePolicy"

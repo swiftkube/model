@@ -55,6 +55,7 @@ public extension storage.v1 {
 extension storage.v1.VolumeError {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case message = "message"
 		case time = "time"
 	}

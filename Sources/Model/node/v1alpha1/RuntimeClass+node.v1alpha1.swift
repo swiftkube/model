@@ -67,6 +67,9 @@ public extension node.v1alpha1 {
 extension node.v1alpha1.RuntimeClass {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 	}

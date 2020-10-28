@@ -67,6 +67,9 @@ public extension core.v1 {
 extension core.v1.ComponentStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case conditions = "conditions"
 	}

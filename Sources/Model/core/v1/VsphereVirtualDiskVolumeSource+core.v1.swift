@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.VsphereVirtualDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case storagePolicyID = "storagePolicyID"
 		case storagePolicyName = "storagePolicyName"

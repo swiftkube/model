@@ -73,6 +73,7 @@ public extension autoscaling.v1 {
 extension autoscaling.v1.HorizontalPodAutoscalerStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case currentCPUUtilizationPercentage = "currentCPUUtilizationPercentage"
 		case currentReplicas = "currentReplicas"
 		case desiredReplicas = "desiredReplicas"

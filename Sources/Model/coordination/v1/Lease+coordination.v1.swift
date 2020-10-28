@@ -67,6 +67,9 @@ public extension coordination.v1 {
 extension coordination.v1.Lease {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 	}

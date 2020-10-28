@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.VolumeMount {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case mountPath = "mountPath"
 		case mountPropagation = "mountPropagation"
 		case name = "name"

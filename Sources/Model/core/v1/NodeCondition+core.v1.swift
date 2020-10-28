@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.NodeCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastHeartbeatTime = "lastHeartbeatTime"
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"

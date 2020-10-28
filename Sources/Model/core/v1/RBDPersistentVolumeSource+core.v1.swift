@@ -91,6 +91,7 @@ public extension core.v1 {
 extension core.v1.RBDPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case image = "image"
 		case keyring = "keyring"

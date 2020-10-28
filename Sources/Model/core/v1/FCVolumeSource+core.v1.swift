@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.FCVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case lun = "lun"
 		case readOnly = "readOnly"

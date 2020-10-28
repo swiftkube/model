@@ -79,6 +79,7 @@ public extension apiextensions.v1 {
 extension apiextensions.v1.CustomResourceDefinitionSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conversion = "conversion"
 		case group = "group"
 		case names = "names"

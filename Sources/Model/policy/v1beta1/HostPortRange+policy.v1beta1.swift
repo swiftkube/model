@@ -55,6 +55,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.HostPortRange {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case max = "max"
 		case min = "min"
 	}

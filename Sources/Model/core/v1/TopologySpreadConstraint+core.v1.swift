@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.TopologySpreadConstraint {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case labelSelector = "labelSelector"
 		case maxSkew = "maxSkew"
 		case topologyKey = "topologyKey"

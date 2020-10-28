@@ -91,6 +91,7 @@ public extension apps.v1 {
 extension apps.v1.DeploymentSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case minReadySeconds = "minReadySeconds"
 		case paused = "paused"
 		case progressDeadlineSeconds = "progressDeadlineSeconds"

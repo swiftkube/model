@@ -101,6 +101,7 @@ public extension core.v1 {
 extension core.v1.PodSecurityContext {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsGroup = "fsGroup"
 		case fsGroupChangePolicy = "fsGroupChangePolicy"
 		case runAsGroup = "runAsGroup"

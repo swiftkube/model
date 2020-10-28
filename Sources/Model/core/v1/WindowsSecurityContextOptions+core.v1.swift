@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.WindowsSecurityContextOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case gmsaCredentialSpec = "gmsaCredentialSpec"
 		case gmsaCredentialSpecName = "gmsaCredentialSpecName"
 		case runAsUserName = "runAsUserName"

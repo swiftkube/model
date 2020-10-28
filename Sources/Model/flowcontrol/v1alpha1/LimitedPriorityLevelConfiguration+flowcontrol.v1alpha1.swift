@@ -61,6 +61,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case assuredConcurrencyShares = "assuredConcurrencyShares"
 		case limitResponse = "limitResponse"
 	}

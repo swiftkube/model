@@ -67,6 +67,7 @@ public extension extensions.v1beta1 {
 extension extensions.v1beta1.IngressSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case backend = "backend"
 		case ingressClassName = "ingressClassName"
 		case rules = "rules"

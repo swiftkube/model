@@ -59,6 +59,7 @@ public extension meta.v1 {
 extension meta.v1.WatchEvent {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case object = "object"
 		case type = "type"
 	}

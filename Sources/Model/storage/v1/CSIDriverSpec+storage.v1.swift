@@ -64,6 +64,7 @@ public extension storage.v1 {
 extension storage.v1.CSIDriverSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case attachRequired = "attachRequired"
 		case podInfoOnMount = "podInfoOnMount"
 		case volumeLifecycleModes = "volumeLifecycleModes"

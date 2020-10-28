@@ -247,6 +247,7 @@ public extension core.v1 {
 extension core.v1.PodSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case activeDeadlineSeconds = "activeDeadlineSeconds"
 		case affinity = "affinity"
 		case automountServiceAccountToken = "automountServiceAccountToken"

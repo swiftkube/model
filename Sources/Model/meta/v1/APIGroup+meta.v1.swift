@@ -75,6 +75,9 @@ public extension meta.v1 {
 extension meta.v1.APIGroup {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case name = "name"
 		case preferredVersion = "preferredVersion"
 		case serverAddressByClientCIDRs = "serverAddressByClientCIDRs"

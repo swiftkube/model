@@ -49,6 +49,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.AllowedFlexVolume {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case driver = "driver"
 	}
 

@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.VolumeProjection {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case configMap = "configMap"
 		case downwardAPI = "downwardAPI"
 		case secret = "secret"

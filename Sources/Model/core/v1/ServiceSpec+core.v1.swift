@@ -133,6 +133,7 @@ public extension core.v1 {
 extension core.v1.ServiceSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case clusterIP = "clusterIP"
 		case externalIPs = "externalIPs"
 		case externalName = "externalName"

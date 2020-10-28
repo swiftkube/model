@@ -155,6 +155,7 @@ public extension meta.v1 {
 extension meta.v1.ObjectMeta {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case annotations = "annotations"
 		case clusterName = "clusterName"
 		case creationTimestamp = "creationTimestamp"

@@ -73,6 +73,9 @@ public extension batch.v1 {
 extension batch.v1.Job {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

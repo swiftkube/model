@@ -67,6 +67,9 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.HorizontalPodAutoscalerList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

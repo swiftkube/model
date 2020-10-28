@@ -61,6 +61,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.PolicyRulesWithSubjects {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nonResourceRules = "nonResourceRules"
 		case resourceRules = "resourceRules"
 		case subjects = "subjects"

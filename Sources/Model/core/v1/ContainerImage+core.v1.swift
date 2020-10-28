@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.ContainerImage {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case names = "names"
 		case sizeBytes = "sizeBytes"
 	}

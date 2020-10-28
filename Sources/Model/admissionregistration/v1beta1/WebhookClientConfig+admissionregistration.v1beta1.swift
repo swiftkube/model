@@ -73,6 +73,7 @@ public extension admissionregistration.v1beta1 {
 extension admissionregistration.v1beta1.WebhookClientConfig {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case caBundle = "caBundle"
 		case service = "service"
 		case url = "url"

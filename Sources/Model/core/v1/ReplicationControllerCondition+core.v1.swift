@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.ReplicationControllerCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"
 		case reason = "reason"

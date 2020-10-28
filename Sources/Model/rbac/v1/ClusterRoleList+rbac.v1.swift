@@ -67,6 +67,9 @@ public extension rbac.v1 {
 extension rbac.v1.ClusterRoleList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

@@ -49,6 +49,7 @@ public extension apps.v1 {
 extension apps.v1.RollingUpdateDaemonSet {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case maxUnavailable = "maxUnavailable"
 	}
 

@@ -91,6 +91,7 @@ public extension core.v1 {
 extension core.v1.Probe {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case exec = "exec"
 		case failureThreshold = "failureThreshold"
 		case httpGet = "httpGet"

@@ -49,6 +49,7 @@ public extension core.v1 {
 extension core.v1.NamespaceSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case finalizers = "finalizers"
 	}
 

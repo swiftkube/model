@@ -55,6 +55,7 @@ public extension networking.v1 {
 extension networking.v1.NetworkPolicyIngressRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case from = "from"
 		case ports = "ports"
 	}

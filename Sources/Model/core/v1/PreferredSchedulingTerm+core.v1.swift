@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.PreferredSchedulingTerm {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case preference = "preference"
 		case weight = "weight"
 	}

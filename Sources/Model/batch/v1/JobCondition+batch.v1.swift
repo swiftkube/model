@@ -79,6 +79,7 @@ public extension batch.v1 {
 extension batch.v1.JobCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastProbeTime = "lastProbeTime"
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"

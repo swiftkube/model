@@ -73,6 +73,9 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.PriorityLevelConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

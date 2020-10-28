@@ -67,6 +67,7 @@ public extension autoscaling.v1 {
 extension autoscaling.v1.HorizontalPodAutoscalerSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case maxReplicas = "maxReplicas"
 		case minReplicas = "minReplicas"
 		case scaleTargetRef = "scaleTargetRef"

@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.SELinuxOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case level = "level"
 		case role = "role"
 		case type = "type"

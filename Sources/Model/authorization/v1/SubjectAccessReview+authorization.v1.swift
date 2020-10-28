@@ -69,6 +69,9 @@ public extension authorization.v1 {
 extension authorization.v1.SubjectAccessReview {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

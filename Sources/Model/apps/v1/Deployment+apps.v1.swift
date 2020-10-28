@@ -73,6 +73,9 @@ public extension apps.v1 {
 extension apps.v1.Deployment {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

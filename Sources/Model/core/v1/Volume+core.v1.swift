@@ -217,6 +217,7 @@ public extension core.v1 {
 extension core.v1.Volume {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case awsElasticBlockStore = "awsElasticBlockStore"
 		case azureDisk = "azureDisk"
 		case azureFile = "azureFile"

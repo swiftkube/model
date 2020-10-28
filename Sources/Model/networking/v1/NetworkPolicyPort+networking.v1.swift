@@ -55,6 +55,7 @@ public extension networking.v1 {
 extension networking.v1.NetworkPolicyPort {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case port = "port"
 		case `protocol` = "protocol"
 	}

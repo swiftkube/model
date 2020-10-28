@@ -55,6 +55,7 @@ public extension authentication.v1 {
 extension authentication.v1.TokenRequestStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case expirationTimestamp = "expirationTimestamp"
 		case token = "token"
 	}

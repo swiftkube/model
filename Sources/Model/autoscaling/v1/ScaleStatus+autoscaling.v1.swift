@@ -55,6 +55,7 @@ public extension autoscaling.v1 {
 extension autoscaling.v1.ScaleStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case replicas = "replicas"
 		case selector = "selector"
 	}

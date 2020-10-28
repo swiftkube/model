@@ -67,6 +67,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.Subject {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case group = "group"
 		case serviceAccount = "serviceAccount"

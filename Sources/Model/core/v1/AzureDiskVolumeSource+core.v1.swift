@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.AzureDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case cachingMode = "cachingMode"
 		case diskName = "diskName"

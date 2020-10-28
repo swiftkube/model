@@ -79,6 +79,7 @@ public extension authorization.v1 {
 extension authorization.v1.SubjectAccessReviewSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case extra = "extra"
 		case groups = "groups"
 		case nonResourceAttributes = "nonResourceAttributes"

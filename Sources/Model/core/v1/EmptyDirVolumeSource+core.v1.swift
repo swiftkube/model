@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.EmptyDirVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case medium = "medium"
 		case sizeLimit = "sizeLimit"
 	}

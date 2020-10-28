@@ -67,6 +67,7 @@ public extension storage.v1 {
 extension storage.v1.CSINodeDriver {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case allocatable = "allocatable"
 		case name = "name"
 		case nodeID = "nodeID"

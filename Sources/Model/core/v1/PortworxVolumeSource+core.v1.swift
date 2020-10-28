@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.PortworxVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case readOnly = "readOnly"
 		case volumeID = "volumeID"

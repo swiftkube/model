@@ -103,6 +103,7 @@ public extension core.v1 {
 extension core.v1.ScaleIOPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case gateway = "gateway"
 		case protectionDomain = "protectionDomain"

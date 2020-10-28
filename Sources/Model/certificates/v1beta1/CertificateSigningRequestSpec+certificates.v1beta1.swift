@@ -92,6 +92,7 @@ public extension certificates.v1beta1 {
 extension certificates.v1beta1.CertificateSigningRequestSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case extra = "extra"
 		case groups = "groups"
 		case request = "request"

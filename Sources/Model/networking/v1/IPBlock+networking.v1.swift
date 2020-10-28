@@ -55,6 +55,7 @@ public extension networking.v1 {
 extension networking.v1.IPBlock {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case cidr = "cidr"
 		case except = "except"
 	}

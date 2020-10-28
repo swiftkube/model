@@ -49,6 +49,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceValidation {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case openAPIV3Schema = "openAPIV3Schema"
 	}
 

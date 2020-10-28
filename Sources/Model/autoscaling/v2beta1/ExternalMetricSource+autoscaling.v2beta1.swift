@@ -67,6 +67,7 @@ public extension autoscaling.v2beta1 {
 extension autoscaling.v2beta1.ExternalMetricSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case metricName = "metricName"
 		case metricSelector = "metricSelector"
 		case targetAverageValue = "targetAverageValue"

@@ -97,6 +97,7 @@ public extension apps.v1 {
 extension apps.v1.StatefulSetStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case collisionCount = "collisionCount"
 		case conditions = "conditions"
 		case currentReplicas = "currentReplicas"

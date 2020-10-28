@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.NamespaceStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conditions = "conditions"
 		case phase = "phase"
 	}

@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.LocalVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case path = "path"
 	}

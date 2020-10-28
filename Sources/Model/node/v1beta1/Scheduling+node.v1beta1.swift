@@ -55,6 +55,7 @@ public extension node.v1beta1 {
 extension node.v1beta1.Scheduling {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nodeSelector = "nodeSelector"
 		case tolerations = "tolerations"
 	}

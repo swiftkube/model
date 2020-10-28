@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.NodeSelectorRequirement {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case key = "key"
 		case `operator` = "operator"
 		case values = "values"

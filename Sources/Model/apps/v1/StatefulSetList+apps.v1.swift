@@ -67,6 +67,9 @@ public extension apps.v1 {
 extension apps.v1.StatefulSetList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

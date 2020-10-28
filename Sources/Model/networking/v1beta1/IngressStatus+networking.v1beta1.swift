@@ -49,6 +49,7 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.IngressStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case loadBalancer = "loadBalancer"
 	}
 

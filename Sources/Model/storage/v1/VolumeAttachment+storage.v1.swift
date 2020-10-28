@@ -75,6 +75,9 @@ public extension storage.v1 {
 extension storage.v1.VolumeAttachment {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

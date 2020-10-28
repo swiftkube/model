@@ -73,6 +73,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceDefinitionCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"
 		case reason = "reason"

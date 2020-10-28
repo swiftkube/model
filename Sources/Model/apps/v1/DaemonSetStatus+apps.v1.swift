@@ -103,6 +103,7 @@ public extension apps.v1 {
 extension apps.v1.DaemonSetStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case collisionCount = "collisionCount"
 		case conditions = "conditions"
 		case currentNumberScheduled = "currentNumberScheduled"

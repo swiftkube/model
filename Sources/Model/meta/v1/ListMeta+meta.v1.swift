@@ -69,6 +69,7 @@ public extension meta.v1 {
 extension meta.v1.ListMeta {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case `continue` = "continue"
 		case remainingItemCount = "remainingItemCount"
 		case resourceVersion = "resourceVersion"

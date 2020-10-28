@@ -55,6 +55,7 @@ public extension authentication.v1 {
 extension authentication.v1.TokenReviewSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case audiences = "audiences"
 		case token = "token"
 	}

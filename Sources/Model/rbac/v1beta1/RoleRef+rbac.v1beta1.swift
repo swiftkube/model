@@ -61,6 +61,7 @@ public extension rbac.v1beta1 {
 extension rbac.v1beta1.RoleRef {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case apiGroup = "apiGroup"
 		case name = "name"

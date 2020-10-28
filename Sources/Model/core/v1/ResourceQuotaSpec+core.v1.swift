@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.ResourceQuotaSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case hard = "hard"
 		case scopeSelector = "scopeSelector"
 		case scopes = "scopes"

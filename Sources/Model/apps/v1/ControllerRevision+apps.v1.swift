@@ -73,6 +73,9 @@ public extension apps.v1 {
 extension apps.v1.ControllerRevision {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case data = "data"
 		case revision = "revision"

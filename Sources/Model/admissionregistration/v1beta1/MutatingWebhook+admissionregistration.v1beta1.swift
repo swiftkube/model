@@ -151,6 +151,7 @@ public extension admissionregistration.v1beta1 {
 extension admissionregistration.v1beta1.MutatingWebhook {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case admissionReviewVersions = "admissionReviewVersions"
 		case clientConfig = "clientConfig"
 		case failurePolicy = "failurePolicy"

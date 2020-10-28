@@ -62,6 +62,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceConversion {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conversionReviewVersions = "conversionReviewVersions"
 		case strategy = "strategy"
 		case webhookClientConfig = "webhookClientConfig"

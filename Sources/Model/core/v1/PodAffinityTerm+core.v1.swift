@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.PodAffinityTerm {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case labelSelector = "labelSelector"
 		case namespaces = "namespaces"
 		case topologyKey = "topologyKey"

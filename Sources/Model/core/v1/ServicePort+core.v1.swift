@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.ServicePort {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case appProtocol = "appProtocol"
 		case name = "name"
 		case nodePort = "nodePort"

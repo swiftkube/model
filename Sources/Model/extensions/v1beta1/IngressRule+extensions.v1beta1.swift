@@ -62,6 +62,7 @@ public extension extensions.v1beta1 {
 extension extensions.v1beta1.IngressRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case host = "host"
 		case http = "http"
 	}

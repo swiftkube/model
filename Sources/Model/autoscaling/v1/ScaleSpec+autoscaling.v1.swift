@@ -49,6 +49,7 @@ public extension autoscaling.v1 {
 extension autoscaling.v1.ScaleSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case replicas = "replicas"
 	}
 

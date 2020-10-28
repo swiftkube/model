@@ -73,6 +73,7 @@ public extension rbac.v1beta1 {
 extension rbac.v1beta1.PolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiGroups = "apiGroups"
 		case nonResourceURLs = "nonResourceURLs"
 		case resourceNames = "resourceNames"

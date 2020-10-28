@@ -73,6 +73,7 @@ public extension apiregistration.v1beta1 {
 extension apiregistration.v1beta1.APIServiceCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"
 		case reason = "reason"

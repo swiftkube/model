@@ -73,6 +73,7 @@ public extension coordination.v1beta1 {
 extension coordination.v1beta1.LeaseSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case acquireTime = "acquireTime"
 		case holderIdentity = "holderIdentity"
 		case leaseDurationSeconds = "leaseDurationSeconds"

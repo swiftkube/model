@@ -61,6 +61,7 @@ public extension storage.v1 {
 extension storage.v1.VolumeAttachmentSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case attacher = "attacher"
 		case nodeName = "nodeName"
 		case source = "source"

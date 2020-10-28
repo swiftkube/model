@@ -67,6 +67,7 @@ public extension certificates.v1beta1 {
 extension certificates.v1beta1.CertificateSigningRequestCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastUpdateTime = "lastUpdateTime"
 		case message = "message"
 		case reason = "reason"

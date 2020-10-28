@@ -49,6 +49,7 @@ public extension rbac.v1beta1 {
 extension rbac.v1beta1.AggregationRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case clusterRoleSelectors = "clusterRoleSelectors"
 	}
 

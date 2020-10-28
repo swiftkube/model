@@ -61,6 +61,7 @@ public extension autoscaling.v2beta1 {
 extension autoscaling.v2beta1.CrossVersionObjectReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case kind = "kind"
 		case name = "name"

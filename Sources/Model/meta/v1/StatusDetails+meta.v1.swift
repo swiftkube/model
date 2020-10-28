@@ -79,6 +79,7 @@ public extension meta.v1 {
 extension meta.v1.StatusDetails {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case causes = "causes"
 		case group = "group"

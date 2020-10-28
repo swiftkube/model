@@ -55,6 +55,7 @@ public extension batch.v2alpha1 {
 extension batch.v2alpha1.JobTemplateSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case metadata = "metadata"
 		case spec = "spec"
 	}

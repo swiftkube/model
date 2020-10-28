@@ -67,6 +67,9 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.PodSecurityPolicy {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 	}

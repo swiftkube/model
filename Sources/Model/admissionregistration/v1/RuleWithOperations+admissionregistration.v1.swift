@@ -79,6 +79,7 @@ public extension admissionregistration.v1 {
 extension admissionregistration.v1.RuleWithOperations {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiGroups = "apiGroups"
 		case apiVersions = "apiVersions"
 		case operations = "operations"

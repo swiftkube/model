@@ -55,6 +55,7 @@ public extension apiextensions.v1 {
 extension apiextensions.v1.WebhookConversion {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case clientConfig = "clientConfig"
 		case conversionReviewVersions = "conversionReviewVersions"
 	}

@@ -67,6 +67,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.ServiceReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 		case namespace = "namespace"
 		case path = "path"

@@ -91,6 +91,7 @@ public extension apps.v1 {
 extension apps.v1.StatefulSetSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case podManagementPolicy = "podManagementPolicy"
 		case replicas = "replicas"
 		case revisionHistoryLimit = "revisionHistoryLimit"

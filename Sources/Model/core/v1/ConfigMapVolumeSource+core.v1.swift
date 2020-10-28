@@ -69,6 +69,7 @@ public extension core.v1 {
 extension core.v1.ConfigMapVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case defaultMode = "defaultMode"
 		case items = "items"
 		case name = "name"

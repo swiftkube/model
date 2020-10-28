@@ -55,6 +55,7 @@ public extension certificates.v1beta1 {
 extension certificates.v1beta1.CertificateSigningRequestStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case certificate = "certificate"
 		case conditions = "conditions"
 	}

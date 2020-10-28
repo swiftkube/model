@@ -49,6 +49,7 @@ public extension core.v1 {
 extension core.v1.ScopeSelector {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case matchExpressions = "matchExpressions"
 	}
 

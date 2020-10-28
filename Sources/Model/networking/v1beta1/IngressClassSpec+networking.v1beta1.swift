@@ -55,6 +55,7 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.IngressClassSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case controller = "controller"
 		case parameters = "parameters"
 	}

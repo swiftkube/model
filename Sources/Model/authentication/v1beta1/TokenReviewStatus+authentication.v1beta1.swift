@@ -67,6 +67,7 @@ public extension authentication.v1beta1 {
 extension authentication.v1beta1.TokenReviewStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case audiences = "audiences"
 		case authenticated = "authenticated"
 		case error = "error"

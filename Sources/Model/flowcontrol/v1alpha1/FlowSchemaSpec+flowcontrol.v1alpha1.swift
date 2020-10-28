@@ -67,6 +67,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.FlowSchemaSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case distinguisherMethod = "distinguisherMethod"
 		case matchingPrecedence = "matchingPrecedence"
 		case priorityLevelConfiguration = "priorityLevelConfiguration"

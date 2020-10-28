@@ -49,6 +49,7 @@ public extension extensions.v1beta1 {
 extension extensions.v1beta1.HTTPIngressRuleValue {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case paths = "paths"
 	}
 

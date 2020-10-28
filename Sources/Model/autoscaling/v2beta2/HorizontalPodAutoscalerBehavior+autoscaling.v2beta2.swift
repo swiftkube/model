@@ -58,6 +58,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.HorizontalPodAutoscalerBehavior {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case scaleDown = "scaleDown"
 		case scaleUp = "scaleUp"
 	}

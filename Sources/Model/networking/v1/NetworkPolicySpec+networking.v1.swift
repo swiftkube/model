@@ -67,6 +67,7 @@ public extension networking.v1 {
 extension networking.v1.NetworkPolicySpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case egress = "egress"
 		case ingress = "ingress"
 		case podSelector = "podSelector"

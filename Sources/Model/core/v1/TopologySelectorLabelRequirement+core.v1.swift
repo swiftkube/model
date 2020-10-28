@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.TopologySelectorLabelRequirement {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case key = "key"
 		case values = "values"
 	}

@@ -103,6 +103,7 @@ public extension meta.v1 {
 extension meta.v1.APIResource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case categories = "categories"
 		case group = "group"

@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.PersistentVolumeStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case message = "message"
 		case phase = "phase"
 		case reason = "reason"

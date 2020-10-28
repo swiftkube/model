@@ -73,6 +73,9 @@ public extension certificates.v1beta1 {
 extension certificates.v1beta1.CertificateSigningRequest {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

@@ -61,6 +61,7 @@ public extension authentication.v1 {
 extension authentication.v1.TokenRequestSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case audiences = "audiences"
 		case boundObjectRef = "boundObjectRef"
 		case expirationSeconds = "expirationSeconds"

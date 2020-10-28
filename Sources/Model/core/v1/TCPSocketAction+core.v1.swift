@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.TCPSocketAction {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case host = "host"
 		case port = "port"
 	}

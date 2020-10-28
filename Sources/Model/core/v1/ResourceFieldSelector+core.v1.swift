@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.ResourceFieldSelector {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case containerName = "containerName"
 		case divisor = "divisor"
 		case resource = "resource"

@@ -105,6 +105,9 @@ public extension storage.v1 {
 extension storage.v1.StorageClass {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case allowVolumeExpansion = "allowVolumeExpansion"
 		case allowedTopologies = "allowedTopologies"

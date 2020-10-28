@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.GlusterfsPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case endpoints = "endpoints"
 		case endpointsNamespace = "endpointsNamespace"
 		case path = "path"

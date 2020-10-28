@@ -55,6 +55,7 @@ public extension meta.v1 {
 extension meta.v1.Preconditions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case resourceVersion = "resourceVersion"
 		case uid = "uid"
 	}

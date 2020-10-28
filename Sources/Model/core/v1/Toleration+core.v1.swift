@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.Toleration {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case effect = "effect"
 		case key = "key"
 		case `operator` = "operator"

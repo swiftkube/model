@@ -55,6 +55,7 @@ public extension meta.v1 {
 extension meta.v1.ServerAddressByClientCIDR {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case clientCIDR = "clientCIDR"
 		case serverAddress = "serverAddress"
 	}

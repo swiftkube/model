@@ -109,6 +109,7 @@ public extension core.v1 {
 extension core.v1.NodeStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case addresses = "addresses"
 		case allocatable = "allocatable"
 		case capacity = "capacity"

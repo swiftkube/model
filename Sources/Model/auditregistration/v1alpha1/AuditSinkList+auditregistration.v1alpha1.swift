@@ -67,6 +67,9 @@ public extension auditregistration.v1alpha1 {
 extension auditregistration.v1alpha1.AuditSinkList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

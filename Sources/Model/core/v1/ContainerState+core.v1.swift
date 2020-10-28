@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.ContainerState {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case running = "running"
 		case terminated = "terminated"
 		case waiting = "waiting"

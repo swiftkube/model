@@ -55,6 +55,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.ExternalDocumentation {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case description = "description"
 		case url = "url"
 	}

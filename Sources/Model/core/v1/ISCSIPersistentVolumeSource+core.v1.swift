@@ -109,6 +109,7 @@ public extension core.v1 {
 extension core.v1.ISCSIPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case chapAuthDiscovery = "chapAuthDiscovery"
 		case chapAuthSession = "chapAuthSession"
 		case fsType = "fsType"

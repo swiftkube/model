@@ -79,6 +79,7 @@ public extension meta.v1 {
 extension meta.v1.OwnerReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case kind = "kind"
 		case blockOwnerDeletion = "blockOwnerDeletion"

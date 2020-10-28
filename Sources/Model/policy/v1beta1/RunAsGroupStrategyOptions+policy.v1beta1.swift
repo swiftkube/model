@@ -55,6 +55,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.RunAsGroupStrategyOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case ranges = "ranges"
 		case rule = "rule"
 	}

@@ -61,6 +61,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceDefinitionStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case acceptedNames = "acceptedNames"
 		case conditions = "conditions"
 		case storedVersions = "storedVersions"

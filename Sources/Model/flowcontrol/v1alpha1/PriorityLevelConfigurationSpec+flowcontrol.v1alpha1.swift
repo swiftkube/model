@@ -55,6 +55,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.PriorityLevelConfigurationSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case limited = "limited"
 		case type = "type"
 	}

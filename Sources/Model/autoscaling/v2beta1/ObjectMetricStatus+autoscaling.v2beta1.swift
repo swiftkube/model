@@ -73,6 +73,7 @@ public extension autoscaling.v2beta1 {
 extension autoscaling.v2beta1.ObjectMetricStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case averageValue = "averageValue"
 		case currentValue = "currentValue"
 		case metricName = "metricName"

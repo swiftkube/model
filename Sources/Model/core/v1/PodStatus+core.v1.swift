@@ -125,6 +125,7 @@ public extension core.v1 {
 extension core.v1.PodStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conditions = "conditions"
 		case containerStatuses = "containerStatuses"
 		case ephemeralContainerStatuses = "ephemeralContainerStatuses"

@@ -73,6 +73,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.HorizontalPodAutoscalerCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"
 		case reason = "reason"

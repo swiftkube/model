@@ -73,6 +73,9 @@ public extension rbac.v1alpha1 {
 extension rbac.v1alpha1.ClusterRole {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case aggregationRule = "aggregationRule"
 		case rules = "rules"

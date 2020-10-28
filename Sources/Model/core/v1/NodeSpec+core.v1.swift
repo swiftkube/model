@@ -85,6 +85,7 @@ public extension core.v1 {
 extension core.v1.NodeSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case configSource = "configSource"
 		case externalID = "externalID"
 		case podCIDR = "podCIDR"

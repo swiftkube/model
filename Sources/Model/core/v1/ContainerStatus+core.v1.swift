@@ -97,6 +97,7 @@ public extension core.v1 {
 extension core.v1.ContainerStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case containerID = "containerID"
 		case image = "image"
 		case imageID = "imageID"

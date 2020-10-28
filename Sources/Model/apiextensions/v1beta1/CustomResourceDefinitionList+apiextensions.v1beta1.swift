@@ -67,6 +67,9 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceDefinitionList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

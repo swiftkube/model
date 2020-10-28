@@ -67,6 +67,9 @@ public extension events.v1beta1 {
 extension events.v1beta1.EventList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

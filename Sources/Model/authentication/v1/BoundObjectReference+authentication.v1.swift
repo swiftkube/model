@@ -67,6 +67,7 @@ public extension authentication.v1 {
 extension authentication.v1.BoundObjectReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case kind = "kind"
 		case name = "name"

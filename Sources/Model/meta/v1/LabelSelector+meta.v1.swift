@@ -55,6 +55,7 @@ public extension meta.v1 {
 extension meta.v1.LabelSelector {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case matchExpressions = "matchExpressions"
 		case matchLabels = "matchLabels"
 	}

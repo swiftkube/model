@@ -55,6 +55,7 @@ public extension authorization.v1 {
 extension authorization.v1.NonResourceRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nonResourceURLs = "nonResourceURLs"
 		case verbs = "verbs"
 	}

@@ -67,6 +67,7 @@ public extension authorization.v1 {
 extension authorization.v1.SubjectAccessReviewStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case allowed = "allowed"
 		case denied = "denied"
 		case evaluationError = "evaluationError"

@@ -61,6 +61,7 @@ public extension node.v1alpha1 {
 extension node.v1alpha1.RuntimeClassSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case overhead = "overhead"
 		case runtimeHandler = "runtimeHandler"
 		case scheduling = "scheduling"

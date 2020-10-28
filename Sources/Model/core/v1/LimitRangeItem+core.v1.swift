@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.LimitRangeItem {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case `default` = "default"
 		case defaultRequest = "defaultRequest"
 		case max = "max"

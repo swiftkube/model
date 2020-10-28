@@ -73,6 +73,7 @@ public extension settings.v1alpha1 {
 extension settings.v1alpha1.PodPresetSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case env = "env"
 		case envFrom = "envFrom"
 		case selector = "selector"

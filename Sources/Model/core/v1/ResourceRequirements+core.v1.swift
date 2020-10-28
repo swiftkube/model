@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.ResourceRequirements {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case limits = "limits"
 		case requests = "requests"
 	}

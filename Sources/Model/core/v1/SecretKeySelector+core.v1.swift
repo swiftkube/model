@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.SecretKeySelector {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case key = "key"
 		case name = "name"
 		case optional = "optional"

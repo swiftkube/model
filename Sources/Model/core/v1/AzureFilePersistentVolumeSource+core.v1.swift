@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.AzureFilePersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case readOnly = "readOnly"
 		case secretName = "secretName"
 		case secretNamespace = "secretNamespace"

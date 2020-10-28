@@ -71,6 +71,7 @@ public extension networking.v1beta1 {
 extension networking.v1beta1.HTTPIngressPath {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case backend = "backend"
 		case path = "path"
 		case pathType = "pathType"

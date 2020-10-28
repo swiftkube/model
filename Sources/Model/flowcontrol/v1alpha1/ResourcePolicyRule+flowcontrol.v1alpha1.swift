@@ -73,6 +73,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.ResourcePolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiGroups = "apiGroups"
 		case clusterScope = "clusterScope"
 		case namespaces = "namespaces"

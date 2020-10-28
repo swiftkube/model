@@ -103,6 +103,7 @@ public extension core.v1 {
 extension core.v1.SecurityContext {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case allowPrivilegeEscalation = "allowPrivilegeEscalation"
 		case capabilities = "capabilities"
 		case privileged = "privileged"

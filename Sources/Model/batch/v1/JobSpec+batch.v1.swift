@@ -91,6 +91,7 @@ public extension batch.v1 {
 extension batch.v1.JobSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case activeDeadlineSeconds = "activeDeadlineSeconds"
 		case backoffLimit = "backoffLimit"
 		case completions = "completions"

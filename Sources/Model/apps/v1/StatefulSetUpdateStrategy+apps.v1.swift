@@ -55,6 +55,7 @@ public extension apps.v1 {
 extension apps.v1.StatefulSetUpdateStrategy {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case rollingUpdate = "rollingUpdate"
 		case type = "type"
 	}

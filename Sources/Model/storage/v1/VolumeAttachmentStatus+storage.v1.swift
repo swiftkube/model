@@ -67,6 +67,7 @@ public extension storage.v1 {
 extension storage.v1.VolumeAttachmentStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case attachError = "attachError"
 		case attached = "attached"
 		case attachmentMetadata = "attachmentMetadata"

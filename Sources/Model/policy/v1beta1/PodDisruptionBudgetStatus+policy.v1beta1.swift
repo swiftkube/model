@@ -79,6 +79,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.PodDisruptionBudgetStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case currentHealthy = "currentHealthy"
 		case desiredHealthy = "desiredHealthy"
 		case disruptedPods = "disruptedPods"

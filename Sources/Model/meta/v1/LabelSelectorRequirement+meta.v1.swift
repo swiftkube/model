@@ -61,6 +61,7 @@ public extension meta.v1 {
 extension meta.v1.LabelSelectorRequirement {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case key = "key"
 		case `operator` = "operator"
 		case values = "values"

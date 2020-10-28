@@ -49,6 +49,7 @@ public extension apps.v1 {
 extension apps.v1.RollingUpdateStatefulSetStrategy {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case partition = "partition"
 	}
 

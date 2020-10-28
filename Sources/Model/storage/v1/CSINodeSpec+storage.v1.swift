@@ -49,6 +49,7 @@ public extension storage.v1 {
 extension storage.v1.CSINodeSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case drivers = "drivers"
 	}
 

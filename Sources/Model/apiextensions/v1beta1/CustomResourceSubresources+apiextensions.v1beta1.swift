@@ -55,6 +55,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceSubresources {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case scale = "scale"
 		case status = "status"
 	}

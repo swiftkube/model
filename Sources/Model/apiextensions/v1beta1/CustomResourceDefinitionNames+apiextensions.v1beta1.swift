@@ -79,6 +79,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceDefinitionNames {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case categories = "categories"
 		case listKind = "listKind"

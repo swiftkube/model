@@ -61,6 +61,7 @@ public extension extensions.v1beta1 {
 extension extensions.v1beta1.IngressBackend {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case resource = "resource"
 		case serviceName = "serviceName"
 		case servicePort = "servicePort"

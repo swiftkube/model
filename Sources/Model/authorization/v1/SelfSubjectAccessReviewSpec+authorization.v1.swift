@@ -55,6 +55,7 @@ public extension authorization.v1 {
 extension authorization.v1.SelfSubjectAccessReviewSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nonResourceAttributes = "nonResourceAttributes"
 		case resourceAttributes = "resourceAttributes"
 	}

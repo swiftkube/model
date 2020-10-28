@@ -68,6 +68,7 @@ public extension authorization.v1 {
 extension authorization.v1.ResourceRule {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiGroups = "apiGroups"
 		case resourceNames = "resourceNames"
 		case resources = "resources"

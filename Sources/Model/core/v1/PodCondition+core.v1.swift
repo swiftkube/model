@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.PodCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastProbeTime = "lastProbeTime"
 		case lastTransitionTime = "lastTransitionTime"
 		case message = "message"

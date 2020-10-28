@@ -61,6 +61,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.QueuingConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case handSize = "handSize"
 		case queueLengthLimit = "queueLengthLimit"
 		case queues = "queues"

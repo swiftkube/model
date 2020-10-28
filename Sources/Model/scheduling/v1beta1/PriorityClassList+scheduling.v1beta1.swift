@@ -67,6 +67,9 @@ public extension scheduling.v1beta1 {
 extension scheduling.v1beta1.PriorityClassList {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case items = "items"
 	}

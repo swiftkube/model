@@ -79,6 +79,7 @@ public extension apiextensions.v1beta1 {
 extension apiextensions.v1beta1.CustomResourceDefinitionVersion {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case additionalPrinterColumns = "additionalPrinterColumns"
 		case name = "name"
 		case schema = "schema"

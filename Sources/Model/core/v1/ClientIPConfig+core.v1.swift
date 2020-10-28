@@ -49,6 +49,7 @@ public extension core.v1 {
 extension core.v1.ClientIPConfig {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case timeoutSeconds = "timeoutSeconds"
 	}
 

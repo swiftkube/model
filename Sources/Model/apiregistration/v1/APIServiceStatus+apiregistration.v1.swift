@@ -49,6 +49,7 @@ public extension apiregistration.v1 {
 extension apiregistration.v1.APIServiceStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case conditions = "conditions"
 	}
 

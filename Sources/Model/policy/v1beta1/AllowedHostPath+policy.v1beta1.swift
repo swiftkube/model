@@ -57,6 +57,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.AllowedHostPath {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case pathPrefix = "pathPrefix"
 		case readOnly = "readOnly"
 	}

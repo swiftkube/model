@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.ConfigMapNodeConfigSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kubeletConfigKey = "kubeletConfigKey"
 		case name = "name"
 		case namespace = "namespace"

@@ -67,6 +67,9 @@ public extension networking.v1 {
 extension networking.v1.NetworkPolicy {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 	}

@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.HTTPGetAction {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case host = "host"
 		case httpHeaders = "httpHeaders"
 		case path = "path"

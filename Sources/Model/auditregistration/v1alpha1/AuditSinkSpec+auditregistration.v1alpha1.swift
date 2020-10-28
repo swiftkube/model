@@ -55,6 +55,7 @@ public extension auditregistration.v1alpha1 {
 extension auditregistration.v1alpha1.AuditSinkSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case policy = "policy"
 		case webhook = "webhook"
 	}

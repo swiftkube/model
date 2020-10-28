@@ -61,6 +61,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.PodDisruptionBudgetSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case maxUnavailable = "maxUnavailable"
 		case minAvailable = "minAvailable"
 		case selector = "selector"

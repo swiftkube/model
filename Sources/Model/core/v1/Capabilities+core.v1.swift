@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.Capabilities {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case add = "add"
 		case drop = "drop"
 	}

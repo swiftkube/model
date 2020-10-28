@@ -49,6 +49,7 @@ public extension node.v1alpha1 {
 extension node.v1alpha1.Overhead {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case podFixed = "podFixed"
 	}
 

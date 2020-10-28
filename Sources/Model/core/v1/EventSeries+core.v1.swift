@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.EventSeries {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case count = "count"
 		case lastObservedTime = "lastObservedTime"
 		case state = "state"

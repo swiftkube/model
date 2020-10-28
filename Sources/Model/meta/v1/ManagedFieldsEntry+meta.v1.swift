@@ -79,6 +79,7 @@ public extension meta.v1 {
 extension meta.v1.ManagedFieldsEntry {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case fieldsType = "fieldsType"
 		case fieldsV1 = "fieldsV1"

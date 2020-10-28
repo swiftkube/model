@@ -65,6 +65,7 @@ public extension networking.v1 {
 extension networking.v1.NetworkPolicyPeer {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case ipBlock = "ipBlock"
 		case namespaceSelector = "namespaceSelector"
 		case podSelector = "podSelector"

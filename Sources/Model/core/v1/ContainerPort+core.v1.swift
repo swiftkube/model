@@ -73,6 +73,7 @@ public extension core.v1 {
 extension core.v1.ContainerPort {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case containerPort = "containerPort"
 		case hostIP = "hostIP"
 		case hostPort = "hostPort"

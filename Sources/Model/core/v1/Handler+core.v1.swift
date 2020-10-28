@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.Handler {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case exec = "exec"
 		case httpGet = "httpGet"
 		case tcpSocket = "tcpSocket"

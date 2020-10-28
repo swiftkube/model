@@ -81,6 +81,9 @@ public extension meta.v1 {
 extension meta.v1.DeleteOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case dryRun = "dryRun"
 		case gracePeriodSeconds = "gracePeriodSeconds"
 		case orphanDependents = "orphanDependents"

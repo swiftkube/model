@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.ResourceQuotaStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case hard = "hard"
 		case used = "used"
 	}

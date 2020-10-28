@@ -191,6 +191,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.PodSecurityPolicySpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case allowPrivilegeEscalation = "allowPrivilegeEscalation"
 		case allowedCSIDrivers = "allowedCSIDrivers"
 		case allowedCapabilities = "allowedCapabilities"

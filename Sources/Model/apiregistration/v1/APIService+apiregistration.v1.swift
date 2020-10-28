@@ -73,6 +73,9 @@ public extension apiregistration.v1 {
 extension apiregistration.v1.APIService {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 		case status = "status"

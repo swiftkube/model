@@ -49,6 +49,7 @@ public extension storage.v1beta1 {
 extension storage.v1beta1.VolumeNodeResources {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case count = "count"
 	}
 

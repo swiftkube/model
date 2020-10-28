@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.Affinity {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case nodeAffinity = "nodeAffinity"
 		case podAffinity = "podAffinity"
 		case podAntiAffinity = "podAntiAffinity"

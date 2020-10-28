@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.NodeAddress {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case address = "address"
 		case type = "type"
 	}

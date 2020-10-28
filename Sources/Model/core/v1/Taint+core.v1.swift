@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.Taint {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case effect = "effect"
 		case key = "key"
 		case timeAdded = "timeAdded"

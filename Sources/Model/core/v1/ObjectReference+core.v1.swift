@@ -85,6 +85,7 @@ public extension core.v1 {
 extension core.v1.ObjectReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case apiVersion = "apiVersion"
 		case kind = "kind"
 		case fieldPath = "fieldPath"

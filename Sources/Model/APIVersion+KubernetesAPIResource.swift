@@ -24,18 +24,18 @@ public extension APIVersion {
 	init?<R: KubernetesAPIResource>(of type: R.Type) {
 		switch type {
 
-		case is admissionregistration.v1beta1.MutatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1Beta1
 		case is admissionregistration.v1.MutatingWebhookConfiguration.Type:
 			self = .admissionregistrationV1
-		case is admissionregistration.v1.ValidatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1
+		case is admissionregistration.v1beta1.MutatingWebhookConfiguration.Type:
+			self = .admissionregistrationV1Beta1
 		case is admissionregistration.v1beta1.ValidatingWebhookConfiguration.Type:
 			self = .admissionregistrationV1Beta1
-		case is apiextensions.v1beta1.CustomResourceDefinition.Type:
-			self = .apiextensionsV1Beta1
+		case is admissionregistration.v1.ValidatingWebhookConfiguration.Type:
+			self = .admissionregistrationV1
 		case is apiextensions.v1.CustomResourceDefinition.Type:
 			self = .apiextensionsV1
+		case is apiextensions.v1beta1.CustomResourceDefinition.Type:
+			self = .apiextensionsV1Beta1
 		case is apiregistration.v1.APIService.Type:
 			self = .apiregistrationV1
 		case is apiregistration.v1beta1.APIService.Type:
@@ -58,28 +58,28 @@ public extension APIVersion {
 			self = .authenticationV1
 		case is authentication.v1beta1.TokenReview.Type:
 			self = .authenticationV1Beta1
-		case is authorization.v1beta1.LocalSubjectAccessReview.Type:
-			self = .authorizationV1Beta1
 		case is authorization.v1.LocalSubjectAccessReview.Type:
 			self = .authorizationV1
-		case is authorization.v1beta1.SelfSubjectAccessReview.Type:
+		case is authorization.v1beta1.LocalSubjectAccessReview.Type:
 			self = .authorizationV1Beta1
 		case is authorization.v1.SelfSubjectAccessReview.Type:
 			self = .authorizationV1
+		case is authorization.v1beta1.SelfSubjectAccessReview.Type:
+			self = .authorizationV1Beta1
 		case is authorization.v1.SelfSubjectRulesReview.Type:
 			self = .authorizationV1
 		case is authorization.v1beta1.SelfSubjectRulesReview.Type:
 			self = .authorizationV1Beta1
-		case is authorization.v1.SubjectAccessReview.Type:
-			self = .authorizationV1
 		case is authorization.v1beta1.SubjectAccessReview.Type:
 			self = .authorizationV1Beta1
-		case is autoscaling.v2beta2.HorizontalPodAutoscaler.Type:
-			self = .autoscalingV2Beta2
+		case is authorization.v1.SubjectAccessReview.Type:
+			self = .authorizationV1
 		case is autoscaling.v2beta1.HorizontalPodAutoscaler.Type:
 			self = .autoscalingV2Beta1
 		case is autoscaling.v1.HorizontalPodAutoscaler.Type:
 			self = .autoscalingV1
+		case is autoscaling.v2beta2.HorizontalPodAutoscaler.Type:
+			self = .autoscalingV2Beta2
 		case is autoscaling.v1.Scale.Type:
 			self = .autoscalingV1
 		case is batch.v1beta1.CronJob.Type:
@@ -154,56 +154,56 @@ public extension APIVersion {
 			self = .policyV1Beta1
 		case is policy.v1beta1.PodSecurityPolicy.Type:
 			self = .policyV1Beta1
-		case is rbac.v1.ClusterRole.Type:
-			self = .rbacV1
 		case is rbac.v1beta1.ClusterRole.Type:
 			self = .rbacV1Beta1
-		case is rbac.v1alpha1.ClusterRole.Type:
-			self = .rbacV1Alpha1
-		case is rbac.v1.ClusterRoleBinding.Type:
+		case is rbac.v1.ClusterRole.Type:
 			self = .rbacV1
-		case is rbac.v1alpha1.ClusterRoleBinding.Type:
+		case is rbac.v1alpha1.ClusterRole.Type:
 			self = .rbacV1Alpha1
 		case is rbac.v1beta1.ClusterRoleBinding.Type:
 			self = .rbacV1Beta1
+		case is rbac.v1alpha1.ClusterRoleBinding.Type:
+			self = .rbacV1Alpha1
+		case is rbac.v1.ClusterRoleBinding.Type:
+			self = .rbacV1
 		case is rbac.v1beta1.Role.Type:
 			self = .rbacV1Beta1
-		case is rbac.v1.Role.Type:
-			self = .rbacV1
 		case is rbac.v1alpha1.Role.Type:
 			self = .rbacV1Alpha1
-		case is rbac.v1.RoleBinding.Type:
+		case is rbac.v1.Role.Type:
 			self = .rbacV1
-		case is rbac.v1beta1.RoleBinding.Type:
-			self = .rbacV1Beta1
 		case is rbac.v1alpha1.RoleBinding.Type:
 			self = .rbacV1Alpha1
-		case is scheduling.v1beta1.PriorityClass.Type:
-			self = .schedulingV1Beta1
-		case is scheduling.v1.PriorityClass.Type:
-			self = .schedulingV1
+		case is rbac.v1beta1.RoleBinding.Type:
+			self = .rbacV1Beta1
+		case is rbac.v1.RoleBinding.Type:
+			self = .rbacV1
 		case is scheduling.v1alpha1.PriorityClass.Type:
 			self = .schedulingV1Alpha1
+		case is scheduling.v1.PriorityClass.Type:
+			self = .schedulingV1
+		case is scheduling.v1beta1.PriorityClass.Type:
+			self = .schedulingV1Beta1
 		case is settings.v1alpha1.PodPreset.Type:
 			self = .settingsV1Alpha1
-		case is storage.v1beta1.CSIDriver.Type:
-			self = .storageV1Beta1
 		case is storage.v1.CSIDriver.Type:
 			self = .storageV1
-		case is storage.v1.CSINode.Type:
-			self = .storageV1
+		case is storage.v1beta1.CSIDriver.Type:
+			self = .storageV1Beta1
 		case is storage.v1beta1.CSINode.Type:
 			self = .storageV1Beta1
+		case is storage.v1.CSINode.Type:
+			self = .storageV1
 		case is storage.v1.StorageClass.Type:
 			self = .storageV1
 		case is storage.v1beta1.StorageClass.Type:
 			self = .storageV1Beta1
-		case is storage.v1alpha1.VolumeAttachment.Type:
-			self = .storageV1Alpha1
-		case is storage.v1beta1.VolumeAttachment.Type:
-			self = .storageV1Beta1
 		case is storage.v1.VolumeAttachment.Type:
 			self = .storageV1
+		case is storage.v1beta1.VolumeAttachment.Type:
+			self = .storageV1Beta1
+		case is storage.v1alpha1.VolumeAttachment.Type:
+			self = .storageV1Alpha1
 		default:
 			return nil
 		}

@@ -181,6 +181,7 @@ public extension core.v1 {
 extension core.v1.EphemeralContainer {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case args = "args"
 		case command = "command"
 		case env = "env"

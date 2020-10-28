@@ -61,6 +61,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.HPAScalingPolicy {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case periodSeconds = "periodSeconds"
 		case type = "type"
 		case value = "value"

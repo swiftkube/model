@@ -67,6 +67,7 @@ public extension authorization.v1beta1 {
 extension authorization.v1beta1.SubjectRulesReviewStatus {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case evaluationError = "evaluationError"
 		case incomplete = "incomplete"
 		case nonResourceRules = "nonResourceRules"

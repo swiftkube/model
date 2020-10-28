@@ -67,6 +67,9 @@ public extension settings.v1alpha1 {
 extension settings.v1alpha1.PodPreset {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case spec = "spec"
 	}

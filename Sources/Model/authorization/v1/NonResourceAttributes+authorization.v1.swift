@@ -55,6 +55,7 @@ public extension authorization.v1 {
 extension authorization.v1.NonResourceAttributes {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case path = "path"
 		case verb = "verb"
 	}

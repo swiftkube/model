@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.QuobyteVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case group = "group"
 		case readOnly = "readOnly"
 		case registry = "registry"

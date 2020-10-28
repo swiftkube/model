@@ -73,6 +73,7 @@ public extension apps.v1 {
 extension apps.v1.DaemonSetSpec {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case minReadySeconds = "minReadySeconds"
 		case revisionHistoryLimit = "revisionHistoryLimit"
 		case selector = "selector"

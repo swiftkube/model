@@ -49,6 +49,7 @@ public extension flowcontrol.v1alpha1 {
 extension flowcontrol.v1alpha1.PriorityLevelConfigurationReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 	}
 

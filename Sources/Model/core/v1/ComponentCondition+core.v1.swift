@@ -67,6 +67,7 @@ public extension core.v1 {
 extension core.v1.ComponentCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case error = "error"
 		case message = "message"
 		case status = "status"

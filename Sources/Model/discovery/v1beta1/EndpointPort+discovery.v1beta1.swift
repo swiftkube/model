@@ -67,6 +67,7 @@ public extension discovery.v1beta1 {
 extension discovery.v1beta1.EndpointPort {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case appProtocol = "appProtocol"
 		case name = "name"
 		case port = "port"

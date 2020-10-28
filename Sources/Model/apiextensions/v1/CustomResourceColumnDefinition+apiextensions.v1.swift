@@ -79,6 +79,7 @@ public extension apiextensions.v1 {
 extension apiextensions.v1.CustomResourceColumnDefinition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case description = "description"
 		case format = "format"
 		case jsonPath = "jsonPath"

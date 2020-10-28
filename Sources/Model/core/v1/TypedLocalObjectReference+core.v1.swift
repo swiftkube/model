@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.TypedLocalObjectReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case kind = "kind"
 		case apiGroup = "apiGroup"
 		case name = "name"

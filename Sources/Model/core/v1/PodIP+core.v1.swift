@@ -50,6 +50,7 @@ public extension core.v1 {
 extension core.v1.PodIP {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case ip = "ip"
 	}
 

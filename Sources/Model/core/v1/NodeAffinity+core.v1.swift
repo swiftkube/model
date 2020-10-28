@@ -55,6 +55,7 @@ public extension core.v1 {
 extension core.v1.NodeAffinity {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case preferredDuringSchedulingIgnoredDuringExecution = "preferredDuringSchedulingIgnoredDuringExecution"
 		case requiredDuringSchedulingIgnoredDuringExecution = "requiredDuringSchedulingIgnoredDuringExecution"
 	}

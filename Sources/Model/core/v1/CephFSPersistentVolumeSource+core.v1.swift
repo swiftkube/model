@@ -79,6 +79,7 @@ public extension core.v1 {
 extension core.v1.CephFSPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case monitors = "monitors"
 		case path = "path"
 		case readOnly = "readOnly"

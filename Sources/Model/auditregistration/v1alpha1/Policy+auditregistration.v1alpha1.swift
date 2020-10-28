@@ -55,6 +55,7 @@ public extension auditregistration.v1alpha1 {
 extension auditregistration.v1alpha1.Policy {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case level = "level"
 		case stages = "stages"
 	}

@@ -61,6 +61,7 @@ public extension core.v1 {
 extension core.v1.AzureFileVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case readOnly = "readOnly"
 		case secretName = "secretName"
 		case shareName = "shareName"

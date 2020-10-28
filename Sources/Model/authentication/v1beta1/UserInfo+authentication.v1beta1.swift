@@ -67,6 +67,7 @@ public extension authentication.v1beta1 {
 extension authentication.v1beta1.UserInfo {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case extra = "extra"
 		case groups = "groups"
 		case uid = "uid"

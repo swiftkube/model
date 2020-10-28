@@ -69,6 +69,7 @@ public extension core.v1 {
 extension core.v1.GCEPersistentDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case fsType = "fsType"
 		case partition = "partition"
 		case pdName = "pdName"

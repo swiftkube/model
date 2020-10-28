@@ -67,6 +67,9 @@ public extension admissionregistration.v1 {
 extension admissionregistration.v1.MutatingWebhookConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
+
+		case apiVersion = "apiVersion"
+		case kind = "kind"
 		case metadata = "metadata"
 		case webhooks = "webhooks"
 	}

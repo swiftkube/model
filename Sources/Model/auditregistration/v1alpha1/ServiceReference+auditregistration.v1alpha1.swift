@@ -67,6 +67,7 @@ public extension auditregistration.v1alpha1 {
 extension auditregistration.v1alpha1.ServiceReference {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 		case namespace = "namespace"
 		case path = "path"

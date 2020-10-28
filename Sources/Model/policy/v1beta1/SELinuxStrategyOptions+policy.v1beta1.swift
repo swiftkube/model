@@ -55,6 +55,7 @@ public extension policy.v1beta1 {
 extension policy.v1beta1.SELinuxStrategyOptions {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case rule = "rule"
 		case seLinuxOptions = "seLinuxOptions"
 	}

@@ -79,6 +79,7 @@ public extension apps.v1 {
 extension apps.v1.DeploymentCondition {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case lastTransitionTime = "lastTransitionTime"
 		case lastUpdateTime = "lastUpdateTime"
 		case message = "message"

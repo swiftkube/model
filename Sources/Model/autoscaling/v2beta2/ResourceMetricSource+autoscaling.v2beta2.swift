@@ -55,6 +55,7 @@ public extension autoscaling.v2beta2 {
 extension autoscaling.v2beta2.ResourceMetricSource {
 
 	private enum CodingKeys: String, CodingKey {
+
 		case name = "name"
 		case target = "target"
 	}
