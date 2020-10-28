@@ -28,7 +28,7 @@ public struct GroupVersionKind {
 	public var pluralName: String {
 		return kind.pluralName
 	}
-
+	
 	/// Creates a new instance of `GroupVersionKind` for the given `KubernetesAPIResource`.
 	///
 	/// - Parameter resource: An instance of a `KubernetesAPIResource`
@@ -52,5 +52,23 @@ public struct GroupVersionKind {
 		self.group = apiVersion.group
 		self.version = apiVersion.version
 		self.kind = String(describing: type)
+	}
+}
+
+extension GroupVersionKind: Equatable {}
+
+extension GroupVersionKind: ExpressibleByStringLiteral {
+
+	public init(stringLiteral value: String) {
+		let parts = value.split(separator: ".", maxSplits: 2, omittingEmptySubsequences: true)
+		if parts.count == 2 {
+			self.group = "core"
+			self.version = String(parts[0])
+			self.kind = String(parts[1])
+		} else {
+			self.group = String(parts[0])
+			self.version = String(parts[1])
+			self.kind = String(parts[2])
+		}
 	}
 }
