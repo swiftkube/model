@@ -22,6 +22,10 @@ public extension sk {
 		return build(core.v1.Pod(), with: block)
 	}
 
+	static func pod(name: String, _ block: ((inout core.v1.Pod) -> Void)? = nil) -> core.v1.Pod {
+		return build(core.v1.Pod(metadata: meta.v1.ObjectMeta(name: name)), with: block ?? { _ in })
+	}
+
 	static func podSpec(_ block: (inout core.v1.PodSpec) -> Void) -> core.v1.PodSpec {
 		return build(core.v1.PodSpec(containers: []), with: block)
 	}
