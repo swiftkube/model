@@ -53,186 +53,186 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 		let decoded: KubernetesAPIResource
 		switch gvk {
 
-		case "v1/Binding":
+		case .coreV1Binding:
 			decoded = try core.v1.Binding.init(from: decoder)
-		case "v1/ComponentStatus":
+		case .coreV1Componentstatus:
 			decoded = try core.v1.ComponentStatus.init(from: decoder)
-		case "v1/ConfigMap":
+		case .coreV1Configmap:
 			decoded = try core.v1.ConfigMap.init(from: decoder)
-		case "v1/Endpoints":
+		case .coreV1Endpoints:
 			decoded = try core.v1.Endpoints.init(from: decoder)
-		case "v1/Event":
+		case .coreV1Event:
 			decoded = try core.v1.Event.init(from: decoder)
-		case "v1/LimitRange":
+		case .coreV1Limitrange:
 			decoded = try core.v1.LimitRange.init(from: decoder)
-		case "v1/Namespace":
+		case .coreV1Namespace:
 			decoded = try core.v1.Namespace.init(from: decoder)
-		case "v1/Node":
+		case .coreV1Node:
 			decoded = try core.v1.Node.init(from: decoder)
-		case "v1/PersistentVolume":
+		case .coreV1Persistentvolume:
 			decoded = try core.v1.PersistentVolume.init(from: decoder)
-		case "v1/PersistentVolumeClaim":
+		case .coreV1Persistentvolumeclaim:
 			decoded = try core.v1.PersistentVolumeClaim.init(from: decoder)
-		case "v1/Pod":
+		case .coreV1Pod:
 			decoded = try core.v1.Pod.init(from: decoder)
-		case "v1/PodTemplate":
+		case .coreV1Podtemplate:
 			decoded = try core.v1.PodTemplate.init(from: decoder)
-		case "v1/ReplicationController":
+		case .coreV1Replicationcontroller:
 			decoded = try core.v1.ReplicationController.init(from: decoder)
-		case "v1/ResourceQuota":
+		case .coreV1Resourcequota:
 			decoded = try core.v1.ResourceQuota.init(from: decoder)
-		case "v1/Secret":
+		case .coreV1Secret:
 			decoded = try core.v1.Secret.init(from: decoder)
-		case "v1/Service":
+		case .coreV1Service:
 			decoded = try core.v1.Service.init(from: decoder)
-		case "v1/ServiceAccount":
+		case .coreV1Serviceaccount:
 			decoded = try core.v1.ServiceAccount.init(from: decoder)
-		case "admissionregistration.k8s.io/v1/MutatingWebhookConfiguration":
+		case .admissionregistrationV1Mutatingwebhookconfiguration:
 			decoded = try admissionregistration.v1.MutatingWebhookConfiguration.init(from: decoder)
-		case "admissionregistration.k8s.io/v1/ValidatingWebhookConfiguration":
+		case .admissionregistrationV1Validatingwebhookconfiguration:
 			decoded = try admissionregistration.v1.ValidatingWebhookConfiguration.init(from: decoder)
-		case "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration":
+		case .admissionregistrationV1Beta1Mutatingwebhookconfiguration:
 			decoded = try admissionregistration.v1beta1.MutatingWebhookConfiguration.init(from: decoder)
-		case "admissionregistration.k8s.io/v1beta1/ValidatingWebhookConfiguration":
+		case .admissionregistrationV1Beta1Validatingwebhookconfiguration:
 			decoded = try admissionregistration.v1beta1.ValidatingWebhookConfiguration.init(from: decoder)
-		case "apiextensions.k8s.io/v1/CustomResourceDefinition":
+		case .apiextensionsV1Customresourcedefinition:
 			decoded = try apiextensions.v1.CustomResourceDefinition.init(from: decoder)
-		case "apiextensions.k8s.io/v1beta1/CustomResourceDefinition":
+		case .apiextensionsV1Beta1Customresourcedefinition:
 			decoded = try apiextensions.v1beta1.CustomResourceDefinition.init(from: decoder)
-		case "apiregistration.k8s.io/v1/APIService":
+		case .apiregistrationV1Apiservice:
 			decoded = try apiregistration.v1.APIService.init(from: decoder)
-		case "apiregistration.k8s.io/v1beta1/APIService":
+		case .apiregistrationV1Beta1Apiservice:
 			decoded = try apiregistration.v1beta1.APIService.init(from: decoder)
-		case "apps/v1/ControllerRevision":
+		case .appsV1Controllerrevision:
 			decoded = try apps.v1.ControllerRevision.init(from: decoder)
-		case "apps/v1/DaemonSet":
+		case .appsV1Daemonset:
 			decoded = try apps.v1.DaemonSet.init(from: decoder)
-		case "apps/v1/Deployment":
+		case .appsV1Deployment:
 			decoded = try apps.v1.Deployment.init(from: decoder)
-		case "apps/v1/ReplicaSet":
+		case .appsV1Replicaset:
 			decoded = try apps.v1.ReplicaSet.init(from: decoder)
-		case "apps/v1/StatefulSet":
+		case .appsV1Statefulset:
 			decoded = try apps.v1.StatefulSet.init(from: decoder)
-		case "auditregistration.k8s.io/v1alpha1/AuditSink":
+		case .auditregistrationV1Alpha1Auditsink:
 			decoded = try auditregistration.v1alpha1.AuditSink.init(from: decoder)
-		case "authentication.k8s.io/v1/TokenRequest":
+		case .authenticationV1Tokenrequest:
 			decoded = try authentication.v1.TokenRequest.init(from: decoder)
-		case "authentication.k8s.io/v1/TokenReview":
+		case .authenticationV1Tokenreview:
 			decoded = try authentication.v1.TokenReview.init(from: decoder)
-		case "authentication.k8s.io/v1beta1/TokenReview":
+		case .authenticationV1Beta1Tokenreview:
 			decoded = try authentication.v1beta1.TokenReview.init(from: decoder)
-		case "authorization.k8s.io/v1/LocalSubjectAccessReview":
+		case .authorizationV1Localsubjectaccessreview:
 			decoded = try authorization.v1.LocalSubjectAccessReview.init(from: decoder)
-		case "authorization.k8s.io/v1/SelfSubjectAccessReview":
+		case .authorizationV1Selfsubjectaccessreview:
 			decoded = try authorization.v1.SelfSubjectAccessReview.init(from: decoder)
-		case "authorization.k8s.io/v1/SelfSubjectRulesReview":
+		case .authorizationV1Selfsubjectrulesreview:
 			decoded = try authorization.v1.SelfSubjectRulesReview.init(from: decoder)
-		case "authorization.k8s.io/v1/SubjectAccessReview":
+		case .authorizationV1Subjectaccessreview:
 			decoded = try authorization.v1.SubjectAccessReview.init(from: decoder)
-		case "authorization.k8s.io/v1beta1/LocalSubjectAccessReview":
+		case .authorizationV1Beta1Localsubjectaccessreview:
 			decoded = try authorization.v1beta1.LocalSubjectAccessReview.init(from: decoder)
-		case "authorization.k8s.io/v1beta1/SelfSubjectAccessReview":
+		case .authorizationV1Beta1Selfsubjectaccessreview:
 			decoded = try authorization.v1beta1.SelfSubjectAccessReview.init(from: decoder)
-		case "authorization.k8s.io/v1beta1/SelfSubjectRulesReview":
+		case .authorizationV1Beta1Selfsubjectrulesreview:
 			decoded = try authorization.v1beta1.SelfSubjectRulesReview.init(from: decoder)
-		case "authorization.k8s.io/v1beta1/SubjectAccessReview":
+		case .authorizationV1Beta1Subjectaccessreview:
 			decoded = try authorization.v1beta1.SubjectAccessReview.init(from: decoder)
-		case "autoscaling/v1/HorizontalPodAutoscaler":
+		case .autoscalingV1Horizontalpodautoscaler:
 			decoded = try autoscaling.v1.HorizontalPodAutoscaler.init(from: decoder)
-		case "autoscaling/v1/Scale":
+		case .autoscalingV1Scale:
 			decoded = try autoscaling.v1.Scale.init(from: decoder)
-		case "autoscaling/v2beta1/HorizontalPodAutoscaler":
-			decoded = try autoscaling.v2beta1.HorizontalPodAutoscaler.init(from: decoder)
-		case "autoscaling/v2beta2/HorizontalPodAutoscaler":
+		case .autoscalingV2Beta2Horizontalpodautoscaler:
 			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler.init(from: decoder)
-		case "batch/v1/Job":
+		case .autoscalingV2Beta1Horizontalpodautoscaler:
+			decoded = try autoscaling.v2beta1.HorizontalPodAutoscaler.init(from: decoder)
+		case .batchV1Job:
 			decoded = try batch.v1.Job.init(from: decoder)
-		case "batch/v1beta1/CronJob":
+		case .batchV1Beta1Cronjob:
 			decoded = try batch.v1beta1.CronJob.init(from: decoder)
-		case "batch/v2alpha1/CronJob":
+		case .batchV2Alpha1Cronjob:
 			decoded = try batch.v2alpha1.CronJob.init(from: decoder)
-		case "certificates.k8s.io/v1beta1/CertificateSigningRequest":
+		case .certificatesV1Beta1Certificatesigningrequest:
 			decoded = try certificates.v1beta1.CertificateSigningRequest.init(from: decoder)
-		case "coordination.k8s.io/v1/Lease":
+		case .coordinationV1Lease:
 			decoded = try coordination.v1.Lease.init(from: decoder)
-		case "coordination.k8s.io/v1beta1/Lease":
+		case .coordinationV1Beta1Lease:
 			decoded = try coordination.v1beta1.Lease.init(from: decoder)
-		case "discovery.k8s.io/v1beta1/EndpointSlice":
+		case .discoveryV1Beta1Endpointslice:
 			decoded = try discovery.v1beta1.EndpointSlice.init(from: decoder)
-		case "events.k8s.io/v1beta1/Event":
+		case .eventsV1Beta1Event:
 			decoded = try events.v1beta1.Event.init(from: decoder)
-		case "extensions/v1beta1/Ingress":
+		case .extensionsV1Beta1Ingress:
 			decoded = try extensions.v1beta1.Ingress.init(from: decoder)
-		case "flowcontrol.apiserver.k8s.io/v1alpha1/FlowSchema":
+		case .flowcontrolV1Alpha1Flowschema:
 			decoded = try flowcontrol.v1alpha1.FlowSchema.init(from: decoder)
-		case "flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfiguration":
+		case .flowcontrolV1Alpha1Prioritylevelconfiguration:
 			decoded = try flowcontrol.v1alpha1.PriorityLevelConfiguration.init(from: decoder)
-		case "networking.k8s.io/v1/NetworkPolicy":
+		case .networkingV1Networkpolicy:
 			decoded = try networking.v1.NetworkPolicy.init(from: decoder)
-		case "networking.k8s.io/v1beta1/Ingress":
+		case .networkingV1Beta1Ingress:
 			decoded = try networking.v1beta1.Ingress.init(from: decoder)
-		case "networking.k8s.io/v1beta1/IngressClass":
+		case .networkingV1Beta1Ingressclass:
 			decoded = try networking.v1beta1.IngressClass.init(from: decoder)
-		case "node.k8s.io/v1alpha1/RuntimeClass":
-			decoded = try node.v1alpha1.RuntimeClass.init(from: decoder)
-		case "node.k8s.io/v1beta1/RuntimeClass":
+		case .nodeV1Beta1Runtimeclass:
 			decoded = try node.v1beta1.RuntimeClass.init(from: decoder)
-		case "policy/v1beta1/Eviction":
+		case .nodeV1Alpha1Runtimeclass:
+			decoded = try node.v1alpha1.RuntimeClass.init(from: decoder)
+		case .policyV1Beta1Eviction:
 			decoded = try policy.v1beta1.Eviction.init(from: decoder)
-		case "policy/v1beta1/PodDisruptionBudget":
+		case .policyV1Beta1Poddisruptionbudget:
 			decoded = try policy.v1beta1.PodDisruptionBudget.init(from: decoder)
-		case "policy/v1beta1/PodSecurityPolicy":
+		case .policyV1Beta1Podsecuritypolicy:
 			decoded = try policy.v1beta1.PodSecurityPolicy.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1/ClusterRole":
+		case .rbacV1Clusterrole:
 			decoded = try rbac.v1.ClusterRole.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1/ClusterRoleBinding":
+		case .rbacV1Clusterrolebinding:
 			decoded = try rbac.v1.ClusterRoleBinding.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1/Role":
+		case .rbacV1Role:
 			decoded = try rbac.v1.Role.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1/RoleBinding":
+		case .rbacV1Rolebinding:
 			decoded = try rbac.v1.RoleBinding.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1alpha1/ClusterRole":
-			decoded = try rbac.v1alpha1.ClusterRole.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1alpha1/ClusterRoleBinding":
-			decoded = try rbac.v1alpha1.ClusterRoleBinding.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1alpha1/Role":
-			decoded = try rbac.v1alpha1.Role.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1alpha1/RoleBinding":
-			decoded = try rbac.v1alpha1.RoleBinding.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1beta1/ClusterRole":
+		case .rbacV1Beta1Clusterrole:
 			decoded = try rbac.v1beta1.ClusterRole.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1beta1/ClusterRoleBinding":
+		case .rbacV1Beta1Clusterrolebinding:
 			decoded = try rbac.v1beta1.ClusterRoleBinding.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1beta1/Role":
+		case .rbacV1Beta1Role:
 			decoded = try rbac.v1beta1.Role.init(from: decoder)
-		case "rbac.authorization.k8s.io/v1beta1/RoleBinding":
+		case .rbacV1Beta1Rolebinding:
 			decoded = try rbac.v1beta1.RoleBinding.init(from: decoder)
-		case "scheduling.k8s.io/v1/PriorityClass":
+		case .rbacV1Alpha1Clusterrole:
+			decoded = try rbac.v1alpha1.ClusterRole.init(from: decoder)
+		case .rbacV1Alpha1Clusterrolebinding:
+			decoded = try rbac.v1alpha1.ClusterRoleBinding.init(from: decoder)
+		case .rbacV1Alpha1Role:
+			decoded = try rbac.v1alpha1.Role.init(from: decoder)
+		case .rbacV1Alpha1Rolebinding:
+			decoded = try rbac.v1alpha1.RoleBinding.init(from: decoder)
+		case .schedulingV1Priorityclass:
 			decoded = try scheduling.v1.PriorityClass.init(from: decoder)
-		case "scheduling.k8s.io/v1alpha1/PriorityClass":
-			decoded = try scheduling.v1alpha1.PriorityClass.init(from: decoder)
-		case "scheduling.k8s.io/v1beta1/PriorityClass":
+		case .schedulingV1Beta1Priorityclass:
 			decoded = try scheduling.v1beta1.PriorityClass.init(from: decoder)
-		case "settings.k8s.io/v1alpha1/PodPreset":
+		case .schedulingV1Alpha1Priorityclass:
+			decoded = try scheduling.v1alpha1.PriorityClass.init(from: decoder)
+		case .settingsV1Alpha1Podpreset:
 			decoded = try settings.v1alpha1.PodPreset.init(from: decoder)
-		case "storage.k8s.io/v1/CSIDriver":
+		case .storageV1Csidriver:
 			decoded = try storage.v1.CSIDriver.init(from: decoder)
-		case "storage.k8s.io/v1/CSINode":
+		case .storageV1Csinode:
 			decoded = try storage.v1.CSINode.init(from: decoder)
-		case "storage.k8s.io/v1/StorageClass":
+		case .storageV1Storageclass:
 			decoded = try storage.v1.StorageClass.init(from: decoder)
-		case "storage.k8s.io/v1/VolumeAttachment":
+		case .storageV1Volumeattachment:
 			decoded = try storage.v1.VolumeAttachment.init(from: decoder)
-		case "storage.k8s.io/v1alpha1/VolumeAttachment":
-			decoded = try storage.v1alpha1.VolumeAttachment.init(from: decoder)
-		case "storage.k8s.io/v1beta1/CSIDriver":
+		case .storageV1Beta1Csidriver:
 			decoded = try storage.v1beta1.CSIDriver.init(from: decoder)
-		case "storage.k8s.io/v1beta1/CSINode":
+		case .storageV1Beta1Csinode:
 			decoded = try storage.v1beta1.CSINode.init(from: decoder)
-		case "storage.k8s.io/v1beta1/StorageClass":
+		case .storageV1Beta1Storageclass:
 			decoded = try storage.v1beta1.StorageClass.init(from: decoder)
-		case "storage.k8s.io/v1beta1/VolumeAttachment":
+		case .storageV1Beta1Volumeattachment:
 			decoded = try storage.v1beta1.VolumeAttachment.init(from: decoder)
+		case .storageV1Alpha1Volumeattachment:
+			decoded = try storage.v1alpha1.VolumeAttachment.init(from: decoder)
 		default:
 			let context = DecodingError.Context(
 				codingPath: [CodingKeys.apiVersion, CodingKeys.kind],
