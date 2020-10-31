@@ -687,20 +687,3 @@ public enum GroupVersionKind: String, CaseIterable {
 		}
 	}
 }
-
-extension GroupVersionKind: ExpressibleByStringLiteral {
-
-	public init(stringLiteral value: String) {
-		if let gvk = GroupVersionKind(rawValue: value) {
-			self = gvk
-			return
-		}
-
-		if let gvk = GroupVersionKind.allCases.first(where: { $0.kind.lowercased() == value.lowercased() }) {
-			self = gvk
-			return
-		}
-
-		fatalError()
-	}
-}

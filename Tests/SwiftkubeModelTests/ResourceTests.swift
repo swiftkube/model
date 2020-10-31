@@ -25,7 +25,7 @@ final class ResourceTests: XCTestCase {
 		let apiVersion = "v1"
 		let kind = "Pod"
 
-		let gvk = GroupVersionKind(stringLiteral: "\(apiVersion)/\(kind)")
+		let gvk = try! GroupVersionKind(string: "\(apiVersion)/\(kind)")
 
 		XCTAssertEqual(gvk.group, "core")
 		XCTAssertEqual(gvk.version, "v1")
@@ -40,7 +40,7 @@ final class ResourceTests: XCTestCase {
 	}
 
 	func test5() {
-		let gvk: GroupVersionKind = "secret"
+		let gvk: GroupVersionKind = try! GroupVersionKind(string: "secret")
 		XCTAssertEqual(gvk.group, "core")
 		XCTAssertEqual(gvk.version, "v1")
 		XCTAssertEqual(gvk.kind, "Secret")
@@ -84,6 +84,56 @@ final class ResourceTests: XCTestCase {
 		let json = String(data: data!, encoding: .utf8)
 
 		XCTAssertEqual(json, #"{"metadata":{"name":"test"},"spec":{"containers":[{"image":"nginx","name":"nginx"}]},"kind":"Pod","apiVersion":"v1"}"#)
+	}
+
+	func test8() {
+		let str = """
+		{
+			"apiVersion": "v1",
+			"kind": "PodList",
+			"items": [
+				{
+					"apiVersion": "v1",
+					"kind": "Pod",
+					"metadata": {
+						"name": "test",
+						"namespace": "ns"
+					}
+				}
+			]
+		}
+		"""
+
+		let data = str.data(using: .utf8)!
+		let list = try? JSONDecoder().decode(AnyKubernetesAPIResourceList.self, from: data)
+
+		XCTAssertEqual(list?.apiVersion, "v1")
+		XCTAssertEqual(list?.kind, "PodList")
+
+		XCTAssertEqual(list?.items[0].apiVersion, "v1")
+		XCTAssertEqual(list?.items[0].kind, "Pod")
+		XCTAssertEqual(list?.items[0].metadata?.name, "test")
+		XCTAssertEqual(list?.items[0].metadata?.namespace, "ns")
+	}
+
+	func test9() {
+		let pod = sk.pod(name: "test") {
+			$0.spec = sk.podSpec {
+				$0.containers = [
+					sk.container(name: "nginx") {
+						$0.image = "nginx"
+					}
+				]
+			}
+		}
+
+		let resource = AnyKubernetesAPIResource(pod)
+		let list = AnyKubernetesAPIResourceList(apiVersion: "v1", kind: "PodList", metadata: nil, items: [resource])
+		let data = try? JSONEncoder().encode(list)
+
+		let json = String(data: data!, encoding: .utf8)
+
+		XCTAssertEqual(json, #"{"kind":"PodList","apiVersion":"v1","items":[{"metadata":{"name":"test"},"spec":{"containers":[{"image":"nginx","name":"nginx"}]},"kind":"Pod","apiVersion":"v1"}]}"#)
 	}
 
 	static var allTests = [
