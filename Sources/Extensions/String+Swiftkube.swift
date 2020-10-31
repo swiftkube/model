@@ -28,4 +28,16 @@ internal extension String {
 		let pluralSuffix = lowercase.hasSuffix("s") ? "es" : "s"
 		return lowercase + pluralSuffix
 	}
+
+	/// Removes the given suffix from this String.
+	///
+	/// If this string contains the given suffix, then it's deleted, otherwise the same string is returned.
+	///
+	/// - Parameter suffix: the suffix to delete.
+	func deletingSuffix(_ suffix: String) -> String {
+		guard hasSuffix(suffix) else {
+			return self
+		}
+		return String(dropLast(suffix.count))
+	}
 }
