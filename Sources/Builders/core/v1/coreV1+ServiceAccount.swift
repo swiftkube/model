@@ -36,7 +36,7 @@ public extension core.v1.ServiceAccount {
 		if self.secrets == nil {
 			self.secrets = []
 		}
-		self.secrets?.append(sk.objectReference(apiVersion: .coreV1, kind: "Secret") {
+		self.secrets?.append(sk.objectReference(gvk: .coreV1Secret) {
 			$0.namespace = namespace ?? self.metadata?.namespace
 			$0.name = name
 		})
