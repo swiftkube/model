@@ -123,5 +123,36 @@ extension core.v1.NodeStatus {
 		case volumesInUse = "volumesInUse"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.addresses = try container.decodeIfPresent([core.v1.NodeAddress].self, forKey: .addresses)
+		self.allocatable = try container.decodeIfPresent([String: Quantity].self, forKey: .allocatable)
+		self.capacity = try container.decodeIfPresent([String: Quantity].self, forKey: .capacity)
+		self.conditions = try container.decodeIfPresent([core.v1.NodeCondition].self, forKey: .conditions)
+		self.config = try container.decodeIfPresent(core.v1.NodeConfigStatus.self, forKey: .config)
+		self.daemonEndpoints = try container.decodeIfPresent(core.v1.NodeDaemonEndpoints.self, forKey: .daemonEndpoints)
+		self.images = try container.decodeIfPresent([core.v1.ContainerImage].self, forKey: .images)
+		self.nodeInfo = try container.decodeIfPresent(core.v1.NodeSystemInfo.self, forKey: .nodeInfo)
+		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
+		self.volumesAttached = try container.decodeIfPresent([core.v1.AttachedVolume].self, forKey: .volumesAttached)
+		self.volumesInUse = try container.decodeIfPresent([String].self, forKey: .volumesInUse)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.addresses, forKey: .addresses)
+		try container.encode(self.allocatable, forKey: .allocatable)
+		try container.encode(self.capacity, forKey: .capacity)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.config, forKey: .config)
+		try container.encode(self.daemonEndpoints, forKey: .daemonEndpoints)
+		try container.encode(self.images, forKey: .images)
+		try container.encode(self.nodeInfo, forKey: .nodeInfo)
+		try container.encode(self.phase, forKey: .phase)
+		try container.encode(self.volumesAttached, forKey: .volumesAttached)
+		try container.encode(self.volumesInUse, forKey: .volumesInUse)
+	}
+
 }
 

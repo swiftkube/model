@@ -67,5 +67,20 @@ extension autoscaling.v2beta1.PodsMetricStatus {
 		case selector = "selector"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.currentAverageValue = try container.decode(Quantity.self, forKey: .currentAverageValue)
+		self.metricName = try container.decode(String.self, forKey: .metricName)
+		self.selector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .selector)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.currentAverageValue, forKey: .currentAverageValue)
+		try container.encode(self.metricName, forKey: .metricName)
+		try container.encode(self.selector, forKey: .selector)
+	}
+
 }
 

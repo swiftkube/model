@@ -60,5 +60,18 @@ extension batch.v2alpha1.JobTemplateSpec {
 		case spec = "spec"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.spec = try container.decodeIfPresent(batch.v1.JobSpec.self, forKey: .spec)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.spec, forKey: .spec)
+	}
+
 }
 

@@ -74,5 +74,22 @@ extension core.v1.EndpointPort {
 		case `protocol` = "protocol"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.appProtocol = try container.decodeIfPresent(String.self, forKey: .appProtocol)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.port = try container.decode(Int32.self, forKey: .port)
+		self.`protocol` = try container.decodeIfPresent(String.self, forKey: .`protocol`)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.appProtocol, forKey: .appProtocol)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.port, forKey: .port)
+		try container.encode(self.`protocol`, forKey: .`protocol`)
+	}
+
 }
 

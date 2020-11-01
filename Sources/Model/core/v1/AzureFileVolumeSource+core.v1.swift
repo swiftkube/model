@@ -67,5 +67,20 @@ extension core.v1.AzureFileVolumeSource {
 		case shareName = "shareName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretName = try container.decode(String.self, forKey: .secretName)
+		self.shareName = try container.decode(String.self, forKey: .shareName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretName, forKey: .secretName)
+		try container.encode(self.shareName, forKey: .shareName)
+	}
+
 }
 

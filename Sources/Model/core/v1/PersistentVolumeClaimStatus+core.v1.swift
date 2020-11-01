@@ -74,5 +74,22 @@ extension core.v1.PersistentVolumeClaimStatus {
 		case phase = "phase"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.accessModes = try container.decodeIfPresent([String].self, forKey: .accessModes)
+		self.capacity = try container.decodeIfPresent([String: Quantity].self, forKey: .capacity)
+		self.conditions = try container.decodeIfPresent([core.v1.PersistentVolumeClaimCondition].self, forKey: .conditions)
+		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.accessModes, forKey: .accessModes)
+		try container.encode(self.capacity, forKey: .capacity)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.phase, forKey: .phase)
+	}
+
 }
 

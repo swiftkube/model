@@ -67,5 +67,20 @@ extension apiextensions.v1beta1.CustomResourceDefinitionStatus {
 		case storedVersions = "storedVersions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.acceptedNames = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceDefinitionNames.self, forKey: .acceptedNames)
+		self.conditions = try container.decodeIfPresent([apiextensions.v1beta1.CustomResourceDefinitionCondition].self, forKey: .conditions)
+		self.storedVersions = try container.decodeIfPresent([String].self, forKey: .storedVersions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.acceptedNames, forKey: .acceptedNames)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.storedVersions, forKey: .storedVersions)
+	}
+
 }
 

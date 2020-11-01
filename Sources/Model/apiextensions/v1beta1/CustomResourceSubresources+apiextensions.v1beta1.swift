@@ -60,5 +60,18 @@ extension apiextensions.v1beta1.CustomResourceSubresources {
 		case status = "status"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.scale = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceSubresourceScale.self, forKey: .scale)
+		self.status = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceSubresourceStatus.self, forKey: .status)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.scale, forKey: .scale)
+		try container.encode(self.status, forKey: .status)
+	}
+
 }
 

@@ -102,5 +102,30 @@ extension apps.v1.DeploymentStatus {
 		case updatedReplicas = "updatedReplicas"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.availableReplicas = try container.decodeIfPresent(Int32.self, forKey: .availableReplicas)
+		self.collisionCount = try container.decodeIfPresent(Int32.self, forKey: .collisionCount)
+		self.conditions = try container.decodeIfPresent([apps.v1.DeploymentCondition].self, forKey: .conditions)
+		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
+		self.readyReplicas = try container.decodeIfPresent(Int32.self, forKey: .readyReplicas)
+		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
+		self.unavailableReplicas = try container.decodeIfPresent(Int32.self, forKey: .unavailableReplicas)
+		self.updatedReplicas = try container.decodeIfPresent(Int32.self, forKey: .updatedReplicas)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.availableReplicas, forKey: .availableReplicas)
+		try container.encode(self.collisionCount, forKey: .collisionCount)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+		try container.encode(self.readyReplicas, forKey: .readyReplicas)
+		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(self.unavailableReplicas, forKey: .unavailableReplicas)
+		try container.encode(self.updatedReplicas, forKey: .updatedReplicas)
+	}
+
 }
 

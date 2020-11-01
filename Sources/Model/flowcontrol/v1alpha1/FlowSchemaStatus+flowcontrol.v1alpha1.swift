@@ -53,5 +53,16 @@ extension flowcontrol.v1alpha1.FlowSchemaStatus {
 		case conditions = "conditions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.conditions = try container.decodeIfPresent([flowcontrol.v1alpha1.FlowSchemaCondition].self, forKey: .conditions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.conditions, forKey: .conditions)
+	}
+
 }
 

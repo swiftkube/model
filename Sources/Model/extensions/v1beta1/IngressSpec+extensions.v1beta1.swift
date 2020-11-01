@@ -74,5 +74,22 @@ extension extensions.v1beta1.IngressSpec {
 		case tls = "tls"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.backend = try container.decodeIfPresent(extensions.v1beta1.IngressBackend.self, forKey: .backend)
+		self.ingressClassName = try container.decodeIfPresent(String.self, forKey: .ingressClassName)
+		self.rules = try container.decodeIfPresent([extensions.v1beta1.IngressRule].self, forKey: .rules)
+		self.tls = try container.decodeIfPresent([extensions.v1beta1.IngressTLS].self, forKey: .tls)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.backend, forKey: .backend)
+		try container.encode(self.ingressClassName, forKey: .ingressClassName)
+		try container.encode(self.rules, forKey: .rules)
+		try container.encode(self.tls, forKey: .tls)
+	}
+
 }
 

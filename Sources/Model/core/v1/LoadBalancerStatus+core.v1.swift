@@ -53,5 +53,16 @@ extension core.v1.LoadBalancerStatus {
 		case ingress = "ingress"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.ingress = try container.decodeIfPresent([core.v1.LoadBalancerIngress].self, forKey: .ingress)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.ingress, forKey: .ingress)
+	}
+
 }
 

@@ -207,5 +207,60 @@ extension core.v1.EphemeralContainer {
 		case workingDir = "workingDir"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.args = try container.decodeIfPresent([String].self, forKey: .args)
+		self.command = try container.decodeIfPresent([String].self, forKey: .command)
+		self.env = try container.decodeIfPresent([core.v1.EnvVar].self, forKey: .env)
+		self.envFrom = try container.decodeIfPresent([core.v1.EnvFromSource].self, forKey: .envFrom)
+		self.image = try container.decodeIfPresent(String.self, forKey: .image)
+		self.imagePullPolicy = try container.decodeIfPresent(String.self, forKey: .imagePullPolicy)
+		self.lifecycle = try container.decodeIfPresent(core.v1.Lifecycle.self, forKey: .lifecycle)
+		self.livenessProbe = try container.decodeIfPresent(core.v1.Probe.self, forKey: .livenessProbe)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.ports = try container.decodeIfPresent([core.v1.ContainerPort].self, forKey: .ports)
+		self.readinessProbe = try container.decodeIfPresent(core.v1.Probe.self, forKey: .readinessProbe)
+		self.resources = try container.decodeIfPresent(core.v1.ResourceRequirements.self, forKey: .resources)
+		self.securityContext = try container.decodeIfPresent(core.v1.SecurityContext.self, forKey: .securityContext)
+		self.startupProbe = try container.decodeIfPresent(core.v1.Probe.self, forKey: .startupProbe)
+		self.stdin = try container.decodeIfPresent(Bool.self, forKey: .stdin)
+		self.stdinOnce = try container.decodeIfPresent(Bool.self, forKey: .stdinOnce)
+		self.targetContainerName = try container.decodeIfPresent(String.self, forKey: .targetContainerName)
+		self.terminationMessagePath = try container.decodeIfPresent(String.self, forKey: .terminationMessagePath)
+		self.terminationMessagePolicy = try container.decodeIfPresent(String.self, forKey: .terminationMessagePolicy)
+		self.tty = try container.decodeIfPresent(Bool.self, forKey: .tty)
+		self.volumeDevices = try container.decodeIfPresent([core.v1.VolumeDevice].self, forKey: .volumeDevices)
+		self.volumeMounts = try container.decodeIfPresent([core.v1.VolumeMount].self, forKey: .volumeMounts)
+		self.workingDir = try container.decodeIfPresent(String.self, forKey: .workingDir)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.args, forKey: .args)
+		try container.encode(self.command, forKey: .command)
+		try container.encode(self.env, forKey: .env)
+		try container.encode(self.envFrom, forKey: .envFrom)
+		try container.encode(self.image, forKey: .image)
+		try container.encode(self.imagePullPolicy, forKey: .imagePullPolicy)
+		try container.encode(self.lifecycle, forKey: .lifecycle)
+		try container.encode(self.livenessProbe, forKey: .livenessProbe)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.ports, forKey: .ports)
+		try container.encode(self.readinessProbe, forKey: .readinessProbe)
+		try container.encode(self.resources, forKey: .resources)
+		try container.encode(self.securityContext, forKey: .securityContext)
+		try container.encode(self.startupProbe, forKey: .startupProbe)
+		try container.encode(self.stdin, forKey: .stdin)
+		try container.encode(self.stdinOnce, forKey: .stdinOnce)
+		try container.encode(self.targetContainerName, forKey: .targetContainerName)
+		try container.encode(self.terminationMessagePath, forKey: .terminationMessagePath)
+		try container.encode(self.terminationMessagePolicy, forKey: .terminationMessagePolicy)
+		try container.encode(self.tty, forKey: .tty)
+		try container.encode(self.volumeDevices, forKey: .volumeDevices)
+		try container.encode(self.volumeMounts, forKey: .volumeMounts)
+		try container.encode(self.workingDir, forKey: .workingDir)
+	}
+
 }
 

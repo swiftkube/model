@@ -74,5 +74,20 @@ extension storage.v1beta1.CSINode {
 		case spec = "spec"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.spec = try container.decode(storage.v1beta1.CSINodeSpec.self, forKey: .spec)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.spec, forKey: .spec)
+	}
+
 }
 

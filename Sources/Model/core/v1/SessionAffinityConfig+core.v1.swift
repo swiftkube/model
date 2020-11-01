@@ -53,5 +53,16 @@ extension core.v1.SessionAffinityConfig {
 		case clientIP = "clientIP"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.clientIP = try container.decodeIfPresent(core.v1.ClientIPConfig.self, forKey: .clientIP)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.clientIP, forKey: .clientIP)
+	}
+
 }
 

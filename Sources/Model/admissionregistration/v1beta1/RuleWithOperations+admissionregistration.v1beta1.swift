@@ -87,5 +87,24 @@ extension admissionregistration.v1beta1.RuleWithOperations {
 		case scope = "scope"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.apiGroups = try container.decodeIfPresent([String].self, forKey: .apiGroups)
+		self.apiVersions = try container.decodeIfPresent([String].self, forKey: .apiVersions)
+		self.operations = try container.decodeIfPresent([String].self, forKey: .operations)
+		self.resources = try container.decodeIfPresent([String].self, forKey: .resources)
+		self.scope = try container.decodeIfPresent(String.self, forKey: .scope)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiGroups, forKey: .apiGroups)
+		try container.encode(self.apiVersions, forKey: .apiVersions)
+		try container.encode(self.operations, forKey: .operations)
+		try container.encode(self.resources, forKey: .resources)
+		try container.encode(self.scope, forKey: .scope)
+	}
+
 }
 

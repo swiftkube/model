@@ -69,5 +69,20 @@ extension core.v1.ConfigMapProjection {
 		case optional = "optional"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.items = try container.decodeIfPresent([core.v1.KeyToPath].self, forKey: .items)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.items, forKey: .items)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.optional, forKey: .optional)
+	}
+
 }
 

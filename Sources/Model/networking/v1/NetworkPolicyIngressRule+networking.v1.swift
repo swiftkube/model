@@ -60,5 +60,18 @@ extension networking.v1.NetworkPolicyIngressRule {
 		case ports = "ports"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.from = try container.decodeIfPresent([networking.v1.NetworkPolicyPeer].self, forKey: .from)
+		self.ports = try container.decodeIfPresent([networking.v1.NetworkPolicyPort].self, forKey: .ports)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.from, forKey: .from)
+		try container.encode(self.ports, forKey: .ports)
+	}
+
 }
 

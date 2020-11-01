@@ -53,5 +53,16 @@ extension networking.v1beta1.HTTPIngressRuleValue {
 		case paths = "paths"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.paths = try container.decode([networking.v1beta1.HTTPIngressPath].self, forKey: .paths)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.paths, forKey: .paths)
+	}
+
 }
 

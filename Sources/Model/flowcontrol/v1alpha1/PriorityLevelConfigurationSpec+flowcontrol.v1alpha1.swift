@@ -60,5 +60,18 @@ extension flowcontrol.v1alpha1.PriorityLevelConfigurationSpec {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.limited = try container.decodeIfPresent(flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration.self, forKey: .limited)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.limited, forKey: .limited)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

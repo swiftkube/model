@@ -53,5 +53,16 @@ extension autoscaling.v1.ScaleSpec {
 		case replicas = "replicas"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.replicas, forKey: .replicas)
+	}
+
 }
 

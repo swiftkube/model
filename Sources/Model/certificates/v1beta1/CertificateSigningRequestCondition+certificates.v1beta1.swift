@@ -74,5 +74,22 @@ extension certificates.v1beta1.CertificateSigningRequestCondition {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.lastUpdateTime = try container.decodeIfPresent(String.self, forKey: .lastUpdateTime)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.lastUpdateTime, forKey: .lastUpdateTime)
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

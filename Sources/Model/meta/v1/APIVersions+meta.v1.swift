@@ -70,5 +70,20 @@ extension meta.v1.APIVersions {
 		case versions = "versions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.serverAddressByClientCIDRs = try container.decode([meta.v1.ServerAddressByClientCIDR].self, forKey: .serverAddressByClientCIDRs)
+		self.versions = try container.decode([String].self, forKey: .versions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.serverAddressByClientCIDRs, forKey: .serverAddressByClientCIDRs)
+		try container.encode(self.versions, forKey: .versions)
+	}
+
 }
 

@@ -60,5 +60,18 @@ extension auditregistration.v1alpha1.Policy {
 		case stages = "stages"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.level = try container.decode(String.self, forKey: .level)
+		self.stages = try container.decodeIfPresent([String].self, forKey: .stages)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.level, forKey: .level)
+		try container.encode(self.stages, forKey: .stages)
+	}
+
 }
 

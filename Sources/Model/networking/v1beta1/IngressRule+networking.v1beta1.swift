@@ -67,5 +67,18 @@ extension networking.v1beta1.IngressRule {
 		case http = "http"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.host = try container.decodeIfPresent(String.self, forKey: .host)
+		self.http = try container.decodeIfPresent(networking.v1beta1.HTTPIngressRuleValue.self, forKey: .http)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.host, forKey: .host)
+		try container.encode(self.http, forKey: .http)
+	}
+
 }
 

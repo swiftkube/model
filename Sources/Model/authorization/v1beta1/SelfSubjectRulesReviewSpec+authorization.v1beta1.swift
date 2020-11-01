@@ -53,5 +53,16 @@ extension authorization.v1beta1.SelfSubjectRulesReviewSpec {
 		case namespace = "namespace"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.namespace, forKey: .namespace)
+	}
+
 }
 

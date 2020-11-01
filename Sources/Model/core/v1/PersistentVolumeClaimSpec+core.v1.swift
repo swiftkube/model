@@ -95,5 +95,28 @@ extension core.v1.PersistentVolumeClaimSpec {
 		case volumeName = "volumeName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.accessModes = try container.decodeIfPresent([String].self, forKey: .accessModes)
+		self.dataSource = try container.decodeIfPresent(core.v1.TypedLocalObjectReference.self, forKey: .dataSource)
+		self.resources = try container.decodeIfPresent(core.v1.ResourceRequirements.self, forKey: .resources)
+		self.selector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .selector)
+		self.storageClassName = try container.decodeIfPresent(String.self, forKey: .storageClassName)
+		self.volumeMode = try container.decodeIfPresent(String.self, forKey: .volumeMode)
+		self.volumeName = try container.decodeIfPresent(String.self, forKey: .volumeName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.accessModes, forKey: .accessModes)
+		try container.encode(self.dataSource, forKey: .dataSource)
+		try container.encode(self.resources, forKey: .resources)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.storageClassName, forKey: .storageClassName)
+		try container.encode(self.volumeMode, forKey: .volumeMode)
+		try container.encode(self.volumeName, forKey: .volumeName)
+	}
+
 }
 

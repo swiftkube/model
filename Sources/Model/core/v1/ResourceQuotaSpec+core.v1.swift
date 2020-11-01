@@ -67,5 +67,20 @@ extension core.v1.ResourceQuotaSpec {
 		case scopes = "scopes"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.hard = try container.decodeIfPresent([String: Quantity].self, forKey: .hard)
+		self.scopeSelector = try container.decodeIfPresent(core.v1.ScopeSelector.self, forKey: .scopeSelector)
+		self.scopes = try container.decodeIfPresent([String].self, forKey: .scopes)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.hard, forKey: .hard)
+		try container.encode(self.scopeSelector, forKey: .scopeSelector)
+		try container.encode(self.scopes, forKey: .scopes)
+	}
+
 }
 

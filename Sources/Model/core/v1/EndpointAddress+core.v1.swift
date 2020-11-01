@@ -74,5 +74,22 @@ extension core.v1.EndpointAddress {
 		case targetRef = "targetRef"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.hostname = try container.decodeIfPresent(String.self, forKey: .hostname)
+		self.ip = try container.decode(String.self, forKey: .ip)
+		self.nodeName = try container.decodeIfPresent(String.self, forKey: .nodeName)
+		self.targetRef = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .targetRef)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.hostname, forKey: .hostname)
+		try container.encode(self.ip, forKey: .ip)
+		try container.encode(self.nodeName, forKey: .nodeName)
+		try container.encode(self.targetRef, forKey: .targetRef)
+	}
+
 }
 

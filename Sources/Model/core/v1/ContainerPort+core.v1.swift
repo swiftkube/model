@@ -81,5 +81,24 @@ extension core.v1.ContainerPort {
 		case `protocol` = "protocol"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.containerPort = try container.decode(Int32.self, forKey: .containerPort)
+		self.hostIP = try container.decodeIfPresent(String.self, forKey: .hostIP)
+		self.hostPort = try container.decodeIfPresent(Int32.self, forKey: .hostPort)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.`protocol` = try container.decodeIfPresent(String.self, forKey: .`protocol`)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.containerPort, forKey: .containerPort)
+		try container.encode(self.hostIP, forKey: .hostIP)
+		try container.encode(self.hostPort, forKey: .hostPort)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.`protocol`, forKey: .`protocol`)
+	}
+
 }
 

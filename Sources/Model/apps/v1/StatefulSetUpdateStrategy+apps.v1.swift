@@ -60,5 +60,18 @@ extension apps.v1.StatefulSetUpdateStrategy {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.rollingUpdate = try container.decodeIfPresent(apps.v1.RollingUpdateStatefulSetStrategy.self, forKey: .rollingUpdate)
+		self.type = try container.decodeIfPresent(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.rollingUpdate, forKey: .rollingUpdate)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

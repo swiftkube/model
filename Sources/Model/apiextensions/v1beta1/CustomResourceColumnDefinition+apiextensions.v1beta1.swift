@@ -88,5 +88,26 @@ extension apiextensions.v1beta1.CustomResourceColumnDefinition {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.JSONPath = try container.decode(String.self, forKey: .JSONPath)
+		self.description = try container.decodeIfPresent(String.self, forKey: .description)
+		self.format = try container.decodeIfPresent(String.self, forKey: .format)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.priority = try container.decodeIfPresent(Int32.self, forKey: .priority)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.JSONPath, forKey: .JSONPath)
+		try container.encode(self.description, forKey: .description)
+		try container.encode(self.format, forKey: .format)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.priority, forKey: .priority)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

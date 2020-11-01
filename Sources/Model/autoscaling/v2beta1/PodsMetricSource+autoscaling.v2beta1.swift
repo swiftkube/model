@@ -67,5 +67,20 @@ extension autoscaling.v2beta1.PodsMetricSource {
 		case targetAverageValue = "targetAverageValue"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metricName = try container.decode(String.self, forKey: .metricName)
+		self.selector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .selector)
+		self.targetAverageValue = try container.decode(Quantity.self, forKey: .targetAverageValue)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.metricName, forKey: .metricName)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.targetAverageValue, forKey: .targetAverageValue)
+	}
+
 }
 

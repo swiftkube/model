@@ -74,5 +74,22 @@ extension core.v1.GlusterfsPersistentVolumeSource {
 		case readOnly = "readOnly"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.endpoints = try container.decode(String.self, forKey: .endpoints)
+		self.endpointsNamespace = try container.decodeIfPresent(String.self, forKey: .endpointsNamespace)
+		self.path = try container.decode(String.self, forKey: .path)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.endpoints, forKey: .endpoints)
+		try container.encode(self.endpointsNamespace, forKey: .endpointsNamespace)
+		try container.encode(self.path, forKey: .path)
+		try container.encode(self.readOnly, forKey: .readOnly)
+	}
+
 }
 

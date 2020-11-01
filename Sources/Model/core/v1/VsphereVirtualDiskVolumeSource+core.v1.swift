@@ -74,5 +74,22 @@ extension core.v1.VsphereVirtualDiskVolumeSource {
 		case volumePath = "volumePath"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.storagePolicyID = try container.decodeIfPresent(String.self, forKey: .storagePolicyID)
+		self.storagePolicyName = try container.decodeIfPresent(String.self, forKey: .storagePolicyName)
+		self.volumePath = try container.decode(String.self, forKey: .volumePath)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.storagePolicyID, forKey: .storagePolicyID)
+		try container.encode(self.storagePolicyName, forKey: .storagePolicyName)
+		try container.encode(self.volumePath, forKey: .volumePath)
+	}
+
 }
 

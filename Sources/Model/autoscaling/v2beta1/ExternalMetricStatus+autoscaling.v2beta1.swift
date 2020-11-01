@@ -74,5 +74,22 @@ extension autoscaling.v2beta1.ExternalMetricStatus {
 		case metricSelector = "metricSelector"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.currentAverageValue = try container.decodeIfPresent(Quantity.self, forKey: .currentAverageValue)
+		self.currentValue = try container.decode(Quantity.self, forKey: .currentValue)
+		self.metricName = try container.decode(String.self, forKey: .metricName)
+		self.metricSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .metricSelector)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.currentAverageValue, forKey: .currentAverageValue)
+		try container.encode(self.currentValue, forKey: .currentValue)
+		try container.encode(self.metricName, forKey: .metricName)
+		try container.encode(self.metricSelector, forKey: .metricSelector)
+	}
+
 }
 

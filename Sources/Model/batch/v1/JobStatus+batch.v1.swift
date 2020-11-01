@@ -88,5 +88,26 @@ extension batch.v1.JobStatus {
 		case succeeded = "succeeded"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.active = try container.decodeIfPresent(Int32.self, forKey: .active)
+		self.completionTime = try container.decodeIfPresent(String.self, forKey: .completionTime)
+		self.conditions = try container.decodeIfPresent([batch.v1.JobCondition].self, forKey: .conditions)
+		self.failed = try container.decodeIfPresent(Int32.self, forKey: .failed)
+		self.startTime = try container.decodeIfPresent(String.self, forKey: .startTime)
+		self.succeeded = try container.decodeIfPresent(Int32.self, forKey: .succeeded)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.active, forKey: .active)
+		try container.encode(self.completionTime, forKey: .completionTime)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.failed, forKey: .failed)
+		try container.encode(self.startTime, forKey: .startTime)
+		try container.encode(self.succeeded, forKey: .succeeded)
+	}
+
 }
 

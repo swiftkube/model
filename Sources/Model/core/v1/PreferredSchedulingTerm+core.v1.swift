@@ -60,5 +60,18 @@ extension core.v1.PreferredSchedulingTerm {
 		case weight = "weight"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.preference = try container.decode(core.v1.NodeSelectorTerm.self, forKey: .preference)
+		self.weight = try container.decode(Int32.self, forKey: .weight)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.preference, forKey: .preference)
+		try container.encode(self.weight, forKey: .weight)
+	}
+
 }
 

@@ -67,5 +67,20 @@ extension core.v1.WindowsSecurityContextOptions {
 		case runAsUserName = "runAsUserName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.gmsaCredentialSpec = try container.decodeIfPresent(String.self, forKey: .gmsaCredentialSpec)
+		self.gmsaCredentialSpecName = try container.decodeIfPresent(String.self, forKey: .gmsaCredentialSpecName)
+		self.runAsUserName = try container.decodeIfPresent(String.self, forKey: .runAsUserName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.gmsaCredentialSpec, forKey: .gmsaCredentialSpec)
+		try container.encode(self.gmsaCredentialSpecName, forKey: .gmsaCredentialSpecName)
+		try container.encode(self.runAsUserName, forKey: .runAsUserName)
+	}
+
 }
 

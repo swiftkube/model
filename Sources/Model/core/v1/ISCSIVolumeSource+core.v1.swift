@@ -123,5 +123,36 @@ extension core.v1.ISCSIVolumeSource {
 		case targetPortal = "targetPortal"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.chapAuthDiscovery = try container.decodeIfPresent(Bool.self, forKey: .chapAuthDiscovery)
+		self.chapAuthSession = try container.decodeIfPresent(Bool.self, forKey: .chapAuthSession)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.initiatorName = try container.decodeIfPresent(String.self, forKey: .initiatorName)
+		self.iqn = try container.decode(String.self, forKey: .iqn)
+		self.iscsiInterface = try container.decodeIfPresent(String.self, forKey: .iscsiInterface)
+		self.lun = try container.decode(Int32.self, forKey: .lun)
+		self.portals = try container.decodeIfPresent([String].self, forKey: .portals)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decodeIfPresent(core.v1.LocalObjectReference.self, forKey: .secretRef)
+		self.targetPortal = try container.decode(String.self, forKey: .targetPortal)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.chapAuthDiscovery, forKey: .chapAuthDiscovery)
+		try container.encode(self.chapAuthSession, forKey: .chapAuthSession)
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.initiatorName, forKey: .initiatorName)
+		try container.encode(self.iqn, forKey: .iqn)
+		try container.encode(self.iscsiInterface, forKey: .iscsiInterface)
+		try container.encode(self.lun, forKey: .lun)
+		try container.encode(self.portals, forKey: .portals)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.targetPortal, forKey: .targetPortal)
+	}
+
 }
 

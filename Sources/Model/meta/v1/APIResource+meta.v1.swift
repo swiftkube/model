@@ -116,5 +116,34 @@ extension meta.v1.APIResource {
 		case version = "version"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.kind = try container.decode(String.self, forKey: .kind)
+		self.categories = try container.decodeIfPresent([String].self, forKey: .categories)
+		self.group = try container.decodeIfPresent(String.self, forKey: .group)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.namespaced = try container.decode(Bool.self, forKey: .namespaced)
+		self.shortNames = try container.decodeIfPresent([String].self, forKey: .shortNames)
+		self.singularName = try container.decode(String.self, forKey: .singularName)
+		self.storageVersionHash = try container.decodeIfPresent(String.self, forKey: .storageVersionHash)
+		self.verbs = try container.decode([String].self, forKey: .verbs)
+		self.version = try container.decodeIfPresent(String.self, forKey: .version)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.categories, forKey: .categories)
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespaced, forKey: .namespaced)
+		try container.encode(self.shortNames, forKey: .shortNames)
+		try container.encode(self.singularName, forKey: .singularName)
+		try container.encode(self.storageVersionHash, forKey: .storageVersionHash)
+		try container.encode(self.verbs, forKey: .verbs)
+		try container.encode(self.version, forKey: .version)
+	}
+
 }
 

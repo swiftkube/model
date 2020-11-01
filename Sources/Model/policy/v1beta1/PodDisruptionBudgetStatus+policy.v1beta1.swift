@@ -88,5 +88,26 @@ extension policy.v1beta1.PodDisruptionBudgetStatus {
 		case observedGeneration = "observedGeneration"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.currentHealthy = try container.decode(Int32.self, forKey: .currentHealthy)
+		self.desiredHealthy = try container.decode(Int32.self, forKey: .desiredHealthy)
+		self.disruptedPods = try container.decodeIfPresent([String: String].self, forKey: .disruptedPods)
+		self.disruptionsAllowed = try container.decode(Int32.self, forKey: .disruptionsAllowed)
+		self.expectedPods = try container.decode(Int32.self, forKey: .expectedPods)
+		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.currentHealthy, forKey: .currentHealthy)
+		try container.encode(self.desiredHealthy, forKey: .desiredHealthy)
+		try container.encode(self.disruptedPods, forKey: .disruptedPods)
+		try container.encode(self.disruptionsAllowed, forKey: .disruptionsAllowed)
+		try container.encode(self.expectedPods, forKey: .expectedPods)
+		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+	}
+
 }
 

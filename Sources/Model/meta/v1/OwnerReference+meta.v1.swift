@@ -88,5 +88,26 @@ extension meta.v1.OwnerReference {
 		case uid = "uid"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.apiVersion = try container.decode(String.self, forKey: .apiVersion)
+		self.kind = try container.decode(String.self, forKey: .kind)
+		self.blockOwnerDeletion = try container.decodeIfPresent(Bool.self, forKey: .blockOwnerDeletion)
+		self.controller = try container.decodeIfPresent(Bool.self, forKey: .controller)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.uid = try container.decode(String.self, forKey: .uid)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.blockOwnerDeletion, forKey: .blockOwnerDeletion)
+		try container.encode(self.controller, forKey: .controller)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.uid, forKey: .uid)
+	}
+
 }
 

@@ -60,5 +60,18 @@ extension policy.v1beta1.SELinuxStrategyOptions {
 		case seLinuxOptions = "seLinuxOptions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.rule = try container.decode(String.self, forKey: .rule)
+		self.seLinuxOptions = try container.decodeIfPresent(core.v1.SELinuxOptions.self, forKey: .seLinuxOptions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.rule, forKey: .rule)
+		try container.encode(self.seLinuxOptions, forKey: .seLinuxOptions)
+	}
+
 }
 

@@ -81,5 +81,24 @@ extension autoscaling.v2beta2.HorizontalPodAutoscalerSpec {
 		case scaleTargetRef = "scaleTargetRef"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.behavior = try container.decodeIfPresent(autoscaling.v2beta2.HorizontalPodAutoscalerBehavior.self, forKey: .behavior)
+		self.maxReplicas = try container.decode(Int32.self, forKey: .maxReplicas)
+		self.metrics = try container.decodeIfPresent([autoscaling.v2beta2.MetricSpec].self, forKey: .metrics)
+		self.minReplicas = try container.decodeIfPresent(Int32.self, forKey: .minReplicas)
+		self.scaleTargetRef = try container.decode(autoscaling.v2beta2.CrossVersionObjectReference.self, forKey: .scaleTargetRef)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.behavior, forKey: .behavior)
+		try container.encode(self.maxReplicas, forKey: .maxReplicas)
+		try container.encode(self.metrics, forKey: .metrics)
+		try container.encode(self.minReplicas, forKey: .minReplicas)
+		try container.encode(self.scaleTargetRef, forKey: .scaleTargetRef)
+	}
+
 }
 

@@ -88,5 +88,26 @@ extension meta.v1.StatusDetails {
 		case uid = "uid"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.kind = try container.decodeIfPresent(String.self, forKey: .kind)
+		self.causes = try container.decodeIfPresent([meta.v1.StatusCause].self, forKey: .causes)
+		self.group = try container.decodeIfPresent(String.self, forKey: .group)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.retryAfterSeconds = try container.decodeIfPresent(Int32.self, forKey: .retryAfterSeconds)
+		self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.causes, forKey: .causes)
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.retryAfterSeconds, forKey: .retryAfterSeconds)
+		try container.encode(self.uid, forKey: .uid)
+	}
+
 }
 

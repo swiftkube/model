@@ -67,5 +67,20 @@ extension autoscaling.v2beta2.ObjectMetricStatus {
 		case metric = "metric"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.current = try container.decode(autoscaling.v2beta2.MetricValueStatus.self, forKey: .current)
+		self.describedObject = try container.decode(autoscaling.v2beta2.CrossVersionObjectReference.self, forKey: .describedObject)
+		self.metric = try container.decode(autoscaling.v2beta2.MetricIdentifier.self, forKey: .metric)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.current, forKey: .current)
+		try container.encode(self.describedObject, forKey: .describedObject)
+		try container.encode(self.metric, forKey: .metric)
+	}
+
 }
 

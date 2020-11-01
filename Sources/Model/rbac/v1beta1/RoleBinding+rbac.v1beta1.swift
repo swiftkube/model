@@ -81,5 +81,22 @@ extension rbac.v1beta1.RoleBinding {
 		case subjects = "subjects"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.roleRef = try container.decode(rbac.v1beta1.RoleRef.self, forKey: .roleRef)
+		self.subjects = try container.decodeIfPresent([rbac.v1beta1.Subject].self, forKey: .subjects)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.roleRef, forKey: .roleRef)
+		try container.encode(self.subjects, forKey: .subjects)
+	}
+
 }
 

@@ -88,5 +88,26 @@ extension apiextensions.v1beta1.CustomResourceDefinitionVersion {
 		case subresources = "subresources"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.additionalPrinterColumns = try container.decodeIfPresent([apiextensions.v1beta1.CustomResourceColumnDefinition].self, forKey: .additionalPrinterColumns)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.schema = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceValidation.self, forKey: .schema)
+		self.served = try container.decode(Bool.self, forKey: .served)
+		self.storage = try container.decode(Bool.self, forKey: .storage)
+		self.subresources = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceSubresources.self, forKey: .subresources)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.additionalPrinterColumns, forKey: .additionalPrinterColumns)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.schema, forKey: .schema)
+		try container.encode(self.served, forKey: .served)
+		try container.encode(self.storage, forKey: .storage)
+		try container.encode(self.subresources, forKey: .subresources)
+	}
+
 }
 

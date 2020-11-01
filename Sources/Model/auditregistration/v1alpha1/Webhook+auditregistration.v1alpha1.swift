@@ -60,5 +60,18 @@ extension auditregistration.v1alpha1.Webhook {
 		case throttle = "throttle"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.clientConfig = try container.decode(auditregistration.v1alpha1.WebhookClientConfig.self, forKey: .clientConfig)
+		self.throttle = try container.decodeIfPresent(auditregistration.v1alpha1.WebhookThrottleConfig.self, forKey: .throttle)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.clientConfig, forKey: .clientConfig)
+		try container.encode(self.throttle, forKey: .throttle)
+	}
+
 }
 

@@ -79,5 +79,20 @@ extension admissionregistration.v1.WebhookClientConfig {
 		case url = "url"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.caBundle = try container.decodeIfPresent(String.self, forKey: .caBundle)
+		self.service = try container.decodeIfPresent(admissionregistration.v1.ServiceReference.self, forKey: .service)
+		self.url = try container.decodeIfPresent(String.self, forKey: .url)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.caBundle, forKey: .caBundle)
+		try container.encode(self.service, forKey: .service)
+		try container.encode(self.url, forKey: .url)
+	}
+
 }
 

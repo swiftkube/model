@@ -90,6 +90,9 @@ extension apps.v1.ControllerRevision {
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
 		try container.encode(self.metadata, forKey: .metadata)
 		try container.encode(self.data, forKey: .data)
 		try container.encode(self.revision, forKey: .revision)

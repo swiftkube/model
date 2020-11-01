@@ -95,5 +95,28 @@ extension core.v1.ObjectReference {
 		case uid = "uid"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.apiVersion = try container.decodeIfPresent(String.self, forKey: .apiVersion)
+		self.kind = try container.decodeIfPresent(String.self, forKey: .kind)
+		self.fieldPath = try container.decodeIfPresent(String.self, forKey: .fieldPath)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
+		self.resourceVersion = try container.decodeIfPresent(String.self, forKey: .resourceVersion)
+		self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.fieldPath, forKey: .fieldPath)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(self.resourceVersion, forKey: .resourceVersion)
+		try container.encode(self.uid, forKey: .uid)
+	}
+
 }
 

@@ -60,5 +60,18 @@ extension authorization.v1beta1.SelfSubjectAccessReviewSpec {
 		case resourceAttributes = "resourceAttributes"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.nonResourceAttributes = try container.decodeIfPresent(authorization.v1beta1.NonResourceAttributes.self, forKey: .nonResourceAttributes)
+		self.resourceAttributes = try container.decodeIfPresent(authorization.v1beta1.ResourceAttributes.self, forKey: .resourceAttributes)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.nonResourceAttributes, forKey: .nonResourceAttributes)
+		try container.encode(self.resourceAttributes, forKey: .resourceAttributes)
+	}
+
 }
 

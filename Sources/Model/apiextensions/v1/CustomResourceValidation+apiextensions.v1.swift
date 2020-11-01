@@ -60,6 +60,7 @@ extension apiextensions.v1.CustomResourceValidation {
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
+
 		try container.encode(self.openAPIV3Schema, forKey: .openAPIV3Schema)
 	}
 

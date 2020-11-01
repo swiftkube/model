@@ -67,5 +67,20 @@ extension flowcontrol.v1alpha1.PolicyRulesWithSubjects {
 		case subjects = "subjects"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.nonResourceRules = try container.decodeIfPresent([flowcontrol.v1alpha1.NonResourcePolicyRule].self, forKey: .nonResourceRules)
+		self.resourceRules = try container.decodeIfPresent([flowcontrol.v1alpha1.ResourcePolicyRule].self, forKey: .resourceRules)
+		self.subjects = try container.decode([flowcontrol.v1alpha1.Subject].self, forKey: .subjects)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.nonResourceRules, forKey: .nonResourceRules)
+		try container.encode(self.resourceRules, forKey: .resourceRules)
+		try container.encode(self.subjects, forKey: .subjects)
+	}
+
 }
 

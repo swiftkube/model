@@ -60,5 +60,18 @@ extension storage.v1alpha1.VolumeAttachmentSource {
 		case persistentVolumeName = "persistentVolumeName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.inlineVolumeSpec = try container.decodeIfPresent(core.v1.PersistentVolumeSpec.self, forKey: .inlineVolumeSpec)
+		self.persistentVolumeName = try container.decodeIfPresent(String.self, forKey: .persistentVolumeName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.inlineVolumeSpec, forKey: .inlineVolumeSpec)
+		try container.encode(self.persistentVolumeName, forKey: .persistentVolumeName)
+	}
+
 }
 

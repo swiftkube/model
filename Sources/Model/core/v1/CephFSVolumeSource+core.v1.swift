@@ -88,5 +88,26 @@ extension core.v1.CephFSVolumeSource {
 		case user = "user"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.monitors = try container.decode([String].self, forKey: .monitors)
+		self.path = try container.decodeIfPresent(String.self, forKey: .path)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretFile = try container.decodeIfPresent(String.self, forKey: .secretFile)
+		self.secretRef = try container.decodeIfPresent(core.v1.LocalObjectReference.self, forKey: .secretRef)
+		self.user = try container.decodeIfPresent(String.self, forKey: .user)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.monitors, forKey: .monitors)
+		try container.encode(self.path, forKey: .path)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretFile, forKey: .secretFile)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.user, forKey: .user)
+	}
+
 }
 

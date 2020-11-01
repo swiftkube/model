@@ -74,6 +74,21 @@ extension coordination.v1beta1.LeaseList {
 		case items = "items"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
+		self.items = try container.decode([coordination.v1beta1.Lease].self, forKey: .items)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.items, forKey: .items)
+	}
+
 }
 
 ///

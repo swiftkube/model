@@ -67,5 +67,20 @@ extension core.v1.PodDNSConfig {
 		case searches = "searches"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.nameservers = try container.decodeIfPresent([String].self, forKey: .nameservers)
+		self.options = try container.decodeIfPresent([core.v1.PodDNSConfigOption].self, forKey: .options)
+		self.searches = try container.decodeIfPresent([String].self, forKey: .searches)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.nameservers, forKey: .nameservers)
+		try container.encode(self.options, forKey: .options)
+		try container.encode(self.searches, forKey: .searches)
+	}
+
 }
 

@@ -88,5 +88,26 @@ extension core.v1.LimitRangeItem {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.`default` = try container.decodeIfPresent([String: Quantity].self, forKey: .`default`)
+		self.defaultRequest = try container.decodeIfPresent([String: Quantity].self, forKey: .defaultRequest)
+		self.max = try container.decodeIfPresent([String: Quantity].self, forKey: .max)
+		self.maxLimitRequestRatio = try container.decodeIfPresent([String: Quantity].self, forKey: .maxLimitRequestRatio)
+		self.min = try container.decodeIfPresent([String: Quantity].self, forKey: .min)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.`default`, forKey: .`default`)
+		try container.encode(self.defaultRequest, forKey: .defaultRequest)
+		try container.encode(self.max, forKey: .max)
+		try container.encode(self.maxLimitRequestRatio, forKey: .maxLimitRequestRatio)
+		try container.encode(self.min, forKey: .min)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

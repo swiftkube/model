@@ -60,5 +60,18 @@ extension core.v1.TCPSocketAction {
 		case port = "port"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.host = try container.decodeIfPresent(String.self, forKey: .host)
+		self.port = try container.decode(IntOrString.self, forKey: .port)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.host, forKey: .host)
+		try container.encode(self.port, forKey: .port)
+	}
+
 }
 

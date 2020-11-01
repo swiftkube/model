@@ -81,5 +81,22 @@ extension core.v1.PersistentVolumeClaim {
 		case status = "status"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.spec = try container.decodeIfPresent(core.v1.PersistentVolumeClaimSpec.self, forKey: .spec)
+		self.status = try container.decodeIfPresent(core.v1.PersistentVolumeClaimStatus.self, forKey: .status)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.spec, forKey: .spec)
+		try container.encode(self.status, forKey: .status)
+	}
+
 }
 

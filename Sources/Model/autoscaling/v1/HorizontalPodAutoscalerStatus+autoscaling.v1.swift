@@ -81,5 +81,24 @@ extension autoscaling.v1.HorizontalPodAutoscalerStatus {
 		case observedGeneration = "observedGeneration"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.currentCPUUtilizationPercentage = try container.decodeIfPresent(Int32.self, forKey: .currentCPUUtilizationPercentage)
+		self.currentReplicas = try container.decode(Int32.self, forKey: .currentReplicas)
+		self.desiredReplicas = try container.decode(Int32.self, forKey: .desiredReplicas)
+		self.lastScaleTime = try container.decodeIfPresent(String.self, forKey: .lastScaleTime)
+		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.currentCPUUtilizationPercentage, forKey: .currentCPUUtilizationPercentage)
+		try container.encode(self.currentReplicas, forKey: .currentReplicas)
+		try container.encode(self.desiredReplicas, forKey: .desiredReplicas)
+		try container.encode(self.lastScaleTime, forKey: .lastScaleTime)
+		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+	}
+
 }
 

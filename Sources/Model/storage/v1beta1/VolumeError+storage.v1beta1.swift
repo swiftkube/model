@@ -60,5 +60,18 @@ extension storage.v1beta1.VolumeError {
 		case time = "time"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.time = try container.decodeIfPresent(String.self, forKey: .time)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.time, forKey: .time)
+	}
+
 }
 

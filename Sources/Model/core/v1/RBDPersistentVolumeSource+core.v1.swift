@@ -102,5 +102,30 @@ extension core.v1.RBDPersistentVolumeSource {
 		case user = "user"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.image = try container.decode(String.self, forKey: .image)
+		self.keyring = try container.decodeIfPresent(String.self, forKey: .keyring)
+		self.monitors = try container.decode([String].self, forKey: .monitors)
+		self.pool = try container.decodeIfPresent(String.self, forKey: .pool)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .secretRef)
+		self.user = try container.decodeIfPresent(String.self, forKey: .user)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.image, forKey: .image)
+		try container.encode(self.keyring, forKey: .keyring)
+		try container.encode(self.monitors, forKey: .monitors)
+		try container.encode(self.pool, forKey: .pool)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.user, forKey: .user)
+	}
+
 }
 

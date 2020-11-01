@@ -116,5 +116,34 @@ extension core.v1.SecurityContext {
 		case windowsOptions = "windowsOptions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.allowPrivilegeEscalation = try container.decodeIfPresent(Bool.self, forKey: .allowPrivilegeEscalation)
+		self.capabilities = try container.decodeIfPresent(core.v1.Capabilities.self, forKey: .capabilities)
+		self.privileged = try container.decodeIfPresent(Bool.self, forKey: .privileged)
+		self.procMount = try container.decodeIfPresent(String.self, forKey: .procMount)
+		self.readOnlyRootFilesystem = try container.decodeIfPresent(Bool.self, forKey: .readOnlyRootFilesystem)
+		self.runAsGroup = try container.decodeIfPresent(Int64.self, forKey: .runAsGroup)
+		self.runAsNonRoot = try container.decodeIfPresent(Bool.self, forKey: .runAsNonRoot)
+		self.runAsUser = try container.decodeIfPresent(Int64.self, forKey: .runAsUser)
+		self.seLinuxOptions = try container.decodeIfPresent(core.v1.SELinuxOptions.self, forKey: .seLinuxOptions)
+		self.windowsOptions = try container.decodeIfPresent(core.v1.WindowsSecurityContextOptions.self, forKey: .windowsOptions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
+		try container.encode(self.capabilities, forKey: .capabilities)
+		try container.encode(self.privileged, forKey: .privileged)
+		try container.encode(self.procMount, forKey: .procMount)
+		try container.encode(self.readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
+		try container.encode(self.runAsGroup, forKey: .runAsGroup)
+		try container.encode(self.runAsNonRoot, forKey: .runAsNonRoot)
+		try container.encode(self.runAsUser, forKey: .runAsUser)
+		try container.encode(self.seLinuxOptions, forKey: .seLinuxOptions)
+		try container.encode(self.windowsOptions, forKey: .windowsOptions)
+	}
+
 }
 

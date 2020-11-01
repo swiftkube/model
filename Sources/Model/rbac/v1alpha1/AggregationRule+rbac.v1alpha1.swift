@@ -53,5 +53,16 @@ extension rbac.v1alpha1.AggregationRule {
 		case clusterRoleSelectors = "clusterRoleSelectors"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.clusterRoleSelectors = try container.decodeIfPresent([meta.v1.LabelSelector].self, forKey: .clusterRoleSelectors)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.clusterRoleSelectors, forKey: .clusterRoleSelectors)
+	}
+
 }
 

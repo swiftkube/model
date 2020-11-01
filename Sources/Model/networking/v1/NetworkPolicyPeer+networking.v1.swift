@@ -71,5 +71,20 @@ extension networking.v1.NetworkPolicyPeer {
 		case podSelector = "podSelector"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.ipBlock = try container.decodeIfPresent(networking.v1.IPBlock.self, forKey: .ipBlock)
+		self.namespaceSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .namespaceSelector)
+		self.podSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .podSelector)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.ipBlock, forKey: .ipBlock)
+		try container.encode(self.namespaceSelector, forKey: .namespaceSelector)
+		try container.encode(self.podSelector, forKey: .podSelector)
+	}
+
 }
 

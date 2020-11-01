@@ -102,5 +102,30 @@ extension batch.v1.JobSpec {
 		case ttlSecondsAfterFinished = "ttlSecondsAfterFinished"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.activeDeadlineSeconds = try container.decodeIfPresent(Int64.self, forKey: .activeDeadlineSeconds)
+		self.backoffLimit = try container.decodeIfPresent(Int32.self, forKey: .backoffLimit)
+		self.completions = try container.decodeIfPresent(Int32.self, forKey: .completions)
+		self.manualSelector = try container.decodeIfPresent(Bool.self, forKey: .manualSelector)
+		self.parallelism = try container.decodeIfPresent(Int32.self, forKey: .parallelism)
+		self.selector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .selector)
+		self.template = try container.decode(core.v1.PodTemplateSpec.self, forKey: .template)
+		self.ttlSecondsAfterFinished = try container.decodeIfPresent(Int32.self, forKey: .ttlSecondsAfterFinished)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.activeDeadlineSeconds, forKey: .activeDeadlineSeconds)
+		try container.encode(self.backoffLimit, forKey: .backoffLimit)
+		try container.encode(self.completions, forKey: .completions)
+		try container.encode(self.manualSelector, forKey: .manualSelector)
+		try container.encode(self.parallelism, forKey: .parallelism)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.template, forKey: .template)
+		try container.encode(self.ttlSecondsAfterFinished, forKey: .ttlSecondsAfterFinished)
+	}
+
 }
 

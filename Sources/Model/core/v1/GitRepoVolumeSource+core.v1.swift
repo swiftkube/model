@@ -69,5 +69,20 @@ extension core.v1.GitRepoVolumeSource {
 		case revision = "revision"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.directory = try container.decodeIfPresent(String.self, forKey: .directory)
+		self.repository = try container.decode(String.self, forKey: .repository)
+		self.revision = try container.decodeIfPresent(String.self, forKey: .revision)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.directory, forKey: .directory)
+		try container.encode(self.repository, forKey: .repository)
+		try container.encode(self.revision, forKey: .revision)
+	}
+
 }
 

@@ -165,5 +165,36 @@ extension admissionregistration.v1beta1.MutatingWebhook {
 		case timeoutSeconds = "timeoutSeconds"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.admissionReviewVersions = try container.decodeIfPresent([String].self, forKey: .admissionReviewVersions)
+		self.clientConfig = try container.decode(admissionregistration.v1beta1.WebhookClientConfig.self, forKey: .clientConfig)
+		self.failurePolicy = try container.decodeIfPresent(String.self, forKey: .failurePolicy)
+		self.matchPolicy = try container.decodeIfPresent(String.self, forKey: .matchPolicy)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.namespaceSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .namespaceSelector)
+		self.objectSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .objectSelector)
+		self.reinvocationPolicy = try container.decodeIfPresent(String.self, forKey: .reinvocationPolicy)
+		self.rules = try container.decodeIfPresent([admissionregistration.v1beta1.RuleWithOperations].self, forKey: .rules)
+		self.sideEffects = try container.decodeIfPresent(String.self, forKey: .sideEffects)
+		self.timeoutSeconds = try container.decodeIfPresent(Int32.self, forKey: .timeoutSeconds)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.admissionReviewVersions, forKey: .admissionReviewVersions)
+		try container.encode(self.clientConfig, forKey: .clientConfig)
+		try container.encode(self.failurePolicy, forKey: .failurePolicy)
+		try container.encode(self.matchPolicy, forKey: .matchPolicy)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespaceSelector, forKey: .namespaceSelector)
+		try container.encode(self.objectSelector, forKey: .objectSelector)
+		try container.encode(self.reinvocationPolicy, forKey: .reinvocationPolicy)
+		try container.encode(self.rules, forKey: .rules)
+		try container.encode(self.sideEffects, forKey: .sideEffects)
+		try container.encode(self.timeoutSeconds, forKey: .timeoutSeconds)
+	}
+
 }
 

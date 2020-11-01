@@ -74,5 +74,22 @@ extension autoscaling.v2beta1.ExternalMetricSource {
 		case targetValue = "targetValue"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metricName = try container.decode(String.self, forKey: .metricName)
+		self.metricSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .metricSelector)
+		self.targetAverageValue = try container.decodeIfPresent(Quantity.self, forKey: .targetAverageValue)
+		self.targetValue = try container.decodeIfPresent(Quantity.self, forKey: .targetValue)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.metricName, forKey: .metricName)
+		try container.encode(self.metricSelector, forKey: .metricSelector)
+		try container.encode(self.targetAverageValue, forKey: .targetAverageValue)
+		try container.encode(self.targetValue, forKey: .targetValue)
+	}
+
 }
 

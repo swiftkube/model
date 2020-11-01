@@ -60,5 +60,18 @@ extension apiextensions.v1.ExternalDocumentation {
 		case url = "url"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.description = try container.decodeIfPresent(String.self, forKey: .description)
+		self.url = try container.decodeIfPresent(String.self, forKey: .url)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.description, forKey: .description)
+		try container.encode(self.url, forKey: .url)
+	}
+
 }
 

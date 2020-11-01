@@ -109,5 +109,32 @@ extension core.v1.CSIPersistentVolumeSource {
 		case volumeHandle = "volumeHandle"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.controllerExpandSecretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .controllerExpandSecretRef)
+		self.controllerPublishSecretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .controllerPublishSecretRef)
+		self.driver = try container.decode(String.self, forKey: .driver)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.nodePublishSecretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .nodePublishSecretRef)
+		self.nodeStageSecretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .nodeStageSecretRef)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.volumeAttributes = try container.decodeIfPresent([String: String].self, forKey: .volumeAttributes)
+		self.volumeHandle = try container.decode(String.self, forKey: .volumeHandle)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.controllerExpandSecretRef, forKey: .controllerExpandSecretRef)
+		try container.encode(self.controllerPublishSecretRef, forKey: .controllerPublishSecretRef)
+		try container.encode(self.driver, forKey: .driver)
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.nodePublishSecretRef, forKey: .nodePublishSecretRef)
+		try container.encode(self.nodeStageSecretRef, forKey: .nodeStageSecretRef)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.volumeAttributes, forKey: .volumeAttributes)
+		try container.encode(self.volumeHandle, forKey: .volumeHandle)
+	}
+
 }
 

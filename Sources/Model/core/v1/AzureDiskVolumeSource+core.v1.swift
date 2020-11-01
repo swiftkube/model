@@ -88,5 +88,26 @@ extension core.v1.AzureDiskVolumeSource {
 		case readOnly = "readOnly"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.kind = try container.decodeIfPresent(String.self, forKey: .kind)
+		self.cachingMode = try container.decodeIfPresent(String.self, forKey: .cachingMode)
+		self.diskName = try container.decode(String.self, forKey: .diskName)
+		self.diskURI = try container.decode(String.self, forKey: .diskURI)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.cachingMode, forKey: .cachingMode)
+		try container.encode(self.diskName, forKey: .diskName)
+		try container.encode(self.diskURI, forKey: .diskURI)
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.readOnly, forKey: .readOnly)
+	}
+
 }
 

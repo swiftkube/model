@@ -98,5 +98,28 @@ extension meta.v1.Status {
 		case status = "status"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
+		self.code = try container.decodeIfPresent(Int32.self, forKey: .code)
+		self.details = try container.decodeIfPresent(meta.v1.StatusDetails.self, forKey: .details)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.status = try container.decodeIfPresent(String.self, forKey: .status)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.code, forKey: .code)
+		try container.encode(self.details, forKey: .details)
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.status, forKey: .status)
+	}
+
 }
 

@@ -60,5 +60,18 @@ extension networking.v1beta1.IngressClassSpec {
 		case parameters = "parameters"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.controller = try container.decodeIfPresent(String.self, forKey: .controller)
+		self.parameters = try container.decodeIfPresent(core.v1.TypedLocalObjectReference.self, forKey: .parameters)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.controller, forKey: .controller)
+		try container.encode(self.parameters, forKey: .parameters)
+	}
+
 }
 

@@ -74,5 +74,22 @@ extension storage.v1.CSINodeDriver {
 		case topologyKeys = "topologyKeys"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.allocatable = try container.decodeIfPresent(storage.v1.VolumeNodeResources.self, forKey: .allocatable)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.nodeID = try container.decode(String.self, forKey: .nodeID)
+		self.topologyKeys = try container.decodeIfPresent([String].self, forKey: .topologyKeys)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.allocatable, forKey: .allocatable)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.nodeID, forKey: .nodeID)
+		try container.encode(self.topologyKeys, forKey: .topologyKeys)
+	}
+
 }
 

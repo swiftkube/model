@@ -60,5 +60,18 @@ extension batch.v1beta1.CronJobStatus {
 		case lastScheduleTime = "lastScheduleTime"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.active = try container.decodeIfPresent([core.v1.ObjectReference].self, forKey: .active)
+		self.lastScheduleTime = try container.decodeIfPresent(String.self, forKey: .lastScheduleTime)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.active, forKey: .active)
+		try container.encode(self.lastScheduleTime, forKey: .lastScheduleTime)
+	}
+
 }
 

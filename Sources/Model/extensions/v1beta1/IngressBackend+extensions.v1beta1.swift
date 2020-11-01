@@ -67,5 +67,20 @@ extension extensions.v1beta1.IngressBackend {
 		case servicePort = "servicePort"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.resource = try container.decodeIfPresent(core.v1.TypedLocalObjectReference.self, forKey: .resource)
+		self.serviceName = try container.decodeIfPresent(String.self, forKey: .serviceName)
+		self.servicePort = try container.decodeIfPresent(IntOrString.self, forKey: .servicePort)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.resource, forKey: .resource)
+		try container.encode(self.serviceName, forKey: .serviceName)
+		try container.encode(self.servicePort, forKey: .servicePort)
+	}
+
 }
 

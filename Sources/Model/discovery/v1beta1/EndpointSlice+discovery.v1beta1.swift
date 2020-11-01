@@ -88,5 +88,24 @@ extension discovery.v1beta1.EndpointSlice {
 		case ports = "ports"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.addressType = try container.decode(String.self, forKey: .addressType)
+		self.endpoints = try container.decode([discovery.v1beta1.Endpoint].self, forKey: .endpoints)
+		self.ports = try container.decodeIfPresent([discovery.v1beta1.EndpointPort].self, forKey: .ports)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.addressType, forKey: .addressType)
+		try container.encode(self.endpoints, forKey: .endpoints)
+		try container.encode(self.ports, forKey: .ports)
+	}
+
 }
 

@@ -53,5 +53,16 @@ extension core.v1.NodeSelector {
 		case nodeSelectorTerms = "nodeSelectorTerms"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.nodeSelectorTerms = try container.decode([core.v1.NodeSelectorTerm].self, forKey: .nodeSelectorTerms)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.nodeSelectorTerms, forKey: .nodeSelectorTerms)
+	}
+
 }
 

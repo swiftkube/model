@@ -70,5 +70,20 @@ extension meta.v1.APIResourceList {
 		case resources = "resources"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.groupVersion = try container.decode(String.self, forKey: .groupVersion)
+		self.resources = try container.decode([meta.v1.APIResource].self, forKey: .resources)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.groupVersion, forKey: .groupVersion)
+		try container.encode(self.resources, forKey: .resources)
+	}
+
 }
 

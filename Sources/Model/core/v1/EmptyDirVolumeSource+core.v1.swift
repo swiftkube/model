@@ -60,5 +60,18 @@ extension core.v1.EmptyDirVolumeSource {
 		case sizeLimit = "sizeLimit"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.medium = try container.decodeIfPresent(String.self, forKey: .medium)
+		self.sizeLimit = try container.decodeIfPresent(Quantity.self, forKey: .sizeLimit)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.medium, forKey: .medium)
+		try container.encode(self.sizeLimit, forKey: .sizeLimit)
+	}
+
 }
 

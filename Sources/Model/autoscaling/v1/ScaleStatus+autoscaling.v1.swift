@@ -60,5 +60,18 @@ extension autoscaling.v1.ScaleStatus {
 		case selector = "selector"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.replicas = try container.decode(Int32.self, forKey: .replicas)
+		self.selector = try container.decodeIfPresent(String.self, forKey: .selector)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(self.selector, forKey: .selector)
+	}
+
 }
 

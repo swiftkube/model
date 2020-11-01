@@ -53,5 +53,16 @@ extension apps.v1.RollingUpdateStatefulSetStrategy {
 		case partition = "partition"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.partition = try container.decodeIfPresent(Int32.self, forKey: .partition)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.partition, forKey: .partition)
+	}
+
 }
 

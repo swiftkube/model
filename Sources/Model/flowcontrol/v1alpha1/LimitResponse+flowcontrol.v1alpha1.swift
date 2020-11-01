@@ -60,5 +60,18 @@ extension flowcontrol.v1alpha1.LimitResponse {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.queuing = try container.decodeIfPresent(flowcontrol.v1alpha1.QueuingConfiguration.self, forKey: .queuing)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.queuing, forKey: .queuing)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

@@ -81,5 +81,24 @@ extension core.v1.FlexPersistentVolumeSource {
 		case secretRef = "secretRef"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.driver = try container.decode(String.self, forKey: .driver)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.options = try container.decodeIfPresent([String: String].self, forKey: .options)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .secretRef)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.driver, forKey: .driver)
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.options, forKey: .options)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+	}
+
 }
 

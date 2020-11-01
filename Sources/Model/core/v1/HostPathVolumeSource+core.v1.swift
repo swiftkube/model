@@ -60,5 +60,18 @@ extension core.v1.HostPathVolumeSource {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.path = try container.decode(String.self, forKey: .path)
+		self.type = try container.decodeIfPresent(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.path, forKey: .path)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

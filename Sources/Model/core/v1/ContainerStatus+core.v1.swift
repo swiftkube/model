@@ -109,5 +109,32 @@ extension core.v1.ContainerStatus {
 		case state = "state"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.containerID = try container.decodeIfPresent(String.self, forKey: .containerID)
+		self.image = try container.decode(String.self, forKey: .image)
+		self.imageID = try container.decode(String.self, forKey: .imageID)
+		self.lastState = try container.decodeIfPresent(core.v1.ContainerState.self, forKey: .lastState)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.ready = try container.decode(Bool.self, forKey: .ready)
+		self.restartCount = try container.decode(Int32.self, forKey: .restartCount)
+		self.started = try container.decodeIfPresent(Bool.self, forKey: .started)
+		self.state = try container.decodeIfPresent(core.v1.ContainerState.self, forKey: .state)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.containerID, forKey: .containerID)
+		try container.encode(self.image, forKey: .image)
+		try container.encode(self.imageID, forKey: .imageID)
+		try container.encode(self.lastState, forKey: .lastState)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.ready, forKey: .ready)
+		try container.encode(self.restartCount, forKey: .restartCount)
+		try container.encode(self.started, forKey: .started)
+		try container.encode(self.state, forKey: .state)
+	}
+
 }
 

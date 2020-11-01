@@ -67,5 +67,20 @@ extension flowcontrol.v1alpha1.QueuingConfiguration {
 		case queues = "queues"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.handSize = try container.decodeIfPresent(Int32.self, forKey: .handSize)
+		self.queueLengthLimit = try container.decodeIfPresent(Int32.self, forKey: .queueLengthLimit)
+		self.queues = try container.decodeIfPresent(Int32.self, forKey: .queues)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.handSize, forKey: .handSize)
+		try container.encode(self.queueLengthLimit, forKey: .queueLengthLimit)
+		try container.encode(self.queues, forKey: .queues)
+	}
+
 }
 

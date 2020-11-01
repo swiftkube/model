@@ -88,5 +88,26 @@ extension core.v1.VolumeMount {
 		case subPathExpr = "subPathExpr"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.mountPath = try container.decode(String.self, forKey: .mountPath)
+		self.mountPropagation = try container.decodeIfPresent(String.self, forKey: .mountPropagation)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.subPath = try container.decodeIfPresent(String.self, forKey: .subPath)
+		self.subPathExpr = try container.decodeIfPresent(String.self, forKey: .subPathExpr)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.mountPath, forKey: .mountPath)
+		try container.encode(self.mountPropagation, forKey: .mountPropagation)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.subPath, forKey: .subPath)
+		try container.encode(self.subPathExpr, forKey: .subPathExpr)
+	}
+
 }
 

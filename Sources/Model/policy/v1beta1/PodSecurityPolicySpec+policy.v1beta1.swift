@@ -218,5 +218,62 @@ extension policy.v1beta1.PodSecurityPolicySpec {
 		case volumes = "volumes"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.allowPrivilegeEscalation = try container.decodeIfPresent(Bool.self, forKey: .allowPrivilegeEscalation)
+		self.allowedCSIDrivers = try container.decodeIfPresent([policy.v1beta1.AllowedCSIDriver].self, forKey: .allowedCSIDrivers)
+		self.allowedCapabilities = try container.decodeIfPresent([String].self, forKey: .allowedCapabilities)
+		self.allowedFlexVolumes = try container.decodeIfPresent([policy.v1beta1.AllowedFlexVolume].self, forKey: .allowedFlexVolumes)
+		self.allowedHostPaths = try container.decodeIfPresent([policy.v1beta1.AllowedHostPath].self, forKey: .allowedHostPaths)
+		self.allowedProcMountTypes = try container.decodeIfPresent([String].self, forKey: .allowedProcMountTypes)
+		self.allowedUnsafeSysctls = try container.decodeIfPresent([String].self, forKey: .allowedUnsafeSysctls)
+		self.defaultAddCapabilities = try container.decodeIfPresent([String].self, forKey: .defaultAddCapabilities)
+		self.defaultAllowPrivilegeEscalation = try container.decodeIfPresent(Bool.self, forKey: .defaultAllowPrivilegeEscalation)
+		self.forbiddenSysctls = try container.decodeIfPresent([String].self, forKey: .forbiddenSysctls)
+		self.fsGroup = try container.decode(policy.v1beta1.FSGroupStrategyOptions.self, forKey: .fsGroup)
+		self.hostIPC = try container.decodeIfPresent(Bool.self, forKey: .hostIPC)
+		self.hostNetwork = try container.decodeIfPresent(Bool.self, forKey: .hostNetwork)
+		self.hostPID = try container.decodeIfPresent(Bool.self, forKey: .hostPID)
+		self.hostPorts = try container.decodeIfPresent([policy.v1beta1.HostPortRange].self, forKey: .hostPorts)
+		self.privileged = try container.decodeIfPresent(Bool.self, forKey: .privileged)
+		self.readOnlyRootFilesystem = try container.decodeIfPresent(Bool.self, forKey: .readOnlyRootFilesystem)
+		self.requiredDropCapabilities = try container.decodeIfPresent([String].self, forKey: .requiredDropCapabilities)
+		self.runAsGroup = try container.decodeIfPresent(policy.v1beta1.RunAsGroupStrategyOptions.self, forKey: .runAsGroup)
+		self.runAsUser = try container.decode(policy.v1beta1.RunAsUserStrategyOptions.self, forKey: .runAsUser)
+		self.runtimeClass = try container.decodeIfPresent(policy.v1beta1.RuntimeClassStrategyOptions.self, forKey: .runtimeClass)
+		self.seLinux = try container.decode(policy.v1beta1.SELinuxStrategyOptions.self, forKey: .seLinux)
+		self.supplementalGroups = try container.decode(policy.v1beta1.SupplementalGroupsStrategyOptions.self, forKey: .supplementalGroups)
+		self.volumes = try container.decodeIfPresent([String].self, forKey: .volumes)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
+		try container.encode(self.allowedCSIDrivers, forKey: .allowedCSIDrivers)
+		try container.encode(self.allowedCapabilities, forKey: .allowedCapabilities)
+		try container.encode(self.allowedFlexVolumes, forKey: .allowedFlexVolumes)
+		try container.encode(self.allowedHostPaths, forKey: .allowedHostPaths)
+		try container.encode(self.allowedProcMountTypes, forKey: .allowedProcMountTypes)
+		try container.encode(self.allowedUnsafeSysctls, forKey: .allowedUnsafeSysctls)
+		try container.encode(self.defaultAddCapabilities, forKey: .defaultAddCapabilities)
+		try container.encode(self.defaultAllowPrivilegeEscalation, forKey: .defaultAllowPrivilegeEscalation)
+		try container.encode(self.forbiddenSysctls, forKey: .forbiddenSysctls)
+		try container.encode(self.fsGroup, forKey: .fsGroup)
+		try container.encode(self.hostIPC, forKey: .hostIPC)
+		try container.encode(self.hostNetwork, forKey: .hostNetwork)
+		try container.encode(self.hostPID, forKey: .hostPID)
+		try container.encode(self.hostPorts, forKey: .hostPorts)
+		try container.encode(self.privileged, forKey: .privileged)
+		try container.encode(self.readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
+		try container.encode(self.requiredDropCapabilities, forKey: .requiredDropCapabilities)
+		try container.encode(self.runAsGroup, forKey: .runAsGroup)
+		try container.encode(self.runAsUser, forKey: .runAsUser)
+		try container.encode(self.runtimeClass, forKey: .runtimeClass)
+		try container.encode(self.seLinux, forKey: .seLinux)
+		try container.encode(self.supplementalGroups, forKey: .supplementalGroups)
+		try container.encode(self.volumes, forKey: .volumes)
+	}
+
 }
 

@@ -74,5 +74,22 @@ extension flowcontrol.v1alpha1.Subject {
 		case user = "user"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.kind = try container.decode(String.self, forKey: .kind)
+		self.group = try container.decodeIfPresent(flowcontrol.v1alpha1.GroupSubject.self, forKey: .group)
+		self.serviceAccount = try container.decodeIfPresent(flowcontrol.v1alpha1.ServiceAccountSubject.self, forKey: .serviceAccount)
+		self.user = try container.decodeIfPresent(flowcontrol.v1alpha1.UserSubject.self, forKey: .user)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.serviceAccount, forKey: .serviceAccount)
+		try container.encode(self.user, forKey: .user)
+	}
+
 }
 

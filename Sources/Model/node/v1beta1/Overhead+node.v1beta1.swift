@@ -53,5 +53,16 @@ extension node.v1beta1.Overhead {
 		case podFixed = "podFixed"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.podFixed = try container.decodeIfPresent([String: Quantity].self, forKey: .podFixed)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.podFixed, forKey: .podFixed)
+	}
+
 }
 

@@ -72,6 +72,7 @@ extension meta.v1.WatchEvent {
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
+
 		try container.encode(self.object, forKey: .object)
 		try container.encode(self.type, forKey: .type)
 	}

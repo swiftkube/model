@@ -70,5 +70,20 @@ extension storage.v1.CSIDriverSpec {
 		case volumeLifecycleModes = "volumeLifecycleModes"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.attachRequired = try container.decodeIfPresent(Bool.self, forKey: .attachRequired)
+		self.podInfoOnMount = try container.decodeIfPresent(Bool.self, forKey: .podInfoOnMount)
+		self.volumeLifecycleModes = try container.decodeIfPresent([String].self, forKey: .volumeLifecycleModes)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.attachRequired, forKey: .attachRequired)
+		try container.encode(self.podInfoOnMount, forKey: .podInfoOnMount)
+		try container.encode(self.volumeLifecycleModes, forKey: .volumeLifecycleModes)
+	}
+
 }
 

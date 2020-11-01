@@ -118,5 +118,32 @@ extension storage.v1.StorageClass {
 		case volumeBindingMode = "volumeBindingMode"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.allowVolumeExpansion = try container.decodeIfPresent(Bool.self, forKey: .allowVolumeExpansion)
+		self.allowedTopologies = try container.decodeIfPresent([core.v1.TopologySelectorTerm].self, forKey: .allowedTopologies)
+		self.mountOptions = try container.decodeIfPresent([String].self, forKey: .mountOptions)
+		self.parameters = try container.decodeIfPresent([String: String].self, forKey: .parameters)
+		self.provisioner = try container.decode(String.self, forKey: .provisioner)
+		self.reclaimPolicy = try container.decodeIfPresent(String.self, forKey: .reclaimPolicy)
+		self.volumeBindingMode = try container.decodeIfPresent(String.self, forKey: .volumeBindingMode)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.allowVolumeExpansion, forKey: .allowVolumeExpansion)
+		try container.encode(self.allowedTopologies, forKey: .allowedTopologies)
+		try container.encode(self.mountOptions, forKey: .mountOptions)
+		try container.encode(self.parameters, forKey: .parameters)
+		try container.encode(self.provisioner, forKey: .provisioner)
+		try container.encode(self.reclaimPolicy, forKey: .reclaimPolicy)
+		try container.encode(self.volumeBindingMode, forKey: .volumeBindingMode)
+	}
+
 }
 

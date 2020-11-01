@@ -81,5 +81,24 @@ extension coordination.v1beta1.LeaseSpec {
 		case renewTime = "renewTime"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.acquireTime = try container.decodeIfPresent(String.self, forKey: .acquireTime)
+		self.holderIdentity = try container.decodeIfPresent(String.self, forKey: .holderIdentity)
+		self.leaseDurationSeconds = try container.decodeIfPresent(Int32.self, forKey: .leaseDurationSeconds)
+		self.leaseTransitions = try container.decodeIfPresent(Int32.self, forKey: .leaseTransitions)
+		self.renewTime = try container.decodeIfPresent(String.self, forKey: .renewTime)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.acquireTime, forKey: .acquireTime)
+		try container.encode(self.holderIdentity, forKey: .holderIdentity)
+		try container.encode(self.leaseDurationSeconds, forKey: .leaseDurationSeconds)
+		try container.encode(self.leaseTransitions, forKey: .leaseTransitions)
+		try container.encode(self.renewTime, forKey: .renewTime)
+	}
+
 }
 

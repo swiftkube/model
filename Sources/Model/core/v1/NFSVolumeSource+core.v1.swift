@@ -67,5 +67,20 @@ extension core.v1.NFSVolumeSource {
 		case server = "server"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.path = try container.decode(String.self, forKey: .path)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.server = try container.decode(String.self, forKey: .server)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.path, forKey: .path)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.server, forKey: .server)
+	}
+
 }
 

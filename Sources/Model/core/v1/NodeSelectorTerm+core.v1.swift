@@ -60,5 +60,18 @@ extension core.v1.NodeSelectorTerm {
 		case matchFields = "matchFields"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.matchExpressions = try container.decodeIfPresent([core.v1.NodeSelectorRequirement].self, forKey: .matchExpressions)
+		self.matchFields = try container.decodeIfPresent([core.v1.NodeSelectorRequirement].self, forKey: .matchFields)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.matchExpressions, forKey: .matchExpressions)
+		try container.encode(self.matchFields, forKey: .matchFields)
+	}
+
 }
 

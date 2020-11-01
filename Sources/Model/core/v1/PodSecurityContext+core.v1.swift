@@ -113,5 +113,32 @@ extension core.v1.PodSecurityContext {
 		case windowsOptions = "windowsOptions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsGroup = try container.decodeIfPresent(Int64.self, forKey: .fsGroup)
+		self.fsGroupChangePolicy = try container.decodeIfPresent(String.self, forKey: .fsGroupChangePolicy)
+		self.runAsGroup = try container.decodeIfPresent(Int64.self, forKey: .runAsGroup)
+		self.runAsNonRoot = try container.decodeIfPresent(Bool.self, forKey: .runAsNonRoot)
+		self.runAsUser = try container.decodeIfPresent(Int64.self, forKey: .runAsUser)
+		self.seLinuxOptions = try container.decodeIfPresent(core.v1.SELinuxOptions.self, forKey: .seLinuxOptions)
+		self.supplementalGroups = try container.decodeIfPresent([Int64].self, forKey: .supplementalGroups)
+		self.sysctls = try container.decodeIfPresent([core.v1.Sysctl].self, forKey: .sysctls)
+		self.windowsOptions = try container.decodeIfPresent(core.v1.WindowsSecurityContextOptions.self, forKey: .windowsOptions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsGroup, forKey: .fsGroup)
+		try container.encode(self.fsGroupChangePolicy, forKey: .fsGroupChangePolicy)
+		try container.encode(self.runAsGroup, forKey: .runAsGroup)
+		try container.encode(self.runAsNonRoot, forKey: .runAsNonRoot)
+		try container.encode(self.runAsUser, forKey: .runAsUser)
+		try container.encode(self.seLinuxOptions, forKey: .seLinuxOptions)
+		try container.encode(self.supplementalGroups, forKey: .supplementalGroups)
+		try container.encode(self.sysctls, forKey: .sysctls)
+		try container.encode(self.windowsOptions, forKey: .windowsOptions)
+	}
+
 }
 

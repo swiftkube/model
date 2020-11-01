@@ -95,5 +95,28 @@ extension core.v1.ContainerStateTerminated {
 		case startedAt = "startedAt"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.containerID = try container.decodeIfPresent(String.self, forKey: .containerID)
+		self.exitCode = try container.decode(Int32.self, forKey: .exitCode)
+		self.finishedAt = try container.decodeIfPresent(String.self, forKey: .finishedAt)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.signal = try container.decodeIfPresent(Int32.self, forKey: .signal)
+		self.startedAt = try container.decodeIfPresent(String.self, forKey: .startedAt)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.containerID, forKey: .containerID)
+		try container.encode(self.exitCode, forKey: .exitCode)
+		try container.encode(self.finishedAt, forKey: .finishedAt)
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.signal, forKey: .signal)
+		try container.encode(self.startedAt, forKey: .startedAt)
+	}
+
 }
 

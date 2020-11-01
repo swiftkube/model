@@ -53,5 +53,16 @@ extension policy.v1beta1.AllowedFlexVolume {
 		case driver = "driver"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.driver = try container.decode(String.self, forKey: .driver)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.driver, forKey: .driver)
+	}
+
 }
 

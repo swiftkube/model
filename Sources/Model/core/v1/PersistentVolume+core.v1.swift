@@ -81,5 +81,22 @@ extension core.v1.PersistentVolume {
 		case status = "status"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.spec = try container.decodeIfPresent(core.v1.PersistentVolumeSpec.self, forKey: .spec)
+		self.status = try container.decodeIfPresent(core.v1.PersistentVolumeStatus.self, forKey: .status)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.spec, forKey: .spec)
+		try container.encode(self.status, forKey: .status)
+	}
+
 }
 

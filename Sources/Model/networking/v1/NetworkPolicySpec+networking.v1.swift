@@ -74,5 +74,22 @@ extension networking.v1.NetworkPolicySpec {
 		case policyTypes = "policyTypes"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.egress = try container.decodeIfPresent([networking.v1.NetworkPolicyEgressRule].self, forKey: .egress)
+		self.ingress = try container.decodeIfPresent([networking.v1.NetworkPolicyIngressRule].self, forKey: .ingress)
+		self.podSelector = try container.decode(meta.v1.LabelSelector.self, forKey: .podSelector)
+		self.policyTypes = try container.decodeIfPresent([String].self, forKey: .policyTypes)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.egress, forKey: .egress)
+		try container.encode(self.ingress, forKey: .ingress)
+		try container.encode(self.podSelector, forKey: .podSelector)
+		try container.encode(self.policyTypes, forKey: .policyTypes)
+	}
+
 }
 

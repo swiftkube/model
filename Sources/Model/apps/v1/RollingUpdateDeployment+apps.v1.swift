@@ -60,5 +60,18 @@ extension apps.v1.RollingUpdateDeployment {
 		case maxUnavailable = "maxUnavailable"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.maxSurge = try container.decodeIfPresent(IntOrString.self, forKey: .maxSurge)
+		self.maxUnavailable = try container.decodeIfPresent(IntOrString.self, forKey: .maxUnavailable)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.maxSurge, forKey: .maxSurge)
+		try container.encode(self.maxUnavailable, forKey: .maxUnavailable)
+	}
+
 }
 

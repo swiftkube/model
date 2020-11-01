@@ -100,6 +100,7 @@ extension meta.v1.ManagedFieldsEntry {
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
+
 		try container.encode(self.apiVersion, forKey: .apiVersion)
 		try container.encode(self.fieldsType, forKey: .fieldsType)
 		try container.encode(self.fieldsV1, forKey: .fieldsV1)

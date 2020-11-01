@@ -95,5 +95,28 @@ extension authorization.v1beta1.ResourceAttributes {
 		case version = "version"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.group = try container.decodeIfPresent(String.self, forKey: .group)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
+		self.resource = try container.decodeIfPresent(String.self, forKey: .resource)
+		self.subresource = try container.decodeIfPresent(String.self, forKey: .subresource)
+		self.verb = try container.decodeIfPresent(String.self, forKey: .verb)
+		self.version = try container.decodeIfPresent(String.self, forKey: .version)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(self.resource, forKey: .resource)
+		try container.encode(self.subresource, forKey: .subresource)
+		try container.encode(self.verb, forKey: .verb)
+		try container.encode(self.version, forKey: .version)
+	}
+
 }
 

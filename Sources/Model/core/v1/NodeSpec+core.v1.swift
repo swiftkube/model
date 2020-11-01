@@ -95,5 +95,28 @@ extension core.v1.NodeSpec {
 		case unschedulable = "unschedulable"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.configSource = try container.decodeIfPresent(core.v1.NodeConfigSource.self, forKey: .configSource)
+		self.externalID = try container.decodeIfPresent(String.self, forKey: .externalID)
+		self.podCIDR = try container.decodeIfPresent(String.self, forKey: .podCIDR)
+		self.podCIDRs = try container.decodeIfPresent([String].self, forKey: .podCIDRs)
+		self.providerID = try container.decodeIfPresent(String.self, forKey: .providerID)
+		self.taints = try container.decodeIfPresent([core.v1.Taint].self, forKey: .taints)
+		self.unschedulable = try container.decodeIfPresent(Bool.self, forKey: .unschedulable)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.configSource, forKey: .configSource)
+		try container.encode(self.externalID, forKey: .externalID)
+		try container.encode(self.podCIDR, forKey: .podCIDR)
+		try container.encode(self.podCIDRs, forKey: .podCIDRs)
+		try container.encode(self.providerID, forKey: .providerID)
+		try container.encode(self.taints, forKey: .taints)
+		try container.encode(self.unschedulable, forKey: .unschedulable)
+	}
+
 }
 

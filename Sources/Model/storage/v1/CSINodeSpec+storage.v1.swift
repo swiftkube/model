@@ -53,5 +53,16 @@ extension storage.v1.CSINodeSpec {
 		case drivers = "drivers"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.drivers = try container.decode([storage.v1.CSINodeDriver].self, forKey: .drivers)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.drivers, forKey: .drivers)
+	}
+
 }
 

@@ -95,5 +95,28 @@ extension apiregistration.v1beta1.APIServiceSpec {
 		case versionPriority = "versionPriority"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.caBundle = try container.decodeIfPresent(String.self, forKey: .caBundle)
+		self.group = try container.decodeIfPresent(String.self, forKey: .group)
+		self.groupPriorityMinimum = try container.decode(Int32.self, forKey: .groupPriorityMinimum)
+		self.insecureSkipTLSVerify = try container.decodeIfPresent(Bool.self, forKey: .insecureSkipTLSVerify)
+		self.service = try container.decodeIfPresent(apiregistration.v1beta1.ServiceReference.self, forKey: .service)
+		self.version = try container.decodeIfPresent(String.self, forKey: .version)
+		self.versionPriority = try container.decode(Int32.self, forKey: .versionPriority)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.caBundle, forKey: .caBundle)
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.groupPriorityMinimum, forKey: .groupPriorityMinimum)
+		try container.encode(self.insecureSkipTLSVerify, forKey: .insecureSkipTLSVerify)
+		try container.encode(self.service, forKey: .service)
+		try container.encode(self.version, forKey: .version)
+		try container.encode(self.versionPriority, forKey: .versionPriority)
+	}
+
 }
 

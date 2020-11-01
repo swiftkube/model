@@ -74,5 +74,22 @@ extension apps.v1.ReplicaSetSpec {
 		case template = "template"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.minReadySeconds = try container.decodeIfPresent(Int32.self, forKey: .minReadySeconds)
+		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
+		self.selector = try container.decode(meta.v1.LabelSelector.self, forKey: .selector)
+		self.template = try container.decodeIfPresent(core.v1.PodTemplateSpec.self, forKey: .template)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.minReadySeconds, forKey: .minReadySeconds)
+		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.template, forKey: .template)
+	}
+
 }
 

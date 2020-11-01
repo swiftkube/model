@@ -67,5 +67,20 @@ extension core.v1.PersistentVolumeStatus {
 		case reason = "reason"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.phase, forKey: .phase)
+		try container.encode(self.reason, forKey: .reason)
+	}
+
 }
 

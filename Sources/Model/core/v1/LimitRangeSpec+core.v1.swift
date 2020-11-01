@@ -53,5 +53,16 @@ extension core.v1.LimitRangeSpec {
 		case limits = "limits"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.limits = try container.decode([core.v1.LimitRangeItem].self, forKey: .limits)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.limits, forKey: .limits)
+	}
+
 }
 

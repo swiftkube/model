@@ -74,5 +74,22 @@ extension core.v1.CinderPersistentVolumeSource {
 		case volumeID = "volumeID"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .secretRef)
+		self.volumeID = try container.decode(String.self, forKey: .volumeID)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.volumeID, forKey: .volumeID)
+	}
+
 }
 

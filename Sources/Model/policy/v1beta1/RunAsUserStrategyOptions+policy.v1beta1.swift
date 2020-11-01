@@ -60,5 +60,18 @@ extension policy.v1beta1.RunAsUserStrategyOptions {
 		case rule = "rule"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.ranges = try container.decodeIfPresent([policy.v1beta1.IDRange].self, forKey: .ranges)
+		self.rule = try container.decode(String.self, forKey: .rule)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.ranges, forKey: .ranges)
+		try container.encode(self.rule, forKey: .rule)
+	}
+
 }
 

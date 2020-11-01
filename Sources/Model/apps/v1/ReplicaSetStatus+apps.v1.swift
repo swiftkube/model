@@ -88,5 +88,26 @@ extension apps.v1.ReplicaSetStatus {
 		case replicas = "replicas"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.availableReplicas = try container.decodeIfPresent(Int32.self, forKey: .availableReplicas)
+		self.conditions = try container.decodeIfPresent([apps.v1.ReplicaSetCondition].self, forKey: .conditions)
+		self.fullyLabeledReplicas = try container.decodeIfPresent(Int32.self, forKey: .fullyLabeledReplicas)
+		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
+		self.readyReplicas = try container.decodeIfPresent(Int32.self, forKey: .readyReplicas)
+		self.replicas = try container.decode(Int32.self, forKey: .replicas)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.availableReplicas, forKey: .availableReplicas)
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.fullyLabeledReplicas, forKey: .fullyLabeledReplicas)
+		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+		try container.encode(self.readyReplicas, forKey: .readyReplicas)
+		try container.encode(self.replicas, forKey: .replicas)
+	}
+
 }
 

@@ -165,5 +165,46 @@ extension events.v1beta1.Event {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.action = try container.decodeIfPresent(String.self, forKey: .action)
+		self.deprecatedCount = try container.decodeIfPresent(Int32.self, forKey: .deprecatedCount)
+		self.deprecatedFirstTimestamp = try container.decodeIfPresent(String.self, forKey: .deprecatedFirstTimestamp)
+		self.deprecatedLastTimestamp = try container.decodeIfPresent(String.self, forKey: .deprecatedLastTimestamp)
+		self.deprecatedSource = try container.decodeIfPresent(core.v1.EventSource.self, forKey: .deprecatedSource)
+		self.eventTime = try container.decode(String.self, forKey: .eventTime)
+		self.note = try container.decodeIfPresent(String.self, forKey: .note)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.regarding = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .regarding)
+		self.related = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .related)
+		self.reportingController = try container.decodeIfPresent(String.self, forKey: .reportingController)
+		self.reportingInstance = try container.decodeIfPresent(String.self, forKey: .reportingInstance)
+		self.series = try container.decodeIfPresent(events.v1beta1.EventSeries.self, forKey: .series)
+		self.type = try container.decodeIfPresent(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.action, forKey: .action)
+		try container.encode(self.deprecatedCount, forKey: .deprecatedCount)
+		try container.encode(self.deprecatedFirstTimestamp, forKey: .deprecatedFirstTimestamp)
+		try container.encode(self.deprecatedLastTimestamp, forKey: .deprecatedLastTimestamp)
+		try container.encode(self.deprecatedSource, forKey: .deprecatedSource)
+		try container.encode(self.eventTime, forKey: .eventTime)
+		try container.encode(self.note, forKey: .note)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.regarding, forKey: .regarding)
+		try container.encode(self.related, forKey: .related)
+		try container.encode(self.reportingController, forKey: .reportingController)
+		try container.encode(self.reportingInstance, forKey: .reportingInstance)
+		try container.encode(self.series, forKey: .series)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

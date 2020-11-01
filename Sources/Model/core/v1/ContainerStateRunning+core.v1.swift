@@ -53,5 +53,16 @@ extension core.v1.ContainerStateRunning {
 		case startedAt = "startedAt"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.startedAt = try container.decodeIfPresent(String.self, forKey: .startedAt)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.startedAt, forKey: .startedAt)
+	}
+
 }
 

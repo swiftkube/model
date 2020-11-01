@@ -151,5 +151,44 @@ extension core.v1.ServiceSpec {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.clusterIP = try container.decodeIfPresent(String.self, forKey: .clusterIP)
+		self.externalIPs = try container.decodeIfPresent([String].self, forKey: .externalIPs)
+		self.externalName = try container.decodeIfPresent(String.self, forKey: .externalName)
+		self.externalTrafficPolicy = try container.decodeIfPresent(String.self, forKey: .externalTrafficPolicy)
+		self.healthCheckNodePort = try container.decodeIfPresent(Int32.self, forKey: .healthCheckNodePort)
+		self.ipFamily = try container.decodeIfPresent(String.self, forKey: .ipFamily)
+		self.loadBalancerIP = try container.decodeIfPresent(String.self, forKey: .loadBalancerIP)
+		self.loadBalancerSourceRanges = try container.decodeIfPresent([String].self, forKey: .loadBalancerSourceRanges)
+		self.ports = try container.decodeIfPresent([core.v1.ServicePort].self, forKey: .ports)
+		self.publishNotReadyAddresses = try container.decodeIfPresent(Bool.self, forKey: .publishNotReadyAddresses)
+		self.selector = try container.decodeIfPresent([String: String].self, forKey: .selector)
+		self.sessionAffinity = try container.decodeIfPresent(String.self, forKey: .sessionAffinity)
+		self.sessionAffinityConfig = try container.decodeIfPresent(core.v1.SessionAffinityConfig.self, forKey: .sessionAffinityConfig)
+		self.topologyKeys = try container.decodeIfPresent([String].self, forKey: .topologyKeys)
+		self.type = try container.decodeIfPresent(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.clusterIP, forKey: .clusterIP)
+		try container.encode(self.externalIPs, forKey: .externalIPs)
+		try container.encode(self.externalName, forKey: .externalName)
+		try container.encode(self.externalTrafficPolicy, forKey: .externalTrafficPolicy)
+		try container.encode(self.healthCheckNodePort, forKey: .healthCheckNodePort)
+		try container.encode(self.ipFamily, forKey: .ipFamily)
+		try container.encode(self.loadBalancerIP, forKey: .loadBalancerIP)
+		try container.encode(self.loadBalancerSourceRanges, forKey: .loadBalancerSourceRanges)
+		try container.encode(self.ports, forKey: .ports)
+		try container.encode(self.publishNotReadyAddresses, forKey: .publishNotReadyAddresses)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.sessionAffinity, forKey: .sessionAffinity)
+		try container.encode(self.sessionAffinityConfig, forKey: .sessionAffinityConfig)
+		try container.encode(self.topologyKeys, forKey: .topologyKeys)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

@@ -76,5 +76,22 @@ extension core.v1.GCEPersistentDiskVolumeSource {
 		case readOnly = "readOnly"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.partition = try container.decodeIfPresent(Int32.self, forKey: .partition)
+		self.pdName = try container.decode(String.self, forKey: .pdName)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.partition, forKey: .partition)
+		try container.encode(self.pdName, forKey: .pdName)
+		try container.encode(self.readOnly, forKey: .readOnly)
+	}
+
 }
 

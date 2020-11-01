@@ -116,5 +116,34 @@ extension core.v1.ScaleIOPersistentVolumeSource {
 		case volumeName = "volumeName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.gateway = try container.decode(String.self, forKey: .gateway)
+		self.protectionDomain = try container.decodeIfPresent(String.self, forKey: .protectionDomain)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decode(core.v1.SecretReference.self, forKey: .secretRef)
+		self.sslEnabled = try container.decodeIfPresent(Bool.self, forKey: .sslEnabled)
+		self.storageMode = try container.decodeIfPresent(String.self, forKey: .storageMode)
+		self.storagePool = try container.decodeIfPresent(String.self, forKey: .storagePool)
+		self.system = try container.decode(String.self, forKey: .system)
+		self.volumeName = try container.decodeIfPresent(String.self, forKey: .volumeName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.gateway, forKey: .gateway)
+		try container.encode(self.protectionDomain, forKey: .protectionDomain)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.sslEnabled, forKey: .sslEnabled)
+		try container.encode(self.storageMode, forKey: .storageMode)
+		try container.encode(self.storagePool, forKey: .storagePool)
+		try container.encode(self.system, forKey: .system)
+		try container.encode(self.volumeName, forKey: .volumeName)
+	}
+
 }
 

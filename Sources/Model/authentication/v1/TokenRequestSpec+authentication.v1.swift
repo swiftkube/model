@@ -67,5 +67,20 @@ extension authentication.v1.TokenRequestSpec {
 		case expirationSeconds = "expirationSeconds"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.audiences = try container.decode([String].self, forKey: .audiences)
+		self.boundObjectRef = try container.decodeIfPresent(authentication.v1.BoundObjectReference.self, forKey: .boundObjectRef)
+		self.expirationSeconds = try container.decodeIfPresent(Int64.self, forKey: .expirationSeconds)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.audiences, forKey: .audiences)
+		try container.encode(self.boundObjectRef, forKey: .boundObjectRef)
+		try container.encode(self.expirationSeconds, forKey: .expirationSeconds)
+	}
+
 }
 

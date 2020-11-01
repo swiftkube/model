@@ -67,5 +67,20 @@ extension core.v1.ScopedResourceSelectorRequirement {
 		case values = "values"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.`operator` = try container.decode(String.self, forKey: .`operator`)
+		self.scopeName = try container.decode(String.self, forKey: .scopeName)
+		self.values = try container.decodeIfPresent([String].self, forKey: .values)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.`operator`, forKey: .`operator`)
+		try container.encode(self.scopeName, forKey: .scopeName)
+		try container.encode(self.values, forKey: .values)
+	}
+
 }
 

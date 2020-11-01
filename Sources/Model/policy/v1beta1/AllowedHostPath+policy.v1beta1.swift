@@ -62,5 +62,18 @@ extension policy.v1beta1.AllowedHostPath {
 		case readOnly = "readOnly"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.pathPrefix = try container.decodeIfPresent(String.self, forKey: .pathPrefix)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.pathPrefix, forKey: .pathPrefix)
+		try container.encode(self.readOnly, forKey: .readOnly)
+	}
+
 }
 

@@ -81,5 +81,24 @@ extension rbac.v1beta1.PolicyRule {
 		case verbs = "verbs"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.apiGroups = try container.decodeIfPresent([String].self, forKey: .apiGroups)
+		self.nonResourceURLs = try container.decodeIfPresent([String].self, forKey: .nonResourceURLs)
+		self.resourceNames = try container.decodeIfPresent([String].self, forKey: .resourceNames)
+		self.resources = try container.decodeIfPresent([String].self, forKey: .resources)
+		self.verbs = try container.decode([String].self, forKey: .verbs)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiGroups, forKey: .apiGroups)
+		try container.encode(self.nonResourceURLs, forKey: .nonResourceURLs)
+		try container.encode(self.resourceNames, forKey: .resourceNames)
+		try container.encode(self.resources, forKey: .resources)
+		try container.encode(self.verbs, forKey: .verbs)
+	}
+
 }
 

@@ -141,5 +141,40 @@ extension core.v1.PodStatus {
 		case startTime = "startTime"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.conditions = try container.decodeIfPresent([core.v1.PodCondition].self, forKey: .conditions)
+		self.containerStatuses = try container.decodeIfPresent([core.v1.ContainerStatus].self, forKey: .containerStatuses)
+		self.ephemeralContainerStatuses = try container.decodeIfPresent([core.v1.ContainerStatus].self, forKey: .ephemeralContainerStatuses)
+		self.hostIP = try container.decodeIfPresent(String.self, forKey: .hostIP)
+		self.initContainerStatuses = try container.decodeIfPresent([core.v1.ContainerStatus].self, forKey: .initContainerStatuses)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.nominatedNodeName = try container.decodeIfPresent(String.self, forKey: .nominatedNodeName)
+		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
+		self.podIP = try container.decodeIfPresent(String.self, forKey: .podIP)
+		self.podIPs = try container.decodeIfPresent([core.v1.PodIP].self, forKey: .podIPs)
+		self.qosClass = try container.decodeIfPresent(String.self, forKey: .qosClass)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.startTime = try container.decodeIfPresent(String.self, forKey: .startTime)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(self.containerStatuses, forKey: .containerStatuses)
+		try container.encode(self.ephemeralContainerStatuses, forKey: .ephemeralContainerStatuses)
+		try container.encode(self.hostIP, forKey: .hostIP)
+		try container.encode(self.initContainerStatuses, forKey: .initContainerStatuses)
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.nominatedNodeName, forKey: .nominatedNodeName)
+		try container.encode(self.phase, forKey: .phase)
+		try container.encode(self.podIP, forKey: .podIP)
+		try container.encode(self.podIPs, forKey: .podIPs)
+		try container.encode(self.qosClass, forKey: .qosClass)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.startTime, forKey: .startTime)
+	}
+
 }
 

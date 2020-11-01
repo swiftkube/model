@@ -53,5 +53,16 @@ extension core.v1.DownwardAPIProjection {
 		case items = "items"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.items = try container.decodeIfPresent([core.v1.DownwardAPIVolumeFile].self, forKey: .items)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.items, forKey: .items)
+	}
+
 }
 

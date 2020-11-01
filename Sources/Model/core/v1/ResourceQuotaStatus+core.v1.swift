@@ -60,5 +60,18 @@ extension core.v1.ResourceQuotaStatus {
 		case used = "used"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.hard = try container.decodeIfPresent([String: Quantity].self, forKey: .hard)
+		self.used = try container.decodeIfPresent([String: Quantity].self, forKey: .used)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.hard, forKey: .hard)
+		try container.encode(self.used, forKey: .used)
+	}
+
 }
 

@@ -53,5 +53,16 @@ extension core.v1.VolumeNodeAffinity {
 		case required = "required"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.required = try container.decodeIfPresent(core.v1.NodeSelector.self, forKey: .required)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.required, forKey: .required)
+	}
+
 }
 

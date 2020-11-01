@@ -102,5 +102,30 @@ extension apps.v1.DeploymentSpec {
 		case template = "template"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.minReadySeconds = try container.decodeIfPresent(Int32.self, forKey: .minReadySeconds)
+		self.paused = try container.decodeIfPresent(Bool.self, forKey: .paused)
+		self.progressDeadlineSeconds = try container.decodeIfPresent(Int32.self, forKey: .progressDeadlineSeconds)
+		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
+		self.revisionHistoryLimit = try container.decodeIfPresent(Int32.self, forKey: .revisionHistoryLimit)
+		self.selector = try container.decode(meta.v1.LabelSelector.self, forKey: .selector)
+		self.strategy = try container.decodeIfPresent(apps.v1.DeploymentStrategy.self, forKey: .strategy)
+		self.template = try container.decode(core.v1.PodTemplateSpec.self, forKey: .template)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.minReadySeconds, forKey: .minReadySeconds)
+		try container.encode(self.paused, forKey: .paused)
+		try container.encode(self.progressDeadlineSeconds, forKey: .progressDeadlineSeconds)
+		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(self.revisionHistoryLimit, forKey: .revisionHistoryLimit)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.strategy, forKey: .strategy)
+		try container.encode(self.template, forKey: .template)
+	}
+
 }
 

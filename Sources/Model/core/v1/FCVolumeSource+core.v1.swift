@@ -81,5 +81,24 @@ extension core.v1.FCVolumeSource {
 		case wwids = "wwids"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.lun = try container.decodeIfPresent(Int32.self, forKey: .lun)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.targetWWNs = try container.decodeIfPresent([String].self, forKey: .targetWWNs)
+		self.wwids = try container.decodeIfPresent([String].self, forKey: .wwids)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.lun, forKey: .lun)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.targetWWNs, forKey: .targetWWNs)
+		try container.encode(self.wwids, forKey: .wwids)
+	}
+
 }
 

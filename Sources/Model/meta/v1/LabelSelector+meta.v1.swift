@@ -60,5 +60,18 @@ extension meta.v1.LabelSelector {
 		case matchLabels = "matchLabels"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.matchExpressions = try container.decodeIfPresent([meta.v1.LabelSelectorRequirement].self, forKey: .matchExpressions)
+		self.matchLabels = try container.decodeIfPresent([String: String].self, forKey: .matchLabels)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.matchExpressions, forKey: .matchExpressions)
+		try container.encode(self.matchLabels, forKey: .matchLabels)
+	}
+
 }
 

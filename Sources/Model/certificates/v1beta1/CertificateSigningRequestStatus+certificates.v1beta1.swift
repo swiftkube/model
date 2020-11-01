@@ -60,5 +60,18 @@ extension certificates.v1beta1.CertificateSigningRequestStatus {
 		case conditions = "conditions"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.certificate = try container.decodeIfPresent(String.self, forKey: .certificate)
+		self.conditions = try container.decodeIfPresent([certificates.v1beta1.CertificateSigningRequestCondition].self, forKey: .conditions)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.certificate, forKey: .certificate)
+		try container.encode(self.conditions, forKey: .conditions)
+	}
+
 }
 

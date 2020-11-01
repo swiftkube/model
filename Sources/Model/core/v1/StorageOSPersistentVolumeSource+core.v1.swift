@@ -81,5 +81,24 @@ extension core.v1.StorageOSPersistentVolumeSource {
 		case volumeNamespace = "volumeNamespace"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.secretRef = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .secretRef)
+		self.volumeName = try container.decodeIfPresent(String.self, forKey: .volumeName)
+		self.volumeNamespace = try container.decodeIfPresent(String.self, forKey: .volumeNamespace)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.fsType, forKey: .fsType)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(self.volumeName, forKey: .volumeName)
+		try container.encode(self.volumeNamespace, forKey: .volumeNamespace)
+	}
+
 }
 

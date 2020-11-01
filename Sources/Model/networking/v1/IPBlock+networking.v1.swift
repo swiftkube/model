@@ -60,5 +60,18 @@ extension networking.v1.IPBlock {
 		case except = "except"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.cidr = try container.decode(String.self, forKey: .cidr)
+		self.except = try container.decodeIfPresent([String].self, forKey: .except)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.cidr, forKey: .cidr)
+		try container.encode(self.except, forKey: .except)
+	}
+
 }
 

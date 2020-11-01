@@ -60,5 +60,18 @@ extension policy.v1beta1.IDRange {
 		case min = "min"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.max = try container.decode(Int64.self, forKey: .max)
+		self.min = try container.decode(Int64.self, forKey: .min)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.max, forKey: .max)
+		try container.encode(self.min, forKey: .min)
+	}
+
 }
 

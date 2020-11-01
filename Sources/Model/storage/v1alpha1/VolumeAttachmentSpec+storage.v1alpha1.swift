@@ -67,5 +67,20 @@ extension storage.v1alpha1.VolumeAttachmentSpec {
 		case source = "source"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.attacher = try container.decode(String.self, forKey: .attacher)
+		self.nodeName = try container.decode(String.self, forKey: .nodeName)
+		self.source = try container.decode(storage.v1alpha1.VolumeAttachmentSource.self, forKey: .source)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.attacher, forKey: .attacher)
+		try container.encode(self.nodeName, forKey: .nodeName)
+		try container.encode(self.source, forKey: .source)
+	}
+
 }
 

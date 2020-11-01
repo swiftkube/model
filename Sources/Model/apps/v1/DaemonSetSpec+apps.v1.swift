@@ -81,5 +81,24 @@ extension apps.v1.DaemonSetSpec {
 		case updateStrategy = "updateStrategy"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.minReadySeconds = try container.decodeIfPresent(Int32.self, forKey: .minReadySeconds)
+		self.revisionHistoryLimit = try container.decodeIfPresent(Int32.self, forKey: .revisionHistoryLimit)
+		self.selector = try container.decode(meta.v1.LabelSelector.self, forKey: .selector)
+		self.template = try container.decode(core.v1.PodTemplateSpec.self, forKey: .template)
+		self.updateStrategy = try container.decodeIfPresent(apps.v1.DaemonSetUpdateStrategy.self, forKey: .updateStrategy)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.minReadySeconds, forKey: .minReadySeconds)
+		try container.encode(self.revisionHistoryLimit, forKey: .revisionHistoryLimit)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.template, forKey: .template)
+		try container.encode(self.updateStrategy, forKey: .updateStrategy)
+	}
+
 }
 

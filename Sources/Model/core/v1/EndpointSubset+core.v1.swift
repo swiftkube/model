@@ -74,5 +74,20 @@ extension core.v1.EndpointSubset {
 		case ports = "ports"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.addresses = try container.decodeIfPresent([core.v1.EndpointAddress].self, forKey: .addresses)
+		self.notReadyAddresses = try container.decodeIfPresent([core.v1.EndpointAddress].self, forKey: .notReadyAddresses)
+		self.ports = try container.decodeIfPresent([core.v1.EndpointPort].self, forKey: .ports)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.addresses, forKey: .addresses)
+		try container.encode(self.notReadyAddresses, forKey: .notReadyAddresses)
+		try container.encode(self.ports, forKey: .ports)
+	}
+
 }
 

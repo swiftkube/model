@@ -60,5 +60,18 @@ extension core.v1.NodeAddress {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.address = try container.decode(String.self, forKey: .address)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.address, forKey: .address)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

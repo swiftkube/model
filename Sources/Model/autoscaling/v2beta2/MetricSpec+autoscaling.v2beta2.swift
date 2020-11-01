@@ -81,5 +81,24 @@ extension autoscaling.v2beta2.MetricSpec {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.external = try container.decodeIfPresent(autoscaling.v2beta2.ExternalMetricSource.self, forKey: .external)
+		self.object = try container.decodeIfPresent(autoscaling.v2beta2.ObjectMetricSource.self, forKey: .object)
+		self.pods = try container.decodeIfPresent(autoscaling.v2beta2.PodsMetricSource.self, forKey: .pods)
+		self.resource = try container.decodeIfPresent(autoscaling.v2beta2.ResourceMetricSource.self, forKey: .resource)
+		self.type = try container.decode(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.external, forKey: .external)
+		try container.encode(self.object, forKey: .object)
+		try container.encode(self.pods, forKey: .pods)
+		try container.encode(self.resource, forKey: .resource)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

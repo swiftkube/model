@@ -116,5 +116,34 @@ extension core.v1.NodeSystemInfo {
 		case systemUUID = "systemUUID"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.architecture = try container.decode(String.self, forKey: .architecture)
+		self.bootID = try container.decode(String.self, forKey: .bootID)
+		self.containerRuntimeVersion = try container.decode(String.self, forKey: .containerRuntimeVersion)
+		self.kernelVersion = try container.decode(String.self, forKey: .kernelVersion)
+		self.kubeProxyVersion = try container.decode(String.self, forKey: .kubeProxyVersion)
+		self.kubeletVersion = try container.decode(String.self, forKey: .kubeletVersion)
+		self.machineID = try container.decode(String.self, forKey: .machineID)
+		self.operatingSystem = try container.decode(String.self, forKey: .operatingSystem)
+		self.osImage = try container.decode(String.self, forKey: .osImage)
+		self.systemUUID = try container.decode(String.self, forKey: .systemUUID)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.architecture, forKey: .architecture)
+		try container.encode(self.bootID, forKey: .bootID)
+		try container.encode(self.containerRuntimeVersion, forKey: .containerRuntimeVersion)
+		try container.encode(self.kernelVersion, forKey: .kernelVersion)
+		try container.encode(self.kubeProxyVersion, forKey: .kubeProxyVersion)
+		try container.encode(self.kubeletVersion, forKey: .kubeletVersion)
+		try container.encode(self.machineID, forKey: .machineID)
+		try container.encode(self.operatingSystem, forKey: .operatingSystem)
+		try container.encode(self.osImage, forKey: .osImage)
+		try container.encode(self.systemUUID, forKey: .systemUUID)
+	}
+
 }
 

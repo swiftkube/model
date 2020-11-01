@@ -67,5 +67,20 @@ extension autoscaling.v2beta1.ResourceMetricStatus {
 		case name = "name"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.currentAverageUtilization = try container.decodeIfPresent(Int32.self, forKey: .currentAverageUtilization)
+		self.currentAverageValue = try container.decode(Quantity.self, forKey: .currentAverageValue)
+		self.name = try container.decode(String.self, forKey: .name)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.currentAverageUtilization, forKey: .currentAverageUtilization)
+		try container.encode(self.currentAverageValue, forKey: .currentAverageValue)
+		try container.encode(self.name, forKey: .name)
+	}
+
 }
 

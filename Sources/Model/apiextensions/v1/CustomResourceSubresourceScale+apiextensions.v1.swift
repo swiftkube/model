@@ -67,5 +67,20 @@ extension apiextensions.v1.CustomResourceSubresourceScale {
 		case statusReplicasPath = "statusReplicasPath"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.labelSelectorPath = try container.decodeIfPresent(String.self, forKey: .labelSelectorPath)
+		self.specReplicasPath = try container.decode(String.self, forKey: .specReplicasPath)
+		self.statusReplicasPath = try container.decode(String.self, forKey: .statusReplicasPath)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.labelSelectorPath, forKey: .labelSelectorPath)
+		try container.encode(self.specReplicasPath, forKey: .specReplicasPath)
+		try container.encode(self.statusReplicasPath, forKey: .statusReplicasPath)
+	}
+
 }
 

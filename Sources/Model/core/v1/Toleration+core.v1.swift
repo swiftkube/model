@@ -81,5 +81,24 @@ extension core.v1.Toleration {
 		case value = "value"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.effect = try container.decodeIfPresent(String.self, forKey: .effect)
+		self.key = try container.decodeIfPresent(String.self, forKey: .key)
+		self.`operator` = try container.decodeIfPresent(String.self, forKey: .`operator`)
+		self.tolerationSeconds = try container.decodeIfPresent(Int64.self, forKey: .tolerationSeconds)
+		self.value = try container.decodeIfPresent(String.self, forKey: .value)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.effect, forKey: .effect)
+		try container.encode(self.key, forKey: .key)
+		try container.encode(self.`operator`, forKey: .`operator`)
+		try container.encode(self.tolerationSeconds, forKey: .tolerationSeconds)
+		try container.encode(self.value, forKey: .value)
+	}
+
 }
 

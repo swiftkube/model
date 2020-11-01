@@ -67,5 +67,20 @@ extension autoscaling.v2beta2.HPAScalingRules {
 		case stabilizationWindowSeconds = "stabilizationWindowSeconds"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.policies = try container.decodeIfPresent([autoscaling.v2beta2.HPAScalingPolicy].self, forKey: .policies)
+		self.selectPolicy = try container.decodeIfPresent(String.self, forKey: .selectPolicy)
+		self.stabilizationWindowSeconds = try container.decodeIfPresent(Int32.self, forKey: .stabilizationWindowSeconds)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.policies, forKey: .policies)
+		try container.encode(self.selectPolicy, forKey: .selectPolicy)
+		try container.encode(self.stabilizationWindowSeconds, forKey: .stabilizationWindowSeconds)
+	}
+
 }
 

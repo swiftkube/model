@@ -60,5 +60,18 @@ extension networking.v1.NetworkPolicyPort {
 		case `protocol` = "protocol"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.port = try container.decodeIfPresent(IntOrString.self, forKey: .port)
+		self.`protocol` = try container.decodeIfPresent(String.self, forKey: .`protocol`)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.port, forKey: .port)
+		try container.encode(self.`protocol`, forKey: .`protocol`)
+	}
+
 }
 

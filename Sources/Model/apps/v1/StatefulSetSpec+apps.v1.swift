@@ -102,5 +102,30 @@ extension apps.v1.StatefulSetSpec {
 		case volumeClaimTemplates = "volumeClaimTemplates"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.podManagementPolicy = try container.decodeIfPresent(String.self, forKey: .podManagementPolicy)
+		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
+		self.revisionHistoryLimit = try container.decodeIfPresent(Int32.self, forKey: .revisionHistoryLimit)
+		self.selector = try container.decode(meta.v1.LabelSelector.self, forKey: .selector)
+		self.serviceName = try container.decode(String.self, forKey: .serviceName)
+		self.template = try container.decode(core.v1.PodTemplateSpec.self, forKey: .template)
+		self.updateStrategy = try container.decodeIfPresent(apps.v1.StatefulSetUpdateStrategy.self, forKey: .updateStrategy)
+		self.volumeClaimTemplates = try container.decodeIfPresent([core.v1.PersistentVolumeClaim].self, forKey: .volumeClaimTemplates)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.podManagementPolicy, forKey: .podManagementPolicy)
+		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(self.revisionHistoryLimit, forKey: .revisionHistoryLimit)
+		try container.encode(self.selector, forKey: .selector)
+		try container.encode(self.serviceName, forKey: .serviceName)
+		try container.encode(self.template, forKey: .template)
+		try container.encode(self.updateStrategy, forKey: .updateStrategy)
+		try container.encode(self.volumeClaimTemplates, forKey: .volumeClaimTemplates)
+	}
+
 }
 

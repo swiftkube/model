@@ -76,5 +76,22 @@ extension meta.v1.ListMeta {
 		case selfLink = "selfLink"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.`continue` = try container.decodeIfPresent(String.self, forKey: .`continue`)
+		self.remainingItemCount = try container.decodeIfPresent(Int64.self, forKey: .remainingItemCount)
+		self.resourceVersion = try container.decodeIfPresent(String.self, forKey: .resourceVersion)
+		self.selfLink = try container.decodeIfPresent(String.self, forKey: .selfLink)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.`continue`, forKey: .`continue`)
+		try container.encode(self.remainingItemCount, forKey: .remainingItemCount)
+		try container.encode(self.resourceVersion, forKey: .resourceVersion)
+		try container.encode(self.selfLink, forKey: .selfLink)
+	}
+
 }
 

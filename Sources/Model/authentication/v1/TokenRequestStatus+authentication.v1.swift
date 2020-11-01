@@ -60,5 +60,18 @@ extension authentication.v1.TokenRequestStatus {
 		case token = "token"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.expirationTimestamp = try container.decode(String.self, forKey: .expirationTimestamp)
+		self.token = try container.decode(String.self, forKey: .token)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.expirationTimestamp, forKey: .expirationTimestamp)
+		try container.encode(self.token, forKey: .token)
+	}
+
 }
 

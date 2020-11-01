@@ -74,5 +74,22 @@ extension admissionregistration.v1.ServiceReference {
 		case port = "port"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.namespace = try container.decode(String.self, forKey: .namespace)
+		self.path = try container.decodeIfPresent(String.self, forKey: .path)
+		self.port = try container.decodeIfPresent(Int32.self, forKey: .port)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(self.path, forKey: .path)
+		try container.encode(self.port, forKey: .port)
+	}
+
 }
 

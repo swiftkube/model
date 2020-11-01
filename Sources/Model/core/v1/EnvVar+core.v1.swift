@@ -67,5 +67,20 @@ extension core.v1.EnvVar {
 		case valueFrom = "valueFrom"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.name = try container.decode(String.self, forKey: .name)
+		self.value = try container.decodeIfPresent(String.self, forKey: .value)
+		self.valueFrom = try container.decodeIfPresent(core.v1.EnvVarSource.self, forKey: .valueFrom)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.value, forKey: .value)
+		try container.encode(self.valueFrom, forKey: .valueFrom)
+	}
+
 }
 

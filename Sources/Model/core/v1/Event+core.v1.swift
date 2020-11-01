@@ -165,5 +165,46 @@ extension core.v1.Event {
 		case type = "type"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.metadata = try container.decode(meta.v1.ObjectMeta.self, forKey: .metadata)
+		self.action = try container.decodeIfPresent(String.self, forKey: .action)
+		self.count = try container.decodeIfPresent(Int32.self, forKey: .count)
+		self.eventTime = try container.decodeIfPresent(String.self, forKey: .eventTime)
+		self.firstTimestamp = try container.decodeIfPresent(String.self, forKey: .firstTimestamp)
+		self.involvedObject = try container.decode(core.v1.ObjectReference.self, forKey: .involvedObject)
+		self.lastTimestamp = try container.decodeIfPresent(String.self, forKey: .lastTimestamp)
+		self.message = try container.decodeIfPresent(String.self, forKey: .message)
+		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
+		self.related = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .related)
+		self.reportingComponent = try container.decodeIfPresent(String.self, forKey: .reportingComponent)
+		self.reportingInstance = try container.decodeIfPresent(String.self, forKey: .reportingInstance)
+		self.series = try container.decodeIfPresent(core.v1.EventSeries.self, forKey: .series)
+		self.source = try container.decodeIfPresent(core.v1.EventSource.self, forKey: .source)
+		self.type = try container.decodeIfPresent(String.self, forKey: .type)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.metadata, forKey: .metadata)
+		try container.encode(self.action, forKey: .action)
+		try container.encode(self.count, forKey: .count)
+		try container.encode(self.eventTime, forKey: .eventTime)
+		try container.encode(self.firstTimestamp, forKey: .firstTimestamp)
+		try container.encode(self.involvedObject, forKey: .involvedObject)
+		try container.encode(self.lastTimestamp, forKey: .lastTimestamp)
+		try container.encode(self.message, forKey: .message)
+		try container.encode(self.reason, forKey: .reason)
+		try container.encode(self.related, forKey: .related)
+		try container.encode(self.reportingComponent, forKey: .reportingComponent)
+		try container.encode(self.reportingInstance, forKey: .reportingInstance)
+		try container.encode(self.series, forKey: .series)
+		try container.encode(self.source, forKey: .source)
+		try container.encode(self.type, forKey: .type)
+	}
+
 }
 

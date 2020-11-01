@@ -67,5 +67,20 @@ extension core.v1.ConfigMapKeySelector {
 		case optional = "optional"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.key = try container.decode(String.self, forKey: .key)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.key, forKey: .key)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.optional, forKey: .optional)
+	}
+
 }
 

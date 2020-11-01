@@ -53,5 +53,16 @@ extension core.v1.NodeConfigSource {
 		case configMap = "configMap"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.configMap = try container.decodeIfPresent(core.v1.ConfigMapNodeConfigSource.self, forKey: .configMap)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.configMap, forKey: .configMap)
+	}
+
 }
 

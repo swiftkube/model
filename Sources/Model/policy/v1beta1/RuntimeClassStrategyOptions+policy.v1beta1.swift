@@ -60,5 +60,18 @@ extension policy.v1beta1.RuntimeClassStrategyOptions {
 		case defaultRuntimeClassName = "defaultRuntimeClassName"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.allowedRuntimeClassNames = try container.decode([String].self, forKey: .allowedRuntimeClassNames)
+		self.defaultRuntimeClassName = try container.decodeIfPresent(String.self, forKey: .defaultRuntimeClassName)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.allowedRuntimeClassNames, forKey: .allowedRuntimeClassNames)
+		try container.encode(self.defaultRuntimeClassName, forKey: .defaultRuntimeClassName)
+	}
+
 }
 

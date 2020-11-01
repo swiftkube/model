@@ -88,5 +88,26 @@ extension core.v1.QuobyteVolumeSource {
 		case volume = "volume"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.group = try container.decodeIfPresent(String.self, forKey: .group)
+		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
+		self.registry = try container.decode(String.self, forKey: .registry)
+		self.tenant = try container.decodeIfPresent(String.self, forKey: .tenant)
+		self.user = try container.decodeIfPresent(String.self, forKey: .user)
+		self.volume = try container.decode(String.self, forKey: .volume)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.group, forKey: .group)
+		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(self.registry, forKey: .registry)
+		try container.encode(self.tenant, forKey: .tenant)
+		try container.encode(self.user, forKey: .user)
+		try container.encode(self.volume, forKey: .volume)
+	}
+
 }
 

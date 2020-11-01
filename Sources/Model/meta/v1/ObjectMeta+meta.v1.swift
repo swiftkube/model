@@ -174,5 +174,46 @@ extension meta.v1.ObjectMeta {
 		case uid = "uid"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.annotations = try container.decodeIfPresent([String: String].self, forKey: .annotations)
+		self.clusterName = try container.decodeIfPresent(String.self, forKey: .clusterName)
+		self.creationTimestamp = try container.decodeIfPresent(String.self, forKey: .creationTimestamp)
+		self.deletionGracePeriodSeconds = try container.decodeIfPresent(Int64.self, forKey: .deletionGracePeriodSeconds)
+		self.deletionTimestamp = try container.decodeIfPresent(String.self, forKey: .deletionTimestamp)
+		self.finalizers = try container.decodeIfPresent([String].self, forKey: .finalizers)
+		self.generateName = try container.decodeIfPresent(String.self, forKey: .generateName)
+		self.generation = try container.decodeIfPresent(Int64.self, forKey: .generation)
+		self.labels = try container.decodeIfPresent([String: String].self, forKey: .labels)
+		self.managedFields = try container.decodeIfPresent([meta.v1.ManagedFieldsEntry].self, forKey: .managedFields)
+		self.name = try container.decodeIfPresent(String.self, forKey: .name)
+		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
+		self.ownerReferences = try container.decodeIfPresent([meta.v1.OwnerReference].self, forKey: .ownerReferences)
+		self.resourceVersion = try container.decodeIfPresent(String.self, forKey: .resourceVersion)
+		self.selfLink = try container.decodeIfPresent(String.self, forKey: .selfLink)
+		self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.annotations, forKey: .annotations)
+		try container.encode(self.clusterName, forKey: .clusterName)
+		try container.encode(self.creationTimestamp, forKey: .creationTimestamp)
+		try container.encode(self.deletionGracePeriodSeconds, forKey: .deletionGracePeriodSeconds)
+		try container.encode(self.deletionTimestamp, forKey: .deletionTimestamp)
+		try container.encode(self.finalizers, forKey: .finalizers)
+		try container.encode(self.generateName, forKey: .generateName)
+		try container.encode(self.generation, forKey: .generation)
+		try container.encode(self.labels, forKey: .labels)
+		try container.encode(self.managedFields, forKey: .managedFields)
+		try container.encode(self.name, forKey: .name)
+		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(self.ownerReferences, forKey: .ownerReferences)
+		try container.encode(self.resourceVersion, forKey: .resourceVersion)
+		try container.encode(self.selfLink, forKey: .selfLink)
+		try container.encode(self.uid, forKey: .uid)
+	}
+
 }
 

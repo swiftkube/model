@@ -91,5 +91,26 @@ extension meta.v1.DeleteOptions {
 		case propagationPolicy = "propagationPolicy"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.dryRun = try container.decodeIfPresent([String].self, forKey: .dryRun)
+		self.gracePeriodSeconds = try container.decodeIfPresent(Int64.self, forKey: .gracePeriodSeconds)
+		self.orphanDependents = try container.decodeIfPresent(Bool.self, forKey: .orphanDependents)
+		self.preconditions = try container.decodeIfPresent(meta.v1.Preconditions.self, forKey: .preconditions)
+		self.propagationPolicy = try container.decodeIfPresent(String.self, forKey: .propagationPolicy)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.apiVersion, forKey: .apiVersion)
+		try container.encode(self.kind, forKey: .kind)
+		try container.encode(self.dryRun, forKey: .dryRun)
+		try container.encode(self.gracePeriodSeconds, forKey: .gracePeriodSeconds)
+		try container.encode(self.orphanDependents, forKey: .orphanDependents)
+		try container.encode(self.preconditions, forKey: .preconditions)
+		try container.encode(self.propagationPolicy, forKey: .propagationPolicy)
+	}
+
 }
 

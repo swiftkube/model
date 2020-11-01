@@ -60,5 +60,18 @@ extension meta.v1.Preconditions {
 		case uid = "uid"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.resourceVersion = try container.decodeIfPresent(String.self, forKey: .resourceVersion)
+		self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.resourceVersion, forKey: .resourceVersion)
+		try container.encode(self.uid, forKey: .uid)
+	}
+
 }
 

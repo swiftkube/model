@@ -102,5 +102,30 @@ extension core.v1.Probe {
 		case timeoutSeconds = "timeoutSeconds"
 	}
 
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.exec = try container.decodeIfPresent(core.v1.ExecAction.self, forKey: .exec)
+		self.failureThreshold = try container.decodeIfPresent(Int32.self, forKey: .failureThreshold)
+		self.httpGet = try container.decodeIfPresent(core.v1.HTTPGetAction.self, forKey: .httpGet)
+		self.initialDelaySeconds = try container.decodeIfPresent(Int32.self, forKey: .initialDelaySeconds)
+		self.periodSeconds = try container.decodeIfPresent(Int32.self, forKey: .periodSeconds)
+		self.successThreshold = try container.decodeIfPresent(Int32.self, forKey: .successThreshold)
+		self.tcpSocket = try container.decodeIfPresent(core.v1.TCPSocketAction.self, forKey: .tcpSocket)
+		self.timeoutSeconds = try container.decodeIfPresent(Int32.self, forKey: .timeoutSeconds)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(self.exec, forKey: .exec)
+		try container.encode(self.failureThreshold, forKey: .failureThreshold)
+		try container.encode(self.httpGet, forKey: .httpGet)
+		try container.encode(self.initialDelaySeconds, forKey: .initialDelaySeconds)
+		try container.encode(self.periodSeconds, forKey: .periodSeconds)
+		try container.encode(self.successThreshold, forKey: .successThreshold)
+		try container.encode(self.tcpSocket, forKey: .tcpSocket)
+		try container.encode(self.timeoutSeconds, forKey: .timeoutSeconds)
+	}
+
 }
 
