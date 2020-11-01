@@ -51,7 +51,13 @@ public extension sk {
 				path: path,
 				type: type
 			)
+		case let .persistentVolumeClaim(claimName: name, readOnly: readOnly):
+			volume.persistentVolumeClaim = core.v1.PersistentVolumeClaimVolumeSource(
+				claimName: name,
+				readOnly: readOnly
+			)
 		}
+
 		return volume
 	}
 }
@@ -61,4 +67,5 @@ public enum VolumeSource {
 	case configMapName(String)
 	case emptyDir(medium: String? = nil, sizeLimit: Quantity? = nil)
 	case hostPath(path: String, type: String? = nil)
+	case persistentVolumeClaim(claimName: String, readOnly: Bool? = nil)
 }
