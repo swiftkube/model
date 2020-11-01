@@ -7,11 +7,21 @@ on:
     branches: [ "*" ]
 
 jobs:
-  build:
-
+  macOS:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: swift build -v
+    - name: Test
+      run: swift test  --enable-test-discovery
+
+  linux:
+    runs-on: ubuntu-18.04
+    container: swift:5.1
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+    - name: Test
+      run: swift test  --enable-test-discovery
