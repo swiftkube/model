@@ -17,5 +17,6 @@
 import Foundation
 
 public enum SwiftkubeModelError: Error {
-	case unknownAPIObject
+	case unknownAPIObject(String)
+	case decodingError(String)
 }

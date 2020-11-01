@@ -16,7 +16,11 @@
 
 import Foundation
 
-/// `ListableResource` conformance for the type-erased `AnyKubernetesAPIResource`. 
-extension AnyKubernetesAPIResource: ListableResource {
-	public typealias List = AnyKubernetesAPIResourceList
+/// Keys for Kuberenetes `apiVersion` and `kind`.
+///
+/// Kuberenetes list items do not contain the `apiVersion` and `kind` fields and must be
+/// derived from the parent list payload.
+public extension CodingUserInfoKey {
+	static let apiVersion = CodingUserInfoKey(rawValue: "apiVersion")!
+	static let kind = CodingUserInfoKey(rawValue: "kind")!
 }

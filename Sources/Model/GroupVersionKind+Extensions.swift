@@ -29,7 +29,7 @@ extension GroupVersionKind {
 			return
 		}
 
-		throw SwiftkubeModelError.unknownAPIObject
+		throw SwiftkubeModelError.unknownAPIObject("Cannot determine GroupVersionKind for: \(string)")
 	}
 }
 

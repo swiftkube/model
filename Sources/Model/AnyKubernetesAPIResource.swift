@@ -45,8 +45,24 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let apiVersionString = try container.decode(String.self, forKey: .apiVersion)
-		let kindString = try container.decode(String.self, forKey: .kind)
+
+		let decodedAPIVersion: String?
+		if container.contains(.apiVersion) {
+			decodedAPIVersion = try container.decode(String.self, forKey: .apiVersion)
+		} else {
+			decodedAPIVersion = decoder.userInfo[CodingUserInfoKey.apiVersion] as? String
+		}
+
+		let decodedKind: String?
+		if container.contains(.kind) {
+			decodedKind = try container.decode(String.self, forKey: .kind)
+		} else {
+			decodedKind = decoder.userInfo[CodingUserInfoKey.kind] as? String
+		}
+
+		guard let apiVersionString = decodedAPIVersion, let kindString = decodedKind else {
+			throw SwiftkubeModelError.decodingError("Couldn't decode apiVersion and/or kind at: \(container.codingPath)")
+		}
 
 		let gvk = GroupVersionKind(rawValue: "\(apiVersionString)/\(kindString)")
 
