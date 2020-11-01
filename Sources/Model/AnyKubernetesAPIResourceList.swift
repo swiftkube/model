@@ -21,6 +21,9 @@
 
 import Foundation
 
+///
+/// A type-erased `KubernetesResourceList` that holds type-erased `AnyKubernetesAPIResource` instances.
+///
 public struct AnyKubernetesAPIResourceList: KubernetesResourceList {
 
 	private enum CodingKeys: String, CodingKey {

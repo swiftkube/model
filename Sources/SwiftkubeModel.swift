@@ -16,7 +16,10 @@
 
 import Foundation
 
+/// Represents SwiftkubeModel errors.
 public enum SwiftkubeModelError: Error {
+	/// Thrown when dealing with an unknown Kubernetes object, i.e. when a correspondinf `GroupVersionKind` cann't be determined.
 	case unknownAPIObject(String)
+	/// Thrown on decoding errors.
 	case decodingError(String)
 }

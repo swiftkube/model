@@ -21,6 +21,9 @@
 
 import Foundation
 
+///
+/// A type-erased `KubernetesAPIResource` that wraps the actual resource instance.
+///
 public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 
 	private enum CodingKeys: String, CodingKey {
