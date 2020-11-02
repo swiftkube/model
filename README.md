@@ -26,7 +26,7 @@
 
 `SwiftkubeModel` is a zero-dependency Swift package for Kuberente API objects.
 
-- [x] Models all Kuberentes objects
+- [x] Model structs for all Kuberentes objects
 - [x] `Codable` support
 - [x] Closure-based builders for convenient object composition
 - [x] Type-erased wrappers for Kubernetes resources
