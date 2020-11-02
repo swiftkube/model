@@ -335,7 +335,7 @@ let data = try? JSONEncoder().encode(resource)
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/swiftkube/model.git", from: "0.1.0"),
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.1.0"),
 ```
 
 then include it as a dependency in your target:
@@ -346,7 +346,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(url: "https://github.com/swiftkube/model.git", from: "0.1.0"),
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.1.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [
