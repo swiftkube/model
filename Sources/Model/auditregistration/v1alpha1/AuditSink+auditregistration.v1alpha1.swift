@@ -27,7 +27,7 @@ public extension auditregistration.v1alpha1 {
 	///
 	/// AuditSink represents a cluster level audit sink
 	///
-	struct AuditSink: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct AuditSink: KubernetesResource, MetadataHavingResource, ListableResource {
 		///
 		/// ListableResource.List associated type
 		///

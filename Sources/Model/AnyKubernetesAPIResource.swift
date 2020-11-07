@@ -132,10 +132,6 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try apps.v1.ReplicaSet.init(from: decoder)
 		case .appsV1Statefulset:
 			decoded = try apps.v1.StatefulSet.init(from: decoder)
-		case .auditregistrationV1Alpha1Auditsink:
-			decoded = try auditregistration.v1alpha1.AuditSink.init(from: decoder)
-		case .authenticationV1Tokenrequest:
-			decoded = try authentication.v1.TokenRequest.init(from: decoder)
 		case .authenticationV1Tokenreview:
 			decoded = try authentication.v1.TokenReview.init(from: decoder)
 		case .authenticationV1Beta1Tokenreview:
@@ -158,8 +154,6 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try authorization.v1beta1.SubjectAccessReview.init(from: decoder)
 		case .autoscalingV1Horizontalpodautoscaler:
 			decoded = try autoscaling.v1.HorizontalPodAutoscaler.init(from: decoder)
-		case .autoscalingV1Scale:
-			decoded = try autoscaling.v1.Scale.init(from: decoder)
 		case .autoscalingV2Beta2Horizontalpodautoscaler:
 			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler.init(from: decoder)
 		case .autoscalingV2Beta1Horizontalpodautoscaler:
@@ -182,10 +176,6 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try events.v1beta1.Event.init(from: decoder)
 		case .extensionsV1Beta1Ingress:
 			decoded = try extensions.v1beta1.Ingress.init(from: decoder)
-		case .flowcontrolV1Alpha1Flowschema:
-			decoded = try flowcontrol.v1alpha1.FlowSchema.init(from: decoder)
-		case .flowcontrolV1Alpha1Prioritylevelconfiguration:
-			decoded = try flowcontrol.v1alpha1.PriorityLevelConfiguration.init(from: decoder)
 		case .networkingV1Networkpolicy:
 			decoded = try networking.v1.NetworkPolicy.init(from: decoder)
 		case .networkingV1Beta1Ingress:
@@ -196,8 +186,6 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try node.v1beta1.RuntimeClass.init(from: decoder)
 		case .nodeV1Alpha1Runtimeclass:
 			decoded = try node.v1alpha1.RuntimeClass.init(from: decoder)
-		case .policyV1Beta1Eviction:
-			decoded = try policy.v1beta1.Eviction.init(from: decoder)
 		case .policyV1Beta1Poddisruptionbudget:
 			decoded = try policy.v1beta1.PodDisruptionBudget.init(from: decoder)
 		case .policyV1Beta1Podsecuritypolicy:
@@ -232,8 +220,6 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try scheduling.v1beta1.PriorityClass.init(from: decoder)
 		case .schedulingV1Alpha1Priorityclass:
 			decoded = try scheduling.v1alpha1.PriorityClass.init(from: decoder)
-		case .settingsV1Alpha1Podpreset:
-			decoded = try settings.v1alpha1.PodPreset.init(from: decoder)
 		case .storageV1Csidriver:
 			decoded = try storage.v1.CSIDriver.init(from: decoder)
 		case .storageV1Csinode:
