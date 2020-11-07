@@ -100,10 +100,6 @@ public extension GroupVersionKind {
 			self = .appsV1Replicaset
 		case is apps.v1.StatefulSet.Type:
 			self = .appsV1Statefulset
-		case is auditregistration.v1alpha1.AuditSink.Type:
-			self = .auditregistrationV1Alpha1Auditsink
-		case is authentication.v1.TokenRequest.Type:
-			self = .authenticationV1Tokenrequest
 		case is authentication.v1.TokenReview.Type:
 			self = .authenticationV1Tokenreview
 		case is authentication.v1beta1.TokenReview.Type:
@@ -126,12 +122,10 @@ public extension GroupVersionKind {
 			self = .authorizationV1Beta1Subjectaccessreview
 		case is autoscaling.v1.HorizontalPodAutoscaler.Type:
 			self = .autoscalingV1Horizontalpodautoscaler
-		case is autoscaling.v1.Scale.Type:
-			self = .autoscalingV1Scale
-		case is autoscaling.v2beta1.HorizontalPodAutoscaler.Type:
-			self = .autoscalingV2Beta1Horizontalpodautoscaler
 		case is autoscaling.v2beta2.HorizontalPodAutoscaler.Type:
 			self = .autoscalingV2Beta2Horizontalpodautoscaler
+		case is autoscaling.v2beta1.HorizontalPodAutoscaler.Type:
+			self = .autoscalingV2Beta1Horizontalpodautoscaler
 		case is batch.v1.Job.Type:
 			self = .batchV1Job
 		case is batch.v1beta1.CronJob.Type:
@@ -150,22 +144,16 @@ public extension GroupVersionKind {
 			self = .eventsV1Beta1Event
 		case is extensions.v1beta1.Ingress.Type:
 			self = .extensionsV1Beta1Ingress
-		case is flowcontrol.v1alpha1.FlowSchema.Type:
-			self = .flowcontrolV1Alpha1Flowschema
-		case is flowcontrol.v1alpha1.PriorityLevelConfiguration.Type:
-			self = .flowcontrolV1Alpha1Prioritylevelconfiguration
 		case is networking.v1.NetworkPolicy.Type:
 			self = .networkingV1Networkpolicy
 		case is networking.v1beta1.Ingress.Type:
 			self = .networkingV1Beta1Ingress
 		case is networking.v1beta1.IngressClass.Type:
 			self = .networkingV1Beta1Ingressclass
-		case is node.v1alpha1.RuntimeClass.Type:
-			self = .nodeV1Alpha1Runtimeclass
 		case is node.v1beta1.RuntimeClass.Type:
 			self = .nodeV1Beta1Runtimeclass
-		case is policy.v1beta1.Eviction.Type:
-			self = .policyV1Beta1Eviction
+		case is node.v1alpha1.RuntimeClass.Type:
+			self = .nodeV1Alpha1Runtimeclass
 		case is policy.v1beta1.PodDisruptionBudget.Type:
 			self = .policyV1Beta1Poddisruptionbudget
 		case is policy.v1beta1.PodSecurityPolicy.Type:
@@ -178,14 +166,6 @@ public extension GroupVersionKind {
 			self = .rbacV1Role
 		case is rbac.v1.RoleBinding.Type:
 			self = .rbacV1Rolebinding
-		case is rbac.v1alpha1.ClusterRole.Type:
-			self = .rbacV1Alpha1Clusterrole
-		case is rbac.v1alpha1.ClusterRoleBinding.Type:
-			self = .rbacV1Alpha1Clusterrolebinding
-		case is rbac.v1alpha1.Role.Type:
-			self = .rbacV1Alpha1Role
-		case is rbac.v1alpha1.RoleBinding.Type:
-			self = .rbacV1Alpha1Rolebinding
 		case is rbac.v1beta1.ClusterRole.Type:
 			self = .rbacV1Beta1Clusterrole
 		case is rbac.v1beta1.ClusterRoleBinding.Type:
@@ -194,14 +174,20 @@ public extension GroupVersionKind {
 			self = .rbacV1Beta1Role
 		case is rbac.v1beta1.RoleBinding.Type:
 			self = .rbacV1Beta1Rolebinding
+		case is rbac.v1alpha1.ClusterRole.Type:
+			self = .rbacV1Alpha1Clusterrole
+		case is rbac.v1alpha1.ClusterRoleBinding.Type:
+			self = .rbacV1Alpha1Clusterrolebinding
+		case is rbac.v1alpha1.Role.Type:
+			self = .rbacV1Alpha1Role
+		case is rbac.v1alpha1.RoleBinding.Type:
+			self = .rbacV1Alpha1Rolebinding
 		case is scheduling.v1.PriorityClass.Type:
 			self = .schedulingV1Priorityclass
-		case is scheduling.v1alpha1.PriorityClass.Type:
-			self = .schedulingV1Alpha1Priorityclass
 		case is scheduling.v1beta1.PriorityClass.Type:
 			self = .schedulingV1Beta1Priorityclass
-		case is settings.v1alpha1.PodPreset.Type:
-			self = .settingsV1Alpha1Podpreset
+		case is scheduling.v1alpha1.PriorityClass.Type:
+			self = .schedulingV1Alpha1Priorityclass
 		case is storage.v1.CSIDriver.Type:
 			self = .storageV1Csidriver
 		case is storage.v1.CSINode.Type:
@@ -210,8 +196,6 @@ public extension GroupVersionKind {
 			self = .storageV1Storageclass
 		case is storage.v1.VolumeAttachment.Type:
 			self = .storageV1Volumeattachment
-		case is storage.v1alpha1.VolumeAttachment.Type:
-			self = .storageV1Alpha1Volumeattachment
 		case is storage.v1beta1.CSIDriver.Type:
 			self = .storageV1Beta1Csidriver
 		case is storage.v1beta1.CSINode.Type:
@@ -220,6 +204,8 @@ public extension GroupVersionKind {
 			self = .storageV1Beta1Storageclass
 		case is storage.v1beta1.VolumeAttachment.Type:
 			self = .storageV1Beta1Volumeattachment
+		case is storage.v1alpha1.VolumeAttachment.Type:
+			self = .storageV1Alpha1Volumeattachment
 		default:
 			return nil
 		}

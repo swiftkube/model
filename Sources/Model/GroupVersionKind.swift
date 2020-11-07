@@ -56,8 +56,6 @@ public enum GroupVersionKind: String, CaseIterable {
 	case appsV1Deployment = "apps/v1/Deployment"
 	case appsV1Replicaset = "apps/v1/ReplicaSet"
 	case appsV1Statefulset = "apps/v1/StatefulSet"
-	case auditregistrationV1Alpha1Auditsink = "auditregistration.k8s.io/v1alpha1/AuditSink"
-	case authenticationV1Tokenrequest = "authentication.k8s.io/v1/TokenRequest"
 	case authenticationV1Tokenreview = "authentication.k8s.io/v1/TokenReview"
 	case authenticationV1Beta1Tokenreview = "authentication.k8s.io/v1beta1/TokenReview"
 	case authorizationV1Localsubjectaccessreview = "authorization.k8s.io/v1/LocalSubjectAccessReview"
@@ -69,7 +67,6 @@ public enum GroupVersionKind: String, CaseIterable {
 	case authorizationV1Beta1Selfsubjectrulesreview = "authorization.k8s.io/v1beta1/SelfSubjectRulesReview"
 	case authorizationV1Beta1Subjectaccessreview = "authorization.k8s.io/v1beta1/SubjectAccessReview"
 	case autoscalingV1Horizontalpodautoscaler = "autoscaling/v1/HorizontalPodAutoscaler"
-	case autoscalingV1Scale = "autoscaling/v1/Scale"
 	case autoscalingV2Beta2Horizontalpodautoscaler = "autoscaling/v2beta2/HorizontalPodAutoscaler"
 	case autoscalingV2Beta1Horizontalpodautoscaler = "autoscaling/v2beta1/HorizontalPodAutoscaler"
 	case batchV1Job = "batch/v1/Job"
@@ -81,14 +78,11 @@ public enum GroupVersionKind: String, CaseIterable {
 	case discoveryV1Beta1Endpointslice = "discovery.k8s.io/v1beta1/EndpointSlice"
 	case eventsV1Beta1Event = "events.k8s.io/v1beta1/Event"
 	case extensionsV1Beta1Ingress = "extensions/v1beta1/Ingress"
-	case flowcontrolV1Alpha1Flowschema = "flowcontrol.apiserver.k8s.io/v1alpha1/FlowSchema"
-	case flowcontrolV1Alpha1Prioritylevelconfiguration = "flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfiguration"
 	case networkingV1Networkpolicy = "networking.k8s.io/v1/NetworkPolicy"
 	case networkingV1Beta1Ingress = "networking.k8s.io/v1beta1/Ingress"
 	case networkingV1Beta1Ingressclass = "networking.k8s.io/v1beta1/IngressClass"
 	case nodeV1Beta1Runtimeclass = "node.k8s.io/v1beta1/RuntimeClass"
 	case nodeV1Alpha1Runtimeclass = "node.k8s.io/v1alpha1/RuntimeClass"
-	case policyV1Beta1Eviction = "policy/v1beta1/Eviction"
 	case policyV1Beta1Poddisruptionbudget = "policy/v1beta1/PodDisruptionBudget"
 	case policyV1Beta1Podsecuritypolicy = "policy/v1beta1/PodSecurityPolicy"
 	case rbacV1Clusterrole = "rbac.authorization.k8s.io/v1/ClusterRole"
@@ -106,7 +100,6 @@ public enum GroupVersionKind: String, CaseIterable {
 	case schedulingV1Priorityclass = "scheduling.k8s.io/v1/PriorityClass"
 	case schedulingV1Beta1Priorityclass = "scheduling.k8s.io/v1beta1/PriorityClass"
 	case schedulingV1Alpha1Priorityclass = "scheduling.k8s.io/v1alpha1/PriorityClass"
-	case settingsV1Alpha1Podpreset = "settings.k8s.io/v1alpha1/PodPreset"
 	case storageV1Csidriver = "storage.k8s.io/v1/CSIDriver"
 	case storageV1Csinode = "storage.k8s.io/v1/CSINode"
 	case storageV1Storageclass = "storage.k8s.io/v1/StorageClass"
@@ -156,21 +149,21 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .coreV1Serviceaccount:
 			return "core"
 		case .admissionregistrationV1Mutatingwebhookconfiguration:
-			return "admissionregistration"
+			return "admissionregistration.k8s.io"
 		case .admissionregistrationV1Validatingwebhookconfiguration:
-			return "admissionregistration"
+			return "admissionregistration.k8s.io"
 		case .admissionregistrationV1Beta1Mutatingwebhookconfiguration:
-			return "admissionregistration"
+			return "admissionregistration.k8s.io"
 		case .admissionregistrationV1Beta1Validatingwebhookconfiguration:
-			return "admissionregistration"
+			return "admissionregistration.k8s.io"
 		case .apiextensionsV1Customresourcedefinition:
-			return "apiextensions"
+			return "apiextensions.k8s.io"
 		case .apiextensionsV1Beta1Customresourcedefinition:
-			return "apiextensions"
+			return "apiextensions.k8s.io"
 		case .apiregistrationV1Apiservice:
-			return "apiregistration"
+			return "apiregistration.k8s.io"
 		case .apiregistrationV1Beta1Apiservice:
-			return "apiregistration"
+			return "apiregistration.k8s.io"
 		case .appsV1Controllerrevision:
 			return "apps"
 		case .appsV1Daemonset:
@@ -181,33 +174,27 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "apps"
 		case .appsV1Statefulset:
 			return "apps"
-		case .auditregistrationV1Alpha1Auditsink:
-			return "auditregistration"
-		case .authenticationV1Tokenrequest:
-			return "authentication"
 		case .authenticationV1Tokenreview:
-			return "authentication"
+			return "authentication.k8s.io"
 		case .authenticationV1Beta1Tokenreview:
-			return "authentication"
+			return "authentication.k8s.io"
 		case .authorizationV1Localsubjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Selfsubjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Selfsubjectrulesreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Subjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Beta1Localsubjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Beta1Selfsubjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Beta1Selfsubjectrulesreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .authorizationV1Beta1Subjectaccessreview:
-			return "authorization"
+			return "authorization.k8s.io"
 		case .autoscalingV1Horizontalpodautoscaler:
-			return "autoscaling"
-		case .autoscalingV1Scale:
 			return "autoscaling"
 		case .autoscalingV2Beta2Horizontalpodautoscaler:
 			return "autoscaling"
@@ -220,87 +207,79 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .batchV2Alpha1Cronjob:
 			return "batch"
 		case .certificatesV1Beta1Certificatesigningrequest:
-			return "certificates"
+			return "certificates.k8s.io"
 		case .coordinationV1Lease:
-			return "coordination"
+			return "coordination.k8s.io"
 		case .coordinationV1Beta1Lease:
-			return "coordination"
+			return "coordination.k8s.io"
 		case .discoveryV1Beta1Endpointslice:
-			return "discovery"
+			return "discovery.k8s.io"
 		case .eventsV1Beta1Event:
-			return "events"
+			return "events.k8s.io"
 		case .extensionsV1Beta1Ingress:
 			return "extensions"
-		case .flowcontrolV1Alpha1Flowschema:
-			return "flowcontrol"
-		case .flowcontrolV1Alpha1Prioritylevelconfiguration:
-			return "flowcontrol"
 		case .networkingV1Networkpolicy:
-			return "networking"
+			return "networking.k8s.io"
 		case .networkingV1Beta1Ingress:
-			return "networking"
+			return "networking.k8s.io"
 		case .networkingV1Beta1Ingressclass:
-			return "networking"
+			return "networking.k8s.io"
 		case .nodeV1Beta1Runtimeclass:
-			return "node"
+			return "node.k8s.io"
 		case .nodeV1Alpha1Runtimeclass:
-			return "node"
-		case .policyV1Beta1Eviction:
-			return "policy"
+			return "node.k8s.io"
 		case .policyV1Beta1Poddisruptionbudget:
 			return "policy"
 		case .policyV1Beta1Podsecuritypolicy:
 			return "policy"
 		case .rbacV1Clusterrole:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Clusterrolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Role:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Rolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Beta1Clusterrole:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Beta1Clusterrolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Beta1Role:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Beta1Rolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Alpha1Clusterrole:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Alpha1Clusterrolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Alpha1Role:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .rbacV1Alpha1Rolebinding:
-			return "rbac"
+			return "rbac.authorization.k8s.io"
 		case .schedulingV1Priorityclass:
-			return "scheduling"
+			return "scheduling.k8s.io"
 		case .schedulingV1Beta1Priorityclass:
-			return "scheduling"
+			return "scheduling.k8s.io"
 		case .schedulingV1Alpha1Priorityclass:
-			return "scheduling"
-		case .settingsV1Alpha1Podpreset:
-			return "settings"
+			return "scheduling.k8s.io"
 		case .storageV1Csidriver:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Csinode:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Storageclass:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Volumeattachment:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Beta1Csidriver:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Beta1Csinode:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Beta1Storageclass:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Beta1Volumeattachment:
-			return "storage"
+			return "storage.k8s.io"
 		case .storageV1Alpha1Volumeattachment:
-			return "storage"
+			return "storage.k8s.io"
 		}
 	}
 
@@ -368,10 +347,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1"
 		case .appsV1Statefulset:
 			return "v1"
-		case .auditregistrationV1Alpha1Auditsink:
-			return "v1alpha1"
-		case .authenticationV1Tokenrequest:
-			return "v1"
 		case .authenticationV1Tokenreview:
 			return "v1"
 		case .authenticationV1Beta1Tokenreview:
@@ -393,8 +368,6 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .authorizationV1Beta1Subjectaccessreview:
 			return "v1beta1"
 		case .autoscalingV1Horizontalpodautoscaler:
-			return "v1"
-		case .autoscalingV1Scale:
 			return "v1"
 		case .autoscalingV2Beta2Horizontalpodautoscaler:
 			return "v2beta2"
@@ -418,10 +391,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1beta1"
 		case .extensionsV1Beta1Ingress:
 			return "v1beta1"
-		case .flowcontrolV1Alpha1Flowschema:
-			return "v1alpha1"
-		case .flowcontrolV1Alpha1Prioritylevelconfiguration:
-			return "v1alpha1"
 		case .networkingV1Networkpolicy:
 			return "v1"
 		case .networkingV1Beta1Ingress:
@@ -432,8 +401,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1beta1"
 		case .nodeV1Alpha1Runtimeclass:
 			return "v1alpha1"
-		case .policyV1Beta1Eviction:
-			return "v1beta1"
 		case .policyV1Beta1Poddisruptionbudget:
 			return "v1beta1"
 		case .policyV1Beta1Podsecuritypolicy:
@@ -467,8 +434,6 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .schedulingV1Beta1Priorityclass:
 			return "v1beta1"
 		case .schedulingV1Alpha1Priorityclass:
-			return "v1alpha1"
-		case .settingsV1Alpha1Podpreset:
 			return "v1alpha1"
 		case .storageV1Csidriver:
 			return "v1"
@@ -555,10 +520,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "ReplicaSet"
 		case .appsV1Statefulset:
 			return "StatefulSet"
-		case .auditregistrationV1Alpha1Auditsink:
-			return "AuditSink"
-		case .authenticationV1Tokenrequest:
-			return "TokenRequest"
 		case .authenticationV1Tokenreview:
 			return "TokenReview"
 		case .authenticationV1Beta1Tokenreview:
@@ -581,8 +542,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "SubjectAccessReview"
 		case .autoscalingV1Horizontalpodautoscaler:
 			return "HorizontalPodAutoscaler"
-		case .autoscalingV1Scale:
-			return "Scale"
 		case .autoscalingV2Beta2Horizontalpodautoscaler:
 			return "HorizontalPodAutoscaler"
 		case .autoscalingV2Beta1Horizontalpodautoscaler:
@@ -605,10 +564,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "Event"
 		case .extensionsV1Beta1Ingress:
 			return "Ingress"
-		case .flowcontrolV1Alpha1Flowschema:
-			return "FlowSchema"
-		case .flowcontrolV1Alpha1Prioritylevelconfiguration:
-			return "PriorityLevelConfiguration"
 		case .networkingV1Networkpolicy:
 			return "NetworkPolicy"
 		case .networkingV1Beta1Ingress:
@@ -619,8 +574,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "RuntimeClass"
 		case .nodeV1Alpha1Runtimeclass:
 			return "RuntimeClass"
-		case .policyV1Beta1Eviction:
-			return "Eviction"
 		case .policyV1Beta1Poddisruptionbudget:
 			return "PodDisruptionBudget"
 		case .policyV1Beta1Podsecuritypolicy:
@@ -655,8 +608,6 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "PriorityClass"
 		case .schedulingV1Alpha1Priorityclass:
 			return "PriorityClass"
-		case .settingsV1Alpha1Podpreset:
-			return "PodPreset"
 		case .storageV1Csidriver:
 			return "CSIDriver"
 		case .storageV1Csinode:
@@ -684,6 +635,352 @@ public enum GroupVersionKind: String, CaseIterable {
 			return version
 		} else {
 			return "\(group)/\(version)"
+		}
+	}
+
+	/// The kind of this GroupVersionKind
+	public var pluralName: String {
+		switch self {
+
+		case .coreV1Binding:
+			return "bindings"
+		case .coreV1Componentstatus:
+			return "componentstatuses"
+		case .coreV1Configmap:
+			return "configmaps"
+		case .coreV1Endpoints:
+			return "endpoints"
+		case .coreV1Event:
+			return "events"
+		case .coreV1Limitrange:
+			return "limitranges"
+		case .coreV1Namespace:
+			return "namespaces"
+		case .coreV1Node:
+			return "nodes"
+		case .coreV1Persistentvolume:
+			return "persistentvolumes"
+		case .coreV1Persistentvolumeclaim:
+			return "persistentvolumeclaims"
+		case .coreV1Pod:
+			return "pods"
+		case .coreV1Podtemplate:
+			return "podtemplates"
+		case .coreV1Replicationcontroller:
+			return "replicationcontrollers"
+		case .coreV1Resourcequota:
+			return "resourcequotas"
+		case .coreV1Secret:
+			return "secrets"
+		case .coreV1Service:
+			return "services"
+		case .coreV1Serviceaccount:
+			return "serviceaccounts"
+		case .admissionregistrationV1Mutatingwebhookconfiguration:
+			return "mutatingwebhookconfigurations"
+		case .admissionregistrationV1Validatingwebhookconfiguration:
+			return "validatingwebhookconfigurations"
+		case .admissionregistrationV1Beta1Mutatingwebhookconfiguration:
+			return "mutatingwebhookconfigurations"
+		case .admissionregistrationV1Beta1Validatingwebhookconfiguration:
+			return "validatingwebhookconfigurations"
+		case .apiextensionsV1Customresourcedefinition:
+			return "customresourcedefinitions"
+		case .apiextensionsV1Beta1Customresourcedefinition:
+			return "customresourcedefinitions"
+		case .apiregistrationV1Apiservice:
+			return "apiservices"
+		case .apiregistrationV1Beta1Apiservice:
+			return "apiservices"
+		case .appsV1Controllerrevision:
+			return "controllerrevisions"
+		case .appsV1Daemonset:
+			return "daemonsets"
+		case .appsV1Deployment:
+			return "deployments"
+		case .appsV1Replicaset:
+			return "replicasets"
+		case .appsV1Statefulset:
+			return "statefulsets"
+		case .authenticationV1Tokenreview:
+			return "tokenreviews"
+		case .authenticationV1Beta1Tokenreview:
+			return "tokenreviews"
+		case .authorizationV1Localsubjectaccessreview:
+			return "localsubjectaccessreviews"
+		case .authorizationV1Selfsubjectaccessreview:
+			return "selfsubjectaccessreviews"
+		case .authorizationV1Selfsubjectrulesreview:
+			return "selfsubjectrulesreviews"
+		case .authorizationV1Subjectaccessreview:
+			return "subjectaccessreviews"
+		case .authorizationV1Beta1Localsubjectaccessreview:
+			return "localsubjectaccessreviews"
+		case .authorizationV1Beta1Selfsubjectaccessreview:
+			return "selfsubjectaccessreviews"
+		case .authorizationV1Beta1Selfsubjectrulesreview:
+			return "selfsubjectrulesreviews"
+		case .authorizationV1Beta1Subjectaccessreview:
+			return "subjectaccessreviews"
+		case .autoscalingV1Horizontalpodautoscaler:
+			return "horizontalpodautoscalers"
+		case .autoscalingV2Beta2Horizontalpodautoscaler:
+			return "horizontalpodautoscalers"
+		case .autoscalingV2Beta1Horizontalpodautoscaler:
+			return "horizontalpodautoscalers"
+		case .batchV1Job:
+			return "jobs"
+		case .batchV1Beta1Cronjob:
+			return "cronjobs"
+		case .batchV2Alpha1Cronjob:
+			return "cronjobs"
+		case .certificatesV1Beta1Certificatesigningrequest:
+			return "certificatesigningrequests"
+		case .coordinationV1Lease:
+			return "leases"
+		case .coordinationV1Beta1Lease:
+			return "leases"
+		case .discoveryV1Beta1Endpointslice:
+			return "endpointslices"
+		case .eventsV1Beta1Event:
+			return "events"
+		case .extensionsV1Beta1Ingress:
+			return "ingresses"
+		case .networkingV1Networkpolicy:
+			return "networkpolicies"
+		case .networkingV1Beta1Ingress:
+			return "ingresses"
+		case .networkingV1Beta1Ingressclass:
+			return "ingressclasses"
+		case .nodeV1Beta1Runtimeclass:
+			return "runtimeclasses"
+		case .nodeV1Alpha1Runtimeclass:
+			return "runtimeclasses"
+		case .policyV1Beta1Poddisruptionbudget:
+			return "poddisruptionbudgets"
+		case .policyV1Beta1Podsecuritypolicy:
+			return "podsecuritypolicies"
+		case .rbacV1Clusterrole:
+			return "clusterroles"
+		case .rbacV1Clusterrolebinding:
+			return "clusterrolebindings"
+		case .rbacV1Role:
+			return "roles"
+		case .rbacV1Rolebinding:
+			return "rolebindings"
+		case .rbacV1Beta1Clusterrole:
+			return "clusterroles"
+		case .rbacV1Beta1Clusterrolebinding:
+			return "clusterrolebindings"
+		case .rbacV1Beta1Role:
+			return "roles"
+		case .rbacV1Beta1Rolebinding:
+			return "rolebindings"
+		case .rbacV1Alpha1Clusterrole:
+			return "clusterroles"
+		case .rbacV1Alpha1Clusterrolebinding:
+			return "clusterrolebindings"
+		case .rbacV1Alpha1Role:
+			return "roles"
+		case .rbacV1Alpha1Rolebinding:
+			return "rolebindings"
+		case .schedulingV1Priorityclass:
+			return "priorityclasses"
+		case .schedulingV1Beta1Priorityclass:
+			return "priorityclasses"
+		case .schedulingV1Alpha1Priorityclass:
+			return "priorityclasses"
+		case .storageV1Csidriver:
+			return "csidrivers"
+		case .storageV1Csinode:
+			return "csinodes"
+		case .storageV1Storageclass:
+			return "storageclasses"
+		case .storageV1Volumeattachment:
+			return "volumeattachments"
+		case .storageV1Beta1Csidriver:
+			return "csidrivers"
+		case .storageV1Beta1Csinode:
+			return "csinodes"
+		case .storageV1Beta1Storageclass:
+			return "storageclasses"
+		case .storageV1Beta1Volumeattachment:
+			return "volumeattachments"
+		case .storageV1Alpha1Volumeattachment:
+			return "volumeattachments"
+		}
+	}
+
+	/// The kind of this GroupVersionKind
+	public var shortName: String? {
+		switch self {
+
+		case .coreV1Binding:
+			return nil
+		case .coreV1Componentstatus:
+			return "cs"
+		case .coreV1Configmap:
+			return "cm"
+		case .coreV1Endpoints:
+			return "ep"
+		case .coreV1Event:
+			return "ev"
+		case .coreV1Limitrange:
+			return "limits"
+		case .coreV1Namespace:
+			return "ns"
+		case .coreV1Node:
+			return "no"
+		case .coreV1Persistentvolume:
+			return "pv"
+		case .coreV1Persistentvolumeclaim:
+			return "pvc"
+		case .coreV1Pod:
+			return "po"
+		case .coreV1Podtemplate:
+			return nil
+		case .coreV1Replicationcontroller:
+			return "rc"
+		case .coreV1Resourcequota:
+			return "quota"
+		case .coreV1Secret:
+			return nil
+		case .coreV1Service:
+			return "svc"
+		case .coreV1Serviceaccount:
+			return "sa"
+		case .admissionregistrationV1Mutatingwebhookconfiguration:
+			return nil
+		case .admissionregistrationV1Validatingwebhookconfiguration:
+			return nil
+		case .admissionregistrationV1Beta1Mutatingwebhookconfiguration:
+			return nil
+		case .admissionregistrationV1Beta1Validatingwebhookconfiguration:
+			return nil
+		case .apiextensionsV1Customresourcedefinition:
+			return "crd"
+		case .apiextensionsV1Beta1Customresourcedefinition:
+			return "crd"
+		case .apiregistrationV1Apiservice:
+			return nil
+		case .apiregistrationV1Beta1Apiservice:
+			return nil
+		case .appsV1Controllerrevision:
+			return nil
+		case .appsV1Daemonset:
+			return "ds"
+		case .appsV1Deployment:
+			return "deploy"
+		case .appsV1Replicaset:
+			return "rs"
+		case .appsV1Statefulset:
+			return "sts"
+		case .authenticationV1Tokenreview:
+			return nil
+		case .authenticationV1Beta1Tokenreview:
+			return nil
+		case .authorizationV1Localsubjectaccessreview:
+			return nil
+		case .authorizationV1Selfsubjectaccessreview:
+			return nil
+		case .authorizationV1Selfsubjectrulesreview:
+			return nil
+		case .authorizationV1Subjectaccessreview:
+			return nil
+		case .authorizationV1Beta1Localsubjectaccessreview:
+			return nil
+		case .authorizationV1Beta1Selfsubjectaccessreview:
+			return nil
+		case .authorizationV1Beta1Selfsubjectrulesreview:
+			return nil
+		case .authorizationV1Beta1Subjectaccessreview:
+			return nil
+		case .autoscalingV1Horizontalpodautoscaler:
+			return "hpa"
+		case .autoscalingV2Beta2Horizontalpodautoscaler:
+			return "hpa"
+		case .autoscalingV2Beta1Horizontalpodautoscaler:
+			return "hpa"
+		case .batchV1Job:
+			return nil
+		case .batchV1Beta1Cronjob:
+			return "cj"
+		case .batchV2Alpha1Cronjob:
+			return "cj"
+		case .certificatesV1Beta1Certificatesigningrequest:
+			return "csr"
+		case .coordinationV1Lease:
+			return nil
+		case .coordinationV1Beta1Lease:
+			return nil
+		case .discoveryV1Beta1Endpointslice:
+			return nil
+		case .eventsV1Beta1Event:
+			return "ev"
+		case .extensionsV1Beta1Ingress:
+			return "ing"
+		case .networkingV1Networkpolicy:
+			return "netpol"
+		case .networkingV1Beta1Ingress:
+			return "ing"
+		case .networkingV1Beta1Ingressclass:
+			return nil
+		case .nodeV1Beta1Runtimeclass:
+			return nil
+		case .nodeV1Alpha1Runtimeclass:
+			return nil
+		case .policyV1Beta1Poddisruptionbudget:
+			return "pdb"
+		case .policyV1Beta1Podsecuritypolicy:
+			return "psp"
+		case .rbacV1Clusterrole:
+			return nil
+		case .rbacV1Clusterrolebinding:
+			return nil
+		case .rbacV1Role:
+			return nil
+		case .rbacV1Rolebinding:
+			return nil
+		case .rbacV1Beta1Clusterrole:
+			return nil
+		case .rbacV1Beta1Clusterrolebinding:
+			return nil
+		case .rbacV1Beta1Role:
+			return nil
+		case .rbacV1Beta1Rolebinding:
+			return nil
+		case .rbacV1Alpha1Clusterrole:
+			return nil
+		case .rbacV1Alpha1Clusterrolebinding:
+			return nil
+		case .rbacV1Alpha1Role:
+			return nil
+		case .rbacV1Alpha1Rolebinding:
+			return nil
+		case .schedulingV1Priorityclass:
+			return "pc"
+		case .schedulingV1Beta1Priorityclass:
+			return "pc"
+		case .schedulingV1Alpha1Priorityclass:
+			return "pc"
+		case .storageV1Csidriver:
+			return nil
+		case .storageV1Csinode:
+			return nil
+		case .storageV1Storageclass:
+			return "sc"
+		case .storageV1Volumeattachment:
+			return nil
+		case .storageV1Beta1Csidriver:
+			return nil
+		case .storageV1Beta1Csinode:
+			return nil
+		case .storageV1Beta1Storageclass:
+			return "sc"
+		case .storageV1Beta1Volumeattachment:
+			return nil
+		case .storageV1Alpha1Volumeattachment:
+			return nil
 		}
 	}
 }

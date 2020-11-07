@@ -24,23 +24,24 @@ extension GroupVersionKind {
 			return
 		}
 
-		if let gvk = GroupVersionKind.allCases.first(where: { $0.kind.lowercased() == string.lowercased() }) {
+		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element:$0, string: string) }) {
 			self = gvk
 			return
 		}
 
 		throw SwiftkubeModelError.unknownAPIObject("Cannot determine GroupVersionKind for: \(string)")
 	}
+
+	private static func gvkMatch(element: GroupVersionKind, string: String) -> Bool {
+		let lowercased = string.lowercased()
+
+		return element.kind.lowercased() == lowercased ||
+			element.pluralName == lowercased ||
+			element.shortName == lowercased
+	}
 }
 
 public extension GroupVersionKind {
-
-	/// The `plural` name of a resource `kind`, e.g. `deployments` for `Deployment`.
-	///
-	/// A poor man's implementation for pluralizing Kubernetes objects.
-	var pluralName: String {
-		return kind.pluralName
-	}
 
 	/// The URL path prefix for this APIVersion.
 	///
