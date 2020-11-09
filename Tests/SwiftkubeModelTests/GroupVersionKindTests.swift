@@ -63,4 +63,36 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Secret")
 	}
+
+	func testInitByPluralName() {
+		var gvk = try? GroupVersionKind(string: "pods")
+
+		XCTAssertEqual(gvk?.group, "core")
+		XCTAssertEqual(gvk?.version, "v1")
+		XCTAssertEqual(gvk?.kind, "Pod")
+		XCTAssertEqual(gvk?.pluralName, "pods")
+
+		gvk = try? GroupVersionKind(string: "clusterrolebindings")
+
+		XCTAssertEqual(gvk?.group, "rbac.authorization.k8s.io")
+		XCTAssertEqual(gvk?.version, "v1")
+		XCTAssertEqual(gvk?.kind, "ClusterRoleBinding")
+		XCTAssertEqual(gvk?.pluralName, "clusterrolebindings")
+	}
+
+	func testInitByShortName() {
+		var gvk = try? GroupVersionKind(string: "sa")
+
+		XCTAssertEqual(gvk?.group, "core")
+		XCTAssertEqual(gvk?.version, "v1")
+		XCTAssertEqual(gvk?.kind, "ServiceAccount")
+		XCTAssertEqual(gvk?.pluralName, "serviceaccounts")
+
+		gvk = try? GroupVersionKind(string: "psp")
+
+		XCTAssertEqual(gvk?.group, "policy")
+		XCTAssertEqual(gvk?.version, "v1beta1")
+		XCTAssertEqual(gvk?.kind, "PodSecurityPolicy")
+		XCTAssertEqual(gvk?.pluralName, "podsecuritypolicies")
+	}
 }
