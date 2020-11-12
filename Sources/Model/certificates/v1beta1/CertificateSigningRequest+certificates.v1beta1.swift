@@ -27,7 +27,7 @@ public extension certificates.v1beta1 {
 	///
 	/// Describes a certificate signing request
 	///
-	struct CertificateSigningRequest: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct CertificateSigningRequest: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
 		///
 		/// ListableResource.List associated type
 		///

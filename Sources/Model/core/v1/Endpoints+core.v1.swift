@@ -38,7 +38,7 @@ public extension core.v1 {
 	///     },
 	///  ]
 	///
-	struct Endpoints: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct Endpoints: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

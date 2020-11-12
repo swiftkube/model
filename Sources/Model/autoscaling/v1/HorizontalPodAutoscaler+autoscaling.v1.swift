@@ -27,7 +27,7 @@ public extension autoscaling.v1 {
 	///
 	/// configuration of a horizontal pod autoscaler.
 	///
-	struct HorizontalPodAutoscaler: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct HorizontalPodAutoscaler: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

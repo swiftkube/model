@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 	///
-	struct ComponentStatus: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ComponentStatus: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
 		///
 		/// ListableResource.List associated type
 		///

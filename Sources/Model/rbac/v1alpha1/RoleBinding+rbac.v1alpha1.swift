@@ -27,7 +27,7 @@ public extension rbac.v1alpha1 {
 	///
 	/// RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.20.
 	///
-	struct RoleBinding: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct RoleBinding: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

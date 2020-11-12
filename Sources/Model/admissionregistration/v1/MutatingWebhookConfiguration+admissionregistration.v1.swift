@@ -27,7 +27,7 @@ public extension admissionregistration.v1 {
 	///
 	/// MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 	///
-	struct MutatingWebhookConfiguration: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct MutatingWebhookConfiguration: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
 		///
 		/// ListableResource.List associated type
 		///

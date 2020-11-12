@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// ConfigMap holds configuration data for pods to consume.
 	///
-	struct ConfigMap: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ConfigMap: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

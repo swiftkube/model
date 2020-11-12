@@ -27,7 +27,7 @@ public extension coordination.v1 {
 	///
 	/// Lease defines a lease concept.
 	///
-	struct Lease: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct Lease: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

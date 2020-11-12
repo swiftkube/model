@@ -27,7 +27,7 @@ public extension policy.v1beta1 {
 	///
 	/// PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
 	///
-	struct PodDisruptionBudget: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct PodDisruptionBudget: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

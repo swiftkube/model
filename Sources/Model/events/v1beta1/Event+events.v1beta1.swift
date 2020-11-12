@@ -27,7 +27,7 @@ public extension events.v1beta1 {
 	///
 	/// Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system.
 	///
-	struct Event: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct Event: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

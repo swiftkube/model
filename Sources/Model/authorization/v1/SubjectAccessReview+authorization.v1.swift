@@ -27,7 +27,7 @@ public extension authorization.v1 {
 	///
 	/// SubjectAccessReview checks whether or not a user or group can perform an action.
 	///
-	struct SubjectAccessReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource {
+	struct SubjectAccessReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

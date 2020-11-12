@@ -27,7 +27,7 @@ public extension discovery.v1beta1 {
 	///
 	/// EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
 	///
-	struct EndpointSlice: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct EndpointSlice: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

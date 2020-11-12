@@ -75,3 +75,15 @@ public protocol ListableResource: KubernetesResource {
 	/// The associated type of a `KubernetesResourceList`.
 	associatedtype List: KubernetesResourceList
 }
+
+///
+/// A marker protocol for all namespace-scoped API resources.
+///
+/// For example a `Pod` or an `Ingress` are `NamespacedResource`s.
+public protocol NamespacedResource {}
+
+///
+/// A marker protocol for all cluster-scoped API resources.
+///
+/// For example a `Node` or a `ClusterRole` are ClusterScopedResource`s.
+public protocol ClusterScopedResource {}

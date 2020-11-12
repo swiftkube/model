@@ -27,7 +27,7 @@ public extension apps.v1 {
 	///
 	/// ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 	///
-	struct ReplicaSet: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ReplicaSet: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

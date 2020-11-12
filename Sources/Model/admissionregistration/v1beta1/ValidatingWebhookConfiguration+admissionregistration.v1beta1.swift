@@ -27,7 +27,7 @@ public extension admissionregistration.v1beta1 {
 	///
 	/// ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it. Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.
 	///
-	struct ValidatingWebhookConfiguration: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ValidatingWebhookConfiguration: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
 		///
 		/// ListableResource.List associated type
 		///

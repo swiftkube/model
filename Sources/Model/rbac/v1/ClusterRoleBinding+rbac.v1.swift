@@ -27,7 +27,7 @@ public extension rbac.v1 {
 	///
 	/// ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.
 	///
-	struct ClusterRoleBinding: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ClusterRoleBinding: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
 		///
 		/// ListableResource.List associated type
 		///

@@ -27,7 +27,7 @@ public extension apps.v1 {
 	///
 	/// DaemonSet represents the configuration of a daemon set.
 	///
-	struct DaemonSet: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct DaemonSet: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

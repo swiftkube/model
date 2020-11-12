@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// ResourceQuota sets aggregate quota restrictions enforced per namespace
 	///
-	struct ResourceQuota: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct ResourceQuota: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///

@@ -27,7 +27,7 @@ public extension core.v1 {
 	///
 	/// Secret holds secret data of a certain type. The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
 	///
-	struct Secret: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource {
+	struct Secret: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
 		///
 		/// ListableResource.List associated type
 		///
