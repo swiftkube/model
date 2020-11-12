@@ -41,7 +41,7 @@ final class GroupVersionKindTests: XCTestCase {
 		let apiVersion = "v1"
 		let kind = "Pod"
 
-		let gvk = try? GroupVersionKind(string: "\(apiVersion)/\(kind)")
+		let gvk = try? GroupVersionKind(forName: "\(apiVersion)/\(kind)")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -57,7 +57,7 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.kind, "Pod")
 		XCTAssertEqual(gvk?.pluralName, "pods")
 
-		gvk = try? GroupVersionKind(string: "secret")
+		gvk = try? GroupVersionKind(forName: "secret")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -65,14 +65,14 @@ final class GroupVersionKindTests: XCTestCase {
 	}
 
 	func testInitByPluralName() {
-		var gvk = try? GroupVersionKind(string: "pods")
+		var gvk = try? GroupVersionKind(forName: "pods")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Pod")
 		XCTAssertEqual(gvk?.pluralName, "pods")
 
-		gvk = try? GroupVersionKind(string: "clusterrolebindings")
+		gvk = try? GroupVersionKind(forName: "clusterrolebindings")
 
 		XCTAssertEqual(gvk?.group, "rbac.authorization.k8s.io")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -81,14 +81,14 @@ final class GroupVersionKindTests: XCTestCase {
 	}
 
 	func testInitByShortName() {
-		var gvk = try? GroupVersionKind(string: "sa")
+		var gvk = try? GroupVersionKind(forName: "sa")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "ServiceAccount")
 		XCTAssertEqual(gvk?.pluralName, "serviceaccounts")
 
-		gvk = try? GroupVersionKind(string: "psp")
+		gvk = try? GroupVersionKind(forName: "psp")
 
 		XCTAssertEqual(gvk?.group, "policy")
 		XCTAssertEqual(gvk?.version, "v1beta1")
