@@ -16,6 +16,7 @@
 ## Table of contents
 
 * [Overview](#overview)
+* [Compatibility Matrix](#compatibility-matrix)
 * [Usage](#usage)
 	* [Examples](#examples)
 	* [Builders](#builders)
@@ -32,6 +33,15 @@
 - [x] `Codable` support
 - [x] Closure-based builders for convenient object composition
 - [x] Type-erased wrappers for Kubernetes resources
+
+## Compatibility Matrix
+
+|                           | K8s <1.18.9| K8s 1.18.9 |
+|---------------------------|------------|------------|
+| SwiftkubeModel 0.1.0      | -          | ✓          |
+
+- `✓` Exact match of API objects in both model and the Kubernetes version.
+- `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the model and Kubernetes have in common will work.
 
 ## Usage
 
