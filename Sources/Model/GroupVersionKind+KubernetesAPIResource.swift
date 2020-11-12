@@ -43,169 +43,169 @@ public extension GroupVersionKind {
 		case is core.v1.Binding.Type:
 			self = .coreV1Binding
 		case is core.v1.ComponentStatus.Type:
-			self = .coreV1Componentstatus
+			self = .coreV1ComponentStatus
 		case is core.v1.ConfigMap.Type:
-			self = .coreV1Configmap
+			self = .coreV1ConfigMap
 		case is core.v1.Endpoints.Type:
 			self = .coreV1Endpoints
 		case is core.v1.Event.Type:
 			self = .coreV1Event
 		case is core.v1.LimitRange.Type:
-			self = .coreV1Limitrange
+			self = .coreV1LimitRange
 		case is core.v1.Namespace.Type:
 			self = .coreV1Namespace
 		case is core.v1.Node.Type:
 			self = .coreV1Node
 		case is core.v1.PersistentVolume.Type:
-			self = .coreV1Persistentvolume
+			self = .coreV1PersistentVolume
 		case is core.v1.PersistentVolumeClaim.Type:
-			self = .coreV1Persistentvolumeclaim
+			self = .coreV1PersistentVolumeClaim
 		case is core.v1.Pod.Type:
 			self = .coreV1Pod
 		case is core.v1.PodTemplate.Type:
-			self = .coreV1Podtemplate
+			self = .coreV1PodTemplate
 		case is core.v1.ReplicationController.Type:
-			self = .coreV1Replicationcontroller
+			self = .coreV1ReplicationController
 		case is core.v1.ResourceQuota.Type:
-			self = .coreV1Resourcequota
+			self = .coreV1ResourceQuota
 		case is core.v1.Secret.Type:
 			self = .coreV1Secret
 		case is core.v1.Service.Type:
 			self = .coreV1Service
 		case is core.v1.ServiceAccount.Type:
-			self = .coreV1Serviceaccount
+			self = .coreV1ServiceAccount
 		case is admissionregistration.v1.MutatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1Mutatingwebhookconfiguration
+			self = .admissionregistrationV1MutatingWebhookConfiguration
 		case is admissionregistration.v1.ValidatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1Validatingwebhookconfiguration
+			self = .admissionregistrationV1ValidatingWebhookConfiguration
 		case is admissionregistration.v1beta1.MutatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1Beta1Mutatingwebhookconfiguration
+			self = .admissionregistrationV1Beta1MutatingWebhookConfiguration
 		case is admissionregistration.v1beta1.ValidatingWebhookConfiguration.Type:
-			self = .admissionregistrationV1Beta1Validatingwebhookconfiguration
+			self = .admissionregistrationV1Beta1ValidatingWebhookConfiguration
 		case is apiextensions.v1.CustomResourceDefinition.Type:
-			self = .apiextensionsV1Customresourcedefinition
+			self = .apiextensionsV1CustomResourceDefinition
 		case is apiextensions.v1beta1.CustomResourceDefinition.Type:
-			self = .apiextensionsV1Beta1Customresourcedefinition
+			self = .apiextensionsV1Beta1CustomResourceDefinition
 		case is apiregistration.v1.APIService.Type:
-			self = .apiregistrationV1Apiservice
+			self = .apiregistrationV1APIService
 		case is apiregistration.v1beta1.APIService.Type:
-			self = .apiregistrationV1Beta1Apiservice
+			self = .apiregistrationV1Beta1APIService
 		case is apps.v1.ControllerRevision.Type:
-			self = .appsV1Controllerrevision
+			self = .appsV1ControllerRevision
 		case is apps.v1.DaemonSet.Type:
-			self = .appsV1Daemonset
+			self = .appsV1DaemonSet
 		case is apps.v1.Deployment.Type:
 			self = .appsV1Deployment
 		case is apps.v1.ReplicaSet.Type:
-			self = .appsV1Replicaset
+			self = .appsV1ReplicaSet
 		case is apps.v1.StatefulSet.Type:
-			self = .appsV1Statefulset
+			self = .appsV1StatefulSet
 		case is authentication.v1.TokenReview.Type:
-			self = .authenticationV1Tokenreview
+			self = .authenticationV1TokenReview
 		case is authentication.v1beta1.TokenReview.Type:
-			self = .authenticationV1Beta1Tokenreview
+			self = .authenticationV1Beta1TokenReview
 		case is authorization.v1.LocalSubjectAccessReview.Type:
-			self = .authorizationV1Localsubjectaccessreview
+			self = .authorizationV1LocalSubjectAccessReview
 		case is authorization.v1.SelfSubjectAccessReview.Type:
-			self = .authorizationV1Selfsubjectaccessreview
+			self = .authorizationV1SelfSubjectAccessReview
 		case is authorization.v1.SelfSubjectRulesReview.Type:
-			self = .authorizationV1Selfsubjectrulesreview
+			self = .authorizationV1SelfSubjectRulesReview
 		case is authorization.v1.SubjectAccessReview.Type:
-			self = .authorizationV1Subjectaccessreview
+			self = .authorizationV1SubjectAccessReview
 		case is authorization.v1beta1.LocalSubjectAccessReview.Type:
-			self = .authorizationV1Beta1Localsubjectaccessreview
+			self = .authorizationV1Beta1LocalSubjectAccessReview
 		case is authorization.v1beta1.SelfSubjectAccessReview.Type:
-			self = .authorizationV1Beta1Selfsubjectaccessreview
+			self = .authorizationV1Beta1SelfSubjectAccessReview
 		case is authorization.v1beta1.SelfSubjectRulesReview.Type:
-			self = .authorizationV1Beta1Selfsubjectrulesreview
+			self = .authorizationV1Beta1SelfSubjectRulesReview
 		case is authorization.v1beta1.SubjectAccessReview.Type:
-			self = .authorizationV1Beta1Subjectaccessreview
+			self = .authorizationV1Beta1SubjectAccessReview
 		case is autoscaling.v1.HorizontalPodAutoscaler.Type:
-			self = .autoscalingV1Horizontalpodautoscaler
+			self = .autoscalingV1HorizontalPodAutoscaler
 		case is autoscaling.v2beta2.HorizontalPodAutoscaler.Type:
-			self = .autoscalingV2Beta2Horizontalpodautoscaler
+			self = .autoscalingV2Beta2HorizontalPodAutoscaler
 		case is autoscaling.v2beta1.HorizontalPodAutoscaler.Type:
-			self = .autoscalingV2Beta1Horizontalpodautoscaler
+			self = .autoscalingV2Beta1HorizontalPodAutoscaler
 		case is batch.v1.Job.Type:
 			self = .batchV1Job
 		case is batch.v1beta1.CronJob.Type:
-			self = .batchV1Beta1Cronjob
+			self = .batchV1Beta1CronJob
 		case is batch.v2alpha1.CronJob.Type:
-			self = .batchV2Alpha1Cronjob
+			self = .batchV2Alpha1CronJob
 		case is certificates.v1beta1.CertificateSigningRequest.Type:
-			self = .certificatesV1Beta1Certificatesigningrequest
+			self = .certificatesV1Beta1CertificateSigningRequest
 		case is coordination.v1.Lease.Type:
 			self = .coordinationV1Lease
 		case is coordination.v1beta1.Lease.Type:
 			self = .coordinationV1Beta1Lease
 		case is discovery.v1beta1.EndpointSlice.Type:
-			self = .discoveryV1Beta1Endpointslice
+			self = .discoveryV1Beta1EndpointSlice
 		case is events.v1beta1.Event.Type:
 			self = .eventsV1Beta1Event
 		case is extensions.v1beta1.Ingress.Type:
 			self = .extensionsV1Beta1Ingress
 		case is networking.v1.NetworkPolicy.Type:
-			self = .networkingV1Networkpolicy
+			self = .networkingV1NetworkPolicy
 		case is networking.v1beta1.Ingress.Type:
 			self = .networkingV1Beta1Ingress
 		case is networking.v1beta1.IngressClass.Type:
-			self = .networkingV1Beta1Ingressclass
+			self = .networkingV1Beta1IngressClass
 		case is node.v1beta1.RuntimeClass.Type:
-			self = .nodeV1Beta1Runtimeclass
+			self = .nodeV1Beta1RuntimeClass
 		case is node.v1alpha1.RuntimeClass.Type:
-			self = .nodeV1Alpha1Runtimeclass
+			self = .nodeV1Alpha1RuntimeClass
 		case is policy.v1beta1.PodDisruptionBudget.Type:
-			self = .policyV1Beta1Poddisruptionbudget
+			self = .policyV1Beta1PodDisruptionBudget
 		case is policy.v1beta1.PodSecurityPolicy.Type:
-			self = .policyV1Beta1Podsecuritypolicy
+			self = .policyV1Beta1PodSecurityPolicy
 		case is rbac.v1.ClusterRole.Type:
-			self = .rbacV1Clusterrole
+			self = .rbacV1ClusterRole
 		case is rbac.v1.ClusterRoleBinding.Type:
-			self = .rbacV1Clusterrolebinding
+			self = .rbacV1ClusterRoleBinding
 		case is rbac.v1.Role.Type:
 			self = .rbacV1Role
 		case is rbac.v1.RoleBinding.Type:
-			self = .rbacV1Rolebinding
+			self = .rbacV1RoleBinding
 		case is rbac.v1beta1.ClusterRole.Type:
-			self = .rbacV1Beta1Clusterrole
+			self = .rbacV1Beta1ClusterRole
 		case is rbac.v1beta1.ClusterRoleBinding.Type:
-			self = .rbacV1Beta1Clusterrolebinding
+			self = .rbacV1Beta1ClusterRoleBinding
 		case is rbac.v1beta1.Role.Type:
 			self = .rbacV1Beta1Role
 		case is rbac.v1beta1.RoleBinding.Type:
-			self = .rbacV1Beta1Rolebinding
+			self = .rbacV1Beta1RoleBinding
 		case is rbac.v1alpha1.ClusterRole.Type:
-			self = .rbacV1Alpha1Clusterrole
+			self = .rbacV1Alpha1ClusterRole
 		case is rbac.v1alpha1.ClusterRoleBinding.Type:
-			self = .rbacV1Alpha1Clusterrolebinding
+			self = .rbacV1Alpha1ClusterRoleBinding
 		case is rbac.v1alpha1.Role.Type:
 			self = .rbacV1Alpha1Role
 		case is rbac.v1alpha1.RoleBinding.Type:
-			self = .rbacV1Alpha1Rolebinding
+			self = .rbacV1Alpha1RoleBinding
 		case is scheduling.v1.PriorityClass.Type:
-			self = .schedulingV1Priorityclass
+			self = .schedulingV1PriorityClass
 		case is scheduling.v1beta1.PriorityClass.Type:
-			self = .schedulingV1Beta1Priorityclass
+			self = .schedulingV1Beta1PriorityClass
 		case is scheduling.v1alpha1.PriorityClass.Type:
-			self = .schedulingV1Alpha1Priorityclass
+			self = .schedulingV1Alpha1PriorityClass
 		case is storage.v1.CSIDriver.Type:
-			self = .storageV1Csidriver
+			self = .storageV1CSIDriver
 		case is storage.v1.CSINode.Type:
-			self = .storageV1Csinode
+			self = .storageV1CSINode
 		case is storage.v1.StorageClass.Type:
-			self = .storageV1Storageclass
+			self = .storageV1StorageClass
 		case is storage.v1.VolumeAttachment.Type:
-			self = .storageV1Volumeattachment
+			self = .storageV1VolumeAttachment
 		case is storage.v1beta1.CSIDriver.Type:
-			self = .storageV1Beta1Csidriver
+			self = .storageV1Beta1CSIDriver
 		case is storage.v1beta1.CSINode.Type:
-			self = .storageV1Beta1Csinode
+			self = .storageV1Beta1CSINode
 		case is storage.v1beta1.StorageClass.Type:
-			self = .storageV1Beta1Storageclass
+			self = .storageV1Beta1StorageClass
 		case is storage.v1beta1.VolumeAttachment.Type:
-			self = .storageV1Beta1Volumeattachment
+			self = .storageV1Beta1VolumeAttachment
 		case is storage.v1alpha1.VolumeAttachment.Type:
-			self = .storageV1Alpha1Volumeattachment
+			self = .storageV1Alpha1VolumeAttachment
 		default:
 			return nil
 		}
