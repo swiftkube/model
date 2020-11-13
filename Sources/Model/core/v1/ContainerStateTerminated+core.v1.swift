@@ -39,7 +39,7 @@ public extension core.v1 {
 		///
 		/// Time at which the container last terminated
 		///
-		public var finishedAt: String?
+		public var finishedAt: Date?
 		///
 		/// Message regarding the last termination of the container
 		///
@@ -55,18 +55,18 @@ public extension core.v1 {
 		///
 		/// Time at which previous execution of the container started
 		///
-		public var startedAt: String?
+		public var startedAt: Date?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
 			containerID: String? = nil,
 			exitCode: Int32,
-			finishedAt: String? = nil,
+			finishedAt: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			signal: Int32? = nil,
-			startedAt: String? = nil
+			startedAt: Date? = nil
 		) {
 			self.containerID = containerID
 			self.exitCode = exitCode
@@ -99,11 +99,11 @@ extension core.v1.ContainerStateTerminated {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.containerID = try container.decodeIfPresent(String.self, forKey: .containerID)
 		self.exitCode = try container.decode(Int32.self, forKey: .exitCode)
-		self.finishedAt = try container.decodeIfPresent(String.self, forKey: .finishedAt)
+		self.finishedAt = try container.decodeIfPresent(Date.self, forKey: .finishedAt)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.signal = try container.decodeIfPresent(Int32.self, forKey: .signal)
-		self.startedAt = try container.decodeIfPresent(String.self, forKey: .startedAt)
+		self.startedAt = try container.decodeIfPresent(Date.self, forKey: .startedAt)
 	}
 
 	public func encode(to encoder: Encoder) throws {

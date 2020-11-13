@@ -31,7 +31,7 @@ public extension authentication.v1 {
 		///
 		/// ExpirationTimestamp is the time of expiration of the returned token.
 		///
-		public var expirationTimestamp: String
+		public var expirationTimestamp: Date
 		///
 		/// Token is the opaque bearer token.
 		///
@@ -40,7 +40,7 @@ public extension authentication.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			expirationTimestamp: String,
+			expirationTimestamp: Date,
 			token: String
 		) {
 			self.expirationTimestamp = expirationTimestamp
@@ -62,7 +62,7 @@ extension authentication.v1.TokenRequestStatus {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.expirationTimestamp = try container.decode(String.self, forKey: .expirationTimestamp)
+		self.expirationTimestamp = try container.decode(Date.self, forKey: .expirationTimestamp)
 		self.token = try container.decode(String.self, forKey: .token)
 	}
 

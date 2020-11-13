@@ -31,11 +31,11 @@ public extension batch.v1 {
 		///
 		/// Last time the condition was checked.
 		///
-		public var lastProbeTime: String?
+		public var lastProbeTime: Date?
 		///
 		/// Last time the condition transit from one status to another.
 		///
-		public var lastTransitionTime: String?
+		public var lastTransitionTime: Date?
 		///
 		/// Human readable message indicating details about last transition.
 		///
@@ -56,8 +56,8 @@ public extension batch.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastProbeTime: String? = nil,
-			lastTransitionTime: String? = nil,
+			lastProbeTime: Date? = nil,
+			lastTransitionTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			status: String,
@@ -90,8 +90,8 @@ extension batch.v1.JobCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastProbeTime = try container.decodeIfPresent(String.self, forKey: .lastProbeTime)
-		self.lastTransitionTime = try container.decodeIfPresent(String.self, forKey: .lastTransitionTime)
+		self.lastProbeTime = try container.decodeIfPresent(Date.self, forKey: .lastProbeTime)
+		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.status = try container.decode(String.self, forKey: .status)

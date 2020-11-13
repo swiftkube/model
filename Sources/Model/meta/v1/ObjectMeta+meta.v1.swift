@@ -41,7 +41,7 @@ public extension meta.v1 {
 		/// 
 		/// Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		public var creationTimestamp: String?
+		public var creationTimestamp: Date?
 		///
 		/// Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
 		///
@@ -51,7 +51,7 @@ public extension meta.v1 {
 		/// 
 		/// Populated by the system when a graceful deletion is requested. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 		///
-		public var deletionTimestamp: String?
+		public var deletionTimestamp: Date?
 		///
 		/// Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list.
 		///
@@ -114,9 +114,9 @@ public extension meta.v1 {
 		public init(
 			annotations: [String: String]? = nil,
 			clusterName: String? = nil,
-			creationTimestamp: String? = nil,
+			creationTimestamp: Date? = nil,
 			deletionGracePeriodSeconds: Int64? = nil,
-			deletionTimestamp: String? = nil,
+			deletionTimestamp: Date? = nil,
 			finalizers: [String]? = nil,
 			generateName: String? = nil,
 			generation: Int64? = nil,
@@ -178,9 +178,9 @@ extension meta.v1.ObjectMeta {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.annotations = try container.decodeIfPresent([String: String].self, forKey: .annotations)
 		self.clusterName = try container.decodeIfPresent(String.self, forKey: .clusterName)
-		self.creationTimestamp = try container.decodeIfPresent(String.self, forKey: .creationTimestamp)
+		self.creationTimestamp = try container.decodeIfPresent(Date.self, forKey: .creationTimestamp)
 		self.deletionGracePeriodSeconds = try container.decodeIfPresent(Int64.self, forKey: .deletionGracePeriodSeconds)
-		self.deletionTimestamp = try container.decodeIfPresent(String.self, forKey: .deletionTimestamp)
+		self.deletionTimestamp = try container.decodeIfPresent(Date.self, forKey: .deletionTimestamp)
 		self.finalizers = try container.decodeIfPresent([String].self, forKey: .finalizers)
 		self.generateName = try container.decodeIfPresent(String.self, forKey: .generateName)
 		self.generation = try container.decodeIfPresent(Int64.self, forKey: .generation)

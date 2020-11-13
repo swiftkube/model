@@ -39,7 +39,7 @@ public extension core.v1 {
 		///
 		/// TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.
 		///
-		public var timeAdded: String?
+		public var timeAdded: Date?
 		///
 		/// The taint value corresponding to the taint key.
 		///
@@ -50,7 +50,7 @@ public extension core.v1 {
 		public init(
 			effect: String,
 			key: String,
-			timeAdded: String? = nil,
+			timeAdded: Date? = nil,
 			value: String? = nil
 		) {
 			self.effect = effect
@@ -78,7 +78,7 @@ extension core.v1.Taint {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.effect = try container.decode(String.self, forKey: .effect)
 		self.key = try container.decode(String.self, forKey: .key)
-		self.timeAdded = try container.decodeIfPresent(String.self, forKey: .timeAdded)
+		self.timeAdded = try container.decodeIfPresent(Date.self, forKey: .timeAdded)
 		self.value = try container.decodeIfPresent(String.self, forKey: .value)
 	}
 

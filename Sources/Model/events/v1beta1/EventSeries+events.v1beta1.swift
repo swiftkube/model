@@ -35,7 +35,7 @@ public extension events.v1beta1 {
 		///
 		/// Time when last Event from the series was seen before last heartbeat.
 		///
-		public var lastObservedTime: String
+		public var lastObservedTime: Date
 		///
 		/// Information whether this series is ongoing or finished. Deprecated. Planned removal for 1.18
 		///
@@ -45,7 +45,7 @@ public extension events.v1beta1 {
 		///
 		public init(
 			count: Int32,
-			lastObservedTime: String,
+			lastObservedTime: Date,
 			state: String
 		) {
 			self.count = count
@@ -70,7 +70,7 @@ extension events.v1beta1.EventSeries {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.count = try container.decode(Int32.self, forKey: .count)
-		self.lastObservedTime = try container.decode(String.self, forKey: .lastObservedTime)
+		self.lastObservedTime = try container.decode(Date.self, forKey: .lastObservedTime)
 		self.state = try container.decode(String.self, forKey: .state)
 	}
 

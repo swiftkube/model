@@ -31,7 +31,7 @@ public extension certificates.v1beta1 {
 		///
 		/// timestamp for the last update to this condition
 		///
-		public var lastUpdateTime: String?
+		public var lastUpdateTime: Date?
 		///
 		/// human readable message with details about the request state
 		///
@@ -48,7 +48,7 @@ public extension certificates.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastUpdateTime: String? = nil,
+			lastUpdateTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			type: String
@@ -76,7 +76,7 @@ extension certificates.v1beta1.CertificateSigningRequestCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastUpdateTime = try container.decodeIfPresent(String.self, forKey: .lastUpdateTime)
+		self.lastUpdateTime = try container.decodeIfPresent(Date.self, forKey: .lastUpdateTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.type = try container.decode(String.self, forKey: .type)

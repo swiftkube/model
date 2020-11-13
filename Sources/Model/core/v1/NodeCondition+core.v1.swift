@@ -31,11 +31,11 @@ public extension core.v1 {
 		///
 		/// Last time we got an update on a given condition.
 		///
-		public var lastHeartbeatTime: String?
+		public var lastHeartbeatTime: Date?
 		///
 		/// Last time the condition transit from one status to another.
 		///
-		public var lastTransitionTime: String?
+		public var lastTransitionTime: Date?
 		///
 		/// Human readable message indicating details about last transition.
 		///
@@ -56,8 +56,8 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastHeartbeatTime: String? = nil,
-			lastTransitionTime: String? = nil,
+			lastHeartbeatTime: Date? = nil,
+			lastTransitionTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			status: String,
@@ -90,8 +90,8 @@ extension core.v1.NodeCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastHeartbeatTime = try container.decodeIfPresent(String.self, forKey: .lastHeartbeatTime)
-		self.lastTransitionTime = try container.decodeIfPresent(String.self, forKey: .lastTransitionTime)
+		self.lastHeartbeatTime = try container.decodeIfPresent(Date.self, forKey: .lastHeartbeatTime)
+		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.status = try container.decode(String.self, forKey: .status)

@@ -47,7 +47,7 @@ public extension autoscaling.v2beta1 {
 		///
 		/// lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.
 		///
-		public var lastScaleTime: String?
+		public var lastScaleTime: Date?
 		///
 		/// observedGeneration is the most recent generation observed by this autoscaler.
 		///
@@ -60,7 +60,7 @@ public extension autoscaling.v2beta1 {
 			currentMetrics: [autoscaling.v2beta1.MetricStatus]? = nil,
 			currentReplicas: Int32,
 			desiredReplicas: Int32,
-			lastScaleTime: String? = nil,
+			lastScaleTime: Date? = nil,
 			observedGeneration: Int64? = nil
 		) {
 			self.conditions = conditions
@@ -94,7 +94,7 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerStatus {
 		self.currentMetrics = try container.decodeIfPresent([autoscaling.v2beta1.MetricStatus].self, forKey: .currentMetrics)
 		self.currentReplicas = try container.decode(Int32.self, forKey: .currentReplicas)
 		self.desiredReplicas = try container.decode(Int32.self, forKey: .desiredReplicas)
-		self.lastScaleTime = try container.decodeIfPresent(String.self, forKey: .lastScaleTime)
+		self.lastScaleTime = try container.decodeIfPresent(Date.self, forKey: .lastScaleTime)
 		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
 	}
 

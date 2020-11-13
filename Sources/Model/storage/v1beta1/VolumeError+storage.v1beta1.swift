@@ -35,13 +35,13 @@ public extension storage.v1beta1 {
 		///
 		/// Time the error was encountered.
 		///
-		public var time: String?
+		public var time: Date?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
 			message: String? = nil,
-			time: String? = nil
+			time: Date? = nil
 		) {
 			self.message = message
 			self.time = time
@@ -63,7 +63,7 @@ extension storage.v1beta1.VolumeError {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
-		self.time = try container.decodeIfPresent(String.self, forKey: .time)
+		self.time = try container.decodeIfPresent(Date.self, forKey: .time)
 	}
 
 	public func encode(to encoder: Encoder) throws {

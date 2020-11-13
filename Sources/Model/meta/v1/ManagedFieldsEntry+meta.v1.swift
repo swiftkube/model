@@ -51,7 +51,7 @@ public extension meta.v1 {
 		///
 		/// Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'
 		///
-		public var time: String?
+		public var time: Date?
 		///
 		/// Default memberwise initializer
 		///
@@ -61,7 +61,7 @@ public extension meta.v1 {
 			fieldsV1: [String: Any]? = nil,
 			manager: String? = nil,
 			operation: String? = nil,
-			time: String? = nil
+			time: Date? = nil
 		) {
 			self.apiVersion = apiVersion
 			self.fieldsType = fieldsType
@@ -95,7 +95,7 @@ extension meta.v1.ManagedFieldsEntry {
 		self.fieldsV1 = try container.decodeIfPresent([String: Any].self, forKey: .fieldsV1)
 		self.manager = try container.decodeIfPresent(String.self, forKey: .manager)
 		self.operation = try container.decodeIfPresent(String.self, forKey: .operation)
-		self.time = try container.decodeIfPresent(String.self, forKey: .time)
+		self.time = try container.decodeIfPresent(Date.self, forKey: .time)
 	}
 
 	public func encode(to encoder: Encoder) throws {

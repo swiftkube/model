@@ -43,7 +43,7 @@ public extension autoscaling.v1 {
 		///
 		/// last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.
 		///
-		public var lastScaleTime: String?
+		public var lastScaleTime: Date?
 		///
 		/// most recent generation observed by this autoscaler.
 		///
@@ -55,7 +55,7 @@ public extension autoscaling.v1 {
 			currentCPUUtilizationPercentage: Int32? = nil,
 			currentReplicas: Int32,
 			desiredReplicas: Int32,
-			lastScaleTime: String? = nil,
+			lastScaleTime: Date? = nil,
 			observedGeneration: Int64? = nil
 		) {
 			self.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage
@@ -86,7 +86,7 @@ extension autoscaling.v1.HorizontalPodAutoscalerStatus {
 		self.currentCPUUtilizationPercentage = try container.decodeIfPresent(Int32.self, forKey: .currentCPUUtilizationPercentage)
 		self.currentReplicas = try container.decode(Int32.self, forKey: .currentReplicas)
 		self.desiredReplicas = try container.decode(Int32.self, forKey: .desiredReplicas)
-		self.lastScaleTime = try container.decodeIfPresent(String.self, forKey: .lastScaleTime)
+		self.lastScaleTime = try container.decodeIfPresent(Date.self, forKey: .lastScaleTime)
 		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
 	}
 

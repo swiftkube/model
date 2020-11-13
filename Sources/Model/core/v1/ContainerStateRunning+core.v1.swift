@@ -31,12 +31,12 @@ public extension core.v1 {
 		///
 		/// Time at which the container was last (re-)started
 		///
-		public var startedAt: String?
+		public var startedAt: Date?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
-			startedAt: String? = nil
+			startedAt: Date? = nil
 		) {
 			self.startedAt = startedAt
 		}
@@ -55,7 +55,7 @@ extension core.v1.ContainerStateRunning {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.startedAt = try container.decodeIfPresent(String.self, forKey: .startedAt)
+		self.startedAt = try container.decodeIfPresent(Date.self, forKey: .startedAt)
 	}
 
 	public func encode(to encoder: Encoder) throws {

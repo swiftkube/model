@@ -55,11 +55,11 @@ public extension core.v1 {
 		///
 		/// Time when this Event was first observed.
 		///
-		public var eventTime: String?
+		public var eventTime: Date?
 		///
 		/// The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
 		///
-		public var firstTimestamp: String?
+		public var firstTimestamp: Date?
 		///
 		/// The object that this event is about.
 		///
@@ -67,7 +67,7 @@ public extension core.v1 {
 		///
 		/// The time at which the most recent occurrence of this event was recorded.
 		///
-		public var lastTimestamp: String?
+		public var lastTimestamp: Date?
 		///
 		/// A human-readable description of the status of this operation.
 		///
@@ -107,10 +107,10 @@ public extension core.v1 {
 			metadata: meta.v1.ObjectMeta,
 			action: String? = nil,
 			count: Int32? = nil,
-			eventTime: String? = nil,
-			firstTimestamp: String? = nil,
+			eventTime: Date? = nil,
+			firstTimestamp: Date? = nil,
 			involvedObject: core.v1.ObjectReference,
-			lastTimestamp: String? = nil,
+			lastTimestamp: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			related: core.v1.ObjectReference? = nil,
@@ -170,10 +170,10 @@ extension core.v1.Event {
 		self.metadata = try container.decode(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.action = try container.decodeIfPresent(String.self, forKey: .action)
 		self.count = try container.decodeIfPresent(Int32.self, forKey: .count)
-		self.eventTime = try container.decodeIfPresent(String.self, forKey: .eventTime)
-		self.firstTimestamp = try container.decodeIfPresent(String.self, forKey: .firstTimestamp)
+		self.eventTime = try container.decodeIfPresent(Date.self, forKey: .eventTime)
+		self.firstTimestamp = try container.decodeIfPresent(Date.self, forKey: .firstTimestamp)
 		self.involvedObject = try container.decode(core.v1.ObjectReference.self, forKey: .involvedObject)
-		self.lastTimestamp = try container.decodeIfPresent(String.self, forKey: .lastTimestamp)
+		self.lastTimestamp = try container.decodeIfPresent(Date.self, forKey: .lastTimestamp)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.related = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .related)

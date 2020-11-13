@@ -31,7 +31,7 @@ public extension coordination.v1beta1 {
 		///
 		/// acquireTime is a time when the current lease was acquired.
 		///
-		public var acquireTime: String?
+		public var acquireTime: Date?
 		///
 		/// holderIdentity contains the identity of the holder of a current lease.
 		///
@@ -47,16 +47,16 @@ public extension coordination.v1beta1 {
 		///
 		/// renewTime is a time when the current holder of a lease has last updated the lease.
 		///
-		public var renewTime: String?
+		public var renewTime: Date?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
-			acquireTime: String? = nil,
+			acquireTime: Date? = nil,
 			holderIdentity: String? = nil,
 			leaseDurationSeconds: Int32? = nil,
 			leaseTransitions: Int32? = nil,
-			renewTime: String? = nil
+			renewTime: Date? = nil
 		) {
 			self.acquireTime = acquireTime
 			self.holderIdentity = holderIdentity
@@ -83,11 +83,11 @@ extension coordination.v1beta1.LeaseSpec {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.acquireTime = try container.decodeIfPresent(String.self, forKey: .acquireTime)
+		self.acquireTime = try container.decodeIfPresent(Date.self, forKey: .acquireTime)
 		self.holderIdentity = try container.decodeIfPresent(String.self, forKey: .holderIdentity)
 		self.leaseDurationSeconds = try container.decodeIfPresent(Int32.self, forKey: .leaseDurationSeconds)
 		self.leaseTransitions = try container.decodeIfPresent(Int32.self, forKey: .leaseTransitions)
-		self.renewTime = try container.decodeIfPresent(String.self, forKey: .renewTime)
+		self.renewTime = try container.decodeIfPresent(Date.self, forKey: .renewTime)
 	}
 
 	public func encode(to encoder: Encoder) throws {

@@ -35,7 +35,7 @@ public extension core.v1 {
 		///
 		/// Time of the last occurrence observed
 		///
-		public var lastObservedTime: String?
+		public var lastObservedTime: Date?
 		///
 		/// State of this Series: Ongoing or Finished Deprecated. Planned removal for 1.18
 		///
@@ -45,7 +45,7 @@ public extension core.v1 {
 		///
 		public init(
 			count: Int32? = nil,
-			lastObservedTime: String? = nil,
+			lastObservedTime: Date? = nil,
 			state: String? = nil
 		) {
 			self.count = count
@@ -70,7 +70,7 @@ extension core.v1.EventSeries {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.count = try container.decodeIfPresent(Int32.self, forKey: .count)
-		self.lastObservedTime = try container.decodeIfPresent(String.self, forKey: .lastObservedTime)
+		self.lastObservedTime = try container.decodeIfPresent(Date.self, forKey: .lastObservedTime)
 		self.state = try container.decodeIfPresent(String.self, forKey: .state)
 	}
 

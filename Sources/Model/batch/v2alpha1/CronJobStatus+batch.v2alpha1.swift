@@ -35,13 +35,13 @@ public extension batch.v2alpha1 {
 		///
 		/// Information when was the last time the job was successfully scheduled.
 		///
-		public var lastScheduleTime: String?
+		public var lastScheduleTime: Date?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
 			active: [core.v1.ObjectReference]? = nil,
-			lastScheduleTime: String? = nil
+			lastScheduleTime: Date? = nil
 		) {
 			self.active = active
 			self.lastScheduleTime = lastScheduleTime
@@ -63,7 +63,7 @@ extension batch.v2alpha1.CronJobStatus {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.active = try container.decodeIfPresent([core.v1.ObjectReference].self, forKey: .active)
-		self.lastScheduleTime = try container.decodeIfPresent(String.self, forKey: .lastScheduleTime)
+		self.lastScheduleTime = try container.decodeIfPresent(Date.self, forKey: .lastScheduleTime)
 	}
 
 	public func encode(to encoder: Encoder) throws {

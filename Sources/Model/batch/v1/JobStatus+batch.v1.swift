@@ -35,7 +35,7 @@ public extension batch.v1 {
 		///
 		/// Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
 		///
-		public var completionTime: String?
+		public var completionTime: Date?
 		///
 		/// The latest available observations of an object's current state. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 		///
@@ -47,7 +47,7 @@ public extension batch.v1 {
 		///
 		/// Represents time when the job was acknowledged by the job controller. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
 		///
-		public var startTime: String?
+		public var startTime: Date?
 		///
 		/// The number of pods which reached phase Succeeded.
 		///
@@ -57,10 +57,10 @@ public extension batch.v1 {
 		///
 		public init(
 			active: Int32? = nil,
-			completionTime: String? = nil,
+			completionTime: Date? = nil,
 			conditions: [batch.v1.JobCondition]? = nil,
 			failed: Int32? = nil,
-			startTime: String? = nil,
+			startTime: Date? = nil,
 			succeeded: Int32? = nil
 		) {
 			self.active = active
@@ -91,10 +91,10 @@ extension batch.v1.JobStatus {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.active = try container.decodeIfPresent(Int32.self, forKey: .active)
-		self.completionTime = try container.decodeIfPresent(String.self, forKey: .completionTime)
+		self.completionTime = try container.decodeIfPresent(Date.self, forKey: .completionTime)
 		self.conditions = try container.decodeIfPresent([batch.v1.JobCondition].self, forKey: .conditions)
 		self.failed = try container.decodeIfPresent(Int32.self, forKey: .failed)
-		self.startTime = try container.decodeIfPresent(String.self, forKey: .startTime)
+		self.startTime = try container.decodeIfPresent(Date.self, forKey: .startTime)
 		self.succeeded = try container.decodeIfPresent(Int32.self, forKey: .succeeded)
 	}
 

@@ -31,7 +31,7 @@ public extension apiextensions.v1beta1 {
 		///
 		/// lastTransitionTime last time the condition transitioned from one status to another.
 		///
-		public var lastTransitionTime: String?
+		public var lastTransitionTime: Date?
 		///
 		/// message is a human-readable message indicating details about last transition.
 		///
@@ -52,7 +52,7 @@ public extension apiextensions.v1beta1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastTransitionTime: String? = nil,
+			lastTransitionTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			status: String,
@@ -83,7 +83,7 @@ extension apiextensions.v1beta1.CustomResourceDefinitionCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastTransitionTime = try container.decodeIfPresent(String.self, forKey: .lastTransitionTime)
+		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.status = try container.decode(String.self, forKey: .status)

@@ -55,11 +55,11 @@ public extension events.v1beta1 {
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		public var deprecatedFirstTimestamp: String?
+		public var deprecatedFirstTimestamp: Date?
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
-		public var deprecatedLastTimestamp: String?
+		public var deprecatedLastTimestamp: Date?
 		///
 		/// Deprecated field assuring backward compatibility with core.v1 Event type
 		///
@@ -67,7 +67,7 @@ public extension events.v1beta1 {
 		///
 		/// Required. Time when this Event was first observed.
 		///
-		public var eventTime: String
+		public var eventTime: Date
 		///
 		/// Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
 		///
@@ -107,10 +107,10 @@ public extension events.v1beta1 {
 			metadata: meta.v1.ObjectMeta? = nil,
 			action: String? = nil,
 			deprecatedCount: Int32? = nil,
-			deprecatedFirstTimestamp: String? = nil,
-			deprecatedLastTimestamp: String? = nil,
+			deprecatedFirstTimestamp: Date? = nil,
+			deprecatedLastTimestamp: Date? = nil,
 			deprecatedSource: core.v1.EventSource? = nil,
-			eventTime: String,
+			eventTime: Date,
 			note: String? = nil,
 			reason: String? = nil,
 			regarding: core.v1.ObjectReference? = nil,
@@ -170,10 +170,10 @@ extension events.v1beta1.Event {
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.action = try container.decodeIfPresent(String.self, forKey: .action)
 		self.deprecatedCount = try container.decodeIfPresent(Int32.self, forKey: .deprecatedCount)
-		self.deprecatedFirstTimestamp = try container.decodeIfPresent(String.self, forKey: .deprecatedFirstTimestamp)
-		self.deprecatedLastTimestamp = try container.decodeIfPresent(String.self, forKey: .deprecatedLastTimestamp)
+		self.deprecatedFirstTimestamp = try container.decodeIfPresent(Date.self, forKey: .deprecatedFirstTimestamp)
+		self.deprecatedLastTimestamp = try container.decodeIfPresent(Date.self, forKey: .deprecatedLastTimestamp)
 		self.deprecatedSource = try container.decodeIfPresent(core.v1.EventSource.self, forKey: .deprecatedSource)
-		self.eventTime = try container.decode(String.self, forKey: .eventTime)
+		self.eventTime = try container.decode(Date.self, forKey: .eventTime)
 		self.note = try container.decodeIfPresent(String.self, forKey: .note)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.regarding = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .regarding)

@@ -83,7 +83,7 @@ public extension core.v1 {
 		///
 		/// RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
 		///
-		public var startTime: String?
+		public var startTime: Date?
 		///
 		/// Default memberwise initializer
 		///
@@ -100,7 +100,7 @@ public extension core.v1 {
 			podIPs: [core.v1.PodIP]? = nil,
 			qosClass: String? = nil,
 			reason: String? = nil,
-			startTime: String? = nil
+			startTime: Date? = nil
 		) {
 			self.conditions = conditions
 			self.containerStatuses = containerStatuses
@@ -155,7 +155,7 @@ extension core.v1.PodStatus {
 		self.podIPs = try container.decodeIfPresent([core.v1.PodIP].self, forKey: .podIPs)
 		self.qosClass = try container.decodeIfPresent(String.self, forKey: .qosClass)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
-		self.startTime = try container.decodeIfPresent(String.self, forKey: .startTime)
+		self.startTime = try container.decodeIfPresent(Date.self, forKey: .startTime)
 	}
 
 	public func encode(to encoder: Encoder) throws {

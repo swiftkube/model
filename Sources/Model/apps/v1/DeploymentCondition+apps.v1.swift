@@ -31,11 +31,11 @@ public extension apps.v1 {
 		///
 		/// Last time the condition transitioned from one status to another.
 		///
-		public var lastTransitionTime: String?
+		public var lastTransitionTime: Date?
 		///
 		/// The last time this condition was updated.
 		///
-		public var lastUpdateTime: String?
+		public var lastUpdateTime: Date?
 		///
 		/// A human readable message indicating details about the transition.
 		///
@@ -56,8 +56,8 @@ public extension apps.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastTransitionTime: String? = nil,
-			lastUpdateTime: String? = nil,
+			lastTransitionTime: Date? = nil,
+			lastUpdateTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			status: String,
@@ -90,8 +90,8 @@ extension apps.v1.DeploymentCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastTransitionTime = try container.decodeIfPresent(String.self, forKey: .lastTransitionTime)
-		self.lastUpdateTime = try container.decodeIfPresent(String.self, forKey: .lastUpdateTime)
+		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
+		self.lastUpdateTime = try container.decodeIfPresent(Date.self, forKey: .lastUpdateTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.status = try container.decode(String.self, forKey: .status)

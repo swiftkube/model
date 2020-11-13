@@ -31,7 +31,7 @@ public extension core.v1 {
 		///
 		/// The last time the condition transitioned from one status to another.
 		///
-		public var lastTransitionTime: String?
+		public var lastTransitionTime: Date?
 		///
 		/// A human readable message indicating details about the transition.
 		///
@@ -52,7 +52,7 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			lastTransitionTime: String? = nil,
+			lastTransitionTime: Date? = nil,
 			message: String? = nil,
 			reason: String? = nil,
 			status: String,
@@ -83,7 +83,7 @@ extension core.v1.ReplicationControllerCondition {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.lastTransitionTime = try container.decodeIfPresent(String.self, forKey: .lastTransitionTime)
+		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 		self.status = try container.decode(String.self, forKey: .status)
