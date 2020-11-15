@@ -1,4 +1,4 @@
-name: "Swiftkube:Model CI"
+name: "swiftkube-model-ci"
 
 on:
   push:
