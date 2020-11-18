@@ -37,11 +37,21 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.pluralName, "deployments")
 	}
 
+	func testInitByAnyResourceInstance() {
+		let resource = AnyKubernetesAPIResource(apps.v1.Deployment())
+		let gvk = GroupVersionKind(of: resource)
+
+		XCTAssertEqual(gvk?.group, "apps")
+		XCTAssertEqual(gvk?.version, "v1")
+		XCTAssertEqual(gvk?.kind, "Deployment")
+		XCTAssertEqual(gvk?.pluralName, "deployments")
+	}
+
 	func testInitByString() {
 		let apiVersion = "v1"
 		let kind = "Pod"
 
-		let gvk = try? GroupVersionKind(forName: "\(apiVersion)/\(kind)")
+		let gvk = try? GroupVersionKind(for: "\(apiVersion)/\(kind)")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -57,7 +67,7 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.kind, "Pod")
 		XCTAssertEqual(gvk?.pluralName, "pods")
 
-		gvk = try? GroupVersionKind(forName: "secret")
+		gvk = try? GroupVersionKind(for: "secret")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -65,14 +75,14 @@ final class GroupVersionKindTests: XCTestCase {
 	}
 
 	func testInitByPluralName() {
-		var gvk = try? GroupVersionKind(forName: "pods")
+		var gvk = try? GroupVersionKind(for: "pods")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Pod")
 		XCTAssertEqual(gvk?.pluralName, "pods")
 
-		gvk = try? GroupVersionKind(forName: "clusterrolebindings")
+		gvk = try? GroupVersionKind(for: "clusterrolebindings")
 
 		XCTAssertEqual(gvk?.group, "rbac.authorization.k8s.io")
 		XCTAssertEqual(gvk?.version, "v1")
@@ -81,14 +91,14 @@ final class GroupVersionKindTests: XCTestCase {
 	}
 
 	func testInitByShortName() {
-		var gvk = try? GroupVersionKind(forName: "sa")
+		var gvk = try? GroupVersionKind(for: "sa")
 
 		XCTAssertEqual(gvk?.group, "core")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "ServiceAccount")
 		XCTAssertEqual(gvk?.pluralName, "serviceaccounts")
 
-		gvk = try? GroupVersionKind(forName: "psp")
+		gvk = try? GroupVersionKind(for: "psp")
 
 		XCTAssertEqual(gvk?.group, "policy")
 		XCTAssertEqual(gvk?.version, "v1beta1")

@@ -18,18 +18,18 @@ import Foundation
 
 extension GroupVersionKind {
 
-	public init(forName name: String) throws {
-		if let gvk = GroupVersionKind(rawValue: name) {
+	public init(for resourceReference: String) throws {
+		if let gvk = GroupVersionKind(rawValue: resourceReference) {
 			self = gvk
 			return
 		}
 
-		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element:$0, string: name) }) {
+		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element:$0, string: resourceReference) }) {
 			self = gvk
 			return
 		}
 
-		throw SwiftkubeModelError.unknownAPIObject("Cannot determine GroupVersionKind for: \(name)")
+		throw SwiftkubeModelError.unknownAPIObject("Cannot determine GroupVersionKind for: \(resourceReference)")
 	}
 
 	private static func gvkMatch(element: GroupVersionKind, string: String) -> Bool {
