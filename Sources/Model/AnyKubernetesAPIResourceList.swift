@@ -33,11 +33,28 @@ public struct AnyKubernetesAPIResourceList: KubernetesResourceList {
 		case items
 	}
 
+	/// This resource list's `apiVersion`.
 	public let apiVersion: String
+
+	/// This resource list's `kind`.
 	public let kind: String
+
+	/// This resource list's `meta.v1.ListMeta` object.
 	public var metadata: meta.v1.ListMeta?
+
+	/// A list of type-erased `AnyKubernetesAPIResource` instances.
 	public var items: [AnyKubernetesAPIResource]
 
+	/// Creates a new type-erased `AnyKubernetesAPIResourceList` instance wrapping the given resources.
+	///
+	/// The passed items must be of the same type as the provided `apiVersion` and `kind` arguments.
+	/// This initializer doesn't ensure/enforce this requirement which may lead to unexpected behaviour if not fulfilled.
+	///
+	/// - Parameters:
+	///    - apiVersion: The `apiVerison` of the type-erased list.
+	///    - kind: The `kind` of the type-erased list.
+	///    - metadata: The `metadata` of the type-erased list.
+	///    - items: A list of type-erased resources.
 	public init(
 		apiVersion: String,
 		kind: String,

@@ -18,6 +18,22 @@ import Foundation
 
 extension GroupVersionKind {
 
+	/// Creates a new instance of `GroupVersionKind` for the provided resource reference.
+	///
+	/// A resource reference can be:
+	/// - Full API Group string
+	/// - Lowecassed singular resource kind
+	/// - Lowercased plural resource name
+	/// - lowecased short resource name
+	///
+	/// ```swift
+	/// let gvk = GroupVersionKind(rawValue: "apps/v1/Deployment")
+	/// let gvk = GroupVersionKind(for: "deployment")
+	/// let gvk = GroupVersionKind(for: "deployments")
+	/// let gvk = GroupVersionKind(for: "deploy")
+	/// ```
+	///
+	/// - Parameter resourceReference: A resource reference in string form.
 	public init(for resourceReference: String) throws {
 		if let gvk = GroupVersionKind(rawValue: resourceReference) {
 			self = gvk

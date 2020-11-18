@@ -31,14 +31,21 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 		case kind
 	}
 
+	/// The concreted wrapped resource instance.
 	private let resource: KubernetesAPIResource
 
+	/// This resource's `apiVersion`.
 	public var apiVersion: String
 
+	/// This resource's `kind`.
 	public var kind: String
 
+	/// This resource's `meta.v1.ObjectMeta` object.
 	public var metadata: meta.v1.ObjectMeta?
 
+	/// Creates a new type-erased `AnyKubernetesAPIResource` instance wrapping the given resource.
+	///
+	/// - Parameter resource: The resource to wrap/type-erase
 	public init(_ resource: KubernetesAPIResource) {
 		self.resource = resource
 		self.apiVersion = resource.apiVersion

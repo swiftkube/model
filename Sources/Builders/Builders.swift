@@ -22,7 +22,7 @@ import Foundation
 public enum sk {}
 
 @discardableResult
-func build<T>(_ value: T, with block: (inout T) -> Void) -> T {
+internal func build<T>(_ value: T, with block: (inout T) -> Void) -> T {
 	var instance = value
 	block(&instance)
 	return instance
