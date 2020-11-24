@@ -31,7 +31,7 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 		case kind
 	}
 
-	/// The concreted wrapped resource instance.
+	/// The concrete wrapped resource instance.
 	private let resource: KubernetesAPIResource
 
 	/// This resource's `apiVersion`.
@@ -139,6 +139,10 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try apps.v1.ReplicaSet.init(from: decoder)
 		case .appsV1StatefulSet:
 			decoded = try apps.v1.StatefulSet.init(from: decoder)
+		case .auditregistrationV1Alpha1AuditSink:
+			decoded = try auditregistration.v1alpha1.AuditSink.init(from: decoder)
+		case .authenticationV1TokenRequest:
+			decoded = try authentication.v1.TokenRequest.init(from: decoder)
 		case .authenticationV1TokenReview:
 			decoded = try authentication.v1.TokenReview.init(from: decoder)
 		case .authenticationV1Beta1TokenReview:
@@ -183,6 +187,10 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try events.v1beta1.Event.init(from: decoder)
 		case .extensionsV1Beta1Ingress:
 			decoded = try extensions.v1beta1.Ingress.init(from: decoder)
+		case .flowcontrolV1Alpha1FlowSchema:
+			decoded = try flowcontrol.v1alpha1.FlowSchema.init(from: decoder)
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			decoded = try flowcontrol.v1alpha1.PriorityLevelConfiguration.init(from: decoder)
 		case .networkingV1NetworkPolicy:
 			decoded = try networking.v1.NetworkPolicy.init(from: decoder)
 		case .networkingV1Beta1Ingress:
@@ -227,6 +235,8 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decoded = try scheduling.v1beta1.PriorityClass.init(from: decoder)
 		case .schedulingV1Alpha1PriorityClass:
 			decoded = try scheduling.v1alpha1.PriorityClass.init(from: decoder)
+		case .settingsV1Alpha1PodPreset:
+			decoded = try settings.v1alpha1.PodPreset.init(from: decoder)
 		case .storageV1CSIDriver:
 			decoded = try storage.v1.CSIDriver.init(from: decoder)
 		case .storageV1CSINode:

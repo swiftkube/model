@@ -100,6 +100,10 @@ public extension GroupVersionKind {
 			self = .appsV1ReplicaSet
 		case is apps.v1.StatefulSet.Type:
 			self = .appsV1StatefulSet
+		case is auditregistration.v1alpha1.AuditSink.Type:
+			self = .auditregistrationV1Alpha1AuditSink
+		case is authentication.v1.TokenRequest.Type:
+			self = .authenticationV1TokenRequest
 		case is authentication.v1.TokenReview.Type:
 			self = .authenticationV1TokenReview
 		case is authentication.v1beta1.TokenReview.Type:
@@ -144,6 +148,10 @@ public extension GroupVersionKind {
 			self = .eventsV1Beta1Event
 		case is extensions.v1beta1.Ingress.Type:
 			self = .extensionsV1Beta1Ingress
+		case is flowcontrol.v1alpha1.FlowSchema.Type:
+			self = .flowcontrolV1Alpha1FlowSchema
+		case is flowcontrol.v1alpha1.PriorityLevelConfiguration.Type:
+			self = .flowcontrolV1Alpha1PriorityLevelConfiguration
 		case is networking.v1.NetworkPolicy.Type:
 			self = .networkingV1NetworkPolicy
 		case is networking.v1beta1.Ingress.Type:
@@ -188,6 +196,8 @@ public extension GroupVersionKind {
 			self = .schedulingV1Beta1PriorityClass
 		case is scheduling.v1alpha1.PriorityClass.Type:
 			self = .schedulingV1Alpha1PriorityClass
+		case is settings.v1alpha1.PodPreset.Type:
+			self = .settingsV1Alpha1PodPreset
 		case is storage.v1.CSIDriver.Type:
 			self = .storageV1CSIDriver
 		case is storage.v1.CSINode.Type:

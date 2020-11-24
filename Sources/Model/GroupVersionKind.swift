@@ -56,6 +56,8 @@ public enum GroupVersionKind: String, CaseIterable {
 	case appsV1Deployment = "apps/v1/Deployment"
 	case appsV1ReplicaSet = "apps/v1/ReplicaSet"
 	case appsV1StatefulSet = "apps/v1/StatefulSet"
+	case auditregistrationV1Alpha1AuditSink = "auditregistration.k8s.io/v1alpha1/AuditSink"
+	case authenticationV1TokenRequest = "authentication.k8s.io/v1/TokenRequest"
 	case authenticationV1TokenReview = "authentication.k8s.io/v1/TokenReview"
 	case authenticationV1Beta1TokenReview = "authentication.k8s.io/v1beta1/TokenReview"
 	case authorizationV1LocalSubjectAccessReview = "authorization.k8s.io/v1/LocalSubjectAccessReview"
@@ -78,6 +80,8 @@ public enum GroupVersionKind: String, CaseIterable {
 	case discoveryV1Beta1EndpointSlice = "discovery.k8s.io/v1beta1/EndpointSlice"
 	case eventsV1Beta1Event = "events.k8s.io/v1beta1/Event"
 	case extensionsV1Beta1Ingress = "extensions/v1beta1/Ingress"
+	case flowcontrolV1Alpha1FlowSchema = "flowcontrol.apiserver.k8s.io/v1alpha1/FlowSchema"
+	case flowcontrolV1Alpha1PriorityLevelConfiguration = "flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfiguration"
 	case networkingV1NetworkPolicy = "networking.k8s.io/v1/NetworkPolicy"
 	case networkingV1Beta1Ingress = "networking.k8s.io/v1beta1/Ingress"
 	case networkingV1Beta1IngressClass = "networking.k8s.io/v1beta1/IngressClass"
@@ -100,6 +104,7 @@ public enum GroupVersionKind: String, CaseIterable {
 	case schedulingV1PriorityClass = "scheduling.k8s.io/v1/PriorityClass"
 	case schedulingV1Beta1PriorityClass = "scheduling.k8s.io/v1beta1/PriorityClass"
 	case schedulingV1Alpha1PriorityClass = "scheduling.k8s.io/v1alpha1/PriorityClass"
+	case settingsV1Alpha1PodPreset = "settings.k8s.io/v1alpha1/PodPreset"
 	case storageV1CSIDriver = "storage.k8s.io/v1/CSIDriver"
 	case storageV1CSINode = "storage.k8s.io/v1/CSINode"
 	case storageV1StorageClass = "storage.k8s.io/v1/StorageClass"
@@ -174,6 +179,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "apps"
 		case .appsV1StatefulSet:
 			return "apps"
+		case .auditregistrationV1Alpha1AuditSink:
+			return "auditregistration.k8s.io"
+		case .authenticationV1TokenRequest:
+			return "authentication.k8s.io"
 		case .authenticationV1TokenReview:
 			return "authentication.k8s.io"
 		case .authenticationV1Beta1TokenReview:
@@ -218,6 +227,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "events.k8s.io"
 		case .extensionsV1Beta1Ingress:
 			return "extensions"
+		case .flowcontrolV1Alpha1FlowSchema:
+			return "flowcontrol.apiserver.k8s.io"
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return "flowcontrol.apiserver.k8s.io"
 		case .networkingV1NetworkPolicy:
 			return "networking.k8s.io"
 		case .networkingV1Beta1Ingress:
@@ -262,6 +275,8 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "scheduling.k8s.io"
 		case .schedulingV1Alpha1PriorityClass:
 			return "scheduling.k8s.io"
+		case .settingsV1Alpha1PodPreset:
+			return "settings.k8s.io"
 		case .storageV1CSIDriver:
 			return "storage.k8s.io"
 		case .storageV1CSINode:
@@ -347,6 +362,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1"
 		case .appsV1StatefulSet:
 			return "v1"
+		case .auditregistrationV1Alpha1AuditSink:
+			return "v1alpha1"
+		case .authenticationV1TokenRequest:
+			return "v1"
 		case .authenticationV1TokenReview:
 			return "v1"
 		case .authenticationV1Beta1TokenReview:
@@ -391,6 +410,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1beta1"
 		case .extensionsV1Beta1Ingress:
 			return "v1beta1"
+		case .flowcontrolV1Alpha1FlowSchema:
+			return "v1alpha1"
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return "v1alpha1"
 		case .networkingV1NetworkPolicy:
 			return "v1"
 		case .networkingV1Beta1Ingress:
@@ -434,6 +457,8 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .schedulingV1Beta1PriorityClass:
 			return "v1beta1"
 		case .schedulingV1Alpha1PriorityClass:
+			return "v1alpha1"
+		case .settingsV1Alpha1PodPreset:
 			return "v1alpha1"
 		case .storageV1CSIDriver:
 			return "v1"
@@ -520,6 +545,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "ReplicaSet"
 		case .appsV1StatefulSet:
 			return "StatefulSet"
+		case .auditregistrationV1Alpha1AuditSink:
+			return "AuditSink"
+		case .authenticationV1TokenRequest:
+			return "TokenRequest"
 		case .authenticationV1TokenReview:
 			return "TokenReview"
 		case .authenticationV1Beta1TokenReview:
@@ -564,6 +593,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "Event"
 		case .extensionsV1Beta1Ingress:
 			return "Ingress"
+		case .flowcontrolV1Alpha1FlowSchema:
+			return "FlowSchema"
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return "PriorityLevelConfiguration"
 		case .networkingV1NetworkPolicy:
 			return "NetworkPolicy"
 		case .networkingV1Beta1Ingress:
@@ -608,6 +641,8 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "PriorityClass"
 		case .schedulingV1Alpha1PriorityClass:
 			return "PriorityClass"
+		case .settingsV1Alpha1PodPreset:
+			return "PodPreset"
 		case .storageV1CSIDriver:
 			return "CSIDriver"
 		case .storageV1CSINode:
@@ -702,6 +737,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "replicasets"
 		case .appsV1StatefulSet:
 			return "statefulsets"
+		case .auditregistrationV1Alpha1AuditSink:
+			return "auditsinks"
+		case .authenticationV1TokenRequest:
+			return "tokenrequests"
 		case .authenticationV1TokenReview:
 			return "tokenreviews"
 		case .authenticationV1Beta1TokenReview:
@@ -746,6 +785,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "events"
 		case .extensionsV1Beta1Ingress:
 			return "ingresses"
+		case .flowcontrolV1Alpha1FlowSchema:
+			return "flowschemas"
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return "prioritylevelconfigurations"
 		case .networkingV1NetworkPolicy:
 			return "networkpolicies"
 		case .networkingV1Beta1Ingress:
@@ -790,6 +833,8 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "priorityclasses"
 		case .schedulingV1Alpha1PriorityClass:
 			return "priorityclasses"
+		case .settingsV1Alpha1PodPreset:
+			return "podpresets"
 		case .storageV1CSIDriver:
 			return "csidrivers"
 		case .storageV1CSINode:
@@ -875,6 +920,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "rs"
 		case .appsV1StatefulSet:
 			return "sts"
+		case .auditregistrationV1Alpha1AuditSink:
+			return nil
+		case .authenticationV1TokenRequest:
+			return nil
 		case .authenticationV1TokenReview:
 			return nil
 		case .authenticationV1Beta1TokenReview:
@@ -919,6 +968,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "ev"
 		case .extensionsV1Beta1Ingress:
 			return "ing"
+		case .flowcontrolV1Alpha1FlowSchema:
+			return nil
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return nil
 		case .networkingV1NetworkPolicy:
 			return "netpol"
 		case .networkingV1Beta1Ingress:
@@ -963,6 +1016,8 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "pc"
 		case .schedulingV1Alpha1PriorityClass:
 			return "pc"
+		case .settingsV1Alpha1PodPreset:
+			return nil
 		case .storageV1CSIDriver:
 			return nil
 		case .storageV1CSINode:
@@ -1048,6 +1103,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return true
 		case .appsV1StatefulSet:
 			return true
+		case .auditregistrationV1Alpha1AuditSink:
+			return false
+		case .authenticationV1TokenRequest:
+			return true
 		case .authenticationV1TokenReview:
 			return false
 		case .authenticationV1Beta1TokenReview:
@@ -1092,6 +1151,10 @@ public enum GroupVersionKind: String, CaseIterable {
 			return true
 		case .extensionsV1Beta1Ingress:
 			return true
+		case .flowcontrolV1Alpha1FlowSchema:
+			return false
+		case .flowcontrolV1Alpha1PriorityLevelConfiguration:
+			return false
 		case .networkingV1NetworkPolicy:
 			return true
 		case .networkingV1Beta1Ingress:
@@ -1136,6 +1199,8 @@ public enum GroupVersionKind: String, CaseIterable {
 			return false
 		case .schedulingV1Alpha1PriorityClass:
 			return false
+		case .settingsV1Alpha1PodPreset:
+			return true
 		case .storageV1CSIDriver:
 			return false
 		case .storageV1CSINode:
