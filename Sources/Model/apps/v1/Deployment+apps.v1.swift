@@ -27,7 +27,8 @@ public extension apps.v1 {
 	///
 	/// Deployment enables declarative updates for Pods and ReplicaSets.
 	///
-	struct Deployment: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct Deployment: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

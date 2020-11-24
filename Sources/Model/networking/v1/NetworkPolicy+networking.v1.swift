@@ -27,7 +27,8 @@ public extension networking.v1 {
 	///
 	/// NetworkPolicy describes what network traffic is allowed for a set of Pods
 	///
-	struct NetworkPolicy: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct NetworkPolicy: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

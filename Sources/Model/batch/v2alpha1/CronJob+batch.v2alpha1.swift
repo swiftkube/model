@@ -27,7 +27,8 @@ public extension batch.v2alpha1 {
 	///
 	/// CronJob represents the configuration of a single cron job.
 	///
-	struct CronJob: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct CronJob: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

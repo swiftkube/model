@@ -27,7 +27,8 @@ public extension flowcontrol.v1alpha1 {
 	///
 	/// PriorityLevelConfiguration represents the configuration of a priority level.
 	///
-	struct PriorityLevelConfiguration: KubernetesResource, MetadataHavingResource, ListableResource {
+	struct PriorityLevelConfiguration: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

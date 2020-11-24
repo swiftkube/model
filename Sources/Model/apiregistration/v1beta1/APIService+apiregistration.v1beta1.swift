@@ -27,7 +27,8 @@ public extension apiregistration.v1beta1 {
 	///
 	/// APIService represents a server for a particular GroupVersion. Name must be "version.group".
 	///
-	struct APIService: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
+	struct APIService: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

@@ -27,7 +27,8 @@ public extension core.v1 {
 	///
 	/// LimitRange sets resource usage limits for each kind of resource in a Namespace.
 	///
-	struct LimitRange: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct LimitRange: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

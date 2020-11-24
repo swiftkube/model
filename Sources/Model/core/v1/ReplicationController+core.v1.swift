@@ -27,7 +27,8 @@ public extension core.v1 {
 	///
 	/// ReplicationController represents the configuration of a replication controller.
 	///
-	struct ReplicationController: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct ReplicationController: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

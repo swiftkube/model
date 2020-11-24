@@ -67,7 +67,26 @@ public protocol KubernetesAPIResource : MetadataHavingResource {
 	var kind: String { get }
 }
 
-/// A type of `KubernetesResource` that is `listable`.
+///
+/// A marker protocol for all namespace-scoped API resources.
+///
+/// For example a `Pod` or an `Ingress` are `NamespacedResource`s.
+public protocol NamespacedResource: KubernetesResource {}
+
+///
+/// A marker protocol for all cluster-scoped API resources.
+///
+/// For example a `Node` or a `ClusterRole` are `ClusterScopedResource`s.
+public protocol ClusterScopedResource: KubernetesResource {}
+
+///
+/// A type of `KubernetesResource`s that are "readable", i.e. can be fetched or watched.
+///
+/// For example a `Pod` is readable, whereas a `SelfSubjectAccessReview` is not.
+public protocol ReadableResource: KubernetesResource {}
+
+///
+/// A type of `KubernetesResource`s that are  "listable".
 ///
 /// `Listable` resources have a corresponding `KubernetesResourceList`, e.g. a `Pod` and `PodList`,
 /// and support "listing", e.g. `GET /api/v1/pods`
@@ -77,13 +96,34 @@ public protocol ListableResource: KubernetesResource {
 }
 
 ///
-/// A marker protocol for all namespace-scoped API resources.
+/// A type of `KubernetesResource`s that can be created.
 ///
-/// For example a `Pod` or an `Ingress` are `NamespacedResource`s.
-public protocol NamespacedResource {}
+public protocol CreatableResource: KubernetesResource {}
 
 ///
-/// A marker protocol for all cluster-scoped API resources.
+/// A type of `KubernetesResource`s that can be replaced via a `PUT` request.
 ///
-/// For example a `Node` or a `ClusterRole` are ClusterScopedResource`s.
-public protocol ClusterScopedResource {}
+/// For example a `Pod` is updatable, whereas a `LocalSubjectAccessReview` is not.
+public protocol ReplaceableResource: KubernetesResource {}
+
+///
+/// A type of `KubernetesResource`s that can be deleted.
+///
+/// For example a `Pod` is deletable, whereas a `LocalSubjectAccessReview` is not.
+public protocol DeletableResource: KubernetesResource {}
+
+///
+/// A type of `KubernetesResource`s that support deleting in batch.
+///
+/// For example a `Pod` collection is deletable, e.g.
+/// ```
+/// DELETE /api/v1/namespaces/{namespace}/pods
+/// ```
+///  is supported.
+///
+///  However, `Service`s are not deletable in batch, e.g.
+///  ```
+///  DELETE /api/v1/namespace/{namespace}/services
+///  ```
+///  is not supported.
+public protocol CollectionDeletableResource: KubernetesResource {}

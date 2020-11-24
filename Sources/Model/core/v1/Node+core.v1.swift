@@ -27,7 +27,8 @@ public extension core.v1 {
 	///
 	/// Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd).
 	///
-	struct Node: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, ClusterScopedResource {
+	struct Node: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

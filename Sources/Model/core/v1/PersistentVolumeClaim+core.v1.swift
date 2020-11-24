@@ -27,7 +27,8 @@ public extension core.v1 {
 	///
 	/// PersistentVolumeClaim is a user's request for and claim to a persistent volume
 	///
-	struct PersistentVolumeClaim: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct PersistentVolumeClaim: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///

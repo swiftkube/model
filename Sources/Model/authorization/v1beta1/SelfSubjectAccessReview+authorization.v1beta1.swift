@@ -27,7 +27,8 @@ public extension authorization.v1beta1 {
 	///
 	/// SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
 	///
-	struct SelfSubjectAccessReview: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource {
+	struct SelfSubjectAccessReview: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
+				CreatableResource {
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///

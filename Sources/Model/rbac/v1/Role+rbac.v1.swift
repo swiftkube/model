@@ -27,7 +27,8 @@ public extension rbac.v1 {
 	///
 	/// Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 	///
-	struct Role: KubernetesResource, KubernetesAPIResource, MetadataHavingResource, ListableResource, NamespacedResource {
+	struct Role: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
+				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
 		///
 		/// ListableResource.List associated type
 		///
