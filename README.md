@@ -41,7 +41,7 @@
 
 |                           | K8s <1.18.9| K8s 1.18.9 |
 |---------------------------|------------|------------|
-| SwiftkubeModel 0.1.0      | -          | ✓          |
+| SwiftkubeModel 0.2.0      | -          | ✓          |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the model and Kubernetes have in common will work.
@@ -350,7 +350,7 @@ let data = try? JSONEncoder().encode(resource)
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.1.0"),
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.2.0"),
 ```
 
 then include it as a dependency in your target:
@@ -361,7 +361,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.1.0")
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.2.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [
