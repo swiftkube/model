@@ -39,9 +39,9 @@
 
 ## Compatibility Matrix
 
-|                           | K8s <1.18.9| K8s 1.18.9 |
-|---------------------------|------------|------------|
-| SwiftkubeModel 0.2.0      | -          | ✓          |
+|                           | K8s <1.18.9 | K8s 1.18.9 - 1.18.13 |
+|---------------------------|-------------|----------------------|
+| SwiftkubeModel 0.2.x      | -           | ✓                    |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the model and Kubernetes have in common will work.
