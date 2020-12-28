@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Change personal copyright to Swiftkube Project
+
 ## 0.2.1
 
 - Update to Kubernetes v1.18.13
