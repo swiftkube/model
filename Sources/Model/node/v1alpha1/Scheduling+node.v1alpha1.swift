@@ -52,7 +52,7 @@ public extension node.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension node.v1alpha1.Scheduling {
+public extension node.v1alpha1.Scheduling {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension node.v1alpha1.Scheduling {
 		case tolerations = "tolerations"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.nodeSelector = try container.decodeIfPresent([String: String].self, forKey: .nodeSelector)
 		self.tolerations = try container.decodeIfPresent([core.v1.Toleration].self, forKey: .tolerations)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.nodeSelector, forKey: .nodeSelector)
-		try container.encode(self.tolerations, forKey: .tolerations)
+		try container.encode(nodeSelector, forKey: .nodeSelector)
+		try container.encode(tolerations, forKey: .tolerations)
 	}
-
 }
-

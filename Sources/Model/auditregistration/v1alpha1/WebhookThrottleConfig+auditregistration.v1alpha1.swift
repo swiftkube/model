@@ -52,7 +52,7 @@ public extension auditregistration.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension auditregistration.v1alpha1.WebhookThrottleConfig {
+public extension auditregistration.v1alpha1.WebhookThrottleConfig {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension auditregistration.v1alpha1.WebhookThrottleConfig {
 		case qps = "qps"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.burst = try container.decodeIfPresent(Int64.self, forKey: .burst)
 		self.qps = try container.decodeIfPresent(Int64.self, forKey: .qps)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.burst, forKey: .burst)
-		try container.encode(self.qps, forKey: .qps)
+		try container.encode(burst, forKey: .burst)
+		try container.encode(qps, forKey: .qps)
 	}
-
 }
-

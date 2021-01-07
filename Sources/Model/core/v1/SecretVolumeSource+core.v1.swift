@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Adapts a Secret into a volume.
-	/// 
+	///
 	/// The contents of the target Secret's Data field will be presented in a volume as files using the keys in the Data field as the file names. Secret volumes support ownership management and SELinux relabeling.
 	///
 	struct SecretVolumeSource: KubernetesResource {
@@ -66,7 +66,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.SecretVolumeSource {
+public extension core.v1.SecretVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -76,7 +76,7 @@ extension core.v1.SecretVolumeSource {
 		case secretName = "secretName"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.defaultMode = try container.decodeIfPresent(Int32.self, forKey: .defaultMode)
 		self.items = try container.decodeIfPresent([core.v1.KeyToPath].self, forKey: .items)
@@ -84,14 +84,12 @@ extension core.v1.SecretVolumeSource {
 		self.secretName = try container.decodeIfPresent(String.self, forKey: .secretName)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.defaultMode, forKey: .defaultMode)
-		try container.encode(self.items, forKey: .items)
-		try container.encode(self.optional, forKey: .optional)
-		try container.encode(self.secretName, forKey: .secretName)
+		try container.encode(defaultMode, forKey: .defaultMode)
+		try container.encode(items, forKey: .items)
+		try container.encode(optional, forKey: .optional)
+		try container.encode(secretName, forKey: .secretName)
 	}
-
 }
-

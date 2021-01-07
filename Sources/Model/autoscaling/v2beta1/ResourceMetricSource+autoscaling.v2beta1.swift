@@ -58,7 +58,7 @@ public extension autoscaling.v2beta1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta1.ResourceMetricSource {
+public extension autoscaling.v2beta1.ResourceMetricSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension autoscaling.v2beta1.ResourceMetricSource {
 		case targetAverageValue = "targetAverageValue"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.name = try container.decode(String.self, forKey: .name)
 		self.targetAverageUtilization = try container.decodeIfPresent(Int32.self, forKey: .targetAverageUtilization)
 		self.targetAverageValue = try container.decodeIfPresent(Quantity.self, forKey: .targetAverageValue)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.targetAverageUtilization, forKey: .targetAverageUtilization)
-		try container.encode(self.targetAverageValue, forKey: .targetAverageValue)
+		try container.encode(name, forKey: .name)
+		try container.encode(targetAverageUtilization, forKey: .targetAverageUtilization)
+		try container.encode(targetAverageValue, forKey: .targetAverageValue)
 	}
-
 }
-

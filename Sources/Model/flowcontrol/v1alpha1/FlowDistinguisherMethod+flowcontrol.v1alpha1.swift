@@ -46,23 +46,21 @@ public extension flowcontrol.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension flowcontrol.v1alpha1.FlowDistinguisherMethod {
+public extension flowcontrol.v1alpha1.FlowDistinguisherMethod {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.type, forKey: .type)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

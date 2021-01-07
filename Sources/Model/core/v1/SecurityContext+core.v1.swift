@@ -100,7 +100,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.SecurityContext {
+public extension core.v1.SecurityContext {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension core.v1.SecurityContext {
 		case windowsOptions = "windowsOptions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.allowPrivilegeEscalation = try container.decodeIfPresent(Bool.self, forKey: .allowPrivilegeEscalation)
 		self.capabilities = try container.decodeIfPresent(core.v1.Capabilities.self, forKey: .capabilities)
@@ -130,20 +130,18 @@ extension core.v1.SecurityContext {
 		self.windowsOptions = try container.decodeIfPresent(core.v1.WindowsSecurityContextOptions.self, forKey: .windowsOptions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
-		try container.encode(self.capabilities, forKey: .capabilities)
-		try container.encode(self.privileged, forKey: .privileged)
-		try container.encode(self.procMount, forKey: .procMount)
-		try container.encode(self.readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
-		try container.encode(self.runAsGroup, forKey: .runAsGroup)
-		try container.encode(self.runAsNonRoot, forKey: .runAsNonRoot)
-		try container.encode(self.runAsUser, forKey: .runAsUser)
-		try container.encode(self.seLinuxOptions, forKey: .seLinuxOptions)
-		try container.encode(self.windowsOptions, forKey: .windowsOptions)
+		try container.encode(allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
+		try container.encode(capabilities, forKey: .capabilities)
+		try container.encode(privileged, forKey: .privileged)
+		try container.encode(procMount, forKey: .procMount)
+		try container.encode(readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
+		try container.encode(runAsGroup, forKey: .runAsGroup)
+		try container.encode(runAsNonRoot, forKey: .runAsNonRoot)
+		try container.encode(runAsUser, forKey: .runAsUser)
+		try container.encode(seLinuxOptions, forKey: .seLinuxOptions)
+		try container.encode(windowsOptions, forKey: .windowsOptions)
 	}
-
 }
-

@@ -19,7 +19,7 @@ import Foundation
 public extension sk {
 
 	static func secret(_ block: (inout core.v1.Secret) -> Void) -> core.v1.Secret {
-		return build(core.v1.Secret(), with: block)
+		build(core.v1.Secret(), with: block)
 	}
 }
 
@@ -33,10 +33,10 @@ public extension core.v1.Secret {
 	}
 
 	mutating func add(file: URL, forKey key: String) throws {
-		if self.data == nil {
-			self.data = [:]
+		if data == nil {
+			data = [:]
 		}
 
-		self.data?[key] = try Data(contentsOf: file).base64EncodedString()
+		data?[key] = try Data(contentsOf: file).base64EncodedString()
 	}
 }

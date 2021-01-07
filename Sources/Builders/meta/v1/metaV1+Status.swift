@@ -19,6 +19,6 @@ import Foundation
 public extension sk {
 
 	static func status(_ block: (inout meta.v1.Status) -> Void) -> meta.v1.Status {
-		return build(meta.v1.Status(), with: block)
+		build(meta.v1.Status(), with: block)
 	}
 }

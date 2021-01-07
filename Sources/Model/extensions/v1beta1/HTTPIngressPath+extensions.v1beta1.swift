@@ -68,7 +68,7 @@ public extension extensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension extensions.v1beta1.HTTPIngressPath {
+public extension extensions.v1beta1.HTTPIngressPath {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -77,20 +77,18 @@ extension extensions.v1beta1.HTTPIngressPath {
 		case pathType = "pathType"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.backend = try container.decode(extensions.v1beta1.IngressBackend.self, forKey: .backend)
 		self.path = try container.decodeIfPresent(String.self, forKey: .path)
 		self.pathType = try container.decodeIfPresent(String.self, forKey: .pathType)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.backend, forKey: .backend)
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.pathType, forKey: .pathType)
+		try container.encode(backend, forKey: .backend)
+		try container.encode(path, forKey: .path)
+		try container.encode(pathType, forKey: .pathType)
 	}
-
 }
-

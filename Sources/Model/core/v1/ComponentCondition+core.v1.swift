@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ComponentCondition {
+public extension core.v1.ComponentCondition {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.ComponentCondition {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.error = try container.decodeIfPresent(String.self, forKey: .error)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
@@ -82,14 +82,12 @@ extension core.v1.ComponentCondition {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.error, forKey: .error)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.status, forKey: .status)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(error, forKey: .error)
+		try container.encode(message, forKey: .message)
+		try container.encode(status, forKey: .status)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

@@ -46,23 +46,21 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.RollingUpdateDaemonSet {
+public extension apps.v1.RollingUpdateDaemonSet {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case maxUnavailable = "maxUnavailable"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.maxUnavailable = try container.decodeIfPresent(IntOrString.self, forKey: .maxUnavailable)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.maxUnavailable, forKey: .maxUnavailable)
+		try container.encode(maxUnavailable, forKey: .maxUnavailable)
 	}
-
 }
-

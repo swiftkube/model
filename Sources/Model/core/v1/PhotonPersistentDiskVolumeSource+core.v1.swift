@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PhotonPersistentDiskVolumeSource {
+public extension core.v1.PhotonPersistentDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.PhotonPersistentDiskVolumeSource {
 		case pdID = "pdID"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.pdID = try container.decode(String.self, forKey: .pdID)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.pdID, forKey: .pdID)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(pdID, forKey: .pdID)
 	}
-
 }
-

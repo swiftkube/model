@@ -78,7 +78,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.DeleteOptions {
+public extension meta.v1.DeleteOptions {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -91,7 +91,7 @@ extension meta.v1.DeleteOptions {
 		case propagationPolicy = "propagationPolicy"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.dryRun = try container.decodeIfPresent([String].self, forKey: .dryRun)
 		self.gracePeriodSeconds = try container.decodeIfPresent(Int64.self, forKey: .gracePeriodSeconds)
@@ -100,17 +100,15 @@ extension meta.v1.DeleteOptions {
 		self.propagationPolicy = try container.decodeIfPresent(String.self, forKey: .propagationPolicy)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.dryRun, forKey: .dryRun)
-		try container.encode(self.gracePeriodSeconds, forKey: .gracePeriodSeconds)
-		try container.encode(self.orphanDependents, forKey: .orphanDependents)
-		try container.encode(self.preconditions, forKey: .preconditions)
-		try container.encode(self.propagationPolicy, forKey: .propagationPolicy)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(dryRun, forKey: .dryRun)
+		try container.encode(gracePeriodSeconds, forKey: .gracePeriodSeconds)
+		try container.encode(orphanDependents, forKey: .orphanDependents)
+		try container.encode(preconditions, forKey: .preconditions)
+		try container.encode(propagationPolicy, forKey: .propagationPolicy)
 	}
-
 }
-

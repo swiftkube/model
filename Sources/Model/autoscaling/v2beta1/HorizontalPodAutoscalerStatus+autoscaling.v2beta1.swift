@@ -76,7 +76,7 @@ public extension autoscaling.v2beta1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta1.HorizontalPodAutoscalerStatus {
+public extension autoscaling.v2beta1.HorizontalPodAutoscalerStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerStatus {
 		case observedGeneration = "observedGeneration"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conditions = try container.decode([autoscaling.v2beta1.HorizontalPodAutoscalerCondition].self, forKey: .conditions)
 		self.currentMetrics = try container.decodeIfPresent([autoscaling.v2beta1.MetricStatus].self, forKey: .currentMetrics)
@@ -98,16 +98,14 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerStatus {
 		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.currentMetrics, forKey: .currentMetrics)
-		try container.encode(self.currentReplicas, forKey: .currentReplicas)
-		try container.encode(self.desiredReplicas, forKey: .desiredReplicas)
-		try container.encode(self.lastScaleTime, forKey: .lastScaleTime)
-		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(currentMetrics, forKey: .currentMetrics)
+		try container.encode(currentReplicas, forKey: .currentReplicas)
+		try container.encode(desiredReplicas, forKey: .desiredReplicas)
+		try container.encode(lastScaleTime, forKey: .lastScaleTime)
+		try container.encode(observedGeneration, forKey: .observedGeneration)
 	}
-
 }
-

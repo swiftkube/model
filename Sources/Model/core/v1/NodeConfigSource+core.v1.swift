@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeConfigSource {
+public extension core.v1.NodeConfigSource {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case configMap = "configMap"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.configMap = try container.decodeIfPresent(core.v1.ConfigMapNodeConfigSource.self, forKey: .configMap)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.configMap, forKey: .configMap)
+		try container.encode(configMap, forKey: .configMap)
 	}
-
 }
-

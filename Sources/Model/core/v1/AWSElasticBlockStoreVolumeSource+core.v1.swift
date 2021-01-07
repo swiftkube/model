@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Represents a Persistent Disk resource in AWS.
-	/// 
+	///
 	/// An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.
 	///
 	struct AWSElasticBlockStoreVolumeSource: KubernetesResource {
@@ -66,7 +66,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.AWSElasticBlockStoreVolumeSource {
+public extension core.v1.AWSElasticBlockStoreVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -76,7 +76,7 @@ extension core.v1.AWSElasticBlockStoreVolumeSource {
 		case volumeID = "volumeID"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.partition = try container.decodeIfPresent(Int32.self, forKey: .partition)
@@ -84,14 +84,12 @@ extension core.v1.AWSElasticBlockStoreVolumeSource {
 		self.volumeID = try container.decode(String.self, forKey: .volumeID)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.partition, forKey: .partition)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.volumeID, forKey: .volumeID)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(partition, forKey: .partition)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(volumeID, forKey: .volumeID)
 	}
-
 }
-

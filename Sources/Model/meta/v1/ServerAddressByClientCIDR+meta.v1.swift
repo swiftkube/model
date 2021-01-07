@@ -52,7 +52,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.ServerAddressByClientCIDR {
+public extension meta.v1.ServerAddressByClientCIDR {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension meta.v1.ServerAddressByClientCIDR {
 		case serverAddress = "serverAddress"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.clientCIDR = try container.decode(String.self, forKey: .clientCIDR)
 		self.serverAddress = try container.decode(String.self, forKey: .serverAddress)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.clientCIDR, forKey: .clientCIDR)
-		try container.encode(self.serverAddress, forKey: .serverAddress)
+		try container.encode(clientCIDR, forKey: .clientCIDR)
+		try container.encode(serverAddress, forKey: .serverAddress)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.TopologySpreadConstraint {
+public extension core.v1.TopologySpreadConstraint {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.TopologySpreadConstraint {
 		case whenUnsatisfiable = "whenUnsatisfiable"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.labelSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .labelSelector)
 		self.maxSkew = try container.decode(Int32.self, forKey: .maxSkew)
@@ -82,14 +82,12 @@ extension core.v1.TopologySpreadConstraint {
 		self.whenUnsatisfiable = try container.decode(String.self, forKey: .whenUnsatisfiable)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.labelSelector, forKey: .labelSelector)
-		try container.encode(self.maxSkew, forKey: .maxSkew)
-		try container.encode(self.topologyKey, forKey: .topologyKey)
-		try container.encode(self.whenUnsatisfiable, forKey: .whenUnsatisfiable)
+		try container.encode(labelSelector, forKey: .labelSelector)
+		try container.encode(maxSkew, forKey: .maxSkew)
+		try container.encode(topologyKey, forKey: .topologyKey)
+		try container.encode(whenUnsatisfiable, forKey: .whenUnsatisfiable)
 	}
-
 }
-

@@ -52,7 +52,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.GroupVersionForDiscovery {
+public extension meta.v1.GroupVersionForDiscovery {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension meta.v1.GroupVersionForDiscovery {
 		case version = "version"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.groupVersion = try container.decode(String.self, forKey: .groupVersion)
 		self.version = try container.decode(String.self, forKey: .version)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.groupVersion, forKey: .groupVersion)
-		try container.encode(self.version, forKey: .version)
+		try container.encode(groupVersion, forKey: .groupVersion)
+		try container.encode(version, forKey: .version)
 	}
-
 }
-

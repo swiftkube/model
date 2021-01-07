@@ -52,7 +52,7 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.WebhookConversion {
+public extension apiextensions.v1.WebhookConversion {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension apiextensions.v1.WebhookConversion {
 		case conversionReviewVersions = "conversionReviewVersions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.clientConfig = try container.decodeIfPresent(apiextensions.v1.WebhookClientConfig.self, forKey: .clientConfig)
 		self.conversionReviewVersions = try container.decode([String].self, forKey: .conversionReviewVersions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.clientConfig, forKey: .clientConfig)
-		try container.encode(self.conversionReviewVersions, forKey: .conversionReviewVersions)
+		try container.encode(clientConfig, forKey: .clientConfig)
+		try container.encode(conversionReviewVersions, forKey: .conversionReviewVersions)
 	}
-
 }
-

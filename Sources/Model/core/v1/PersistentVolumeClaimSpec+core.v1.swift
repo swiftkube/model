@@ -82,7 +82,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PersistentVolumeClaimSpec {
+public extension core.v1.PersistentVolumeClaimSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -95,7 +95,7 @@ extension core.v1.PersistentVolumeClaimSpec {
 		case volumeName = "volumeName"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.accessModes = try container.decodeIfPresent([String].self, forKey: .accessModes)
 		self.dataSource = try container.decodeIfPresent(core.v1.TypedLocalObjectReference.self, forKey: .dataSource)
@@ -106,17 +106,15 @@ extension core.v1.PersistentVolumeClaimSpec {
 		self.volumeName = try container.decodeIfPresent(String.self, forKey: .volumeName)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.accessModes, forKey: .accessModes)
-		try container.encode(self.dataSource, forKey: .dataSource)
-		try container.encode(self.resources, forKey: .resources)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.storageClassName, forKey: .storageClassName)
-		try container.encode(self.volumeMode, forKey: .volumeMode)
-		try container.encode(self.volumeName, forKey: .volumeName)
+		try container.encode(accessModes, forKey: .accessModes)
+		try container.encode(dataSource, forKey: .dataSource)
+		try container.encode(resources, forKey: .resources)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(storageClassName, forKey: .storageClassName)
+		try container.encode(volumeMode, forKey: .volumeMode)
+		try container.encode(volumeName, forKey: .volumeName)
 	}
-
 }
-

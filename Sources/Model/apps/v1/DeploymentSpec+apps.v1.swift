@@ -88,7 +88,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.DeploymentSpec {
+public extension apps.v1.DeploymentSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -102,7 +102,7 @@ extension apps.v1.DeploymentSpec {
 		case template = "template"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.minReadySeconds = try container.decodeIfPresent(Int32.self, forKey: .minReadySeconds)
 		self.paused = try container.decodeIfPresent(Bool.self, forKey: .paused)
@@ -114,18 +114,16 @@ extension apps.v1.DeploymentSpec {
 		self.template = try container.decode(core.v1.PodTemplateSpec.self, forKey: .template)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.minReadySeconds, forKey: .minReadySeconds)
-		try container.encode(self.paused, forKey: .paused)
-		try container.encode(self.progressDeadlineSeconds, forKey: .progressDeadlineSeconds)
-		try container.encode(self.replicas, forKey: .replicas)
-		try container.encode(self.revisionHistoryLimit, forKey: .revisionHistoryLimit)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.strategy, forKey: .strategy)
-		try container.encode(self.template, forKey: .template)
+		try container.encode(minReadySeconds, forKey: .minReadySeconds)
+		try container.encode(paused, forKey: .paused)
+		try container.encode(progressDeadlineSeconds, forKey: .progressDeadlineSeconds)
+		try container.encode(replicas, forKey: .replicas)
+		try container.encode(revisionHistoryLimit, forKey: .revisionHistoryLimit)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(strategy, forKey: .strategy)
+		try container.encode(template, forKey: .template)
 	}
-
 }
-

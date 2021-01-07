@@ -66,7 +66,7 @@ public struct AnyKubernetesAPIResourceList: KubernetesResourceList {
 		self.metadata = metadata
 		self.items = items
 	}
-	
+
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let apiVersion = try container.decode(String.self, forKey: .apiVersion)

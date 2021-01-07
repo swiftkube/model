@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ConfigMapList {
+public extension core.v1.ConfigMapList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,22 +74,23 @@ extension core.v1.ConfigMapList {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.items = try container.decode([core.v1.ConfigMap].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(items, forKey: .items)
 	}
-
 }
+
+// MARK: - core.v1.ConfigMapList + Sequence
 
 ///
 /// Sequence iterator for KubernetesResourceList items
@@ -99,7 +100,6 @@ extension core.v1.ConfigMapList: Sequence {
 	public typealias Element = core.v1.ConfigMap
 
 	public func makeIterator() -> AnyIterator<core.v1.ConfigMap> {
-		return AnyIterator(self.items.makeIterator())
+		AnyIterator(items.makeIterator())
 	}
 }
-

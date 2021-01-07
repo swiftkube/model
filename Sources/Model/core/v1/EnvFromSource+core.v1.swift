@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.EnvFromSource {
+public extension core.v1.EnvFromSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.EnvFromSource {
 		case secretRef = "secretRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.configMapRef = try container.decodeIfPresent(core.v1.ConfigMapEnvSource.self, forKey: .configMapRef)
 		self.prefix = try container.decodeIfPresent(String.self, forKey: .prefix)
 		self.secretRef = try container.decodeIfPresent(core.v1.SecretEnvSource.self, forKey: .secretRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.configMapRef, forKey: .configMapRef)
-		try container.encode(self.prefix, forKey: .prefix)
-		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(configMapRef, forKey: .configMapRef)
+		try container.encode(prefix, forKey: .prefix)
+		try container.encode(secretRef, forKey: .secretRef)
 	}
-
 }
-

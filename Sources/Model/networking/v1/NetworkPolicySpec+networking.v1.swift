@@ -64,7 +64,7 @@ public extension networking.v1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1.NetworkPolicySpec {
+public extension networking.v1.NetworkPolicySpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension networking.v1.NetworkPolicySpec {
 		case policyTypes = "policyTypes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.egress = try container.decodeIfPresent([networking.v1.NetworkPolicyEgressRule].self, forKey: .egress)
 		self.ingress = try container.decodeIfPresent([networking.v1.NetworkPolicyIngressRule].self, forKey: .ingress)
@@ -82,14 +82,12 @@ extension networking.v1.NetworkPolicySpec {
 		self.policyTypes = try container.decodeIfPresent([String].self, forKey: .policyTypes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.egress, forKey: .egress)
-		try container.encode(self.ingress, forKey: .ingress)
-		try container.encode(self.podSelector, forKey: .podSelector)
-		try container.encode(self.policyTypes, forKey: .policyTypes)
+		try container.encode(egress, forKey: .egress)
+		try container.encode(ingress, forKey: .ingress)
+		try container.encode(podSelector, forKey: .podSelector)
+		try container.encode(policyTypes, forKey: .policyTypes)
 	}
-
 }
-

@@ -88,7 +88,7 @@ public extension batch.v1 {
 ///
 /// Codable conformance
 ///
-extension batch.v1.JobSpec {
+public extension batch.v1.JobSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -102,7 +102,7 @@ extension batch.v1.JobSpec {
 		case ttlSecondsAfterFinished = "ttlSecondsAfterFinished"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.activeDeadlineSeconds = try container.decodeIfPresent(Int64.self, forKey: .activeDeadlineSeconds)
 		self.backoffLimit = try container.decodeIfPresent(Int32.self, forKey: .backoffLimit)
@@ -114,18 +114,16 @@ extension batch.v1.JobSpec {
 		self.ttlSecondsAfterFinished = try container.decodeIfPresent(Int32.self, forKey: .ttlSecondsAfterFinished)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.activeDeadlineSeconds, forKey: .activeDeadlineSeconds)
-		try container.encode(self.backoffLimit, forKey: .backoffLimit)
-		try container.encode(self.completions, forKey: .completions)
-		try container.encode(self.manualSelector, forKey: .manualSelector)
-		try container.encode(self.parallelism, forKey: .parallelism)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.template, forKey: .template)
-		try container.encode(self.ttlSecondsAfterFinished, forKey: .ttlSecondsAfterFinished)
+		try container.encode(activeDeadlineSeconds, forKey: .activeDeadlineSeconds)
+		try container.encode(backoffLimit, forKey: .backoffLimit)
+		try container.encode(completions, forKey: .completions)
+		try container.encode(manualSelector, forKey: .manualSelector)
+		try container.encode(parallelism, forKey: .parallelism)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(template, forKey: .template)
+		try container.encode(ttlSecondsAfterFinished, forKey: .ttlSecondsAfterFinished)
 	}
-
 }
-

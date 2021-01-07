@@ -28,7 +28,8 @@ public extension discovery.v1beta1 {
 	/// EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
 	///
 	struct EndpointSlice: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -77,7 +78,7 @@ public extension discovery.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension discovery.v1beta1.EndpointSlice {
+public extension discovery.v1beta1.EndpointSlice {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -89,7 +90,7 @@ extension discovery.v1beta1.EndpointSlice {
 		case ports = "ports"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.addressType = try container.decode(String.self, forKey: .addressType)
@@ -97,16 +98,14 @@ extension discovery.v1beta1.EndpointSlice {
 		self.ports = try container.decodeIfPresent([discovery.v1beta1.EndpointPort].self, forKey: .ports)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.addressType, forKey: .addressType)
-		try container.encode(self.endpoints, forKey: .endpoints)
-		try container.encode(self.ports, forKey: .ports)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(addressType, forKey: .addressType)
+		try container.encode(endpoints, forKey: .endpoints)
+		try container.encode(ports, forKey: .ports)
 	}
-
 }
-

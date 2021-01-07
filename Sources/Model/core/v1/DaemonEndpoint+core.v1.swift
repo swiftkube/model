@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.DaemonEndpoint {
+public extension core.v1.DaemonEndpoint {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case Port = "Port"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.Port = try container.decode(Int32.self, forKey: .Port)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.Port, forKey: .Port)
+		try container.encode(Port, forKey: .Port)
 	}
-
 }
-

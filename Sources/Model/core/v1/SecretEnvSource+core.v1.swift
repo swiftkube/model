@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// SecretEnvSource selects a Secret to populate the environment variables with.
-	/// 
+	///
 	/// The contents of the target Secret's Data field will represent the key-value pairs as environment variables.
 	///
 	struct SecretEnvSource: KubernetesResource {
@@ -54,7 +54,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.SecretEnvSource {
+public extension core.v1.SecretEnvSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -62,18 +62,16 @@ extension core.v1.SecretEnvSource {
 		case optional = "optional"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
 		self.optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.optional, forKey: .optional)
+		try container.encode(name, forKey: .name)
+		try container.encode(optional, forKey: .optional)
 	}
-
 }
-

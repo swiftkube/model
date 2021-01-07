@@ -16,6 +16,8 @@
 
 import Foundation
 
+// MARK: - JSONCodingKeys
+
 struct JSONCodingKeys: CodingKey {
 	var stringValue: String
 	var intValue: Int?
@@ -45,7 +47,7 @@ extension KeyedDecodingContainer {
 	}
 
 	func decode(_ type: [String: Any]?.Type, forKey key: K) throws -> [String: Any]? {
-		return try decodeIfPresent([String: Any]?.self, forKey: key)
+		try decodeIfPresent([String: Any]?.self, forKey: key)
 	}
 
 	func decodeIfPresent(_ type: [String: Any]?.Type, forKey key: K) throws -> [String: Any]? {
@@ -56,7 +58,7 @@ extension KeyedDecodingContainer {
 	}
 
 	func decode(_ type: [Any].Type, forKey key: K) throws -> [Any] {
-		var container = try self.nestedUnkeyedContainer(forKey: key)
+		var container = try nestedUnkeyedContainer(forKey: key)
 		return try container.decode(type)
 	}
 
@@ -68,7 +70,7 @@ extension KeyedDecodingContainer {
 	}
 
 	func decode(_ type: [Any]?.Type, forKey key: K) throws -> [Any]? {
-		return try decodeIfPresent([Any]?.self, forKey: key)
+		try decodeIfPresent([Any]?.self, forKey: key)
 	}
 
 	func decodeIfPresent(_ type: [Any]?.Type, forKey key: K) throws -> [Any]? {
@@ -116,7 +118,7 @@ extension UnkeyedDecodingContainer {
 	}
 
 	mutating func decodeIfPresent(_ type: [String: Any].Type) throws -> [String: Any]? {
-		guard try !self.isAtEnd && !self.decodeNil() else { return nil }
+		guard try !isAtEnd && !decodeNil() else { return nil }
 		return try decode(type)
 	}
 
@@ -137,7 +139,7 @@ extension UnkeyedDecodingContainer {
 			} else if var nested = try? nestedUnkeyedContainer(), let value = try? nested.decode([Any].self) {
 				array.append(value)
 			} else if let nilValue = try? decodeNil(), nilValue == true {
-				array.append(Optional<Any>.none as Any)
+				array.append(Any?.none as Any)
 			} else {
 				let context = DecodingError.Context(
 					codingPath: codingPath,
@@ -224,7 +226,7 @@ extension UnkeyedEncodingContainer {
 			case Optional<Any>.none:
 				try encodeNil()
 			default:
-				let key = JSONCodingKeys(intValue: index).map({ [ $0 ] }) ?? []
+				let key = JSONCodingKeys(intValue: index).map { [$0] } ?? []
 				let context = EncodingError.Context(
 					codingPath: codingPath + key,
 					debugDescription: "Cannot encode value"

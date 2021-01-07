@@ -84,7 +84,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.Status {
+public extension meta.v1.Status {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -98,7 +98,7 @@ extension meta.v1.Status {
 		case status = "status"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.code = try container.decodeIfPresent(Int32.self, forKey: .code)
@@ -108,18 +108,16 @@ extension meta.v1.Status {
 		self.status = try container.decodeIfPresent(String.self, forKey: .status)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.code, forKey: .code)
-		try container.encode(self.details, forKey: .details)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.status, forKey: .status)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(code, forKey: .code)
+		try container.encode(details, forKey: .details)
+		try container.encode(message, forKey: .message)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(status, forKey: .status)
 	}
-
 }
-

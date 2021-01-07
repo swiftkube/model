@@ -64,7 +64,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.ReplicaSetSpec {
+public extension apps.v1.ReplicaSetSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension apps.v1.ReplicaSetSpec {
 		case template = "template"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.minReadySeconds = try container.decodeIfPresent(Int32.self, forKey: .minReadySeconds)
 		self.replicas = try container.decodeIfPresent(Int32.self, forKey: .replicas)
@@ -82,14 +82,12 @@ extension apps.v1.ReplicaSetSpec {
 		self.template = try container.decodeIfPresent(core.v1.PodTemplateSpec.self, forKey: .template)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.minReadySeconds, forKey: .minReadySeconds)
-		try container.encode(self.replicas, forKey: .replicas)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.template, forKey: .template)
+		try container.encode(minReadySeconds, forKey: .minReadySeconds)
+		try container.encode(replicas, forKey: .replicas)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(template, forKey: .template)
 	}
-
 }
-

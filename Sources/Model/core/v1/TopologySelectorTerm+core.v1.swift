@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.TopologySelectorTerm {
+public extension core.v1.TopologySelectorTerm {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case matchLabelExpressions = "matchLabelExpressions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.matchLabelExpressions = try container.decodeIfPresent([core.v1.TopologySelectorLabelRequirement].self, forKey: .matchLabelExpressions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.matchLabelExpressions, forKey: .matchLabelExpressions)
+		try container.encode(matchLabelExpressions, forKey: .matchLabelExpressions)
 	}
-
 }
-

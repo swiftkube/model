@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeConfigStatus {
+public extension core.v1.NodeConfigStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.NodeConfigStatus {
 		case lastKnownGood = "lastKnownGood"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.active = try container.decodeIfPresent(core.v1.NodeConfigSource.self, forKey: .active)
 		self.assigned = try container.decodeIfPresent(core.v1.NodeConfigSource.self, forKey: .assigned)
@@ -82,14 +82,12 @@ extension core.v1.NodeConfigStatus {
 		self.lastKnownGood = try container.decodeIfPresent(core.v1.NodeConfigSource.self, forKey: .lastKnownGood)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.active, forKey: .active)
-		try container.encode(self.assigned, forKey: .assigned)
-		try container.encode(self.error, forKey: .error)
-		try container.encode(self.lastKnownGood, forKey: .lastKnownGood)
+		try container.encode(active, forKey: .active)
+		try container.encode(assigned, forKey: .assigned)
+		try container.encode(error, forKey: .error)
+		try container.encode(lastKnownGood, forKey: .lastKnownGood)
 	}
-
 }
-

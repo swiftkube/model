@@ -52,7 +52,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.PodsMetricSource {
+public extension autoscaling.v2beta2.PodsMetricSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension autoscaling.v2beta2.PodsMetricSource {
 		case target = "target"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metric = try container.decode(autoscaling.v2beta2.MetricIdentifier.self, forKey: .metric)
 		self.target = try container.decode(autoscaling.v2beta2.MetricTarget.self, forKey: .target)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.metric, forKey: .metric)
-		try container.encode(self.target, forKey: .target)
+		try container.encode(metric, forKey: .metric)
+		try container.encode(target, forKey: .target)
 	}
-
 }
-

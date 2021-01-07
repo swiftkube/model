@@ -52,7 +52,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.ResourceMetricStatus {
+public extension autoscaling.v2beta2.ResourceMetricStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension autoscaling.v2beta2.ResourceMetricStatus {
 		case name = "name"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.current = try container.decode(autoscaling.v2beta2.MetricValueStatus.self, forKey: .current)
 		self.name = try container.decode(String.self, forKey: .name)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.current, forKey: .current)
-		try container.encode(self.name, forKey: .name)
+		try container.encode(current, forKey: .current)
+		try container.encode(name, forKey: .name)
 	}
-
 }
-

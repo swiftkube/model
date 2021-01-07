@@ -35,7 +35,7 @@ public extension storage.v1beta1 {
 		///
 		/// If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
 		///                                 defined by a CSIVolumeSource, otherwise "false"
-		/// 
+		///
 		/// "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
 		///
 		public var podInfoOnMount: Bool?
@@ -61,7 +61,7 @@ public extension storage.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1beta1.CSIDriverSpec {
+public extension storage.v1beta1.CSIDriverSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -70,20 +70,18 @@ extension storage.v1beta1.CSIDriverSpec {
 		case volumeLifecycleModes = "volumeLifecycleModes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.attachRequired = try container.decodeIfPresent(Bool.self, forKey: .attachRequired)
 		self.podInfoOnMount = try container.decodeIfPresent(Bool.self, forKey: .podInfoOnMount)
 		self.volumeLifecycleModes = try container.decodeIfPresent([String].self, forKey: .volumeLifecycleModes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.attachRequired, forKey: .attachRequired)
-		try container.encode(self.podInfoOnMount, forKey: .podInfoOnMount)
-		try container.encode(self.volumeLifecycleModes, forKey: .volumeLifecycleModes)
+		try container.encode(attachRequired, forKey: .attachRequired)
+		try container.encode(podInfoOnMount, forKey: .podInfoOnMount)
+		try container.encode(volumeLifecycleModes, forKey: .volumeLifecycleModes)
 	}
-
 }
-

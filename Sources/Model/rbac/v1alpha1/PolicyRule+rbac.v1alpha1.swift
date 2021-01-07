@@ -70,7 +70,7 @@ public extension rbac.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension rbac.v1alpha1.PolicyRule {
+public extension rbac.v1alpha1.PolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension rbac.v1alpha1.PolicyRule {
 		case verbs = "verbs"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiGroups = try container.decodeIfPresent([String].self, forKey: .apiGroups)
 		self.nonResourceURLs = try container.decodeIfPresent([String].self, forKey: .nonResourceURLs)
@@ -90,15 +90,13 @@ extension rbac.v1alpha1.PolicyRule {
 		self.verbs = try container.decode([String].self, forKey: .verbs)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiGroups, forKey: .apiGroups)
-		try container.encode(self.nonResourceURLs, forKey: .nonResourceURLs)
-		try container.encode(self.resourceNames, forKey: .resourceNames)
-		try container.encode(self.resources, forKey: .resources)
-		try container.encode(self.verbs, forKey: .verbs)
+		try container.encode(apiGroups, forKey: .apiGroups)
+		try container.encode(nonResourceURLs, forKey: .nonResourceURLs)
+		try container.encode(resourceNames, forKey: .resourceNames)
+		try container.encode(resources, forKey: .resources)
+		try container.encode(verbs, forKey: .verbs)
 	}
-
 }
-

@@ -76,7 +76,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.VolumeMount {
+public extension core.v1.VolumeMount {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension core.v1.VolumeMount {
 		case subPathExpr = "subPathExpr"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.mountPath = try container.decode(String.self, forKey: .mountPath)
 		self.mountPropagation = try container.decodeIfPresent(String.self, forKey: .mountPropagation)
@@ -98,16 +98,14 @@ extension core.v1.VolumeMount {
 		self.subPathExpr = try container.decodeIfPresent(String.self, forKey: .subPathExpr)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.mountPath, forKey: .mountPath)
-		try container.encode(self.mountPropagation, forKey: .mountPropagation)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.subPath, forKey: .subPath)
-		try container.encode(self.subPathExpr, forKey: .subPathExpr)
+		try container.encode(mountPath, forKey: .mountPath)
+		try container.encode(mountPropagation, forKey: .mountPropagation)
+		try container.encode(name, forKey: .name)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(subPath, forKey: .subPath)
+		try container.encode(subPathExpr, forKey: .subPathExpr)
 	}
-
 }
-

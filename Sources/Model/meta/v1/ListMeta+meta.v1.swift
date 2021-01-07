@@ -42,7 +42,7 @@ public extension meta.v1 {
 		public var resourceVersion: String?
 		///
 		/// selfLink is a URL representing this object. Populated by the system. Read-only.
-		/// 
+		///
 		/// DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
 		///
 		public var selfLink: String?
@@ -50,12 +50,12 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`continue`: String? = nil,
+			continue: String? = nil,
 			remainingItemCount: Int64? = nil,
 			resourceVersion: String? = nil,
 			selfLink: String? = nil
 		) {
-			self.`continue` = `continue`
+			self.continue = `continue`
 			self.remainingItemCount = remainingItemCount
 			self.resourceVersion = resourceVersion
 			self.selfLink = selfLink
@@ -66,7 +66,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.ListMeta {
+public extension meta.v1.ListMeta {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -76,22 +76,20 @@ extension meta.v1.ListMeta {
 		case selfLink = "selfLink"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.`continue` = try container.decodeIfPresent(String.self, forKey: .`continue`)
+		self.continue = try container.decodeIfPresent(String.self, forKey: .continue)
 		self.remainingItemCount = try container.decodeIfPresent(Int64.self, forKey: .remainingItemCount)
 		self.resourceVersion = try container.decodeIfPresent(String.self, forKey: .resourceVersion)
 		self.selfLink = try container.decodeIfPresent(String.self, forKey: .selfLink)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.`continue`, forKey: .`continue`)
-		try container.encode(self.remainingItemCount, forKey: .remainingItemCount)
-		try container.encode(self.resourceVersion, forKey: .resourceVersion)
-		try container.encode(self.selfLink, forKey: .selfLink)
+		try container.encode(`continue`, forKey: .continue)
+		try container.encode(remainingItemCount, forKey: .remainingItemCount)
+		try container.encode(resourceVersion, forKey: .resourceVersion)
+		try container.encode(selfLink, forKey: .selfLink)
 	}
-
 }
-

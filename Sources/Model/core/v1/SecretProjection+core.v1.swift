@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Adapts a secret into a projected volume.
-	/// 
+	///
 	/// The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.
 	///
 	struct SecretProjection: KubernetesResource {
@@ -60,7 +60,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.SecretProjection {
+public extension core.v1.SecretProjection {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -69,20 +69,18 @@ extension core.v1.SecretProjection {
 		case optional = "optional"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.items = try container.decodeIfPresent([core.v1.KeyToPath].self, forKey: .items)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
 		self.optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.items, forKey: .items)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.optional, forKey: .optional)
+		try container.encode(items, forKey: .items)
+		try container.encode(name, forKey: .name)
+		try container.encode(optional, forKey: .optional)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.EndpointAddress {
+public extension core.v1.EndpointAddress {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.EndpointAddress {
 		case targetRef = "targetRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.hostname = try container.decodeIfPresent(String.self, forKey: .hostname)
 		self.ip = try container.decode(String.self, forKey: .ip)
@@ -82,14 +82,12 @@ extension core.v1.EndpointAddress {
 		self.targetRef = try container.decodeIfPresent(core.v1.ObjectReference.self, forKey: .targetRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.hostname, forKey: .hostname)
-		try container.encode(self.ip, forKey: .ip)
-		try container.encode(self.nodeName, forKey: .nodeName)
-		try container.encode(self.targetRef, forKey: .targetRef)
+		try container.encode(hostname, forKey: .hostname)
+		try container.encode(ip, forKey: .ip)
+		try container.encode(nodeName, forKey: .nodeName)
+		try container.encode(targetRef, forKey: .targetRef)
 	}
-
 }
-

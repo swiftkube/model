@@ -28,7 +28,8 @@ public extension admissionregistration.v1beta1 {
 	/// MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object. Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
 	///
 	struct MutatingWebhookConfiguration: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -65,7 +66,7 @@ public extension admissionregistration.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension admissionregistration.v1beta1.MutatingWebhookConfiguration {
+public extension admissionregistration.v1beta1.MutatingWebhookConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -75,20 +76,18 @@ extension admissionregistration.v1beta1.MutatingWebhookConfiguration {
 		case webhooks = "webhooks"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.webhooks = try container.decodeIfPresent([admissionregistration.v1beta1.MutatingWebhook].self, forKey: .webhooks)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.webhooks, forKey: .webhooks)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(webhooks, forKey: .webhooks)
 	}
-
 }
-

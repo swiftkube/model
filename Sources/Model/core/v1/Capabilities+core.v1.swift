@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Capabilities {
+public extension core.v1.Capabilities {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.Capabilities {
 		case drop = "drop"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.add = try container.decodeIfPresent([String].self, forKey: .add)
 		self.drop = try container.decodeIfPresent([String].self, forKey: .drop)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.add, forKey: .add)
-		try container.encode(self.drop, forKey: .drop)
+		try container.encode(add, forKey: .add)
+		try container.encode(drop, forKey: .drop)
 	}
-
 }
-

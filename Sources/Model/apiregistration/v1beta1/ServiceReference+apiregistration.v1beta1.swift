@@ -58,7 +58,7 @@ public extension apiregistration.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension apiregistration.v1beta1.ServiceReference {
+public extension apiregistration.v1beta1.ServiceReference {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension apiregistration.v1beta1.ServiceReference {
 		case port = "port"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
 		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
 		self.port = try container.decodeIfPresent(Int32.self, forKey: .port)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.namespace, forKey: .namespace)
-		try container.encode(self.port, forKey: .port)
+		try container.encode(name, forKey: .name)
+		try container.encode(namespace, forKey: .namespace)
+		try container.encode(port, forKey: .port)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension networking.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1beta1.IngressClassList {
+public extension networking.v1beta1.IngressClassList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,22 +74,23 @@ extension networking.v1beta1.IngressClassList {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.items = try container.decode([networking.v1beta1.IngressClass].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(items, forKey: .items)
 	}
-
 }
+
+// MARK: - networking.v1beta1.IngressClassList + Sequence
 
 ///
 /// Sequence iterator for KubernetesResourceList items
@@ -99,7 +100,6 @@ extension networking.v1beta1.IngressClassList: Sequence {
 	public typealias Element = networking.v1beta1.IngressClass
 
 	public func makeIterator() -> AnyIterator<networking.v1beta1.IngressClass> {
-		return AnyIterator(self.items.makeIterator())
+		AnyIterator(items.makeIterator())
 	}
 }
-

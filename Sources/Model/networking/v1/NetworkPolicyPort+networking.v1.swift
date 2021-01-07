@@ -41,10 +41,10 @@ public extension networking.v1 {
 		///
 		public init(
 			port: IntOrString? = nil,
-			`protocol`: String? = nil
+			protocol: String? = nil
 		) {
 			self.port = port
-			self.`protocol` = `protocol`
+			self.protocol = `protocol`
 		}
 	}
 }
@@ -52,7 +52,7 @@ public extension networking.v1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1.NetworkPolicyPort {
+public extension networking.v1.NetworkPolicyPort {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension networking.v1.NetworkPolicyPort {
 		case `protocol` = "protocol"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.port = try container.decodeIfPresent(IntOrString.self, forKey: .port)
-		self.`protocol` = try container.decodeIfPresent(String.self, forKey: .`protocol`)
+		self.protocol = try container.decodeIfPresent(String.self, forKey: .protocol)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.port, forKey: .port)
-		try container.encode(self.`protocol`, forKey: .`protocol`)
+		try container.encode(port, forKey: .port)
+		try container.encode(`protocol`, forKey: .protocol)
 	}
-
 }
-

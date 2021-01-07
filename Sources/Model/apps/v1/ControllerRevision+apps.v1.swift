@@ -28,7 +28,8 @@ public extension apps.v1 {
 	/// ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
 	///
 	struct ControllerRevision: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -71,7 +72,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.ControllerRevision {
+public extension apps.v1.ControllerRevision {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -82,22 +83,20 @@ extension apps.v1.ControllerRevision {
 		case revision = "revision"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.data = try container.decodeIfPresent([String: Any].self, forKey: .data)
 		self.revision = try container.decode(Int64.self, forKey: .revision)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.data, forKey: .data)
-		try container.encode(self.revision, forKey: .revision)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(data, forKey: .data)
+		try container.encode(revision, forKey: .revision)
 	}
-
 }
-

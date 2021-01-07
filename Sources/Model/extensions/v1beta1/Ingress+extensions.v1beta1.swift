@@ -28,7 +28,8 @@ public extension extensions.v1beta1 {
 	/// Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend. An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc. DEPRECATED - This group version of Ingress is deprecated by networking.k8s.io/v1beta1 Ingress. See the release notes for more information.
 	///
 	struct Ingress: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -71,7 +72,7 @@ public extension extensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension extensions.v1beta1.Ingress {
+public extension extensions.v1beta1.Ingress {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -82,22 +83,20 @@ extension extensions.v1beta1.Ingress {
 		case status = "status"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decodeIfPresent(extensions.v1beta1.IngressSpec.self, forKey: .spec)
 		self.status = try container.decodeIfPresent(extensions.v1beta1.IngressStatus.self, forKey: .status)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
-		try container.encode(self.status, forKey: .status)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
+		try container.encode(status, forKey: .status)
 	}
-
 }
-

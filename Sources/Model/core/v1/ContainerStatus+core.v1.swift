@@ -94,7 +94,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ContainerStatus {
+public extension core.v1.ContainerStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -109,7 +109,7 @@ extension core.v1.ContainerStatus {
 		case state = "state"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.containerID = try container.decodeIfPresent(String.self, forKey: .containerID)
 		self.image = try container.decode(String.self, forKey: .image)
@@ -122,19 +122,17 @@ extension core.v1.ContainerStatus {
 		self.state = try container.decodeIfPresent(core.v1.ContainerState.self, forKey: .state)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.containerID, forKey: .containerID)
-		try container.encode(self.image, forKey: .image)
-		try container.encode(self.imageID, forKey: .imageID)
-		try container.encode(self.lastState, forKey: .lastState)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.ready, forKey: .ready)
-		try container.encode(self.restartCount, forKey: .restartCount)
-		try container.encode(self.started, forKey: .started)
-		try container.encode(self.state, forKey: .state)
+		try container.encode(containerID, forKey: .containerID)
+		try container.encode(image, forKey: .image)
+		try container.encode(imageID, forKey: .imageID)
+		try container.encode(lastState, forKey: .lastState)
+		try container.encode(name, forKey: .name)
+		try container.encode(ready, forKey: .ready)
+		try container.encode(restartCount, forKey: .restartCount)
+		try container.encode(started, forKey: .started)
+		try container.encode(state, forKey: .state)
 	}
-
 }
-

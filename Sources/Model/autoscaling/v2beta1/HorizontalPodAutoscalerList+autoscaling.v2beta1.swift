@@ -64,7 +64,7 @@ public extension autoscaling.v2beta1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta1.HorizontalPodAutoscalerList {
+public extension autoscaling.v2beta1.HorizontalPodAutoscalerList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,22 +74,23 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerList {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.items = try container.decode([autoscaling.v2beta1.HorizontalPodAutoscaler].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(items, forKey: .items)
 	}
-
 }
+
+// MARK: - autoscaling.v2beta1.HorizontalPodAutoscalerList + Sequence
 
 ///
 /// Sequence iterator for KubernetesResourceList items
@@ -99,7 +100,6 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerList: Sequence {
 	public typealias Element = autoscaling.v2beta1.HorizontalPodAutoscaler
 
 	public func makeIterator() -> AnyIterator<autoscaling.v2beta1.HorizontalPodAutoscaler> {
-		return AnyIterator(self.items.makeIterator())
+		AnyIterator(items.makeIterator())
 	}
 }
-

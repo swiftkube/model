@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.
-	/// 
+	///
 	/// DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
 	///
 	struct GitRepoVolumeSource: KubernetesResource {
@@ -60,7 +60,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.GitRepoVolumeSource {
+public extension core.v1.GitRepoVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -69,20 +69,18 @@ extension core.v1.GitRepoVolumeSource {
 		case revision = "revision"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.directory = try container.decodeIfPresent(String.self, forKey: .directory)
 		self.repository = try container.decode(String.self, forKey: .repository)
 		self.revision = try container.decodeIfPresent(String.self, forKey: .revision)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.directory, forKey: .directory)
-		try container.encode(self.repository, forKey: .repository)
-		try container.encode(self.revision, forKey: .revision)
+		try container.encode(directory, forKey: .directory)
+		try container.encode(repository, forKey: .repository)
+		try container.encode(revision, forKey: .revision)
 	}
-
 }
-

@@ -46,23 +46,21 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.CustomResourceValidation {
+public extension apiextensions.v1.CustomResourceValidation {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case openAPIV3Schema = "openAPIV3Schema"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.openAPIV3Schema = try container.decodeIfPresent([String: Any].self, forKey: .openAPIV3Schema)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.openAPIV3Schema, forKey: .openAPIV3Schema)
+		try container.encode(openAPIV3Schema, forKey: .openAPIV3Schema)
 	}
-
 }
-

@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NamespaceStatus {
+public extension core.v1.NamespaceStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.NamespaceStatus {
 		case phase = "phase"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conditions = try container.decodeIfPresent([core.v1.NamespaceCondition].self, forKey: .conditions)
 		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.phase, forKey: .phase)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(phase, forKey: .phase)
 	}
-
 }
-

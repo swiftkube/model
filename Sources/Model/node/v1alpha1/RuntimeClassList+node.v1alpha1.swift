@@ -64,7 +64,7 @@ public extension node.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension node.v1alpha1.RuntimeClassList {
+public extension node.v1alpha1.RuntimeClassList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,22 +74,23 @@ extension node.v1alpha1.RuntimeClassList {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.items = try container.decode([node.v1alpha1.RuntimeClass].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(items, forKey: .items)
 	}
-
 }
+
+// MARK: - node.v1alpha1.RuntimeClassList + Sequence
 
 ///
 /// Sequence iterator for KubernetesResourceList items
@@ -99,7 +100,6 @@ extension node.v1alpha1.RuntimeClassList: Sequence {
 	public typealias Element = node.v1alpha1.RuntimeClass
 
 	public func makeIterator() -> AnyIterator<node.v1alpha1.RuntimeClass> {
-		return AnyIterator(self.items.makeIterator())
+		AnyIterator(items.makeIterator())
 	}
 }
-

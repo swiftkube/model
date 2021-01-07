@@ -70,7 +70,7 @@ public extension settings.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension settings.v1alpha1.PodPresetSpec {
+public extension settings.v1alpha1.PodPresetSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension settings.v1alpha1.PodPresetSpec {
 		case volumes = "volumes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.env = try container.decodeIfPresent([core.v1.EnvVar].self, forKey: .env)
 		self.envFrom = try container.decodeIfPresent([core.v1.EnvFromSource].self, forKey: .envFrom)
@@ -90,15 +90,13 @@ extension settings.v1alpha1.PodPresetSpec {
 		self.volumes = try container.decodeIfPresent([core.v1.Volume].self, forKey: .volumes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.env, forKey: .env)
-		try container.encode(self.envFrom, forKey: .envFrom)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.volumeMounts, forKey: .volumeMounts)
-		try container.encode(self.volumes, forKey: .volumes)
+		try container.encode(env, forKey: .env)
+		try container.encode(envFrom, forKey: .envFrom)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(volumeMounts, forKey: .volumeMounts)
+		try container.encode(volumes, forKey: .volumes)
 	}
-
 }
-

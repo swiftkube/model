@@ -52,7 +52,7 @@ public extension storage.v1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1.VolumeError {
+public extension storage.v1.VolumeError {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension storage.v1.VolumeError {
 		case time = "time"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
 		self.time = try container.decodeIfPresent(Date.self, forKey: .time)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.time, forKey: .time)
+		try container.encode(message, forKey: .message)
+		try container.encode(time, forKey: .time)
 	}
-
 }
-

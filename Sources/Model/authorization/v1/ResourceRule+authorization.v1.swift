@@ -65,7 +65,7 @@ public extension authorization.v1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1.ResourceRule {
+public extension authorization.v1.ResourceRule {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -75,7 +75,7 @@ extension authorization.v1.ResourceRule {
 		case verbs = "verbs"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiGroups = try container.decodeIfPresent([String].self, forKey: .apiGroups)
 		self.resourceNames = try container.decodeIfPresent([String].self, forKey: .resourceNames)
@@ -83,14 +83,12 @@ extension authorization.v1.ResourceRule {
 		self.verbs = try container.decode([String].self, forKey: .verbs)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiGroups, forKey: .apiGroups)
-		try container.encode(self.resourceNames, forKey: .resourceNames)
-		try container.encode(self.resources, forKey: .resources)
-		try container.encode(self.verbs, forKey: .verbs)
+		try container.encode(apiGroups, forKey: .apiGroups)
+		try container.encode(resourceNames, forKey: .resourceNames)
+		try container.encode(resources, forKey: .resources)
+		try container.encode(verbs, forKey: .verbs)
 	}
-
 }
-

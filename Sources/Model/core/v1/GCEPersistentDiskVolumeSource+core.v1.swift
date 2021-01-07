@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Represents a Persistent Disk resource in Google Compute Engine.
-	/// 
+	///
 	/// A GCE PD must exist before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once or read-only many times. GCE PDs support ownership management and SELinux relabeling.
 	///
 	struct GCEPersistentDiskVolumeSource: KubernetesResource {
@@ -66,7 +66,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.GCEPersistentDiskVolumeSource {
+public extension core.v1.GCEPersistentDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -76,7 +76,7 @@ extension core.v1.GCEPersistentDiskVolumeSource {
 		case readOnly = "readOnly"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.partition = try container.decodeIfPresent(Int32.self, forKey: .partition)
@@ -84,14 +84,12 @@ extension core.v1.GCEPersistentDiskVolumeSource {
 		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.partition, forKey: .partition)
-		try container.encode(self.pdName, forKey: .pdName)
-		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(partition, forKey: .partition)
+		try container.encode(pdName, forKey: .pdName)
+		try container.encode(readOnly, forKey: .readOnly)
 	}
-
 }
-

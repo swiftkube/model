@@ -70,7 +70,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.MetricStatus {
+public extension autoscaling.v2beta2.MetricStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension autoscaling.v2beta2.MetricStatus {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.external = try container.decodeIfPresent(autoscaling.v2beta2.ExternalMetricStatus.self, forKey: .external)
 		self.object = try container.decodeIfPresent(autoscaling.v2beta2.ObjectMetricStatus.self, forKey: .object)
@@ -90,15 +90,13 @@ extension autoscaling.v2beta2.MetricStatus {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.external, forKey: .external)
-		try container.encode(self.object, forKey: .object)
-		try container.encode(self.pods, forKey: .pods)
-		try container.encode(self.resource, forKey: .resource)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(external, forKey: .external)
+		try container.encode(object, forKey: .object)
+		try container.encode(pods, forKey: .pods)
+		try container.encode(resource, forKey: .resource)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

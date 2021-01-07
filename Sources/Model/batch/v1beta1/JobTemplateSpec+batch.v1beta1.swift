@@ -52,7 +52,7 @@ public extension batch.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension batch.v1beta1.JobTemplateSpec {
+public extension batch.v1beta1.JobTemplateSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension batch.v1beta1.JobTemplateSpec {
 		case spec = "spec"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decodeIfPresent(batch.v1.JobSpec.self, forKey: .spec)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
 	}
-
 }
-

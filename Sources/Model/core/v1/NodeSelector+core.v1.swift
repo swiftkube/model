@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeSelector {
+public extension core.v1.NodeSelector {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case nodeSelectorTerms = "nodeSelectorTerms"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.nodeSelectorTerms = try container.decode([core.v1.NodeSelectorTerm].self, forKey: .nodeSelectorTerms)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.nodeSelectorTerms, forKey: .nodeSelectorTerms)
+		try container.encode(nodeSelectorTerms, forKey: .nodeSelectorTerms)
 	}
-
 }
-

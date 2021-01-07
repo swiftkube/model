@@ -19,24 +19,24 @@ import Foundation
 public extension sk {
 
 	static func serviceAccount(_ block: (inout core.v1.ServiceAccount) -> Void) -> core.v1.ServiceAccount {
-		return build(core.v1.ServiceAccount(), with: block)
+		build(core.v1.ServiceAccount(), with: block)
 	}
 }
 
 public extension core.v1.ServiceAccount {
 
 	mutating func use(imagePullSecret name: String) {
-		if self.imagePullSecrets == nil {
-			self.imagePullSecrets = []
+		if imagePullSecrets == nil {
+			imagePullSecrets = []
 		}
-		self.imagePullSecrets?.append(sk.localObjectReference(name: name))
+		imagePullSecrets?.append(sk.localObjectReference(name: name))
 	}
 
 	mutating func use(secret name: String, namespace: String? = nil) {
-		if self.secrets == nil {
-			self.secrets = []
+		if secrets == nil {
+			secrets = []
 		}
-		self.secrets?.append(sk.objectReference(gvk: .coreV1Secret) {
+		secrets?.append(sk.objectReference(gvk: .coreV1Secret) {
 			$0.namespace = namespace ?? self.metadata?.namespace
 			$0.name = name
 		})

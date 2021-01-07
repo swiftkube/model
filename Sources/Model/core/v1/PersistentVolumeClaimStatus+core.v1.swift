@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PersistentVolumeClaimStatus {
+public extension core.v1.PersistentVolumeClaimStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.PersistentVolumeClaimStatus {
 		case phase = "phase"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.accessModes = try container.decodeIfPresent([String].self, forKey: .accessModes)
 		self.capacity = try container.decodeIfPresent([String: Quantity].self, forKey: .capacity)
@@ -82,14 +82,12 @@ extension core.v1.PersistentVolumeClaimStatus {
 		self.phase = try container.decodeIfPresent(String.self, forKey: .phase)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.accessModes, forKey: .accessModes)
-		try container.encode(self.capacity, forKey: .capacity)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.phase, forKey: .phase)
+		try container.encode(accessModes, forKey: .accessModes)
+		try container.encode(capacity, forKey: .capacity)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(phase, forKey: .phase)
 	}
-
 }
-

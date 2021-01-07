@@ -28,7 +28,8 @@ public extension core.v1 {
 	/// ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 	///
 	struct ComponentStatus: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource {
+		ReadableResource, ListableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -65,7 +66,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ComponentStatus {
+public extension core.v1.ComponentStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -75,20 +76,18 @@ extension core.v1.ComponentStatus {
 		case conditions = "conditions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.conditions = try container.decodeIfPresent([core.v1.ComponentCondition].self, forKey: .conditions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.conditions, forKey: .conditions)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(conditions, forKey: .conditions)
 	}
-
 }
-

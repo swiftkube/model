@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeDaemonEndpoints {
+public extension core.v1.NodeDaemonEndpoints {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case kubeletEndpoint = "kubeletEndpoint"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.kubeletEndpoint = try container.decodeIfPresent(core.v1.DaemonEndpoint.self, forKey: .kubeletEndpoint)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.kubeletEndpoint, forKey: .kubeletEndpoint)
+		try container.encode(kubeletEndpoint, forKey: .kubeletEndpoint)
 	}
-
 }
-

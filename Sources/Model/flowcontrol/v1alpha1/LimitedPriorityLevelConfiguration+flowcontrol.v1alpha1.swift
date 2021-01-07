@@ -32,9 +32,9 @@ public extension flowcontrol.v1alpha1 {
 	struct LimitedPriorityLevelConfiguration: KubernetesResource {
 		///
 		/// `assuredConcurrencyShares` (ACS) configures the execution limit, which is a limit on the number of requests of this priority level that may be exeucting at a given time.  ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level:
-		/// 
+		///
 		///             ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )
-		/// 
+		///
 		/// bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
 		///
 		public var assuredConcurrencyShares: Int32?
@@ -58,7 +58,7 @@ public extension flowcontrol.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration {
+public extension flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -66,18 +66,16 @@ extension flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration {
 		case limitResponse = "limitResponse"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.assuredConcurrencyShares = try container.decodeIfPresent(Int32.self, forKey: .assuredConcurrencyShares)
 		self.limitResponse = try container.decodeIfPresent(flowcontrol.v1alpha1.LimitResponse.self, forKey: .limitResponse)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.assuredConcurrencyShares, forKey: .assuredConcurrencyShares)
-		try container.encode(self.limitResponse, forKey: .limitResponse)
+		try container.encode(assuredConcurrencyShares, forKey: .assuredConcurrencyShares)
+		try container.encode(limitResponse, forKey: .limitResponse)
 	}
-
 }
-

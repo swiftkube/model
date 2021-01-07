@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.DownwardAPIProjection {
+public extension core.v1.DownwardAPIProjection {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.items = try container.decodeIfPresent([core.v1.DownwardAPIVolumeFile].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.items, forKey: .items)
+		try container.encode(items, forKey: .items)
 	}
-
 }
-

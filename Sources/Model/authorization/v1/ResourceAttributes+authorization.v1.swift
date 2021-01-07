@@ -82,7 +82,7 @@ public extension authorization.v1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1.ResourceAttributes {
+public extension authorization.v1.ResourceAttributes {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -95,7 +95,7 @@ extension authorization.v1.ResourceAttributes {
 		case version = "version"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.group = try container.decodeIfPresent(String.self, forKey: .group)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
@@ -106,17 +106,15 @@ extension authorization.v1.ResourceAttributes {
 		self.version = try container.decodeIfPresent(String.self, forKey: .version)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.namespace, forKey: .namespace)
-		try container.encode(self.resource, forKey: .resource)
-		try container.encode(self.subresource, forKey: .subresource)
-		try container.encode(self.verb, forKey: .verb)
-		try container.encode(self.version, forKey: .version)
+		try container.encode(group, forKey: .group)
+		try container.encode(name, forKey: .name)
+		try container.encode(namespace, forKey: .namespace)
+		try container.encode(resource, forKey: .resource)
+		try container.encode(subresource, forKey: .subresource)
+		try container.encode(verb, forKey: .verb)
+		try container.encode(version, forKey: .version)
 	}
-
 }
-

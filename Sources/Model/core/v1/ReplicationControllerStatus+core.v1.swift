@@ -76,7 +76,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ReplicationControllerStatus {
+public extension core.v1.ReplicationControllerStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension core.v1.ReplicationControllerStatus {
 		case replicas = "replicas"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.availableReplicas = try container.decodeIfPresent(Int32.self, forKey: .availableReplicas)
 		self.conditions = try container.decodeIfPresent([core.v1.ReplicationControllerCondition].self, forKey: .conditions)
@@ -98,16 +98,14 @@ extension core.v1.ReplicationControllerStatus {
 		self.replicas = try container.decode(Int32.self, forKey: .replicas)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.availableReplicas, forKey: .availableReplicas)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.fullyLabeledReplicas, forKey: .fullyLabeledReplicas)
-		try container.encode(self.observedGeneration, forKey: .observedGeneration)
-		try container.encode(self.readyReplicas, forKey: .readyReplicas)
-		try container.encode(self.replicas, forKey: .replicas)
+		try container.encode(availableReplicas, forKey: .availableReplicas)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(fullyLabeledReplicas, forKey: .fullyLabeledReplicas)
+		try container.encode(observedGeneration, forKey: .observedGeneration)
+		try container.encode(readyReplicas, forKey: .readyReplicas)
+		try container.encode(replicas, forKey: .replicas)
 	}
-
 }
-

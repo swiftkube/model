@@ -28,7 +28,8 @@ public extension events.v1beta1 {
 	/// Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system.
 	///
 	struct Event: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -143,7 +144,7 @@ public extension events.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension events.v1beta1.Event {
+public extension events.v1beta1.Event {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -166,7 +167,7 @@ extension events.v1beta1.Event {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.action = try container.decodeIfPresent(String.self, forKey: .action)
@@ -185,27 +186,25 @@ extension events.v1beta1.Event {
 		self.type = try container.decodeIfPresent(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.action, forKey: .action)
-		try container.encode(self.deprecatedCount, forKey: .deprecatedCount)
-		try container.encode(self.deprecatedFirstTimestamp, forKey: .deprecatedFirstTimestamp)
-		try container.encode(self.deprecatedLastTimestamp, forKey: .deprecatedLastTimestamp)
-		try container.encode(self.deprecatedSource, forKey: .deprecatedSource)
-		try container.encode(self.eventTime, forKey: .eventTime)
-		try container.encode(self.note, forKey: .note)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.regarding, forKey: .regarding)
-		try container.encode(self.related, forKey: .related)
-		try container.encode(self.reportingController, forKey: .reportingController)
-		try container.encode(self.reportingInstance, forKey: .reportingInstance)
-		try container.encode(self.series, forKey: .series)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(action, forKey: .action)
+		try container.encode(deprecatedCount, forKey: .deprecatedCount)
+		try container.encode(deprecatedFirstTimestamp, forKey: .deprecatedFirstTimestamp)
+		try container.encode(deprecatedLastTimestamp, forKey: .deprecatedLastTimestamp)
+		try container.encode(deprecatedSource, forKey: .deprecatedSource)
+		try container.encode(eventTime, forKey: .eventTime)
+		try container.encode(note, forKey: .note)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(regarding, forKey: .regarding)
+		try container.encode(related, forKey: .related)
+		try container.encode(reportingController, forKey: .reportingController)
+		try container.encode(reportingInstance, forKey: .reportingInstance)
+		try container.encode(series, forKey: .series)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

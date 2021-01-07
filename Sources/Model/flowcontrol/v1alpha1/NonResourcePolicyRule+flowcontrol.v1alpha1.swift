@@ -58,7 +58,7 @@ public extension flowcontrol.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension flowcontrol.v1alpha1.NonResourcePolicyRule {
+public extension flowcontrol.v1alpha1.NonResourcePolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -66,18 +66,16 @@ extension flowcontrol.v1alpha1.NonResourcePolicyRule {
 		case verbs = "verbs"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.nonResourceURLs = try container.decode([String].self, forKey: .nonResourceURLs)
 		self.verbs = try container.decode([String].self, forKey: .verbs)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.nonResourceURLs, forKey: .nonResourceURLs)
-		try container.encode(self.verbs, forKey: .verbs)
+		try container.encode(nonResourceURLs, forKey: .nonResourceURLs)
+		try container.encode(verbs, forKey: .verbs)
 	}
-
 }
-

@@ -46,23 +46,21 @@ public extension discovery.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension discovery.v1beta1.EndpointConditions {
+public extension discovery.v1beta1.EndpointConditions {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case ready = "ready"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.ready = try container.decodeIfPresent(Bool.self, forKey: .ready)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.ready, forKey: .ready)
+		try container.encode(ready, forKey: .ready)
 	}
-
 }
-

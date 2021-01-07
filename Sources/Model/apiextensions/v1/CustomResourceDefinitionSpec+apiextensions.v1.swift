@@ -76,7 +76,7 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.CustomResourceDefinitionSpec {
+public extension apiextensions.v1.CustomResourceDefinitionSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension apiextensions.v1.CustomResourceDefinitionSpec {
 		case versions = "versions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conversion = try container.decodeIfPresent(apiextensions.v1.CustomResourceConversion.self, forKey: .conversion)
 		self.group = try container.decode(String.self, forKey: .group)
@@ -98,16 +98,14 @@ extension apiextensions.v1.CustomResourceDefinitionSpec {
 		self.versions = try container.decode([apiextensions.v1.CustomResourceDefinitionVersion].self, forKey: .versions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conversion, forKey: .conversion)
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.names, forKey: .names)
-		try container.encode(self.preserveUnknownFields, forKey: .preserveUnknownFields)
-		try container.encode(self.scope, forKey: .scope)
-		try container.encode(self.versions, forKey: .versions)
+		try container.encode(conversion, forKey: .conversion)
+		try container.encode(group, forKey: .group)
+		try container.encode(names, forKey: .names)
+		try container.encode(preserveUnknownFields, forKey: .preserveUnknownFields)
+		try container.encode(scope, forKey: .scope)
+		try container.encode(versions, forKey: .versions)
 	}
-
 }
-

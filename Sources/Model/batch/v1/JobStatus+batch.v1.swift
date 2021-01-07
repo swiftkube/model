@@ -76,7 +76,7 @@ public extension batch.v1 {
 ///
 /// Codable conformance
 ///
-extension batch.v1.JobStatus {
+public extension batch.v1.JobStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension batch.v1.JobStatus {
 		case succeeded = "succeeded"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.active = try container.decodeIfPresent(Int32.self, forKey: .active)
 		self.completionTime = try container.decodeIfPresent(Date.self, forKey: .completionTime)
@@ -98,16 +98,14 @@ extension batch.v1.JobStatus {
 		self.succeeded = try container.decodeIfPresent(Int32.self, forKey: .succeeded)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.active, forKey: .active)
-		try container.encode(self.completionTime, forKey: .completionTime)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.failed, forKey: .failed)
-		try container.encode(self.startTime, forKey: .startTime)
-		try container.encode(self.succeeded, forKey: .succeeded)
+		try container.encode(active, forKey: .active)
+		try container.encode(completionTime, forKey: .completionTime)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(failed, forKey: .failed)
+		try container.encode(startTime, forKey: .startTime)
+		try container.encode(succeeded, forKey: .succeeded)
 	}
-
 }
-

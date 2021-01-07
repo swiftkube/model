@@ -130,7 +130,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ServiceSpec {
+public extension core.v1.ServiceSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -151,7 +151,7 @@ extension core.v1.ServiceSpec {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.clusterIP = try container.decodeIfPresent(String.self, forKey: .clusterIP)
 		self.externalIPs = try container.decodeIfPresent([String].self, forKey: .externalIPs)
@@ -170,25 +170,23 @@ extension core.v1.ServiceSpec {
 		self.type = try container.decodeIfPresent(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.clusterIP, forKey: .clusterIP)
-		try container.encode(self.externalIPs, forKey: .externalIPs)
-		try container.encode(self.externalName, forKey: .externalName)
-		try container.encode(self.externalTrafficPolicy, forKey: .externalTrafficPolicy)
-		try container.encode(self.healthCheckNodePort, forKey: .healthCheckNodePort)
-		try container.encode(self.ipFamily, forKey: .ipFamily)
-		try container.encode(self.loadBalancerIP, forKey: .loadBalancerIP)
-		try container.encode(self.loadBalancerSourceRanges, forKey: .loadBalancerSourceRanges)
-		try container.encode(self.ports, forKey: .ports)
-		try container.encode(self.publishNotReadyAddresses, forKey: .publishNotReadyAddresses)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.sessionAffinity, forKey: .sessionAffinity)
-		try container.encode(self.sessionAffinityConfig, forKey: .sessionAffinityConfig)
-		try container.encode(self.topologyKeys, forKey: .topologyKeys)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(clusterIP, forKey: .clusterIP)
+		try container.encode(externalIPs, forKey: .externalIPs)
+		try container.encode(externalName, forKey: .externalName)
+		try container.encode(externalTrafficPolicy, forKey: .externalTrafficPolicy)
+		try container.encode(healthCheckNodePort, forKey: .healthCheckNodePort)
+		try container.encode(ipFamily, forKey: .ipFamily)
+		try container.encode(loadBalancerIP, forKey: .loadBalancerIP)
+		try container.encode(loadBalancerSourceRanges, forKey: .loadBalancerSourceRanges)
+		try container.encode(ports, forKey: .ports)
+		try container.encode(publishNotReadyAddresses, forKey: .publishNotReadyAddresses)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(sessionAffinity, forKey: .sessionAffinity)
+		try container.encode(sessionAffinityConfig, forKey: .sessionAffinityConfig)
+		try container.encode(topologyKeys, forKey: .topologyKeys)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

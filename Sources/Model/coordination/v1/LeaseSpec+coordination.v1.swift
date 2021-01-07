@@ -70,7 +70,7 @@ public extension coordination.v1 {
 ///
 /// Codable conformance
 ///
-extension coordination.v1.LeaseSpec {
+public extension coordination.v1.LeaseSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension coordination.v1.LeaseSpec {
 		case renewTime = "renewTime"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.acquireTime = try container.decodeIfPresent(Date.self, forKey: .acquireTime)
 		self.holderIdentity = try container.decodeIfPresent(String.self, forKey: .holderIdentity)
@@ -90,15 +90,13 @@ extension coordination.v1.LeaseSpec {
 		self.renewTime = try container.decodeIfPresent(Date.self, forKey: .renewTime)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.acquireTime, forKey: .acquireTime)
-		try container.encode(self.holderIdentity, forKey: .holderIdentity)
-		try container.encode(self.leaseDurationSeconds, forKey: .leaseDurationSeconds)
-		try container.encode(self.leaseTransitions, forKey: .leaseTransitions)
-		try container.encode(self.renewTime, forKey: .renewTime)
+		try container.encode(acquireTime, forKey: .acquireTime)
+		try container.encode(holderIdentity, forKey: .holderIdentity)
+		try container.encode(leaseDurationSeconds, forKey: .leaseDurationSeconds)
+		try container.encode(leaseTransitions, forKey: .leaseTransitions)
+		try container.encode(renewTime, forKey: .renewTime)
 	}
-
 }
-

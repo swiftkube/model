@@ -100,7 +100,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.APIResource {
+public extension meta.v1.APIResource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension meta.v1.APIResource {
 		case version = "version"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.kind = try container.decode(String.self, forKey: .kind)
 		self.categories = try container.decodeIfPresent([String].self, forKey: .categories)
@@ -130,20 +130,18 @@ extension meta.v1.APIResource {
 		self.version = try container.decodeIfPresent(String.self, forKey: .version)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.categories, forKey: .categories)
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.namespaced, forKey: .namespaced)
-		try container.encode(self.shortNames, forKey: .shortNames)
-		try container.encode(self.singularName, forKey: .singularName)
-		try container.encode(self.storageVersionHash, forKey: .storageVersionHash)
-		try container.encode(self.verbs, forKey: .verbs)
-		try container.encode(self.version, forKey: .version)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(categories, forKey: .categories)
+		try container.encode(group, forKey: .group)
+		try container.encode(name, forKey: .name)
+		try container.encode(namespaced, forKey: .namespaced)
+		try container.encode(shortNames, forKey: .shortNames)
+		try container.encode(singularName, forKey: .singularName)
+		try container.encode(storageVersionHash, forKey: .storageVersionHash)
+		try container.encode(verbs, forKey: .verbs)
+		try container.encode(version, forKey: .version)
 	}
-
 }
-

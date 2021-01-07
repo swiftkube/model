@@ -76,7 +76,7 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.CustomResourceDefinitionVersion {
+public extension apiextensions.v1.CustomResourceDefinitionVersion {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension apiextensions.v1.CustomResourceDefinitionVersion {
 		case subresources = "subresources"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.additionalPrinterColumns = try container.decodeIfPresent([apiextensions.v1.CustomResourceColumnDefinition].self, forKey: .additionalPrinterColumns)
 		self.name = try container.decode(String.self, forKey: .name)
@@ -98,16 +98,14 @@ extension apiextensions.v1.CustomResourceDefinitionVersion {
 		self.subresources = try container.decodeIfPresent(apiextensions.v1.CustomResourceSubresources.self, forKey: .subresources)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.additionalPrinterColumns, forKey: .additionalPrinterColumns)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.schema, forKey: .schema)
-		try container.encode(self.served, forKey: .served)
-		try container.encode(self.storage, forKey: .storage)
-		try container.encode(self.subresources, forKey: .subresources)
+		try container.encode(additionalPrinterColumns, forKey: .additionalPrinterColumns)
+		try container.encode(name, forKey: .name)
+		try container.encode(schema, forKey: .schema)
+		try container.encode(served, forKey: .served)
+		try container.encode(storage, forKey: .storage)
+		try container.encode(subresources, forKey: .subresources)
 	}
-
 }
-

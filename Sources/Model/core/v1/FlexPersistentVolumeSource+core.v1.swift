@@ -70,7 +70,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.FlexPersistentVolumeSource {
+public extension core.v1.FlexPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension core.v1.FlexPersistentVolumeSource {
 		case secretRef = "secretRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.driver = try container.decode(String.self, forKey: .driver)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
@@ -90,15 +90,13 @@ extension core.v1.FlexPersistentVolumeSource {
 		self.secretRef = try container.decodeIfPresent(core.v1.SecretReference.self, forKey: .secretRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.driver, forKey: .driver)
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.options, forKey: .options)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretRef, forKey: .secretRef)
+		try container.encode(driver, forKey: .driver)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(options, forKey: .options)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretRef, forKey: .secretRef)
 	}
-
 }
-

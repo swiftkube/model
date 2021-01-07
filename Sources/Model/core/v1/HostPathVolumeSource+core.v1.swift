@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.HostPathVolumeSource {
+public extension core.v1.HostPathVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.HostPathVolumeSource {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.path = try container.decode(String.self, forKey: .path)
 		self.type = try container.decodeIfPresent(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(path, forKey: .path)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

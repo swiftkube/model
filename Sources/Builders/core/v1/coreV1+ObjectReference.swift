@@ -19,10 +19,10 @@ import Foundation
 public extension sk {
 
 	static func localObjectReference(name: String) -> core.v1.LocalObjectReference {
-		return core.v1.LocalObjectReference(name: name)
+		core.v1.LocalObjectReference(name: name)
 	}
 
 	static func objectReference(gvk: GroupVersionKind, _ block: (inout core.v1.ObjectReference) -> Void) -> core.v1.ObjectReference {
-		return build(core.v1.ObjectReference(apiVersion: gvk.apiVersion, kind: gvk.kind), with: block)
+		build(core.v1.ObjectReference(apiVersion: gvk.apiVersion, kind: gvk.kind), with: block)
 	}
 }

@@ -28,7 +28,8 @@ public extension apiregistration.v1 {
 	/// APIService represents a server for a particular GroupVersion. Name must be "version.group".
 	///
 	struct APIService: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -71,7 +72,7 @@ public extension apiregistration.v1 {
 ///
 /// Codable conformance
 ///
-extension apiregistration.v1.APIService {
+public extension apiregistration.v1.APIService {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -82,22 +83,20 @@ extension apiregistration.v1.APIService {
 		case status = "status"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decodeIfPresent(apiregistration.v1.APIServiceSpec.self, forKey: .spec)
 		self.status = try container.decodeIfPresent(apiregistration.v1.APIServiceStatus.self, forKey: .status)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
-		try container.encode(self.status, forKey: .status)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
+		try container.encode(status, forKey: .status)
 	}
-
 }
-

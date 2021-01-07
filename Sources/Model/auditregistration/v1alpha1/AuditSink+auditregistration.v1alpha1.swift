@@ -28,7 +28,8 @@ public extension auditregistration.v1alpha1 {
 	/// AuditSink represents a cluster level audit sink
 	///
 	struct AuditSink: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -65,7 +66,7 @@ public extension auditregistration.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension auditregistration.v1alpha1.AuditSink {
+public extension auditregistration.v1alpha1.AuditSink {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -75,20 +76,18 @@ extension auditregistration.v1alpha1.AuditSink {
 		case spec = "spec"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decodeIfPresent(auditregistration.v1alpha1.AuditSinkSpec.self, forKey: .spec)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
 	}
-
 }
-

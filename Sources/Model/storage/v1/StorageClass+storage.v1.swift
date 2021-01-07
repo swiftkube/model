@@ -26,11 +26,12 @@ public extension storage.v1 {
 
 	///
 	/// StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
-	/// 
+	///
 	/// StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
 	///
 	struct StorageClass: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -103,7 +104,7 @@ public extension storage.v1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1.StorageClass {
+public extension storage.v1.StorageClass {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -119,7 +120,7 @@ extension storage.v1.StorageClass {
 		case volumeBindingMode = "volumeBindingMode"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.allowVolumeExpansion = try container.decodeIfPresent(Bool.self, forKey: .allowVolumeExpansion)
@@ -131,20 +132,18 @@ extension storage.v1.StorageClass {
 		self.volumeBindingMode = try container.decodeIfPresent(String.self, forKey: .volumeBindingMode)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.allowVolumeExpansion, forKey: .allowVolumeExpansion)
-		try container.encode(self.allowedTopologies, forKey: .allowedTopologies)
-		try container.encode(self.mountOptions, forKey: .mountOptions)
-		try container.encode(self.parameters, forKey: .parameters)
-		try container.encode(self.provisioner, forKey: .provisioner)
-		try container.encode(self.reclaimPolicy, forKey: .reclaimPolicy)
-		try container.encode(self.volumeBindingMode, forKey: .volumeBindingMode)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(allowVolumeExpansion, forKey: .allowVolumeExpansion)
+		try container.encode(allowedTopologies, forKey: .allowedTopologies)
+		try container.encode(mountOptions, forKey: .mountOptions)
+		try container.encode(parameters, forKey: .parameters)
+		try container.encode(provisioner, forKey: .provisioner)
+		try container.encode(reclaimPolicy, forKey: .reclaimPolicy)
+		try container.encode(volumeBindingMode, forKey: .volumeBindingMode)
 	}
-
 }
-

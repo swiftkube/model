@@ -19,11 +19,11 @@ import Foundation
 public extension sk {
 
 	static func match(labels: [String: String]) -> meta.v1.LabelSelector {
-		return meta.v1.LabelSelector(matchExpressions: nil, matchLabels: labels)
+		meta.v1.LabelSelector(matchExpressions: nil, matchLabels: labels)
 	}
 
 	static func match(key: String, _ expression: SelectorExpressionOperator) -> meta.v1.LabelSelectorRequirement {
-		return meta.v1.LabelSelectorRequirement(key: key, expression: expression)
+		meta.v1.LabelSelectorRequirement(key: key, expression: expression)
 	}
 
 	static func match(key: String, _ expression: SelectorExpressionOperator) -> meta.v1.LabelSelector {
@@ -31,6 +31,8 @@ public extension sk {
 		return meta.v1.LabelSelector(matchExpressions: [requirement], matchLabels: nil)
 	}
 }
+
+// MARK: - SelectorExpressionOperator
 
 public enum SelectorExpressionOperator {
 	case exists
@@ -44,9 +46,9 @@ public enum SelectorExpressionOperator {
 			return "Exists"
 		case .doesNotExist:
 			return "DoesNotExist"
-		case .in(_):
+		case .in:
 			return "In"
-		case .notIn(_):
+		case .notIn:
 			return "NotIn"
 		}
 	}
@@ -75,31 +77,31 @@ public extension meta.v1.LabelSelectorRequirement {
 public extension meta.v1.LabelSelector {
 
 	mutating func match(labels: [String: String]) {
-		if self.matchLabels == nil {
-			self.matchLabels = [:]
+		if matchLabels == nil {
+			matchLabels = [:]
 		}
 
-		self.matchLabels?.merge(labels) { (_, new) in new }
+		matchLabels?.merge(labels) { _, new in new }
 	}
 
 	mutating func match(key: String, _ expression: SelectorExpressionOperator) {
-		if self.matchExpressions == nil {
-			self.matchExpressions = []
+		if matchExpressions == nil {
+			matchExpressions = []
 		}
 
 		let requirement = meta.v1.LabelSelectorRequirement(key: key, expression: expression)
-		self.matchExpressions?.append(requirement)
+		matchExpressions?.append(requirement)
 	}
 
 	subscript(label: String) -> String? {
 		get {
-			return self.matchLabels?[label]
+			matchLabels?[label]
 		}
 		set {
-			if self.matchLabels == nil {
-				self.matchLabels = [:]
+			if matchLabels == nil {
+				matchLabels = [:]
 			}
-			self.matchLabels![label] = newValue
+			matchLabels![label] = newValue
 		}
 	}
 }

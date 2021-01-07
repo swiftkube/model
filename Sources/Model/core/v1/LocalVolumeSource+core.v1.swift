@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.LocalVolumeSource {
+public extension core.v1.LocalVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.LocalVolumeSource {
 		case path = "path"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.path = try container.decode(String.self, forKey: .path)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.path, forKey: .path)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(path, forKey: .path)
 	}
-
 }
-

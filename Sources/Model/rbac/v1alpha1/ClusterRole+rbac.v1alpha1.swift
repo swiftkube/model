@@ -28,7 +28,8 @@ public extension rbac.v1alpha1 {
 	/// ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
 	///
 	struct ClusterRole: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -71,7 +72,7 @@ public extension rbac.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension rbac.v1alpha1.ClusterRole {
+public extension rbac.v1alpha1.ClusterRole {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -82,22 +83,20 @@ extension rbac.v1alpha1.ClusterRole {
 		case rules = "rules"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.aggregationRule = try container.decodeIfPresent(rbac.v1alpha1.AggregationRule.self, forKey: .aggregationRule)
 		self.rules = try container.decodeIfPresent([rbac.v1alpha1.PolicyRule].self, forKey: .rules)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.aggregationRule, forKey: .aggregationRule)
-		try container.encode(self.rules, forKey: .rules)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(aggregationRule, forKey: .aggregationRule)
+		try container.encode(rules, forKey: .rules)
 	}
-
 }
-

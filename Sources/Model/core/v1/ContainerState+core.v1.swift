@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ContainerState {
+public extension core.v1.ContainerState {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.ContainerState {
 		case waiting = "waiting"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.running = try container.decodeIfPresent(core.v1.ContainerStateRunning.self, forKey: .running)
 		self.terminated = try container.decodeIfPresent(core.v1.ContainerStateTerminated.self, forKey: .terminated)
 		self.waiting = try container.decodeIfPresent(core.v1.ContainerStateWaiting.self, forKey: .waiting)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.running, forKey: .running)
-		try container.encode(self.terminated, forKey: .terminated)
-		try container.encode(self.waiting, forKey: .waiting)
+		try container.encode(running, forKey: .running)
+		try container.encode(terminated, forKey: .terminated)
+		try container.encode(waiting, forKey: .waiting)
 	}
-
 }
-

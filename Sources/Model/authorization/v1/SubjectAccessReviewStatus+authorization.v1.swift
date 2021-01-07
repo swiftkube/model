@@ -64,7 +64,7 @@ public extension authorization.v1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1.SubjectAccessReviewStatus {
+public extension authorization.v1.SubjectAccessReviewStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension authorization.v1.SubjectAccessReviewStatus {
 		case reason = "reason"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.allowed = try container.decode(Bool.self, forKey: .allowed)
 		self.denied = try container.decodeIfPresent(Bool.self, forKey: .denied)
@@ -82,14 +82,12 @@ extension authorization.v1.SubjectAccessReviewStatus {
 		self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.allowed, forKey: .allowed)
-		try container.encode(self.denied, forKey: .denied)
-		try container.encode(self.evaluationError, forKey: .evaluationError)
-		try container.encode(self.reason, forKey: .reason)
+		try container.encode(allowed, forKey: .allowed)
+		try container.encode(denied, forKey: .denied)
+		try container.encode(evaluationError, forKey: .evaluationError)
+		try container.encode(reason, forKey: .reason)
 	}
-
 }
-

@@ -58,7 +58,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.MetricValueStatus {
+public extension autoscaling.v2beta2.MetricValueStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension autoscaling.v2beta2.MetricValueStatus {
 		case value = "value"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.averageUtilization = try container.decodeIfPresent(Int32.self, forKey: .averageUtilization)
 		self.averageValue = try container.decodeIfPresent(Quantity.self, forKey: .averageValue)
 		self.value = try container.decodeIfPresent(Quantity.self, forKey: .value)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.averageUtilization, forKey: .averageUtilization)
-		try container.encode(self.averageValue, forKey: .averageValue)
-		try container.encode(self.value, forKey: .value)
+		try container.encode(averageUtilization, forKey: .averageUtilization)
+		try container.encode(averageValue, forKey: .averageValue)
+		try container.encode(value, forKey: .value)
 	}
-
 }
-

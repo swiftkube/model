@@ -76,7 +76,7 @@ public extension policy.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension policy.v1beta1.PodDisruptionBudgetStatus {
+public extension policy.v1beta1.PodDisruptionBudgetStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension policy.v1beta1.PodDisruptionBudgetStatus {
 		case observedGeneration = "observedGeneration"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.currentHealthy = try container.decode(Int32.self, forKey: .currentHealthy)
 		self.desiredHealthy = try container.decode(Int32.self, forKey: .desiredHealthy)
@@ -98,16 +98,14 @@ extension policy.v1beta1.PodDisruptionBudgetStatus {
 		self.observedGeneration = try container.decodeIfPresent(Int64.self, forKey: .observedGeneration)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.currentHealthy, forKey: .currentHealthy)
-		try container.encode(self.desiredHealthy, forKey: .desiredHealthy)
-		try container.encode(self.disruptedPods, forKey: .disruptedPods)
-		try container.encode(self.disruptionsAllowed, forKey: .disruptionsAllowed)
-		try container.encode(self.expectedPods, forKey: .expectedPods)
-		try container.encode(self.observedGeneration, forKey: .observedGeneration)
+		try container.encode(currentHealthy, forKey: .currentHealthy)
+		try container.encode(desiredHealthy, forKey: .desiredHealthy)
+		try container.encode(disruptedPods, forKey: .disruptedPods)
+		try container.encode(disruptionsAllowed, forKey: .disruptionsAllowed)
+		try container.encode(expectedPods, forKey: .expectedPods)
+		try container.encode(observedGeneration, forKey: .observedGeneration)
 	}
-
 }
-

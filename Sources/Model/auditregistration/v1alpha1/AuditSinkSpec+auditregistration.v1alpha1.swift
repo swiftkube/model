@@ -52,7 +52,7 @@ public extension auditregistration.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension auditregistration.v1alpha1.AuditSinkSpec {
+public extension auditregistration.v1alpha1.AuditSinkSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension auditregistration.v1alpha1.AuditSinkSpec {
 		case webhook = "webhook"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.policy = try container.decode(auditregistration.v1alpha1.Policy.self, forKey: .policy)
 		self.webhook = try container.decode(auditregistration.v1alpha1.Webhook.self, forKey: .webhook)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.policy, forKey: .policy)
-		try container.encode(self.webhook, forKey: .webhook)
+		try container.encode(policy, forKey: .policy)
+		try container.encode(webhook, forKey: .webhook)
 	}
-
 }
-

@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Handler {
+public extension core.v1.Handler {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.Handler {
 		case tcpSocket = "tcpSocket"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.exec = try container.decodeIfPresent(core.v1.ExecAction.self, forKey: .exec)
 		self.httpGet = try container.decodeIfPresent(core.v1.HTTPGetAction.self, forKey: .httpGet)
 		self.tcpSocket = try container.decodeIfPresent(core.v1.TCPSocketAction.self, forKey: .tcpSocket)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.exec, forKey: .exec)
-		try container.encode(self.httpGet, forKey: .httpGet)
-		try container.encode(self.tcpSocket, forKey: .tcpSocket)
+		try container.encode(exec, forKey: .exec)
+		try container.encode(httpGet, forKey: .httpGet)
+		try container.encode(tcpSocket, forKey: .tcpSocket)
 	}
-
 }
-

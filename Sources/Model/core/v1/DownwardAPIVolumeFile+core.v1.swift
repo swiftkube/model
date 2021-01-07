@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.DownwardAPIVolumeFile {
+public extension core.v1.DownwardAPIVolumeFile {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.DownwardAPIVolumeFile {
 		case resourceFieldRef = "resourceFieldRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fieldRef = try container.decodeIfPresent(core.v1.ObjectFieldSelector.self, forKey: .fieldRef)
 		self.mode = try container.decodeIfPresent(Int32.self, forKey: .mode)
@@ -82,14 +82,12 @@ extension core.v1.DownwardAPIVolumeFile {
 		self.resourceFieldRef = try container.decodeIfPresent(core.v1.ResourceFieldSelector.self, forKey: .resourceFieldRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fieldRef, forKey: .fieldRef)
-		try container.encode(self.mode, forKey: .mode)
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.resourceFieldRef, forKey: .resourceFieldRef)
+		try container.encode(fieldRef, forKey: .fieldRef)
+		try container.encode(mode, forKey: .mode)
+		try container.encode(path, forKey: .path)
+		try container.encode(resourceFieldRef, forKey: .resourceFieldRef)
 	}
-
 }
-

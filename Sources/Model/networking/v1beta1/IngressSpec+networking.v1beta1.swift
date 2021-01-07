@@ -64,7 +64,7 @@ public extension networking.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1beta1.IngressSpec {
+public extension networking.v1beta1.IngressSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension networking.v1beta1.IngressSpec {
 		case tls = "tls"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.backend = try container.decodeIfPresent(networking.v1beta1.IngressBackend.self, forKey: .backend)
 		self.ingressClassName = try container.decodeIfPresent(String.self, forKey: .ingressClassName)
@@ -82,14 +82,12 @@ extension networking.v1beta1.IngressSpec {
 		self.tls = try container.decodeIfPresent([networking.v1beta1.IngressTLS].self, forKey: .tls)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.backend, forKey: .backend)
-		try container.encode(self.ingressClassName, forKey: .ingressClassName)
-		try container.encode(self.rules, forKey: .rules)
-		try container.encode(self.tls, forKey: .tls)
+		try container.encode(backend, forKey: .backend)
+		try container.encode(ingressClassName, forKey: .ingressClassName)
+		try container.encode(rules, forKey: .rules)
+		try container.encode(tls, forKey: .tls)
 	}
-
 }
-

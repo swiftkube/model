@@ -76,7 +76,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.OwnerReference {
+public extension meta.v1.OwnerReference {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension meta.v1.OwnerReference {
 		case uid = "uid"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiVersion = try container.decode(String.self, forKey: .apiVersion)
 		self.kind = try container.decode(String.self, forKey: .kind)
@@ -98,16 +98,14 @@ extension meta.v1.OwnerReference {
 		self.uid = try container.decode(String.self, forKey: .uid)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.blockOwnerDeletion, forKey: .blockOwnerDeletion)
-		try container.encode(self.controller, forKey: .controller)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.uid, forKey: .uid)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(blockOwnerDeletion, forKey: .blockOwnerDeletion)
+		try container.encode(controller, forKey: .controller)
+		try container.encode(name, forKey: .name)
+		try container.encode(uid, forKey: .uid)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension flowcontrol.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension flowcontrol.v1alpha1.FlowSchemaSpec {
+public extension flowcontrol.v1alpha1.FlowSchemaSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension flowcontrol.v1alpha1.FlowSchemaSpec {
 		case rules = "rules"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.distinguisherMethod = try container.decodeIfPresent(flowcontrol.v1alpha1.FlowDistinguisherMethod.self, forKey: .distinguisherMethod)
 		self.matchingPrecedence = try container.decodeIfPresent(Int32.self, forKey: .matchingPrecedence)
@@ -82,14 +82,12 @@ extension flowcontrol.v1alpha1.FlowSchemaSpec {
 		self.rules = try container.decodeIfPresent([flowcontrol.v1alpha1.PolicyRulesWithSubjects].self, forKey: .rules)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.distinguisherMethod, forKey: .distinguisherMethod)
-		try container.encode(self.matchingPrecedence, forKey: .matchingPrecedence)
-		try container.encode(self.priorityLevelConfiguration, forKey: .priorityLevelConfiguration)
-		try container.encode(self.rules, forKey: .rules)
+		try container.encode(distinguisherMethod, forKey: .distinguisherMethod)
+		try container.encode(matchingPrecedence, forKey: .matchingPrecedence)
+		try container.encode(priorityLevelConfiguration, forKey: .priorityLevelConfiguration)
+		try container.encode(rules, forKey: .rules)
 	}
-
 }
-

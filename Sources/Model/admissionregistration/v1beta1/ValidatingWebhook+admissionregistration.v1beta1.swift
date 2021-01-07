@@ -42,11 +42,11 @@ public extension admissionregistration.v1beta1 {
 		public var failurePolicy: String?
 		///
 		/// matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
-		/// 
+		///
 		/// - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
-		/// 
+		///
 		/// - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
-		/// 
+		///
 		/// Defaults to "Exact"
 		///
 		public var matchPolicy: String?
@@ -56,7 +56,7 @@ public extension admissionregistration.v1beta1 {
 		public var name: String
 		///
 		/// NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
-		/// 
+		///
 		/// For example, to run the webhook on any objects whose namespace is not associated with "runlevel" of "0" or "1";  you will set the selector as follows: "namespaceSelector": {
 		///   "matchExpressions": [
 		///     {
@@ -69,7 +69,7 @@ public extension admissionregistration.v1beta1 {
 		///     }
 		///   ]
 		/// }
-		/// 
+		///
 		/// If instead you want to only run the webhook on any objects whose namespace is associated with the "environment" of "prod" or "staging"; you will set the selector as follows: "namespaceSelector": {
 		///   "matchExpressions": [
 		///     {
@@ -82,9 +82,9 @@ public extension admissionregistration.v1beta1 {
 		///     }
 		///   ]
 		/// }
-		/// 
+		///
 		/// See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.
-		/// 
+		///
 		/// Default to the empty LabelSelector, which matches everything.
 		///
 		public var namespaceSelector: meta.v1.LabelSelector?
@@ -136,7 +136,7 @@ public extension admissionregistration.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension admissionregistration.v1beta1.ValidatingWebhook {
+public extension admissionregistration.v1beta1.ValidatingWebhook {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -152,7 +152,7 @@ extension admissionregistration.v1beta1.ValidatingWebhook {
 		case timeoutSeconds = "timeoutSeconds"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.admissionReviewVersions = try container.decodeIfPresent([String].self, forKey: .admissionReviewVersions)
 		self.clientConfig = try container.decode(admissionregistration.v1beta1.WebhookClientConfig.self, forKey: .clientConfig)
@@ -166,20 +166,18 @@ extension admissionregistration.v1beta1.ValidatingWebhook {
 		self.timeoutSeconds = try container.decodeIfPresent(Int32.self, forKey: .timeoutSeconds)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.admissionReviewVersions, forKey: .admissionReviewVersions)
-		try container.encode(self.clientConfig, forKey: .clientConfig)
-		try container.encode(self.failurePolicy, forKey: .failurePolicy)
-		try container.encode(self.matchPolicy, forKey: .matchPolicy)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.namespaceSelector, forKey: .namespaceSelector)
-		try container.encode(self.objectSelector, forKey: .objectSelector)
-		try container.encode(self.rules, forKey: .rules)
-		try container.encode(self.sideEffects, forKey: .sideEffects)
-		try container.encode(self.timeoutSeconds, forKey: .timeoutSeconds)
+		try container.encode(admissionReviewVersions, forKey: .admissionReviewVersions)
+		try container.encode(clientConfig, forKey: .clientConfig)
+		try container.encode(failurePolicy, forKey: .failurePolicy)
+		try container.encode(matchPolicy, forKey: .matchPolicy)
+		try container.encode(name, forKey: .name)
+		try container.encode(namespaceSelector, forKey: .namespaceSelector)
+		try container.encode(objectSelector, forKey: .objectSelector)
+		try container.encode(rules, forKey: .rules)
+		try container.encode(sideEffects, forKey: .sideEffects)
+		try container.encode(timeoutSeconds, forKey: .timeoutSeconds)
 	}
-
 }
-

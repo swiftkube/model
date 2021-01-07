@@ -19,15 +19,15 @@ import Foundation
 public extension sk {
 
 	static func container(name: String, _ block: (inout core.v1.Container) -> Void) -> core.v1.Container {
-		return build(core.v1.Container(name: name), with: block)
+		build(core.v1.Container(name: name), with: block)
 	}
 
 	static func containerPort(_ port: Int32, _ block: ((inout core.v1.ContainerPort) -> Void)? = nil) -> core.v1.ContainerPort {
-		return build(core.v1.ContainerPort(containerPort: port), with: block ?? { _ in })
+		build(core.v1.ContainerPort(containerPort: port), with: block ?? { _ in })
 	}
 
 	static func envFrom(_ sources: ContainerEnvFromSourceType...) -> [core.v1.EnvFromSource] {
-		return sources.map { $0.envFromSource() }
+		sources.map { $0.envFromSource() }
 	}
 
 	static func probe(action: ProbeAction, _ block: ((inout core.v1.Probe) -> Void)? = nil) -> core.v1.Probe {
@@ -49,24 +49,26 @@ public extension sk {
 				scheme: scheme
 			)
 		case let .tcpSocket(port: port, host: host):
-			probe.tcpSocket = core.v1.TCPSocketAction(host: host, port: IntOrString.init(integerLiteral: port))
+			probe.tcpSocket = core.v1.TCPSocketAction(host: host, port: IntOrString(integerLiteral: port))
 		}
 
 		return probe
 	}
 
 	static func requirements(_ block: (inout core.v1.ResourceRequirements) -> Void) -> core.v1.ResourceRequirements {
-		return build(core.v1.ResourceRequirements(), with: block)
+		build(core.v1.ResourceRequirements(), with: block)
 	}
 
 	static func volumeMount(name: String, mountPath: String, _ block: ((inout core.v1.VolumeMount) -> Void)? = nil) -> core.v1.VolumeMount {
-		return build(core.v1.VolumeMount(mountPath: mountPath, name: name), with: block ?? { _ in })
+		build(core.v1.VolumeMount(mountPath: mountPath, name: name), with: block ?? { _ in })
 	}
 
 	static func volumeDevice(name: String, devicePath: String) -> core.v1.VolumeDevice {
-		return core.v1.VolumeDevice(devicePath: devicePath, name: name)
+		core.v1.VolumeDevice(devicePath: devicePath, name: name)
 	}
 }
+
+// MARK: - ContainerEnvVarType
 
 public enum ContainerEnvVarType {
 	case value(String)
@@ -99,6 +101,8 @@ public enum ContainerEnvVarType {
 	}
 }
 
+// MARK: - ContainerEnvFromSourceType
+
 public enum ContainerEnvFromSourceType {
 	case configMapRef(name: String, prefix: String? = nil, optional: Bool = false)
 	case secretRef(name: String, prefix: String? = nil, optional: Bool = false)
@@ -115,17 +119,21 @@ public enum ContainerEnvFromSourceType {
 	}
 }
 
+// MARK: - ProbeAction
+
 public enum ProbeAction {
 	case exec(command: [String])
 	case httpGet(scheme: String? = nil, host: String? = nil, path: String, port: Int, headers: [String: String]? = nil)
 	case tcpSocket(port: Int, host: String? = nil)
 }
 
+// MARK: - Array + ExpressibleByDictionaryLiteral
+
 extension Array: ExpressibleByDictionaryLiteral where Array.Element == core.v1.EnvVar {
 
 	public init(dictionaryLiteral elements: (String, ContainerEnvVarType)...) {
 		self = elements.map { (name, value) -> core.v1.EnvVar in
-			return value.envVar(withName: name.uppercased())
+			value.envVar(withName: name.uppercased())
 		}
 	}
 }
@@ -133,18 +141,18 @@ extension Array: ExpressibleByDictionaryLiteral where Array.Element == core.v1.E
 public extension core.v1.Container {
 
 	mutating func mount(volume: core.v1.Volume, on path: String) {
-		if self.volumeMounts == nil {
-			self.volumeMounts = []
+		if volumeMounts == nil {
+			volumeMounts = []
 		}
 		let volumeMount = sk.volumeMount(name: volume.name, mountPath: path)
-		self.volumeMounts?.append(volumeMount)
+		volumeMounts?.append(volumeMount)
 	}
 
 	mutating func mount(volume: String, on path: String) {
-		if self.volumeMounts == nil {
-			self.volumeMounts = []
+		if volumeMounts == nil {
+			volumeMounts = []
 		}
 		let volumeMount = sk.volumeMount(name: volume, mountPath: path)
-		self.volumeMounts?.append(volumeMount)
+		volumeMounts?.append(volumeMount)
 	}
 }

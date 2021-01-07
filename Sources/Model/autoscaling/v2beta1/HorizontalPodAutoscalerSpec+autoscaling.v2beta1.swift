@@ -64,7 +64,7 @@ public extension autoscaling.v2beta1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta1.HorizontalPodAutoscalerSpec {
+public extension autoscaling.v2beta1.HorizontalPodAutoscalerSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerSpec {
 		case scaleTargetRef = "scaleTargetRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.maxReplicas = try container.decode(Int32.self, forKey: .maxReplicas)
 		self.metrics = try container.decodeIfPresent([autoscaling.v2beta1.MetricSpec].self, forKey: .metrics)
@@ -82,14 +82,12 @@ extension autoscaling.v2beta1.HorizontalPodAutoscalerSpec {
 		self.scaleTargetRef = try container.decode(autoscaling.v2beta1.CrossVersionObjectReference.self, forKey: .scaleTargetRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.maxReplicas, forKey: .maxReplicas)
-		try container.encode(self.metrics, forKey: .metrics)
-		try container.encode(self.minReplicas, forKey: .minReplicas)
-		try container.encode(self.scaleTargetRef, forKey: .scaleTargetRef)
+		try container.encode(maxReplicas, forKey: .maxReplicas)
+		try container.encode(metrics, forKey: .metrics)
+		try container.encode(minReplicas, forKey: .minReplicas)
+		try container.encode(scaleTargetRef, forKey: .scaleTargetRef)
 	}
-
 }
-

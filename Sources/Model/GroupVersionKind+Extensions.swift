@@ -40,7 +40,7 @@ extension GroupVersionKind {
 			return
 		}
 
-		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element:$0, string: resourceReference) }) {
+		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element: $0, string: resourceReference) }) {
 			self = gvk
 			return
 		}
@@ -79,4 +79,3 @@ public extension GroupVersionKind {
 		}
 	}
 }
-   

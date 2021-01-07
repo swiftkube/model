@@ -64,7 +64,7 @@ public extension certificates.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension certificates.v1beta1.CertificateSigningRequestCondition {
+public extension certificates.v1beta1.CertificateSigningRequestCondition {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension certificates.v1beta1.CertificateSigningRequestCondition {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.lastUpdateTime = try container.decodeIfPresent(Date.self, forKey: .lastUpdateTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
@@ -82,14 +82,12 @@ extension certificates.v1beta1.CertificateSigningRequestCondition {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.lastUpdateTime, forKey: .lastUpdateTime)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(lastUpdateTime, forKey: .lastUpdateTime)
+		try container.encode(message, forKey: .message)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

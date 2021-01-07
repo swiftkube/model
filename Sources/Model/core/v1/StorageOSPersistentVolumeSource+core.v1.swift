@@ -70,7 +70,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.StorageOSPersistentVolumeSource {
+public extension core.v1.StorageOSPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension core.v1.StorageOSPersistentVolumeSource {
 		case volumeNamespace = "volumeNamespace"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
@@ -90,15 +90,13 @@ extension core.v1.StorageOSPersistentVolumeSource {
 		self.volumeNamespace = try container.decodeIfPresent(String.self, forKey: .volumeNamespace)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretRef, forKey: .secretRef)
-		try container.encode(self.volumeName, forKey: .volumeName)
-		try container.encode(self.volumeNamespace, forKey: .volumeNamespace)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretRef, forKey: .secretRef)
+		try container.encode(volumeName, forKey: .volumeName)
+		try container.encode(volumeNamespace, forKey: .volumeNamespace)
 	}
-
 }
-

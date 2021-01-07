@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.TopologySelectorLabelRequirement {
+public extension core.v1.TopologySelectorLabelRequirement {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.TopologySelectorLabelRequirement {
 		case values = "values"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.key = try container.decode(String.self, forKey: .key)
 		self.values = try container.decode([String].self, forKey: .values)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.key, forKey: .key)
-		try container.encode(self.values, forKey: .values)
+		try container.encode(key, forKey: .key)
+		try container.encode(values, forKey: .values)
 	}
-
 }
-

@@ -54,7 +54,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.APIGroupList {
+public extension meta.v1.APIGroupList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -63,18 +63,16 @@ extension meta.v1.APIGroupList {
 		case groups = "groups"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.groups = try container.decode([meta.v1.APIGroup].self, forKey: .groups)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.groups, forKey: .groups)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(groups, forKey: .groups)
 	}
-
 }
-

@@ -26,11 +26,12 @@ public extension storage.v1alpha1 {
 
 	///
 	/// VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
-	/// 
+	///
 	/// VolumeAttachment objects are non-namespaced.
 	///
 	struct VolumeAttachment: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -73,7 +74,7 @@ public extension storage.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1alpha1.VolumeAttachment {
+public extension storage.v1alpha1.VolumeAttachment {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -84,22 +85,20 @@ extension storage.v1alpha1.VolumeAttachment {
 		case status = "status"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decode(storage.v1alpha1.VolumeAttachmentSpec.self, forKey: .spec)
 		self.status = try container.decodeIfPresent(storage.v1alpha1.VolumeAttachmentStatus.self, forKey: .status)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
-		try container.encode(self.status, forKey: .status)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
+		try container.encode(status, forKey: .status)
 	}
-
 }
-

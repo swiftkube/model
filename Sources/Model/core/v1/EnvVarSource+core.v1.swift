@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.EnvVarSource {
+public extension core.v1.EnvVarSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.EnvVarSource {
 		case secretKeyRef = "secretKeyRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.configMapKeyRef = try container.decodeIfPresent(core.v1.ConfigMapKeySelector.self, forKey: .configMapKeyRef)
 		self.fieldRef = try container.decodeIfPresent(core.v1.ObjectFieldSelector.self, forKey: .fieldRef)
@@ -82,14 +82,12 @@ extension core.v1.EnvVarSource {
 		self.secretKeyRef = try container.decodeIfPresent(core.v1.SecretKeySelector.self, forKey: .secretKeyRef)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.configMapKeyRef, forKey: .configMapKeyRef)
-		try container.encode(self.fieldRef, forKey: .fieldRef)
-		try container.encode(self.resourceFieldRef, forKey: .resourceFieldRef)
-		try container.encode(self.secretKeyRef, forKey: .secretKeyRef)
+		try container.encode(configMapKeyRef, forKey: .configMapKeyRef)
+		try container.encode(fieldRef, forKey: .fieldRef)
+		try container.encode(resourceFieldRef, forKey: .resourceFieldRef)
+		try container.encode(secretKeyRef, forKey: .secretKeyRef)
 	}
-
 }
-

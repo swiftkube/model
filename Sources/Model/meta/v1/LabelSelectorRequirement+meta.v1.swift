@@ -45,11 +45,11 @@ public extension meta.v1 {
 		///
 		public init(
 			key: String,
-			`operator`: String,
+			operator: String,
 			values: [String]? = nil
 		) {
 			self.key = key
-			self.`operator` = `operator`
+			self.operator = `operator`
 			self.values = values
 		}
 	}
@@ -58,7 +58,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.LabelSelectorRequirement {
+public extension meta.v1.LabelSelectorRequirement {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension meta.v1.LabelSelectorRequirement {
 		case values = "values"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.key = try container.decode(String.self, forKey: .key)
-		self.`operator` = try container.decode(String.self, forKey: .`operator`)
+		self.operator = try container.decode(String.self, forKey: .operator)
 		self.values = try container.decodeIfPresent([String].self, forKey: .values)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.key, forKey: .key)
-		try container.encode(self.`operator`, forKey: .`operator`)
-		try container.encode(self.values, forKey: .values)
+		try container.encode(key, forKey: .key)
+		try container.encode(`operator`, forKey: .operator)
+		try container.encode(values, forKey: .values)
 	}
-
 }
-

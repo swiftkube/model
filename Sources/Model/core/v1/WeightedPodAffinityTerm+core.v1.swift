@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.WeightedPodAffinityTerm {
+public extension core.v1.WeightedPodAffinityTerm {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.WeightedPodAffinityTerm {
 		case weight = "weight"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.podAffinityTerm = try container.decode(core.v1.PodAffinityTerm.self, forKey: .podAffinityTerm)
 		self.weight = try container.decode(Int32.self, forKey: .weight)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.podAffinityTerm, forKey: .podAffinityTerm)
-		try container.encode(self.weight, forKey: .weight)
+		try container.encode(podAffinityTerm, forKey: .podAffinityTerm)
+		try container.encode(weight, forKey: .weight)
 	}
-
 }
-

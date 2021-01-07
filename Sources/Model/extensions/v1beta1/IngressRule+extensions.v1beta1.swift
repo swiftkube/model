@@ -35,7 +35,7 @@ public extension extensions.v1beta1 {
 		/// 	  Currently the port of an Ingress is implicitly :80 for http and
 		/// 	  :443 for https.
 		/// Both these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
-		/// 
+		///
 		/// Host can be "precise" which is a domain name without the terminating dot of a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name prefixed with a single wildcard label (e.g. "*.foo.com"). The wildcard character '*' must appear by itself as the first DNS label and matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*"). Requests will be matched against the Host field in the following way: 1. If Host is precise, the request matches this rule if the http host header is equal to Host. 2. If Host is a wildcard, then the request matches this rule if the http host header is to equal to the suffix (removing the first label) of the wildcard rule.
 		///
 		public var host: String?
@@ -59,7 +59,7 @@ public extension extensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension extensions.v1beta1.IngressRule {
+public extension extensions.v1beta1.IngressRule {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,18 +67,16 @@ extension extensions.v1beta1.IngressRule {
 		case http = "http"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.host = try container.decodeIfPresent(String.self, forKey: .host)
 		self.http = try container.decodeIfPresent(extensions.v1beta1.HTTPIngressRuleValue.self, forKey: .http)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.host, forKey: .host)
-		try container.encode(self.http, forKey: .http)
+		try container.encode(host, forKey: .host)
+		try container.encode(http, forKey: .http)
 	}
-
 }
-

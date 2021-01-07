@@ -106,7 +106,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ISCSIVolumeSource {
+public extension core.v1.ISCSIVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -123,7 +123,7 @@ extension core.v1.ISCSIVolumeSource {
 		case targetPortal = "targetPortal"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.chapAuthDiscovery = try container.decodeIfPresent(Bool.self, forKey: .chapAuthDiscovery)
 		self.chapAuthSession = try container.decodeIfPresent(Bool.self, forKey: .chapAuthSession)
@@ -138,21 +138,19 @@ extension core.v1.ISCSIVolumeSource {
 		self.targetPortal = try container.decode(String.self, forKey: .targetPortal)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.chapAuthDiscovery, forKey: .chapAuthDiscovery)
-		try container.encode(self.chapAuthSession, forKey: .chapAuthSession)
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.initiatorName, forKey: .initiatorName)
-		try container.encode(self.iqn, forKey: .iqn)
-		try container.encode(self.iscsiInterface, forKey: .iscsiInterface)
-		try container.encode(self.lun, forKey: .lun)
-		try container.encode(self.portals, forKey: .portals)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretRef, forKey: .secretRef)
-		try container.encode(self.targetPortal, forKey: .targetPortal)
+		try container.encode(chapAuthDiscovery, forKey: .chapAuthDiscovery)
+		try container.encode(chapAuthSession, forKey: .chapAuthSession)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(initiatorName, forKey: .initiatorName)
+		try container.encode(iqn, forKey: .iqn)
+		try container.encode(iscsiInterface, forKey: .iscsiInterface)
+		try container.encode(lun, forKey: .lun)
+		try container.encode(portals, forKey: .portals)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretRef, forKey: .secretRef)
+		try container.encode(targetPortal, forKey: .targetPortal)
 	}
-
 }
-

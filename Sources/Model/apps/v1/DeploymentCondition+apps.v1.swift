@@ -76,7 +76,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.DeploymentCondition {
+public extension apps.v1.DeploymentCondition {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension apps.v1.DeploymentCondition {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.lastUpdateTime = try container.decodeIfPresent(Date.self, forKey: .lastUpdateTime)
@@ -98,16 +98,14 @@ extension apps.v1.DeploymentCondition {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.lastTransitionTime, forKey: .lastTransitionTime)
-		try container.encode(self.lastUpdateTime, forKey: .lastUpdateTime)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.status, forKey: .status)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(lastTransitionTime, forKey: .lastTransitionTime)
+		try container.encode(lastUpdateTime, forKey: .lastUpdateTime)
+		try container.encode(message, forKey: .message)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(status, forKey: .status)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.VolumeDevice {
+public extension core.v1.VolumeDevice {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.VolumeDevice {
 		case name = "name"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.devicePath = try container.decode(String.self, forKey: .devicePath)
 		self.name = try container.decode(String.self, forKey: .name)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.devicePath, forKey: .devicePath)
-		try container.encode(self.name, forKey: .name)
+		try container.encode(devicePath, forKey: .devicePath)
+		try container.encode(name, forKey: .name)
 	}
-
 }
-

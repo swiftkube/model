@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.SELinuxOptions {
+public extension core.v1.SELinuxOptions {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.SELinuxOptions {
 		case user = "user"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.level = try container.decodeIfPresent(String.self, forKey: .level)
 		self.role = try container.decodeIfPresent(String.self, forKey: .role)
@@ -82,14 +82,12 @@ extension core.v1.SELinuxOptions {
 		self.user = try container.decodeIfPresent(String.self, forKey: .user)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.level, forKey: .level)
-		try container.encode(self.role, forKey: .role)
-		try container.encode(self.type, forKey: .type)
-		try container.encode(self.user, forKey: .user)
+		try container.encode(level, forKey: .level)
+		try container.encode(role, forKey: .role)
+		try container.encode(type, forKey: .type)
+		try container.encode(user, forKey: .user)
 	}
-
 }
-

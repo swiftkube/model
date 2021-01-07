@@ -28,7 +28,8 @@ public extension core.v1 {
 	/// ConfigMap holds configuration data for pods to consume.
 	///
 	struct ConfigMap: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -77,7 +78,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ConfigMap {
+public extension core.v1.ConfigMap {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -89,7 +90,7 @@ extension core.v1.ConfigMap {
 		case immutable = "immutable"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.binaryData = try container.decodeIfPresent([String: String].self, forKey: .binaryData)
@@ -97,16 +98,14 @@ extension core.v1.ConfigMap {
 		self.immutable = try container.decodeIfPresent(Bool.self, forKey: .immutable)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.binaryData, forKey: .binaryData)
-		try container.encode(self.data, forKey: .data)
-		try container.encode(self.immutable, forKey: .immutable)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(binaryData, forKey: .binaryData)
+		try container.encode(data, forKey: .data)
+		try container.encode(immutable, forKey: .immutable)
 	}
-
 }
-

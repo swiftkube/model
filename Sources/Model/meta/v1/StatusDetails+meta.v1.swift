@@ -76,7 +76,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.StatusDetails {
+public extension meta.v1.StatusDetails {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension meta.v1.StatusDetails {
 		case uid = "uid"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.kind = try container.decodeIfPresent(String.self, forKey: .kind)
 		self.causes = try container.decodeIfPresent([meta.v1.StatusCause].self, forKey: .causes)
@@ -98,16 +98,14 @@ extension meta.v1.StatusDetails {
 		self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.causes, forKey: .causes)
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.retryAfterSeconds, forKey: .retryAfterSeconds)
-		try container.encode(self.uid, forKey: .uid)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(causes, forKey: .causes)
+		try container.encode(group, forKey: .group)
+		try container.encode(name, forKey: .name)
+		try container.encode(retryAfterSeconds, forKey: .retryAfterSeconds)
+		try container.encode(uid, forKey: .uid)
 	}
-
 }
-

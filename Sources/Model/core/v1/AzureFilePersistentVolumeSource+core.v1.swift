@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.AzureFilePersistentVolumeSource {
+public extension core.v1.AzureFilePersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.AzureFilePersistentVolumeSource {
 		case shareName = "shareName"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
 		self.secretName = try container.decode(String.self, forKey: .secretName)
@@ -82,14 +82,12 @@ extension core.v1.AzureFilePersistentVolumeSource {
 		self.shareName = try container.decode(String.self, forKey: .shareName)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretName, forKey: .secretName)
-		try container.encode(self.secretNamespace, forKey: .secretNamespace)
-		try container.encode(self.shareName, forKey: .shareName)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretName, forKey: .secretName)
+		try container.encode(secretNamespace, forKey: .secretNamespace)
+		try container.encode(shareName, forKey: .shareName)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension batch.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension batch.v1beta1.CronJobList {
+public extension batch.v1beta1.CronJobList {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,22 +74,23 @@ extension batch.v1beta1.CronJobList {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
 		self.items = try container.decode([batch.v1beta1.CronJob].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(items, forKey: .items)
 	}
-
 }
+
+// MARK: - batch.v1beta1.CronJobList + Sequence
 
 ///
 /// Sequence iterator for KubernetesResourceList items
@@ -99,7 +100,6 @@ extension batch.v1beta1.CronJobList: Sequence {
 	public typealias Element = batch.v1beta1.CronJob
 
 	public func makeIterator() -> AnyIterator<batch.v1beta1.CronJob> {
-		return AnyIterator(self.items.makeIterator())
+		AnyIterator(items.makeIterator())
 	}
 }
-

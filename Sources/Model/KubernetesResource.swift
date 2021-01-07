@@ -16,10 +16,14 @@
 
 import Foundation
 
+// MARK: - KubernetesResource
+
 ///
 /// A marker protocol for all Kubernetes resources.
 ///
 public protocol KubernetesResource: Codable {}
+
+// MARK: - KubernetesResourceList
 
 ///
 /// A type that represents a list of Kubernetes resources, e.g. `DeploymentList`.
@@ -36,6 +40,8 @@ public protocol KubernetesResourceList: Codable {
 	var items: [Item] { get }
 }
 
+// MARK: - MetadataHavingResource
+
 ///
 /// A type of `KubernetesResource` that holds metadata: `meta.v1.ObjectMeta`.
 ///
@@ -46,26 +52,30 @@ public protocol MetadataHavingResource: KubernetesResource {
 	var name: String? { get }
 }
 
-extension MetadataHavingResource {
+public extension MetadataHavingResource {
 
-	public var metadata: meta.v1.ObjectMeta? {
-		return nil
+	var metadata: meta.v1.ObjectMeta? {
+		nil
 	}
 
-	public var name: String? {
-		return self.metadata?.name
+	var name: String? {
+		metadata?.name
 	}
 }
+
+// MARK: - KubernetesAPIResource
 
 ///
 /// A type of `KubernetesResource` that has a corresponding API endpoint, i.e. an API group under a specific version.
 ///
-public protocol KubernetesAPIResource : MetadataHavingResource {
+public protocol KubernetesAPIResource: MetadataHavingResource {
 	/// `APIVersion` defines the versioned schema of this representation of an object.
 	var apiVersion: String { get }
 	/// `Kind` is a string value representing the REST resource this object represents.
 	var kind: String { get }
 }
+
+// MARK: - NamespacedResource
 
 ///
 /// A marker protocol for all namespace-scoped API resources.
@@ -73,17 +83,23 @@ public protocol KubernetesAPIResource : MetadataHavingResource {
 /// For example a `Pod` or an `Ingress` are `NamespacedResource`s.
 public protocol NamespacedResource: KubernetesResource {}
 
+// MARK: - ClusterScopedResource
+
 ///
 /// A marker protocol for all cluster-scoped API resources.
 ///
 /// For example a `Node` or a `ClusterRole` are `ClusterScopedResource`s.
 public protocol ClusterScopedResource: KubernetesResource {}
 
+// MARK: - ReadableResource
+
 ///
 /// A type of `KubernetesResource`s that are "readable", i.e. can be fetched or watched.
 ///
 /// For example a `Pod` is readable, whereas a `SelfSubjectAccessReview` is not.
 public protocol ReadableResource: KubernetesResource {}
+
+// MARK: - ListableResource
 
 ///
 /// A type of `KubernetesResource`s that are  "listable".
@@ -95,10 +111,14 @@ public protocol ListableResource: KubernetesResource {
 	associatedtype List: KubernetesResourceList
 }
 
+// MARK: - CreatableResource
+
 ///
 /// A type of `KubernetesResource`s that can be created.
 ///
 public protocol CreatableResource: KubernetesResource {}
+
+// MARK: - ReplaceableResource
 
 ///
 /// A type of `KubernetesResource`s that can be replaced via a `PUT` request.
@@ -106,11 +126,15 @@ public protocol CreatableResource: KubernetesResource {}
 /// For example a `Pod` is updatable, whereas a `LocalSubjectAccessReview` is not.
 public protocol ReplaceableResource: KubernetesResource {}
 
+// MARK: - DeletableResource
+
 ///
 /// A type of `KubernetesResource`s that can be deleted.
 ///
 /// For example a `Pod` is deletable, whereas a `LocalSubjectAccessReview` is not.
 public protocol DeletableResource: KubernetesResource {}
+
+// MARK: - CollectionDeletableResource
 
 ///
 /// A type of `KubernetesResource`s that support deleting in batch.

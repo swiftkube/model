@@ -42,11 +42,11 @@ public extension admissionregistration.v1beta1 {
 		public var operations: [String]?
 		///
 		/// Resources is a list of resources this rule applies to.
-		/// 
+		///
 		/// For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.
-		/// 
+		///
 		/// If wildcard is present, the validation rule will ensure resources do not overlap with each other.
-		/// 
+		///
 		/// Depending on the enclosing object, subresources might not be allowed. Required.
 		///
 		public var resources: [String]?
@@ -76,7 +76,7 @@ public extension admissionregistration.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension admissionregistration.v1beta1.RuleWithOperations {
+public extension admissionregistration.v1beta1.RuleWithOperations {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -87,7 +87,7 @@ extension admissionregistration.v1beta1.RuleWithOperations {
 		case scope = "scope"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiGroups = try container.decodeIfPresent([String].self, forKey: .apiGroups)
 		self.apiVersions = try container.decodeIfPresent([String].self, forKey: .apiVersions)
@@ -96,15 +96,13 @@ extension admissionregistration.v1beta1.RuleWithOperations {
 		self.scope = try container.decodeIfPresent(String.self, forKey: .scope)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiGroups, forKey: .apiGroups)
-		try container.encode(self.apiVersions, forKey: .apiVersions)
-		try container.encode(self.operations, forKey: .operations)
-		try container.encode(self.resources, forKey: .resources)
-		try container.encode(self.scope, forKey: .scope)
+		try container.encode(apiGroups, forKey: .apiGroups)
+		try container.encode(apiVersions, forKey: .apiVersions)
+		try container.encode(operations, forKey: .operations)
+		try container.encode(resources, forKey: .resources)
+		try container.encode(scope, forKey: .scope)
 	}
-
 }
-

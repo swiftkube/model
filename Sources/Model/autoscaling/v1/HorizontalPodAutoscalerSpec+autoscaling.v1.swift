@@ -64,7 +64,7 @@ public extension autoscaling.v1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v1.HorizontalPodAutoscalerSpec {
+public extension autoscaling.v1.HorizontalPodAutoscalerSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension autoscaling.v1.HorizontalPodAutoscalerSpec {
 		case targetCPUUtilizationPercentage = "targetCPUUtilizationPercentage"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.maxReplicas = try container.decode(Int32.self, forKey: .maxReplicas)
 		self.minReplicas = try container.decodeIfPresent(Int32.self, forKey: .minReplicas)
@@ -82,14 +82,12 @@ extension autoscaling.v1.HorizontalPodAutoscalerSpec {
 		self.targetCPUUtilizationPercentage = try container.decodeIfPresent(Int32.self, forKey: .targetCPUUtilizationPercentage)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.maxReplicas, forKey: .maxReplicas)
-		try container.encode(self.minReplicas, forKey: .minReplicas)
-		try container.encode(self.scaleTargetRef, forKey: .scaleTargetRef)
-		try container.encode(self.targetCPUUtilizationPercentage, forKey: .targetCPUUtilizationPercentage)
+		try container.encode(maxReplicas, forKey: .maxReplicas)
+		try container.encode(minReplicas, forKey: .minReplicas)
+		try container.encode(scaleTargetRef, forKey: .scaleTargetRef)
+		try container.encode(targetCPUUtilizationPercentage, forKey: .targetCPUUtilizationPercentage)
 	}
-
 }
-

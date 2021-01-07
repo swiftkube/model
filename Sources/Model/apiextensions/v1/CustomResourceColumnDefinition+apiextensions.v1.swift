@@ -76,7 +76,7 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.CustomResourceColumnDefinition {
+public extension apiextensions.v1.CustomResourceColumnDefinition {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension apiextensions.v1.CustomResourceColumnDefinition {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.description = try container.decodeIfPresent(String.self, forKey: .description)
 		self.format = try container.decodeIfPresent(String.self, forKey: .format)
@@ -98,16 +98,14 @@ extension apiextensions.v1.CustomResourceColumnDefinition {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.description, forKey: .description)
-		try container.encode(self.format, forKey: .format)
-		try container.encode(self.jsonPath, forKey: .jsonPath)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.priority, forKey: .priority)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(description, forKey: .description)
+		try container.encode(format, forKey: .format)
+		try container.encode(jsonPath, forKey: .jsonPath)
+		try container.encode(name, forKey: .name)
+		try container.encode(priority, forKey: .priority)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

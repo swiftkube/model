@@ -106,7 +106,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeStatus {
+public extension core.v1.NodeStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -123,7 +123,7 @@ extension core.v1.NodeStatus {
 		case volumesInUse = "volumesInUse"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.addresses = try container.decodeIfPresent([core.v1.NodeAddress].self, forKey: .addresses)
 		self.allocatable = try container.decodeIfPresent([String: Quantity].self, forKey: .allocatable)
@@ -138,21 +138,19 @@ extension core.v1.NodeStatus {
 		self.volumesInUse = try container.decodeIfPresent([String].self, forKey: .volumesInUse)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.addresses, forKey: .addresses)
-		try container.encode(self.allocatable, forKey: .allocatable)
-		try container.encode(self.capacity, forKey: .capacity)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.config, forKey: .config)
-		try container.encode(self.daemonEndpoints, forKey: .daemonEndpoints)
-		try container.encode(self.images, forKey: .images)
-		try container.encode(self.nodeInfo, forKey: .nodeInfo)
-		try container.encode(self.phase, forKey: .phase)
-		try container.encode(self.volumesAttached, forKey: .volumesAttached)
-		try container.encode(self.volumesInUse, forKey: .volumesInUse)
+		try container.encode(addresses, forKey: .addresses)
+		try container.encode(allocatable, forKey: .allocatable)
+		try container.encode(capacity, forKey: .capacity)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(config, forKey: .config)
+		try container.encode(daemonEndpoints, forKey: .daemonEndpoints)
+		try container.encode(images, forKey: .images)
+		try container.encode(nodeInfo, forKey: .nodeInfo)
+		try container.encode(phase, forKey: .phase)
+		try container.encode(volumesAttached, forKey: .volumesAttached)
+		try container.encode(volumesInUse, forKey: .volumesInUse)
 	}
-
 }
-

@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Lifecycle {
+public extension core.v1.Lifecycle {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.Lifecycle {
 		case preStop = "preStop"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.postStart = try container.decodeIfPresent(core.v1.Handler.self, forKey: .postStart)
 		self.preStop = try container.decodeIfPresent(core.v1.Handler.self, forKey: .preStop)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.postStart, forKey: .postStart)
-		try container.encode(self.preStop, forKey: .preStop)
+		try container.encode(postStart, forKey: .postStart)
+		try container.encode(preStop, forKey: .preStop)
 	}
-
 }
-

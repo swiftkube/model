@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Taint {
+public extension core.v1.Taint {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.Taint {
 		case value = "value"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.effect = try container.decode(String.self, forKey: .effect)
 		self.key = try container.decode(String.self, forKey: .key)
@@ -82,14 +82,12 @@ extension core.v1.Taint {
 		self.value = try container.decodeIfPresent(String.self, forKey: .value)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.effect, forKey: .effect)
-		try container.encode(self.key, forKey: .key)
-		try container.encode(self.timeAdded, forKey: .timeAdded)
-		try container.encode(self.value, forKey: .value)
+		try container.encode(effect, forKey: .effect)
+		try container.encode(key, forKey: .key)
+		try container.encode(timeAdded, forKey: .timeAdded)
+		try container.encode(value, forKey: .value)
 	}
-
 }
-

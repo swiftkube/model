@@ -26,7 +26,7 @@ public extension core.v1 {
 
 	///
 	/// Adapts a ConfigMap into a volume.
-	/// 
+	///
 	/// The contents of the target ConfigMap's Data field will be presented in a volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. ConfigMap volumes support ownership management and SELinux relabeling.
 	///
 	struct ConfigMapVolumeSource: KubernetesResource {
@@ -66,7 +66,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ConfigMapVolumeSource {
+public extension core.v1.ConfigMapVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -76,7 +76,7 @@ extension core.v1.ConfigMapVolumeSource {
 		case optional = "optional"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.defaultMode = try container.decodeIfPresent(Int32.self, forKey: .defaultMode)
 		self.items = try container.decodeIfPresent([core.v1.KeyToPath].self, forKey: .items)
@@ -84,14 +84,12 @@ extension core.v1.ConfigMapVolumeSource {
 		self.optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.defaultMode, forKey: .defaultMode)
-		try container.encode(self.items, forKey: .items)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.optional, forKey: .optional)
+		try container.encode(defaultMode, forKey: .defaultMode)
+		try container.encode(items, forKey: .items)
+		try container.encode(name, forKey: .name)
+		try container.encode(optional, forKey: .optional)
 	}
-
 }
-

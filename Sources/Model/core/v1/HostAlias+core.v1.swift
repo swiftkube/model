@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.HostAlias {
+public extension core.v1.HostAlias {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.HostAlias {
 		case ip = "ip"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.hostnames = try container.decodeIfPresent([String].self, forKey: .hostnames)
 		self.ip = try container.decodeIfPresent(String.self, forKey: .ip)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.hostnames, forKey: .hostnames)
-		try container.encode(self.ip, forKey: .ip)
+		try container.encode(hostnames, forKey: .hostnames)
+		try container.encode(ip, forKey: .ip)
 	}
-
 }
-

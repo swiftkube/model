@@ -28,7 +28,8 @@ public extension core.v1 {
 	/// Event is a report of an event somewhere in the cluster.
 	///
 	struct Event: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -143,7 +144,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Event {
+public extension core.v1.Event {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -166,7 +167,7 @@ extension core.v1.Event {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decode(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.action = try container.decodeIfPresent(String.self, forKey: .action)
@@ -185,27 +186,25 @@ extension core.v1.Event {
 		self.type = try container.decodeIfPresent(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.action, forKey: .action)
-		try container.encode(self.count, forKey: .count)
-		try container.encode(self.eventTime, forKey: .eventTime)
-		try container.encode(self.firstTimestamp, forKey: .firstTimestamp)
-		try container.encode(self.involvedObject, forKey: .involvedObject)
-		try container.encode(self.lastTimestamp, forKey: .lastTimestamp)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.related, forKey: .related)
-		try container.encode(self.reportingComponent, forKey: .reportingComponent)
-		try container.encode(self.reportingInstance, forKey: .reportingInstance)
-		try container.encode(self.series, forKey: .series)
-		try container.encode(self.source, forKey: .source)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(action, forKey: .action)
+		try container.encode(count, forKey: .count)
+		try container.encode(eventTime, forKey: .eventTime)
+		try container.encode(firstTimestamp, forKey: .firstTimestamp)
+		try container.encode(involvedObject, forKey: .involvedObject)
+		try container.encode(lastTimestamp, forKey: .lastTimestamp)
+		try container.encode(message, forKey: .message)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(related, forKey: .related)
+		try container.encode(reportingComponent, forKey: .reportingComponent)
+		try container.encode(reportingInstance, forKey: .reportingInstance)
+		try container.encode(series, forKey: .series)
+		try container.encode(source, forKey: .source)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

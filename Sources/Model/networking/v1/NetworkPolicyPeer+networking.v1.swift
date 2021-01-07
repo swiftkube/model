@@ -34,13 +34,13 @@ public extension networking.v1 {
 		public var ipBlock: networking.v1.IPBlock?
 		///
 		/// Selects Namespaces using cluster-scoped labels. This field follows standard label selector semantics; if present but empty, it selects all namespaces.
-		/// 
+		///
 		/// If PodSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
 		///
 		public var namespaceSelector: meta.v1.LabelSelector?
 		///
 		/// This is a label selector which selects Pods. This field follows standard label selector semantics; if present but empty, it selects all pods.
-		/// 
+		///
 		/// If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
 		///
 		public var podSelector: meta.v1.LabelSelector?
@@ -62,7 +62,7 @@ public extension networking.v1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1.NetworkPolicyPeer {
+public extension networking.v1.NetworkPolicyPeer {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -71,20 +71,18 @@ extension networking.v1.NetworkPolicyPeer {
 		case podSelector = "podSelector"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.ipBlock = try container.decodeIfPresent(networking.v1.IPBlock.self, forKey: .ipBlock)
 		self.namespaceSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .namespaceSelector)
 		self.podSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .podSelector)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.ipBlock, forKey: .ipBlock)
-		try container.encode(self.namespaceSelector, forKey: .namespaceSelector)
-		try container.encode(self.podSelector, forKey: .podSelector)
+		try container.encode(ipBlock, forKey: .ipBlock)
+		try container.encode(namespaceSelector, forKey: .namespaceSelector)
+		try container.encode(podSelector, forKey: .podSelector)
 	}
-
 }
-

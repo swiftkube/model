@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.VsphereVirtualDiskVolumeSource {
+public extension core.v1.VsphereVirtualDiskVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.VsphereVirtualDiskVolumeSource {
 		case volumePath = "volumePath"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.storagePolicyID = try container.decodeIfPresent(String.self, forKey: .storagePolicyID)
@@ -82,14 +82,12 @@ extension core.v1.VsphereVirtualDiskVolumeSource {
 		self.volumePath = try container.decode(String.self, forKey: .volumePath)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.storagePolicyID, forKey: .storagePolicyID)
-		try container.encode(self.storagePolicyName, forKey: .storagePolicyName)
-		try container.encode(self.volumePath, forKey: .volumePath)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(storagePolicyID, forKey: .storagePolicyID)
+		try container.encode(storagePolicyName, forKey: .storagePolicyName)
+		try container.encode(volumePath, forKey: .volumePath)
 	}
-
 }
-

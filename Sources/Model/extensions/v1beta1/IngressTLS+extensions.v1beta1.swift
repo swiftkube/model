@@ -52,7 +52,7 @@ public extension extensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension extensions.v1beta1.IngressTLS {
+public extension extensions.v1beta1.IngressTLS {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension extensions.v1beta1.IngressTLS {
 		case secretName = "secretName"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.hosts = try container.decodeIfPresent([String].self, forKey: .hosts)
 		self.secretName = try container.decodeIfPresent(String.self, forKey: .secretName)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.hosts, forKey: .hosts)
-		try container.encode(self.secretName, forKey: .secretName)
+		try container.encode(hosts, forKey: .hosts)
+		try container.encode(secretName, forKey: .secretName)
 	}
-
 }
-

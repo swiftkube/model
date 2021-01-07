@@ -76,7 +76,7 @@ public extension discovery.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension discovery.v1beta1.Endpoint {
+public extension discovery.v1beta1.Endpoint {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -87,7 +87,7 @@ extension discovery.v1beta1.Endpoint {
 		case topology = "topology"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.addresses = try container.decode([String].self, forKey: .addresses)
 		self.conditions = try container.decodeIfPresent(discovery.v1beta1.EndpointConditions.self, forKey: .conditions)
@@ -96,15 +96,13 @@ extension discovery.v1beta1.Endpoint {
 		self.topology = try container.decodeIfPresent([String: String].self, forKey: .topology)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.addresses, forKey: .addresses)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.hostname, forKey: .hostname)
-		try container.encode(self.targetRef, forKey: .targetRef)
-		try container.encode(self.topology, forKey: .topology)
+		try container.encode(addresses, forKey: .addresses)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(hostname, forKey: .hostname)
+		try container.encode(targetRef, forKey: .targetRef)
+		try container.encode(topology, forKey: .topology)
 	}
-
 }
-

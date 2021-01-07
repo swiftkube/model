@@ -19,7 +19,7 @@ import Foundation
 public extension sk {
 
 	static func configMap(name: String, _ block: ((inout core.v1.ConfigMap) -> Void)? = nil) -> core.v1.ConfigMap {
-		return build(core.v1.ConfigMap(metadata: meta.v1.ObjectMeta(name: name)), with: block ?? { _ in })
+		build(core.v1.ConfigMap(metadata: meta.v1.ObjectMeta(name: name)), with: block ?? { _ in })
 	}
 }
 
@@ -40,17 +40,17 @@ public extension core.v1.ConfigMap {
 	}
 
 	mutating func add(file: URL, forKey key: String) throws {
-		if self.data == nil {
-			self.data = [:]
+		if data == nil {
+			data = [:]
 		}
 
-		self.data?[key] = try String(contentsOf: file, encoding: .utf8)
+		data?[key] = try String(contentsOf: file, encoding: .utf8)
 	}
 
 	mutating func add(binaryFile: URL, forKey key: String) throws {
-		if self.binaryData == nil {
-			self.binaryData = [:]
+		if binaryData == nil {
+			binaryData = [:]
 		}
-		self.binaryData?[key] = try Data(contentsOf: binaryFile).base64EncodedString()
+		binaryData?[key] = try Data(contentsOf: binaryFile).base64EncodedString()
 	}
 }

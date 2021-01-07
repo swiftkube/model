@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.DownwardAPIVolumeSource {
+public extension core.v1.DownwardAPIVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.DownwardAPIVolumeSource {
 		case items = "items"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.defaultMode = try container.decodeIfPresent(Int32.self, forKey: .defaultMode)
 		self.items = try container.decodeIfPresent([core.v1.DownwardAPIVolumeFile].self, forKey: .items)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.defaultMode, forKey: .defaultMode)
-		try container.encode(self.items, forKey: .items)
+		try container.encode(defaultMode, forKey: .defaultMode)
+		try container.encode(items, forKey: .items)
 	}
-
 }
-

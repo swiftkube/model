@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.GlusterfsPersistentVolumeSource {
+public extension core.v1.GlusterfsPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.GlusterfsPersistentVolumeSource {
 		case readOnly = "readOnly"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.endpoints = try container.decode(String.self, forKey: .endpoints)
 		self.endpointsNamespace = try container.decodeIfPresent(String.self, forKey: .endpointsNamespace)
@@ -82,14 +82,12 @@ extension core.v1.GlusterfsPersistentVolumeSource {
 		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.endpoints, forKey: .endpoints)
-		try container.encode(self.endpointsNamespace, forKey: .endpointsNamespace)
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(endpoints, forKey: .endpoints)
+		try container.encode(endpointsNamespace, forKey: .endpointsNamespace)
+		try container.encode(path, forKey: .path)
+		try container.encode(readOnly, forKey: .readOnly)
 	}
-
 }
-

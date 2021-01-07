@@ -53,7 +53,7 @@ public extension apiextensions.v1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1.CustomResourceConversion {
+public extension apiextensions.v1.CustomResourceConversion {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -61,18 +61,16 @@ extension apiextensions.v1.CustomResourceConversion {
 		case webhook = "webhook"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.strategy = try container.decode(String.self, forKey: .strategy)
 		self.webhook = try container.decodeIfPresent(apiextensions.v1.WebhookConversion.self, forKey: .webhook)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.strategy, forKey: .strategy)
-		try container.encode(self.webhook, forKey: .webhook)
+		try container.encode(strategy, forKey: .strategy)
+		try container.encode(webhook, forKey: .webhook)
 	}
-
 }
-

@@ -28,7 +28,8 @@ public extension core.v1 {
 	/// ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets
 	///
 	struct ServiceAccount: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -77,7 +78,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ServiceAccount {
+public extension core.v1.ServiceAccount {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -89,7 +90,7 @@ extension core.v1.ServiceAccount {
 		case secrets = "secrets"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.automountServiceAccountToken = try container.decodeIfPresent(Bool.self, forKey: .automountServiceAccountToken)
@@ -97,16 +98,14 @@ extension core.v1.ServiceAccount {
 		self.secrets = try container.decodeIfPresent([core.v1.ObjectReference].self, forKey: .secrets)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.automountServiceAccountToken, forKey: .automountServiceAccountToken)
-		try container.encode(self.imagePullSecrets, forKey: .imagePullSecrets)
-		try container.encode(self.secrets, forKey: .secrets)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(automountServiceAccountToken, forKey: .automountServiceAccountToken)
+		try container.encode(imagePullSecrets, forKey: .imagePullSecrets)
+		try container.encode(secrets, forKey: .secrets)
 	}
-
 }
-

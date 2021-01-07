@@ -88,7 +88,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Probe {
+public extension core.v1.Probe {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -102,7 +102,7 @@ extension core.v1.Probe {
 		case timeoutSeconds = "timeoutSeconds"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.exec = try container.decodeIfPresent(core.v1.ExecAction.self, forKey: .exec)
 		self.failureThreshold = try container.decodeIfPresent(Int32.self, forKey: .failureThreshold)
@@ -114,18 +114,16 @@ extension core.v1.Probe {
 		self.timeoutSeconds = try container.decodeIfPresent(Int32.self, forKey: .timeoutSeconds)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.exec, forKey: .exec)
-		try container.encode(self.failureThreshold, forKey: .failureThreshold)
-		try container.encode(self.httpGet, forKey: .httpGet)
-		try container.encode(self.initialDelaySeconds, forKey: .initialDelaySeconds)
-		try container.encode(self.periodSeconds, forKey: .periodSeconds)
-		try container.encode(self.successThreshold, forKey: .successThreshold)
-		try container.encode(self.tcpSocket, forKey: .tcpSocket)
-		try container.encode(self.timeoutSeconds, forKey: .timeoutSeconds)
+		try container.encode(exec, forKey: .exec)
+		try container.encode(failureThreshold, forKey: .failureThreshold)
+		try container.encode(httpGet, forKey: .httpGet)
+		try container.encode(initialDelaySeconds, forKey: .initialDelaySeconds)
+		try container.encode(periodSeconds, forKey: .periodSeconds)
+		try container.encode(successThreshold, forKey: .successThreshold)
+		try container.encode(tcpSocket, forKey: .tcpSocket)
+		try container.encode(timeoutSeconds, forKey: .timeoutSeconds)
 	}
-
 }
-

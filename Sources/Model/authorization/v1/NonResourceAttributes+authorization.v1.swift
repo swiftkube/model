@@ -52,7 +52,7 @@ public extension authorization.v1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1.NonResourceAttributes {
+public extension authorization.v1.NonResourceAttributes {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension authorization.v1.NonResourceAttributes {
 		case verb = "verb"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.path = try container.decodeIfPresent(String.self, forKey: .path)
 		self.verb = try container.decodeIfPresent(String.self, forKey: .verb)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.verb, forKey: .verb)
+		try container.encode(path, forKey: .path)
+		try container.encode(verb, forKey: .verb)
 	}
-
 }
-

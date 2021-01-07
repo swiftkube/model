@@ -64,7 +64,7 @@ public extension authentication.v1 {
 ///
 /// Codable conformance
 ///
-extension authentication.v1.TokenReviewStatus {
+public extension authentication.v1.TokenReviewStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension authentication.v1.TokenReviewStatus {
 		case user = "user"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.audiences = try container.decodeIfPresent([String].self, forKey: .audiences)
 		self.authenticated = try container.decodeIfPresent(Bool.self, forKey: .authenticated)
@@ -82,14 +82,12 @@ extension authentication.v1.TokenReviewStatus {
 		self.user = try container.decodeIfPresent(authentication.v1.UserInfo.self, forKey: .user)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.audiences, forKey: .audiences)
-		try container.encode(self.authenticated, forKey: .authenticated)
-		try container.encode(self.error, forKey: .error)
-		try container.encode(self.user, forKey: .user)
+		try container.encode(audiences, forKey: .audiences)
+		try container.encode(authenticated, forKey: .authenticated)
+		try container.encode(error, forKey: .error)
+		try container.encode(user, forKey: .user)
 	}
-
 }
-

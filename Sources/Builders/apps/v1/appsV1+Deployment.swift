@@ -19,11 +19,11 @@ import Foundation
 public extension sk {
 
 	static func deployment(name: String, _ block: (inout apps.v1.Deployment) -> Void) -> apps.v1.Deployment {
-		return build(apps.v1.Deployment(metadata: meta.v1.ObjectMeta(name: name)), with: block)
+		build(apps.v1.Deployment(metadata: meta.v1.ObjectMeta(name: name)), with: block)
 	}
 
 	static func deploymentSpec(_ block: (inout apps.v1.DeploymentSpec) -> Void) -> apps.v1.DeploymentSpec {
-		return build(apps.v1.DeploymentSpec(selector: meta.v1.LabelSelector(), template: core.v1.PodTemplateSpec()), with: block)
+		build(apps.v1.DeploymentSpec(selector: meta.v1.LabelSelector(), template: core.v1.PodTemplateSpec()), with: block)
 	}
 }
 
@@ -33,9 +33,9 @@ public extension apps.v1.Deployment {
 		guard
 			let name = self.name,
 			var metadata = self.metadata,
-			let containerPort = self.spec?.template.spec?.containers.first?.ports?.first?.containerPort
-			else {
-				return nil
+			let containerPort = spec?.template.spec?.containers.first?.ports?.first?.containerPort
+		else {
+			return nil
 		}
 
 		if metadata.labels == nil {

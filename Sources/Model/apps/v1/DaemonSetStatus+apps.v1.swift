@@ -100,7 +100,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.DaemonSetStatus {
+public extension apps.v1.DaemonSetStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension apps.v1.DaemonSetStatus {
 		case updatedNumberScheduled = "updatedNumberScheduled"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.collisionCount = try container.decodeIfPresent(Int32.self, forKey: .collisionCount)
 		self.conditions = try container.decodeIfPresent([apps.v1.DaemonSetCondition].self, forKey: .conditions)
@@ -130,20 +130,18 @@ extension apps.v1.DaemonSetStatus {
 		self.updatedNumberScheduled = try container.decodeIfPresent(Int32.self, forKey: .updatedNumberScheduled)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.collisionCount, forKey: .collisionCount)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.currentNumberScheduled, forKey: .currentNumberScheduled)
-		try container.encode(self.desiredNumberScheduled, forKey: .desiredNumberScheduled)
-		try container.encode(self.numberAvailable, forKey: .numberAvailable)
-		try container.encode(self.numberMisscheduled, forKey: .numberMisscheduled)
-		try container.encode(self.numberReady, forKey: .numberReady)
-		try container.encode(self.numberUnavailable, forKey: .numberUnavailable)
-		try container.encode(self.observedGeneration, forKey: .observedGeneration)
-		try container.encode(self.updatedNumberScheduled, forKey: .updatedNumberScheduled)
+		try container.encode(collisionCount, forKey: .collisionCount)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(currentNumberScheduled, forKey: .currentNumberScheduled)
+		try container.encode(desiredNumberScheduled, forKey: .desiredNumberScheduled)
+		try container.encode(numberAvailable, forKey: .numberAvailable)
+		try container.encode(numberMisscheduled, forKey: .numberMisscheduled)
+		try container.encode(numberReady, forKey: .numberReady)
+		try container.encode(numberUnavailable, forKey: .numberUnavailable)
+		try container.encode(observedGeneration, forKey: .observedGeneration)
+		try container.encode(updatedNumberScheduled, forKey: .updatedNumberScheduled)
 	}
-
 }
-

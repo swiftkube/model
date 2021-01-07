@@ -56,13 +56,13 @@ public extension core.v1 {
 			hostIP: String? = nil,
 			hostPort: Int32? = nil,
 			name: String? = nil,
-			`protocol`: String? = nil
+			protocol: String? = nil
 		) {
 			self.containerPort = containerPort
 			self.hostIP = hostIP
 			self.hostPort = hostPort
 			self.name = name
-			self.`protocol` = `protocol`
+			self.protocol = `protocol`
 		}
 	}
 }
@@ -70,7 +70,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ContainerPort {
+public extension core.v1.ContainerPort {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,24 +81,22 @@ extension core.v1.ContainerPort {
 		case `protocol` = "protocol"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.containerPort = try container.decode(Int32.self, forKey: .containerPort)
 		self.hostIP = try container.decodeIfPresent(String.self, forKey: .hostIP)
 		self.hostPort = try container.decodeIfPresent(Int32.self, forKey: .hostPort)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
-		self.`protocol` = try container.decodeIfPresent(String.self, forKey: .`protocol`)
+		self.protocol = try container.decodeIfPresent(String.self, forKey: .protocol)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.containerPort, forKey: .containerPort)
-		try container.encode(self.hostIP, forKey: .hostIP)
-		try container.encode(self.hostPort, forKey: .hostPort)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.`protocol`, forKey: .`protocol`)
+		try container.encode(containerPort, forKey: .containerPort)
+		try container.encode(hostIP, forKey: .hostIP)
+		try container.encode(hostPort, forKey: .hostPort)
+		try container.encode(name, forKey: .name)
+		try container.encode(`protocol`, forKey: .protocol)
 	}
-
 }
-

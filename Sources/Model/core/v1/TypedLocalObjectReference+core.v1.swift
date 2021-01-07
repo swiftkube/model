@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.TypedLocalObjectReference {
+public extension core.v1.TypedLocalObjectReference {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.TypedLocalObjectReference {
 		case name = "name"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.kind = try container.decode(String.self, forKey: .kind)
 		self.apiGroup = try container.decodeIfPresent(String.self, forKey: .apiGroup)
 		self.name = try container.decode(String.self, forKey: .name)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.apiGroup, forKey: .apiGroup)
-		try container.encode(self.name, forKey: .name)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(apiGroup, forKey: .apiGroup)
+		try container.encode(name, forKey: .name)
 	}
-
 }
-

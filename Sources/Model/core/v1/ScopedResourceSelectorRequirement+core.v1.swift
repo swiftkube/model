@@ -44,11 +44,11 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`operator`: String,
+			operator: String,
 			scopeName: String,
 			values: [String]? = nil
 		) {
-			self.`operator` = `operator`
+			self.operator = `operator`
 			self.scopeName = scopeName
 			self.values = values
 		}
@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ScopedResourceSelectorRequirement {
+public extension core.v1.ScopedResourceSelectorRequirement {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.ScopedResourceSelectorRequirement {
 		case values = "values"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.`operator` = try container.decode(String.self, forKey: .`operator`)
+		self.operator = try container.decode(String.self, forKey: .operator)
 		self.scopeName = try container.decode(String.self, forKey: .scopeName)
 		self.values = try container.decodeIfPresent([String].self, forKey: .values)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.`operator`, forKey: .`operator`)
-		try container.encode(self.scopeName, forKey: .scopeName)
-		try container.encode(self.values, forKey: .values)
+		try container.encode(`operator`, forKey: .operator)
+		try container.encode(scopeName, forKey: .scopeName)
+		try container.encode(values, forKey: .values)
 	}
-
 }
-

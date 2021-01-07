@@ -58,7 +58,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.HPAScalingPolicy {
+public extension autoscaling.v2beta2.HPAScalingPolicy {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension autoscaling.v2beta2.HPAScalingPolicy {
 		case value = "value"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.periodSeconds = try container.decode(Int32.self, forKey: .periodSeconds)
 		self.type = try container.decode(String.self, forKey: .type)
 		self.value = try container.decode(Int32.self, forKey: .value)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.periodSeconds, forKey: .periodSeconds)
-		try container.encode(self.type, forKey: .type)
-		try container.encode(self.value, forKey: .value)
+		try container.encode(periodSeconds, forKey: .periodSeconds)
+		try container.encode(type, forKey: .type)
+		try container.encode(value, forKey: .value)
 	}
-
 }
-

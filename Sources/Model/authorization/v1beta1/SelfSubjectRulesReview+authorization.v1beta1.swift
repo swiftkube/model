@@ -28,7 +28,8 @@ public extension authorization.v1beta1 {
 	/// SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
 	///
 	struct SelfSubjectRulesReview: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				CreatableResource {
+		CreatableResource
+	{
 		///
 		/// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
 		///
@@ -67,7 +68,7 @@ public extension authorization.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1beta1.SelfSubjectRulesReview {
+public extension authorization.v1beta1.SelfSubjectRulesReview {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -78,22 +79,20 @@ extension authorization.v1beta1.SelfSubjectRulesReview {
 		case status = "status"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.spec = try container.decode(authorization.v1beta1.SelfSubjectRulesReviewSpec.self, forKey: .spec)
 		self.status = try container.decodeIfPresent(authorization.v1beta1.SubjectRulesReviewStatus.self, forKey: .status)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.spec, forKey: .spec)
-		try container.encode(self.status, forKey: .status)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(spec, forKey: .spec)
+		try container.encode(status, forKey: .status)
 	}
-
 }
-

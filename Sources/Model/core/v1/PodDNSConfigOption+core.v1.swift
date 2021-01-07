@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodDNSConfigOption {
+public extension core.v1.PodDNSConfigOption {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.PodDNSConfigOption {
 		case value = "value"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.name = try container.decodeIfPresent(String.self, forKey: .name)
 		self.value = try container.decodeIfPresent(String.self, forKey: .value)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.value, forKey: .value)
+		try container.encode(name, forKey: .name)
+		try container.encode(value, forKey: .value)
 	}
-
 }
-

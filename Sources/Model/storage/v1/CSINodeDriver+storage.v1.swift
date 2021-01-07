@@ -64,7 +64,7 @@ public extension storage.v1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1.CSINodeDriver {
+public extension storage.v1.CSINodeDriver {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension storage.v1.CSINodeDriver {
 		case topologyKeys = "topologyKeys"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.allocatable = try container.decodeIfPresent(storage.v1.VolumeNodeResources.self, forKey: .allocatable)
 		self.name = try container.decode(String.self, forKey: .name)
@@ -82,14 +82,12 @@ extension storage.v1.CSINodeDriver {
 		self.topologyKeys = try container.decodeIfPresent([String].self, forKey: .topologyKeys)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.allocatable, forKey: .allocatable)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.nodeID, forKey: .nodeID)
-		try container.encode(self.topologyKeys, forKey: .topologyKeys)
+		try container.encode(allocatable, forKey: .allocatable)
+		try container.encode(name, forKey: .name)
+		try container.encode(nodeID, forKey: .nodeID)
+		try container.encode(topologyKeys, forKey: .topologyKeys)
 	}
-
 }
-

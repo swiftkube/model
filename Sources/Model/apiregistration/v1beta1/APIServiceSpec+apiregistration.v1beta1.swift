@@ -82,7 +82,7 @@ public extension apiregistration.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension apiregistration.v1beta1.APIServiceSpec {
+public extension apiregistration.v1beta1.APIServiceSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -95,7 +95,7 @@ extension apiregistration.v1beta1.APIServiceSpec {
 		case versionPriority = "versionPriority"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.caBundle = try container.decodeIfPresent(String.self, forKey: .caBundle)
 		self.group = try container.decodeIfPresent(String.self, forKey: .group)
@@ -106,17 +106,15 @@ extension apiregistration.v1beta1.APIServiceSpec {
 		self.versionPriority = try container.decode(Int32.self, forKey: .versionPriority)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.caBundle, forKey: .caBundle)
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.groupPriorityMinimum, forKey: .groupPriorityMinimum)
-		try container.encode(self.insecureSkipTLSVerify, forKey: .insecureSkipTLSVerify)
-		try container.encode(self.service, forKey: .service)
-		try container.encode(self.version, forKey: .version)
-		try container.encode(self.versionPriority, forKey: .versionPriority)
+		try container.encode(caBundle, forKey: .caBundle)
+		try container.encode(group, forKey: .group)
+		try container.encode(groupPriorityMinimum, forKey: .groupPriorityMinimum)
+		try container.encode(insecureSkipTLSVerify, forKey: .insecureSkipTLSVerify)
+		try container.encode(service, forKey: .service)
+		try container.encode(version, forKey: .version)
+		try container.encode(versionPriority, forKey: .versionPriority)
 	}
-
 }
-

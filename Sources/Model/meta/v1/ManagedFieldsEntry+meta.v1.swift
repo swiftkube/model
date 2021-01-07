@@ -76,7 +76,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.ManagedFieldsEntry {
+public extension meta.v1.ManagedFieldsEntry {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension meta.v1.ManagedFieldsEntry {
 		case time = "time"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiVersion = try container.decodeIfPresent(String.self, forKey: .apiVersion)
 		self.fieldsType = try container.decodeIfPresent(String.self, forKey: .fieldsType)
@@ -98,16 +98,14 @@ extension meta.v1.ManagedFieldsEntry {
 		self.time = try container.decodeIfPresent(Date.self, forKey: .time)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.fieldsType, forKey: .fieldsType)
-		try container.encode(self.fieldsV1, forKey: .fieldsV1)
-		try container.encode(self.manager, forKey: .manager)
-		try container.encode(self.operation, forKey: .operation)
-		try container.encode(self.time, forKey: .time)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(fieldsType, forKey: .fieldsType)
+		try container.encode(fieldsV1, forKey: .fieldsV1)
+		try container.encode(manager, forKey: .manager)
+		try container.encode(operation, forKey: .operation)
+		try container.encode(time, forKey: .time)
 	}
-
 }
-

@@ -52,7 +52,7 @@ public extension networking.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension networking.v1beta1.IngressClassSpec {
+public extension networking.v1beta1.IngressClassSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension networking.v1beta1.IngressClassSpec {
 		case parameters = "parameters"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.controller = try container.decodeIfPresent(String.self, forKey: .controller)
 		self.parameters = try container.decodeIfPresent(core.v1.TypedLocalObjectReference.self, forKey: .parameters)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.controller, forKey: .controller)
-		try container.encode(self.parameters, forKey: .parameters)
+		try container.encode(controller, forKey: .controller)
+		try container.encode(parameters, forKey: .parameters)
 	}
-
 }
-

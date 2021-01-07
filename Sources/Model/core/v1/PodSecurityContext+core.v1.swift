@@ -30,9 +30,9 @@ public extension core.v1 {
 	struct PodSecurityContext: KubernetesResource {
 		///
 		/// A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:
-		/// 
+		///
 		/// 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
-		/// 
+		///
 		/// If unset, the Kubelet will not modify the ownership and permissions of any volume.
 		///
 		public var fsGroup: Int64?
@@ -98,7 +98,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodSecurityContext {
+public extension core.v1.PodSecurityContext {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -113,7 +113,7 @@ extension core.v1.PodSecurityContext {
 		case windowsOptions = "windowsOptions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsGroup = try container.decodeIfPresent(Int64.self, forKey: .fsGroup)
 		self.fsGroupChangePolicy = try container.decodeIfPresent(String.self, forKey: .fsGroupChangePolicy)
@@ -126,19 +126,17 @@ extension core.v1.PodSecurityContext {
 		self.windowsOptions = try container.decodeIfPresent(core.v1.WindowsSecurityContextOptions.self, forKey: .windowsOptions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsGroup, forKey: .fsGroup)
-		try container.encode(self.fsGroupChangePolicy, forKey: .fsGroupChangePolicy)
-		try container.encode(self.runAsGroup, forKey: .runAsGroup)
-		try container.encode(self.runAsNonRoot, forKey: .runAsNonRoot)
-		try container.encode(self.runAsUser, forKey: .runAsUser)
-		try container.encode(self.seLinuxOptions, forKey: .seLinuxOptions)
-		try container.encode(self.supplementalGroups, forKey: .supplementalGroups)
-		try container.encode(self.sysctls, forKey: .sysctls)
-		try container.encode(self.windowsOptions, forKey: .windowsOptions)
+		try container.encode(fsGroup, forKey: .fsGroup)
+		try container.encode(fsGroupChangePolicy, forKey: .fsGroupChangePolicy)
+		try container.encode(runAsGroup, forKey: .runAsGroup)
+		try container.encode(runAsNonRoot, forKey: .runAsNonRoot)
+		try container.encode(runAsUser, forKey: .runAsUser)
+		try container.encode(seLinuxOptions, forKey: .seLinuxOptions)
+		try container.encode(supplementalGroups, forKey: .supplementalGroups)
+		try container.encode(sysctls, forKey: .sysctls)
+		try container.encode(windowsOptions, forKey: .windowsOptions)
 	}
-
 }
-

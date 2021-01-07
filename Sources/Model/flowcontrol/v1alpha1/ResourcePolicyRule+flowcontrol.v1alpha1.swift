@@ -70,7 +70,7 @@ public extension flowcontrol.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension flowcontrol.v1alpha1.ResourcePolicyRule {
+public extension flowcontrol.v1alpha1.ResourcePolicyRule {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension flowcontrol.v1alpha1.ResourcePolicyRule {
 		case verbs = "verbs"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiGroups = try container.decode([String].self, forKey: .apiGroups)
 		self.clusterScope = try container.decodeIfPresent(Bool.self, forKey: .clusterScope)
@@ -90,15 +90,13 @@ extension flowcontrol.v1alpha1.ResourcePolicyRule {
 		self.verbs = try container.decode([String].self, forKey: .verbs)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiGroups, forKey: .apiGroups)
-		try container.encode(self.clusterScope, forKey: .clusterScope)
-		try container.encode(self.namespaces, forKey: .namespaces)
-		try container.encode(self.resources, forKey: .resources)
-		try container.encode(self.verbs, forKey: .verbs)
+		try container.encode(apiGroups, forKey: .apiGroups)
+		try container.encode(clusterScope, forKey: .clusterScope)
+		try container.encode(namespaces, forKey: .namespaces)
+		try container.encode(resources, forKey: .resources)
+		try container.encode(verbs, forKey: .verbs)
 	}
-
 }
-

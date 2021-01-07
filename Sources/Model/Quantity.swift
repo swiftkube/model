@@ -16,6 +16,8 @@
 
 import Foundation
 
+// MARK: - Quantity
+
 // TODO: Implement proper quantity serde: https://github.com/kubernetes/apimachinery/blob/master/pkg/api/resource/quantity.go
 public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
 	let value: String
@@ -32,6 +34,8 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 		self.value = String(value)
 	}
 }
+
+// MARK: Codable
 
 ///
 /// Codable confromace.

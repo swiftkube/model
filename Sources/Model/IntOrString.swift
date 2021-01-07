@@ -16,6 +16,8 @@
 
 import Foundation
 
+// MARK: - IntOrString
+
 /// A type that can hold an `Integer` or a `String`.
 ///
 /// When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the
@@ -26,7 +28,7 @@ public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiter
 
 	/// `true` if the inner value represents an `Integer`, `false` otherwise.
 	var isInt: Bool {
-		return Int(value) != nil
+		Int(value) != nil
 	}
 
 	public init(stringLiteral value: String) {
@@ -37,6 +39,8 @@ public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiter
 		self.value = String(value)
 	}
 }
+
+// MARK: Codable
 
 ///
 /// Codable conformance.

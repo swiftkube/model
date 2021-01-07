@@ -46,23 +46,21 @@ public extension node.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension node.v1beta1.Overhead {
+public extension node.v1beta1.Overhead {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case podFixed = "podFixed"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.podFixed = try container.decodeIfPresent([String: Quantity].self, forKey: .podFixed)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.podFixed, forKey: .podFixed)
+		try container.encode(podFixed, forKey: .podFixed)
 	}
-
 }
-

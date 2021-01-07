@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodReadinessGate {
+public extension core.v1.PodReadinessGate {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case conditionType = "conditionType"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conditionType = try container.decode(String.self, forKey: .conditionType)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conditionType, forKey: .conditionType)
+		try container.encode(conditionType, forKey: .conditionType)
 	}
-
 }
-

@@ -214,7 +214,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Volume {
+public extension core.v1.Volume {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -249,7 +249,7 @@ extension core.v1.Volume {
 		case vsphereVolume = "vsphereVolume"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.awsElasticBlockStore = try container.decodeIfPresent(core.v1.AWSElasticBlockStoreVolumeSource.self, forKey: .awsElasticBlockStore)
 		self.azureDisk = try container.decodeIfPresent(core.v1.AzureDiskVolumeSource.self, forKey: .azureDisk)
@@ -282,39 +282,37 @@ extension core.v1.Volume {
 		self.vsphereVolume = try container.decodeIfPresent(core.v1.VsphereVirtualDiskVolumeSource.self, forKey: .vsphereVolume)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.awsElasticBlockStore, forKey: .awsElasticBlockStore)
-		try container.encode(self.azureDisk, forKey: .azureDisk)
-		try container.encode(self.azureFile, forKey: .azureFile)
-		try container.encode(self.cephfs, forKey: .cephfs)
-		try container.encode(self.cinder, forKey: .cinder)
-		try container.encode(self.configMap, forKey: .configMap)
-		try container.encode(self.csi, forKey: .csi)
-		try container.encode(self.downwardAPI, forKey: .downwardAPI)
-		try container.encode(self.emptyDir, forKey: .emptyDir)
-		try container.encode(self.fc, forKey: .fc)
-		try container.encode(self.flexVolume, forKey: .flexVolume)
-		try container.encode(self.flocker, forKey: .flocker)
-		try container.encode(self.gcePersistentDisk, forKey: .gcePersistentDisk)
-		try container.encode(self.gitRepo, forKey: .gitRepo)
-		try container.encode(self.glusterfs, forKey: .glusterfs)
-		try container.encode(self.hostPath, forKey: .hostPath)
-		try container.encode(self.iscsi, forKey: .iscsi)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.nfs, forKey: .nfs)
-		try container.encode(self.persistentVolumeClaim, forKey: .persistentVolumeClaim)
-		try container.encode(self.photonPersistentDisk, forKey: .photonPersistentDisk)
-		try container.encode(self.portworxVolume, forKey: .portworxVolume)
-		try container.encode(self.projected, forKey: .projected)
-		try container.encode(self.quobyte, forKey: .quobyte)
-		try container.encode(self.rbd, forKey: .rbd)
-		try container.encode(self.scaleIO, forKey: .scaleIO)
-		try container.encode(self.secret, forKey: .secret)
-		try container.encode(self.storageos, forKey: .storageos)
-		try container.encode(self.vsphereVolume, forKey: .vsphereVolume)
+		try container.encode(awsElasticBlockStore, forKey: .awsElasticBlockStore)
+		try container.encode(azureDisk, forKey: .azureDisk)
+		try container.encode(azureFile, forKey: .azureFile)
+		try container.encode(cephfs, forKey: .cephfs)
+		try container.encode(cinder, forKey: .cinder)
+		try container.encode(configMap, forKey: .configMap)
+		try container.encode(csi, forKey: .csi)
+		try container.encode(downwardAPI, forKey: .downwardAPI)
+		try container.encode(emptyDir, forKey: .emptyDir)
+		try container.encode(fc, forKey: .fc)
+		try container.encode(flexVolume, forKey: .flexVolume)
+		try container.encode(flocker, forKey: .flocker)
+		try container.encode(gcePersistentDisk, forKey: .gcePersistentDisk)
+		try container.encode(gitRepo, forKey: .gitRepo)
+		try container.encode(glusterfs, forKey: .glusterfs)
+		try container.encode(hostPath, forKey: .hostPath)
+		try container.encode(iscsi, forKey: .iscsi)
+		try container.encode(name, forKey: .name)
+		try container.encode(nfs, forKey: .nfs)
+		try container.encode(persistentVolumeClaim, forKey: .persistentVolumeClaim)
+		try container.encode(photonPersistentDisk, forKey: .photonPersistentDisk)
+		try container.encode(portworxVolume, forKey: .portworxVolume)
+		try container.encode(projected, forKey: .projected)
+		try container.encode(quobyte, forKey: .quobyte)
+		try container.encode(rbd, forKey: .rbd)
+		try container.encode(scaleIO, forKey: .scaleIO)
+		try container.encode(secret, forKey: .secret)
+		try container.encode(storageos, forKey: .storageos)
+		try container.encode(vsphereVolume, forKey: .vsphereVolume)
 	}
-
 }
-

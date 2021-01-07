@@ -70,7 +70,7 @@ public extension apiregistration.v1 {
 ///
 /// Codable conformance
 ///
-extension apiregistration.v1.APIServiceCondition {
+public extension apiregistration.v1.APIServiceCondition {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension apiregistration.v1.APIServiceCondition {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.lastTransitionTime = try container.decodeIfPresent(Date.self, forKey: .lastTransitionTime)
 		self.message = try container.decodeIfPresent(String.self, forKey: .message)
@@ -90,15 +90,13 @@ extension apiregistration.v1.APIServiceCondition {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.lastTransitionTime, forKey: .lastTransitionTime)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.status, forKey: .status)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(lastTransitionTime, forKey: .lastTransitionTime)
+		try container.encode(message, forKey: .message)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(status, forKey: .status)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

@@ -28,7 +28,8 @@ public extension rbac.v1alpha1 {
 	/// ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.20.
 	///
 	struct ClusterRoleBinding: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-				ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+	{
 		///
 		/// ListableResource.List associated type
 		///
@@ -71,7 +72,7 @@ public extension rbac.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension rbac.v1alpha1.ClusterRoleBinding {
+public extension rbac.v1alpha1.ClusterRoleBinding {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -82,22 +83,20 @@ extension rbac.v1alpha1.ClusterRoleBinding {
 		case subjects = "subjects"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
 		self.roleRef = try container.decode(rbac.v1alpha1.RoleRef.self, forKey: .roleRef)
 		self.subjects = try container.decodeIfPresent([rbac.v1alpha1.Subject].self, forKey: .subjects)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.metadata, forKey: .metadata)
-		try container.encode(self.roleRef, forKey: .roleRef)
-		try container.encode(self.subjects, forKey: .subjects)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(metadata, forKey: .metadata)
+		try container.encode(roleRef, forKey: .roleRef)
+		try container.encode(subjects, forKey: .subjects)
 	}
-
 }
-

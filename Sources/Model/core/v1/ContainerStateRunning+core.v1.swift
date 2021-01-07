@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ContainerStateRunning {
+public extension core.v1.ContainerStateRunning {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case startedAt = "startedAt"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.startedAt = try container.decodeIfPresent(Date.self, forKey: .startedAt)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.startedAt, forKey: .startedAt)
+		try container.encode(startedAt, forKey: .startedAt)
 	}
-
 }
-

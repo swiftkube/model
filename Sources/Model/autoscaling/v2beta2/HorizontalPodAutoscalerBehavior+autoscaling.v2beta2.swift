@@ -55,7 +55,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.HorizontalPodAutoscalerBehavior {
+public extension autoscaling.v2beta2.HorizontalPodAutoscalerBehavior {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -63,18 +63,16 @@ extension autoscaling.v2beta2.HorizontalPodAutoscalerBehavior {
 		case scaleUp = "scaleUp"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.scaleDown = try container.decodeIfPresent(autoscaling.v2beta2.HPAScalingRules.self, forKey: .scaleDown)
 		self.scaleUp = try container.decodeIfPresent(autoscaling.v2beta2.HPAScalingRules.self, forKey: .scaleUp)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.scaleDown, forKey: .scaleDown)
-		try container.encode(self.scaleUp, forKey: .scaleUp)
+		try container.encode(scaleDown, forKey: .scaleDown)
+		try container.encode(scaleUp, forKey: .scaleUp)
 	}
-
 }
-

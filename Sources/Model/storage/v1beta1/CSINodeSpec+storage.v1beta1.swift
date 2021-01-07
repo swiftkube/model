@@ -46,23 +46,21 @@ public extension storage.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1beta1.CSINodeSpec {
+public extension storage.v1beta1.CSINodeSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case drivers = "drivers"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.drivers = try container.decode([storage.v1beta1.CSINodeDriver].self, forKey: .drivers)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.drivers, forKey: .drivers)
+		try container.encode(drivers, forKey: .drivers)
 	}
-
 }
-

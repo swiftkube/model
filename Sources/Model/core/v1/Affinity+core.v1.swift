@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.Affinity {
+public extension core.v1.Affinity {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.Affinity {
 		case podAntiAffinity = "podAntiAffinity"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.nodeAffinity = try container.decodeIfPresent(core.v1.NodeAffinity.self, forKey: .nodeAffinity)
 		self.podAffinity = try container.decodeIfPresent(core.v1.PodAffinity.self, forKey: .podAffinity)
 		self.podAntiAffinity = try container.decodeIfPresent(core.v1.PodAntiAffinity.self, forKey: .podAntiAffinity)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.nodeAffinity, forKey: .nodeAffinity)
-		try container.encode(self.podAffinity, forKey: .podAffinity)
-		try container.encode(self.podAntiAffinity, forKey: .podAntiAffinity)
+		try container.encode(nodeAffinity, forKey: .nodeAffinity)
+		try container.encode(podAffinity, forKey: .podAffinity)
+		try container.encode(podAntiAffinity, forKey: .podAntiAffinity)
 	}
-
 }
-

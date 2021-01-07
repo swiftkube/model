@@ -100,7 +100,7 @@ public extension apiextensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1beta1.CustomResourceDefinitionSpec {
+public extension apiextensions.v1beta1.CustomResourceDefinitionSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension apiextensions.v1beta1.CustomResourceDefinitionSpec {
 		case versions = "versions"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.additionalPrinterColumns = try container.decodeIfPresent([apiextensions.v1beta1.CustomResourceColumnDefinition].self, forKey: .additionalPrinterColumns)
 		self.conversion = try container.decodeIfPresent(apiextensions.v1beta1.CustomResourceConversion.self, forKey: .conversion)
@@ -130,20 +130,18 @@ extension apiextensions.v1beta1.CustomResourceDefinitionSpec {
 		self.versions = try container.decodeIfPresent([apiextensions.v1beta1.CustomResourceDefinitionVersion].self, forKey: .versions)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.additionalPrinterColumns, forKey: .additionalPrinterColumns)
-		try container.encode(self.conversion, forKey: .conversion)
-		try container.encode(self.group, forKey: .group)
-		try container.encode(self.names, forKey: .names)
-		try container.encode(self.preserveUnknownFields, forKey: .preserveUnknownFields)
-		try container.encode(self.scope, forKey: .scope)
-		try container.encode(self.subresources, forKey: .subresources)
-		try container.encode(self.validation, forKey: .validation)
-		try container.encode(self.version, forKey: .version)
-		try container.encode(self.versions, forKey: .versions)
+		try container.encode(additionalPrinterColumns, forKey: .additionalPrinterColumns)
+		try container.encode(conversion, forKey: .conversion)
+		try container.encode(group, forKey: .group)
+		try container.encode(names, forKey: .names)
+		try container.encode(preserveUnknownFields, forKey: .preserveUnknownFields)
+		try container.encode(scope, forKey: .scope)
+		try container.encode(subresources, forKey: .subresources)
+		try container.encode(validation, forKey: .validation)
+		try container.encode(version, forKey: .version)
+		try container.encode(versions, forKey: .versions)
 	}
-
 }
-

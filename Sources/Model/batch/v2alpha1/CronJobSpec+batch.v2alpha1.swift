@@ -82,7 +82,7 @@ public extension batch.v2alpha1 {
 ///
 /// Codable conformance
 ///
-extension batch.v2alpha1.CronJobSpec {
+public extension batch.v2alpha1.CronJobSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -95,7 +95,7 @@ extension batch.v2alpha1.CronJobSpec {
 		case suspend = "suspend"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.concurrencyPolicy = try container.decodeIfPresent(String.self, forKey: .concurrencyPolicy)
 		self.failedJobsHistoryLimit = try container.decodeIfPresent(Int32.self, forKey: .failedJobsHistoryLimit)
@@ -106,17 +106,15 @@ extension batch.v2alpha1.CronJobSpec {
 		self.suspend = try container.decodeIfPresent(Bool.self, forKey: .suspend)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.concurrencyPolicy, forKey: .concurrencyPolicy)
-		try container.encode(self.failedJobsHistoryLimit, forKey: .failedJobsHistoryLimit)
-		try container.encode(self.jobTemplate, forKey: .jobTemplate)
-		try container.encode(self.schedule, forKey: .schedule)
-		try container.encode(self.startingDeadlineSeconds, forKey: .startingDeadlineSeconds)
-		try container.encode(self.successfulJobsHistoryLimit, forKey: .successfulJobsHistoryLimit)
-		try container.encode(self.suspend, forKey: .suspend)
+		try container.encode(concurrencyPolicy, forKey: .concurrencyPolicy)
+		try container.encode(failedJobsHistoryLimit, forKey: .failedJobsHistoryLimit)
+		try container.encode(jobTemplate, forKey: .jobTemplate)
+		try container.encode(schedule, forKey: .schedule)
+		try container.encode(startingDeadlineSeconds, forKey: .startingDeadlineSeconds)
+		try container.encode(successfulJobsHistoryLimit, forKey: .successfulJobsHistoryLimit)
+		try container.encode(suspend, forKey: .suspend)
 	}
-
 }
-

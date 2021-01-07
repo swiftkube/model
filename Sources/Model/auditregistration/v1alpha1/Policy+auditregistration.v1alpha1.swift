@@ -52,7 +52,7 @@ public extension auditregistration.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension auditregistration.v1alpha1.Policy {
+public extension auditregistration.v1alpha1.Policy {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension auditregistration.v1alpha1.Policy {
 		case stages = "stages"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.level = try container.decode(String.self, forKey: .level)
 		self.stages = try container.decodeIfPresent([String].self, forKey: .stages)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.level, forKey: .level)
-		try container.encode(self.stages, forKey: .stages)
+		try container.encode(level, forKey: .level)
+		try container.encode(stages, forKey: .stages)
 	}
-
 }
-

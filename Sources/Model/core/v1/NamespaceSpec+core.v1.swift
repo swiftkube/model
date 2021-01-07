@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NamespaceSpec {
+public extension core.v1.NamespaceSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case finalizers = "finalizers"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.finalizers = try container.decodeIfPresent([String].self, forKey: .finalizers)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.finalizers, forKey: .finalizers)
+		try container.encode(finalizers, forKey: .finalizers)
 	}
-
 }
-

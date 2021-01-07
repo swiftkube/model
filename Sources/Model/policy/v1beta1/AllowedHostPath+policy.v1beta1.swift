@@ -30,7 +30,7 @@ public extension policy.v1beta1 {
 	struct AllowedHostPath: KubernetesResource {
 		///
 		/// pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
-		/// 
+		///
 		/// Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`
 		///
 		public var pathPrefix: String?
@@ -54,7 +54,7 @@ public extension policy.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension policy.v1beta1.AllowedHostPath {
+public extension policy.v1beta1.AllowedHostPath {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -62,18 +62,16 @@ extension policy.v1beta1.AllowedHostPath {
 		case readOnly = "readOnly"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.pathPrefix = try container.decodeIfPresent(String.self, forKey: .pathPrefix)
 		self.readOnly = try container.decodeIfPresent(Bool.self, forKey: .readOnly)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.pathPrefix, forKey: .pathPrefix)
-		try container.encode(self.readOnly, forKey: .readOnly)
+		try container.encode(pathPrefix, forKey: .pathPrefix)
+		try container.encode(readOnly, forKey: .readOnly)
 	}
-
 }
-

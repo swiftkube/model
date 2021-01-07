@@ -58,7 +58,7 @@ public extension events.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension events.v1beta1.EventSeries {
+public extension events.v1beta1.EventSeries {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension events.v1beta1.EventSeries {
 		case state = "state"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.count = try container.decode(Int32.self, forKey: .count)
 		self.lastObservedTime = try container.decode(Date.self, forKey: .lastObservedTime)
 		self.state = try container.decode(String.self, forKey: .state)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.count, forKey: .count)
-		try container.encode(self.lastObservedTime, forKey: .lastObservedTime)
-		try container.encode(self.state, forKey: .state)
+		try container.encode(count, forKey: .count)
+		try container.encode(lastObservedTime, forKey: .lastObservedTime)
+		try container.encode(state, forKey: .state)
 	}
-
 }
-

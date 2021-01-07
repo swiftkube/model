@@ -46,23 +46,21 @@ public extension authorization.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension authorization.v1beta1.SelfSubjectRulesReviewSpec {
+public extension authorization.v1beta1.SelfSubjectRulesReviewSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case namespace = "namespace"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(namespace, forKey: .namespace)
 	}
-
 }
-

@@ -56,14 +56,14 @@ public extension core.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			`default`: [String: Quantity]? = nil,
+			default: [String: Quantity]? = nil,
 			defaultRequest: [String: Quantity]? = nil,
 			max: [String: Quantity]? = nil,
 			maxLimitRequestRatio: [String: Quantity]? = nil,
 			min: [String: Quantity]? = nil,
 			type: String
 		) {
-			self.`default` = `default`
+			self.default = `default`
 			self.defaultRequest = defaultRequest
 			self.max = max
 			self.maxLimitRequestRatio = maxLimitRequestRatio
@@ -76,7 +76,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.LimitRangeItem {
+public extension core.v1.LimitRangeItem {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,9 +88,9 @@ extension core.v1.LimitRangeItem {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.`default` = try container.decodeIfPresent([String: Quantity].self, forKey: .`default`)
+		self.default = try container.decodeIfPresent([String: Quantity].self, forKey: .default)
 		self.defaultRequest = try container.decodeIfPresent([String: Quantity].self, forKey: .defaultRequest)
 		self.max = try container.decodeIfPresent([String: Quantity].self, forKey: .max)
 		self.maxLimitRequestRatio = try container.decodeIfPresent([String: Quantity].self, forKey: .maxLimitRequestRatio)
@@ -98,16 +98,14 @@ extension core.v1.LimitRangeItem {
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.`default`, forKey: .`default`)
-		try container.encode(self.defaultRequest, forKey: .defaultRequest)
-		try container.encode(self.max, forKey: .max)
-		try container.encode(self.maxLimitRequestRatio, forKey: .maxLimitRequestRatio)
-		try container.encode(self.min, forKey: .min)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(`default`, forKey: .default)
+		try container.encode(defaultRequest, forKey: .defaultRequest)
+		try container.encode(max, forKey: .max)
+		try container.encode(maxLimitRequestRatio, forKey: .maxLimitRequestRatio)
+		try container.encode(min, forKey: .min)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

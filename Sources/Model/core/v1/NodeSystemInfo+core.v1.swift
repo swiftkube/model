@@ -100,7 +100,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeSystemInfo {
+public extension core.v1.NodeSystemInfo {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension core.v1.NodeSystemInfo {
 		case systemUUID = "systemUUID"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.architecture = try container.decode(String.self, forKey: .architecture)
 		self.bootID = try container.decode(String.self, forKey: .bootID)
@@ -130,20 +130,18 @@ extension core.v1.NodeSystemInfo {
 		self.systemUUID = try container.decode(String.self, forKey: .systemUUID)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.architecture, forKey: .architecture)
-		try container.encode(self.bootID, forKey: .bootID)
-		try container.encode(self.containerRuntimeVersion, forKey: .containerRuntimeVersion)
-		try container.encode(self.kernelVersion, forKey: .kernelVersion)
-		try container.encode(self.kubeProxyVersion, forKey: .kubeProxyVersion)
-		try container.encode(self.kubeletVersion, forKey: .kubeletVersion)
-		try container.encode(self.machineID, forKey: .machineID)
-		try container.encode(self.operatingSystem, forKey: .operatingSystem)
-		try container.encode(self.osImage, forKey: .osImage)
-		try container.encode(self.systemUUID, forKey: .systemUUID)
+		try container.encode(architecture, forKey: .architecture)
+		try container.encode(bootID, forKey: .bootID)
+		try container.encode(containerRuntimeVersion, forKey: .containerRuntimeVersion)
+		try container.encode(kernelVersion, forKey: .kernelVersion)
+		try container.encode(kubeProxyVersion, forKey: .kubeProxyVersion)
+		try container.encode(kubeletVersion, forKey: .kubeletVersion)
+		try container.encode(machineID, forKey: .machineID)
+		try container.encode(operatingSystem, forKey: .operatingSystem)
+		try container.encode(osImage, forKey: .osImage)
+		try container.encode(systemUUID, forKey: .systemUUID)
 	}
-
 }
-

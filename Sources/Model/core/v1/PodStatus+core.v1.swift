@@ -58,9 +58,9 @@ public extension core.v1 {
 		public var nominatedNodeName: String?
 		///
 		/// The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle. The conditions array, the reason and message fields, and the individual container status arrays contain more detail about the pod's status. There are five possible phase values:
-		/// 
+		///
 		/// Pending: The pod has been accepted by the Kubernetes system, but one or more of the container images has not been created. This includes time before being scheduled as well as time spent downloading images over the network, which could take a while. Running: The pod has been bound to a node, and all of the containers have been created. At least one container is still running, or is in the process of starting or restarting. Succeeded: All containers in the pod have terminated in success, and will not be restarted. Failed: All containers in the pod have terminated, and at least one container has terminated in failure. The container either exited with non-zero status or was terminated by the system. Unknown: For some reason the state of the pod could not be obtained, typically due to an error in communicating with the host of the pod.
-		/// 
+		///
 		/// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase
 		///
 		public var phase: String?
@@ -122,7 +122,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodStatus {
+public extension core.v1.PodStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -141,7 +141,7 @@ extension core.v1.PodStatus {
 		case startTime = "startTime"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conditions = try container.decodeIfPresent([core.v1.PodCondition].self, forKey: .conditions)
 		self.containerStatuses = try container.decodeIfPresent([core.v1.ContainerStatus].self, forKey: .containerStatuses)
@@ -158,23 +158,21 @@ extension core.v1.PodStatus {
 		self.startTime = try container.decodeIfPresent(Date.self, forKey: .startTime)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.containerStatuses, forKey: .containerStatuses)
-		try container.encode(self.ephemeralContainerStatuses, forKey: .ephemeralContainerStatuses)
-		try container.encode(self.hostIP, forKey: .hostIP)
-		try container.encode(self.initContainerStatuses, forKey: .initContainerStatuses)
-		try container.encode(self.message, forKey: .message)
-		try container.encode(self.nominatedNodeName, forKey: .nominatedNodeName)
-		try container.encode(self.phase, forKey: .phase)
-		try container.encode(self.podIP, forKey: .podIP)
-		try container.encode(self.podIPs, forKey: .podIPs)
-		try container.encode(self.qosClass, forKey: .qosClass)
-		try container.encode(self.reason, forKey: .reason)
-		try container.encode(self.startTime, forKey: .startTime)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(containerStatuses, forKey: .containerStatuses)
+		try container.encode(ephemeralContainerStatuses, forKey: .ephemeralContainerStatuses)
+		try container.encode(hostIP, forKey: .hostIP)
+		try container.encode(initContainerStatuses, forKey: .initContainerStatuses)
+		try container.encode(message, forKey: .message)
+		try container.encode(nominatedNodeName, forKey: .nominatedNodeName)
+		try container.encode(phase, forKey: .phase)
+		try container.encode(podIP, forKey: .podIP)
+		try container.encode(podIPs, forKey: .podIPs)
+		try container.encode(qosClass, forKey: .qosClass)
+		try container.encode(reason, forKey: .reason)
+		try container.encode(startTime, forKey: .startTime)
 	}
-
 }
-

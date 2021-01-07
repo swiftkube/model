@@ -19,17 +19,19 @@ import Foundation
 public extension sk {
 
 	static func service(_ block: (inout core.v1.Service) -> Void) -> core.v1.Service {
-		return build(core.v1.Service(), with: block)
+		build(core.v1.Service(), with: block)
 	}
 
 	static func serviceSpec(_ block: (inout core.v1.ServiceSpec) -> Void) -> core.v1.ServiceSpec {
-		return build(core.v1.ServiceSpec(), with: block)
+		build(core.v1.ServiceSpec(), with: block)
 	}
 
 	static func servicePort(_ port: Int32, _ block: ((inout core.v1.ServicePort) -> Void)? = nil) -> core.v1.ServicePort {
-		return build(core.v1.ServicePort(port: port), with: block ?? { _ in })
+		build(core.v1.ServicePort(port: port), with: block ?? { _ in })
 	}
 }
+
+// MARK: - ServiceType
 
 public enum ServiceType: String {
 	case clusterIP = "ClusterIP"
@@ -41,10 +43,10 @@ public enum ServiceType: String {
 public extension core.v1.ServiceSpec {
 
 	mutating func serve(port servicePort: Int32, targetPort: IntOrString) {
-		if self.ports == nil {
-			self.ports = []
+		if ports == nil {
+			ports = []
 		}
-		self.ports?.append(sk.servicePort(servicePort) {
+		ports?.append(sk.servicePort(servicePort) {
 			$0.targetPort = targetPort
 		})
 	}

@@ -94,7 +94,7 @@ public extension apps.v1 {
 ///
 /// Codable conformance
 ///
-extension apps.v1.StatefulSetStatus {
+public extension apps.v1.StatefulSetStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -109,7 +109,7 @@ extension apps.v1.StatefulSetStatus {
 		case updatedReplicas = "updatedReplicas"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.collisionCount = try container.decodeIfPresent(Int32.self, forKey: .collisionCount)
 		self.conditions = try container.decodeIfPresent([apps.v1.StatefulSetCondition].self, forKey: .conditions)
@@ -122,19 +122,17 @@ extension apps.v1.StatefulSetStatus {
 		self.updatedReplicas = try container.decodeIfPresent(Int32.self, forKey: .updatedReplicas)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.collisionCount, forKey: .collisionCount)
-		try container.encode(self.conditions, forKey: .conditions)
-		try container.encode(self.currentReplicas, forKey: .currentReplicas)
-		try container.encode(self.currentRevision, forKey: .currentRevision)
-		try container.encode(self.observedGeneration, forKey: .observedGeneration)
-		try container.encode(self.readyReplicas, forKey: .readyReplicas)
-		try container.encode(self.replicas, forKey: .replicas)
-		try container.encode(self.updateRevision, forKey: .updateRevision)
-		try container.encode(self.updatedReplicas, forKey: .updatedReplicas)
+		try container.encode(collisionCount, forKey: .collisionCount)
+		try container.encode(conditions, forKey: .conditions)
+		try container.encode(currentReplicas, forKey: .currentReplicas)
+		try container.encode(currentRevision, forKey: .currentRevision)
+		try container.encode(observedGeneration, forKey: .observedGeneration)
+		try container.encode(readyReplicas, forKey: .readyReplicas)
+		try container.encode(replicas, forKey: .replicas)
+		try container.encode(updateRevision, forKey: .updateRevision)
+		try container.encode(updatedReplicas, forKey: .updatedReplicas)
 	}
-
 }
-

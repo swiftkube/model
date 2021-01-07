@@ -64,7 +64,7 @@ public extension authentication.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension authentication.v1beta1.UserInfo {
+public extension authentication.v1beta1.UserInfo {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension authentication.v1beta1.UserInfo {
 		case username = "username"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.extra = try container.decodeIfPresent([String: [String]].self, forKey: .extra)
 		self.groups = try container.decodeIfPresent([String].self, forKey: .groups)
@@ -82,14 +82,12 @@ extension authentication.v1beta1.UserInfo {
 		self.username = try container.decodeIfPresent(String.self, forKey: .username)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.extra, forKey: .extra)
-		try container.encode(self.groups, forKey: .groups)
-		try container.encode(self.uid, forKey: .uid)
-		try container.encode(self.username, forKey: .username)
+		try container.encode(extra, forKey: .extra)
+		try container.encode(groups, forKey: .groups)
+		try container.encode(uid, forKey: .uid)
+		try container.encode(username, forKey: .username)
 	}
-
 }
-

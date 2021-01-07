@@ -64,7 +64,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.VolumeProjection {
+public extension core.v1.VolumeProjection {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension core.v1.VolumeProjection {
 		case serviceAccountToken = "serviceAccountToken"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.configMap = try container.decodeIfPresent(core.v1.ConfigMapProjection.self, forKey: .configMap)
 		self.downwardAPI = try container.decodeIfPresent(core.v1.DownwardAPIProjection.self, forKey: .downwardAPI)
@@ -82,14 +82,12 @@ extension core.v1.VolumeProjection {
 		self.serviceAccountToken = try container.decodeIfPresent(core.v1.ServiceAccountTokenProjection.self, forKey: .serviceAccountToken)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.configMap, forKey: .configMap)
-		try container.encode(self.downwardAPI, forKey: .downwardAPI)
-		try container.encode(self.secret, forKey: .secret)
-		try container.encode(self.serviceAccountToken, forKey: .serviceAccountToken)
+		try container.encode(configMap, forKey: .configMap)
+		try container.encode(downwardAPI, forKey: .downwardAPI)
+		try container.encode(secret, forKey: .secret)
+		try container.encode(serviceAccountToken, forKey: .serviceAccountToken)
 	}
-
 }
-

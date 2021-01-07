@@ -64,7 +64,7 @@ public extension storage.v1 {
 ///
 /// Codable conformance
 ///
-extension storage.v1.VolumeAttachmentStatus {
+public extension storage.v1.VolumeAttachmentStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension storage.v1.VolumeAttachmentStatus {
 		case detachError = "detachError"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.attachError = try container.decodeIfPresent(storage.v1.VolumeError.self, forKey: .attachError)
 		self.attached = try container.decode(Bool.self, forKey: .attached)
@@ -82,14 +82,12 @@ extension storage.v1.VolumeAttachmentStatus {
 		self.detachError = try container.decodeIfPresent(storage.v1.VolumeError.self, forKey: .detachError)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.attachError, forKey: .attachError)
-		try container.encode(self.attached, forKey: .attached)
-		try container.encode(self.attachmentMetadata, forKey: .attachmentMetadata)
-		try container.encode(self.detachError, forKey: .detachError)
+		try container.encode(attachError, forKey: .attachError)
+		try container.encode(attached, forKey: .attached)
+		try container.encode(attachmentMetadata, forKey: .attachmentMetadata)
+		try container.encode(detachError, forKey: .detachError)
 	}
-
 }
-

@@ -82,7 +82,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.NodeSpec {
+public extension core.v1.NodeSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -95,7 +95,7 @@ extension core.v1.NodeSpec {
 		case unschedulable = "unschedulable"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.configSource = try container.decodeIfPresent(core.v1.NodeConfigSource.self, forKey: .configSource)
 		self.externalID = try container.decodeIfPresent(String.self, forKey: .externalID)
@@ -106,17 +106,15 @@ extension core.v1.NodeSpec {
 		self.unschedulable = try container.decodeIfPresent(Bool.self, forKey: .unschedulable)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.configSource, forKey: .configSource)
-		try container.encode(self.externalID, forKey: .externalID)
-		try container.encode(self.podCIDR, forKey: .podCIDR)
-		try container.encode(self.podCIDRs, forKey: .podCIDRs)
-		try container.encode(self.providerID, forKey: .providerID)
-		try container.encode(self.taints, forKey: .taints)
-		try container.encode(self.unschedulable, forKey: .unschedulable)
+		try container.encode(configSource, forKey: .configSource)
+		try container.encode(externalID, forKey: .externalID)
+		try container.encode(podCIDR, forKey: .podCIDR)
+		try container.encode(podCIDRs, forKey: .podCIDRs)
+		try container.encode(providerID, forKey: .providerID)
+		try container.encode(taints, forKey: .taints)
+		try container.encode(unschedulable, forKey: .unschedulable)
 	}
-
 }
-

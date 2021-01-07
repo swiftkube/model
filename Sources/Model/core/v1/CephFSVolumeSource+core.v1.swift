@@ -76,7 +76,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.CephFSVolumeSource {
+public extension core.v1.CephFSVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -88,7 +88,7 @@ extension core.v1.CephFSVolumeSource {
 		case user = "user"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.monitors = try container.decode([String].self, forKey: .monitors)
 		self.path = try container.decodeIfPresent(String.self, forKey: .path)
@@ -98,16 +98,14 @@ extension core.v1.CephFSVolumeSource {
 		self.user = try container.decodeIfPresent(String.self, forKey: .user)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.monitors, forKey: .monitors)
-		try container.encode(self.path, forKey: .path)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretFile, forKey: .secretFile)
-		try container.encode(self.secretRef, forKey: .secretRef)
-		try container.encode(self.user, forKey: .user)
+		try container.encode(monitors, forKey: .monitors)
+		try container.encode(path, forKey: .path)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretFile, forKey: .secretFile)
+		try container.encode(secretRef, forKey: .secretRef)
+		try container.encode(user, forKey: .user)
 	}
-
 }
-

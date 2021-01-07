@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.EventSource {
+public extension core.v1.EventSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.EventSource {
 		case host = "host"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.component = try container.decodeIfPresent(String.self, forKey: .component)
 		self.host = try container.decodeIfPresent(String.self, forKey: .host)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.component, forKey: .component)
-		try container.encode(self.host, forKey: .host)
+		try container.encode(component, forKey: .component)
+		try container.encode(host, forKey: .host)
 	}
-
 }
-

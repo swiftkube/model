@@ -56,7 +56,7 @@ public extension meta.v1 {
 ///
 /// Codable conformance
 ///
-extension meta.v1.WatchEvent {
+public extension meta.v1.WatchEvent {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -64,18 +64,16 @@ extension meta.v1.WatchEvent {
 		case type = "type"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.object = try container.decode([String: Any].self, forKey: .object)
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.object, forKey: .object)
-		try container.encode(self.type, forKey: .type)
+		try container.encode(object, forKey: .object)
+		try container.encode(type, forKey: .type)
 	}
-
 }
-

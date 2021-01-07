@@ -19,25 +19,25 @@ import Foundation
 public extension sk {
 
 	static func namespace(_ block: (inout core.v1.Namespace) -> Void) -> core.v1.Namespace {
-		return build(core.v1.Namespace(), with: block)
+		build(core.v1.Namespace(), with: block)
 	}
 
 	static func namespaceSpec(_ block: (inout core.v1.NamespaceSpec) -> Void) -> core.v1.NamespaceSpec {
-		return build(core.v1.NamespaceSpec(), with: block)
+		build(core.v1.NamespaceSpec(), with: block)
 	}
 }
 
 public extension core.v1.Namespace {
 
 	mutating func add(finalizer: String) {
-		if self.spec == nil {
-			self.spec = core.v1.NamespaceSpec()
-			self.spec?.finalizers = []
+		if spec == nil {
+			spec = core.v1.NamespaceSpec()
+			spec?.finalizers = []
 		}
-		self.spec?.finalizers?.append(finalizer)
+		spec?.finalizers?.append(finalizer)
 	}
 
 	mutating func remove(finalizer: String) {
-		self.spec?.finalizers?.removeAll(where: { $0 == finalizer })
+		spec?.finalizers?.removeAll(where: { $0 == finalizer })
 	}
 }

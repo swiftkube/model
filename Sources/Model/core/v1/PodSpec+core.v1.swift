@@ -244,7 +244,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodSpec {
+public extension core.v1.PodSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -284,7 +284,7 @@ extension core.v1.PodSpec {
 		case volumes = "volumes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.activeDeadlineSeconds = try container.decodeIfPresent(Int64.self, forKey: .activeDeadlineSeconds)
 		self.affinity = try container.decodeIfPresent(core.v1.Affinity.self, forKey: .affinity)
@@ -322,44 +322,42 @@ extension core.v1.PodSpec {
 		self.volumes = try container.decodeIfPresent([core.v1.Volume].self, forKey: .volumes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.activeDeadlineSeconds, forKey: .activeDeadlineSeconds)
-		try container.encode(self.affinity, forKey: .affinity)
-		try container.encode(self.automountServiceAccountToken, forKey: .automountServiceAccountToken)
-		try container.encode(self.containers, forKey: .containers)
-		try container.encode(self.dnsConfig, forKey: .dnsConfig)
-		try container.encode(self.dnsPolicy, forKey: .dnsPolicy)
-		try container.encode(self.enableServiceLinks, forKey: .enableServiceLinks)
-		try container.encode(self.ephemeralContainers, forKey: .ephemeralContainers)
-		try container.encode(self.hostAliases, forKey: .hostAliases)
-		try container.encode(self.hostIPC, forKey: .hostIPC)
-		try container.encode(self.hostNetwork, forKey: .hostNetwork)
-		try container.encode(self.hostPID, forKey: .hostPID)
-		try container.encode(self.hostname, forKey: .hostname)
-		try container.encode(self.imagePullSecrets, forKey: .imagePullSecrets)
-		try container.encode(self.initContainers, forKey: .initContainers)
-		try container.encode(self.nodeName, forKey: .nodeName)
-		try container.encode(self.nodeSelector, forKey: .nodeSelector)
-		try container.encode(self.overhead, forKey: .overhead)
-		try container.encode(self.preemptionPolicy, forKey: .preemptionPolicy)
-		try container.encode(self.priority, forKey: .priority)
-		try container.encode(self.priorityClassName, forKey: .priorityClassName)
-		try container.encode(self.readinessGates, forKey: .readinessGates)
-		try container.encode(self.restartPolicy, forKey: .restartPolicy)
-		try container.encode(self.runtimeClassName, forKey: .runtimeClassName)
-		try container.encode(self.schedulerName, forKey: .schedulerName)
-		try container.encode(self.securityContext, forKey: .securityContext)
-		try container.encode(self.serviceAccount, forKey: .serviceAccount)
-		try container.encode(self.serviceAccountName, forKey: .serviceAccountName)
-		try container.encode(self.shareProcessNamespace, forKey: .shareProcessNamespace)
-		try container.encode(self.subdomain, forKey: .subdomain)
-		try container.encode(self.terminationGracePeriodSeconds, forKey: .terminationGracePeriodSeconds)
-		try container.encode(self.tolerations, forKey: .tolerations)
-		try container.encode(self.topologySpreadConstraints, forKey: .topologySpreadConstraints)
-		try container.encode(self.volumes, forKey: .volumes)
+		try container.encode(activeDeadlineSeconds, forKey: .activeDeadlineSeconds)
+		try container.encode(affinity, forKey: .affinity)
+		try container.encode(automountServiceAccountToken, forKey: .automountServiceAccountToken)
+		try container.encode(containers, forKey: .containers)
+		try container.encode(dnsConfig, forKey: .dnsConfig)
+		try container.encode(dnsPolicy, forKey: .dnsPolicy)
+		try container.encode(enableServiceLinks, forKey: .enableServiceLinks)
+		try container.encode(ephemeralContainers, forKey: .ephemeralContainers)
+		try container.encode(hostAliases, forKey: .hostAliases)
+		try container.encode(hostIPC, forKey: .hostIPC)
+		try container.encode(hostNetwork, forKey: .hostNetwork)
+		try container.encode(hostPID, forKey: .hostPID)
+		try container.encode(hostname, forKey: .hostname)
+		try container.encode(imagePullSecrets, forKey: .imagePullSecrets)
+		try container.encode(initContainers, forKey: .initContainers)
+		try container.encode(nodeName, forKey: .nodeName)
+		try container.encode(nodeSelector, forKey: .nodeSelector)
+		try container.encode(overhead, forKey: .overhead)
+		try container.encode(preemptionPolicy, forKey: .preemptionPolicy)
+		try container.encode(priority, forKey: .priority)
+		try container.encode(priorityClassName, forKey: .priorityClassName)
+		try container.encode(readinessGates, forKey: .readinessGates)
+		try container.encode(restartPolicy, forKey: .restartPolicy)
+		try container.encode(runtimeClassName, forKey: .runtimeClassName)
+		try container.encode(schedulerName, forKey: .schedulerName)
+		try container.encode(securityContext, forKey: .securityContext)
+		try container.encode(serviceAccount, forKey: .serviceAccount)
+		try container.encode(serviceAccountName, forKey: .serviceAccountName)
+		try container.encode(shareProcessNamespace, forKey: .shareProcessNamespace)
+		try container.encode(subdomain, forKey: .subdomain)
+		try container.encode(terminationGracePeriodSeconds, forKey: .terminationGracePeriodSeconds)
+		try container.encode(tolerations, forKey: .tolerations)
+		try container.encode(topologySpreadConstraints, forKey: .topologySpreadConstraints)
+		try container.encode(volumes, forKey: .volumes)
 	}
-
 }
-

@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ResourceFieldSelector {
+public extension core.v1.ResourceFieldSelector {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.ResourceFieldSelector {
 		case resource = "resource"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.containerName = try container.decodeIfPresent(String.self, forKey: .containerName)
 		self.divisor = try container.decodeIfPresent(Quantity.self, forKey: .divisor)
 		self.resource = try container.decode(String.self, forKey: .resource)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.containerName, forKey: .containerName)
-		try container.encode(self.divisor, forKey: .divisor)
-		try container.encode(self.resource, forKey: .resource)
+		try container.encode(containerName, forKey: .containerName)
+		try container.encode(divisor, forKey: .divisor)
+		try container.encode(resource, forKey: .resource)
 	}
-
 }
-

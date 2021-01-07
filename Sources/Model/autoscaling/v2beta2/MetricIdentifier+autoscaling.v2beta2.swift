@@ -52,7 +52,7 @@ public extension autoscaling.v2beta2 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta2.MetricIdentifier {
+public extension autoscaling.v2beta2.MetricIdentifier {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension autoscaling.v2beta2.MetricIdentifier {
 		case selector = "selector"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.name = try container.decode(String.self, forKey: .name)
 		self.selector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .selector)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.selector, forKey: .selector)
+		try container.encode(name, forKey: .name)
+		try container.encode(selector, forKey: .selector)
 	}
-
 }
-

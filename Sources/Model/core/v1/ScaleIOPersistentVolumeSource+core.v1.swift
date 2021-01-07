@@ -100,7 +100,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ScaleIOPersistentVolumeSource {
+public extension core.v1.ScaleIOPersistentVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -116,7 +116,7 @@ extension core.v1.ScaleIOPersistentVolumeSource {
 		case volumeName = "volumeName"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
 		self.gateway = try container.decode(String.self, forKey: .gateway)
@@ -130,20 +130,18 @@ extension core.v1.ScaleIOPersistentVolumeSource {
 		self.volumeName = try container.decodeIfPresent(String.self, forKey: .volumeName)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.gateway, forKey: .gateway)
-		try container.encode(self.protectionDomain, forKey: .protectionDomain)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.secretRef, forKey: .secretRef)
-		try container.encode(self.sslEnabled, forKey: .sslEnabled)
-		try container.encode(self.storageMode, forKey: .storageMode)
-		try container.encode(self.storagePool, forKey: .storagePool)
-		try container.encode(self.system, forKey: .system)
-		try container.encode(self.volumeName, forKey: .volumeName)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(gateway, forKey: .gateway)
+		try container.encode(protectionDomain, forKey: .protectionDomain)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(secretRef, forKey: .secretRef)
+		try container.encode(sslEnabled, forKey: .sslEnabled)
+		try container.encode(storageMode, forKey: .storageMode)
+		try container.encode(storagePool, forKey: .storagePool)
+		try container.encode(system, forKey: .system)
+		try container.encode(volumeName, forKey: .volumeName)
 	}
-
 }
-

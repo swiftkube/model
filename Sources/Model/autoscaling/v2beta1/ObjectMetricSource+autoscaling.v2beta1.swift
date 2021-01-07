@@ -70,7 +70,7 @@ public extension autoscaling.v2beta1 {
 ///
 /// Codable conformance
 ///
-extension autoscaling.v2beta1.ObjectMetricSource {
+public extension autoscaling.v2beta1.ObjectMetricSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension autoscaling.v2beta1.ObjectMetricSource {
 		case targetValue = "targetValue"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.averageValue = try container.decodeIfPresent(Quantity.self, forKey: .averageValue)
 		self.metricName = try container.decode(String.self, forKey: .metricName)
@@ -90,15 +90,13 @@ extension autoscaling.v2beta1.ObjectMetricSource {
 		self.targetValue = try container.decode(Quantity.self, forKey: .targetValue)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.averageValue, forKey: .averageValue)
-		try container.encode(self.metricName, forKey: .metricName)
-		try container.encode(self.selector, forKey: .selector)
-		try container.encode(self.target, forKey: .target)
-		try container.encode(self.targetValue, forKey: .targetValue)
+		try container.encode(averageValue, forKey: .averageValue)
+		try container.encode(metricName, forKey: .metricName)
+		try container.encode(selector, forKey: .selector)
+		try container.encode(target, forKey: .target)
+		try container.encode(targetValue, forKey: .targetValue)
 	}
-
 }
-

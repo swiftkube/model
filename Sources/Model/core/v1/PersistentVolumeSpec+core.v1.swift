@@ -220,7 +220,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PersistentVolumeSpec {
+public extension core.v1.PersistentVolumeSpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -256,7 +256,7 @@ extension core.v1.PersistentVolumeSpec {
 		case vsphereVolume = "vsphereVolume"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.accessModes = try container.decodeIfPresent([String].self, forKey: .accessModes)
 		self.awsElasticBlockStore = try container.decodeIfPresent(core.v1.AWSElasticBlockStoreVolumeSource.self, forKey: .awsElasticBlockStore)
@@ -290,40 +290,38 @@ extension core.v1.PersistentVolumeSpec {
 		self.vsphereVolume = try container.decodeIfPresent(core.v1.VsphereVirtualDiskVolumeSource.self, forKey: .vsphereVolume)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.accessModes, forKey: .accessModes)
-		try container.encode(self.awsElasticBlockStore, forKey: .awsElasticBlockStore)
-		try container.encode(self.azureDisk, forKey: .azureDisk)
-		try container.encode(self.azureFile, forKey: .azureFile)
-		try container.encode(self.capacity, forKey: .capacity)
-		try container.encode(self.cephfs, forKey: .cephfs)
-		try container.encode(self.cinder, forKey: .cinder)
-		try container.encode(self.claimRef, forKey: .claimRef)
-		try container.encode(self.csi, forKey: .csi)
-		try container.encode(self.fc, forKey: .fc)
-		try container.encode(self.flexVolume, forKey: .flexVolume)
-		try container.encode(self.flocker, forKey: .flocker)
-		try container.encode(self.gcePersistentDisk, forKey: .gcePersistentDisk)
-		try container.encode(self.glusterfs, forKey: .glusterfs)
-		try container.encode(self.hostPath, forKey: .hostPath)
-		try container.encode(self.iscsi, forKey: .iscsi)
-		try container.encode(self.local, forKey: .local)
-		try container.encode(self.mountOptions, forKey: .mountOptions)
-		try container.encode(self.nfs, forKey: .nfs)
-		try container.encode(self.nodeAffinity, forKey: .nodeAffinity)
-		try container.encode(self.persistentVolumeReclaimPolicy, forKey: .persistentVolumeReclaimPolicy)
-		try container.encode(self.photonPersistentDisk, forKey: .photonPersistentDisk)
-		try container.encode(self.portworxVolume, forKey: .portworxVolume)
-		try container.encode(self.quobyte, forKey: .quobyte)
-		try container.encode(self.rbd, forKey: .rbd)
-		try container.encode(self.scaleIO, forKey: .scaleIO)
-		try container.encode(self.storageClassName, forKey: .storageClassName)
-		try container.encode(self.storageos, forKey: .storageos)
-		try container.encode(self.volumeMode, forKey: .volumeMode)
-		try container.encode(self.vsphereVolume, forKey: .vsphereVolume)
+		try container.encode(accessModes, forKey: .accessModes)
+		try container.encode(awsElasticBlockStore, forKey: .awsElasticBlockStore)
+		try container.encode(azureDisk, forKey: .azureDisk)
+		try container.encode(azureFile, forKey: .azureFile)
+		try container.encode(capacity, forKey: .capacity)
+		try container.encode(cephfs, forKey: .cephfs)
+		try container.encode(cinder, forKey: .cinder)
+		try container.encode(claimRef, forKey: .claimRef)
+		try container.encode(csi, forKey: .csi)
+		try container.encode(fc, forKey: .fc)
+		try container.encode(flexVolume, forKey: .flexVolume)
+		try container.encode(flocker, forKey: .flocker)
+		try container.encode(gcePersistentDisk, forKey: .gcePersistentDisk)
+		try container.encode(glusterfs, forKey: .glusterfs)
+		try container.encode(hostPath, forKey: .hostPath)
+		try container.encode(iscsi, forKey: .iscsi)
+		try container.encode(local, forKey: .local)
+		try container.encode(mountOptions, forKey: .mountOptions)
+		try container.encode(nfs, forKey: .nfs)
+		try container.encode(nodeAffinity, forKey: .nodeAffinity)
+		try container.encode(persistentVolumeReclaimPolicy, forKey: .persistentVolumeReclaimPolicy)
+		try container.encode(photonPersistentDisk, forKey: .photonPersistentDisk)
+		try container.encode(portworxVolume, forKey: .portworxVolume)
+		try container.encode(quobyte, forKey: .quobyte)
+		try container.encode(rbd, forKey: .rbd)
+		try container.encode(scaleIO, forKey: .scaleIO)
+		try container.encode(storageClassName, forKey: .storageClassName)
+		try container.encode(storageos, forKey: .storageos)
+		try container.encode(volumeMode, forKey: .volumeMode)
+		try container.encode(vsphereVolume, forKey: .vsphereVolume)
 	}
-
 }
-

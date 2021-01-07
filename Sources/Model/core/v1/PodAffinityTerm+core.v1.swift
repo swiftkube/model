@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.PodAffinityTerm {
+public extension core.v1.PodAffinityTerm {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.PodAffinityTerm {
 		case topologyKey = "topologyKey"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.labelSelector = try container.decodeIfPresent(meta.v1.LabelSelector.self, forKey: .labelSelector)
 		self.namespaces = try container.decodeIfPresent([String].self, forKey: .namespaces)
 		self.topologyKey = try container.decode(String.self, forKey: .topologyKey)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.labelSelector, forKey: .labelSelector)
-		try container.encode(self.namespaces, forKey: .namespaces)
-		try container.encode(self.topologyKey, forKey: .topologyKey)
+		try container.encode(labelSelector, forKey: .labelSelector)
+		try container.encode(namespaces, forKey: .namespaces)
+		try container.encode(topologyKey, forKey: .topologyKey)
 	}
-
 }
-

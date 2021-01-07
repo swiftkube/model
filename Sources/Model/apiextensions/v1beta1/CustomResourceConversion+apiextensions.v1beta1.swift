@@ -59,7 +59,7 @@ public extension apiextensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension apiextensions.v1beta1.CustomResourceConversion {
+public extension apiextensions.v1beta1.CustomResourceConversion {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -68,20 +68,18 @@ extension apiextensions.v1beta1.CustomResourceConversion {
 		case webhookClientConfig = "webhookClientConfig"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conversionReviewVersions = try container.decodeIfPresent([String].self, forKey: .conversionReviewVersions)
 		self.strategy = try container.decode(String.self, forKey: .strategy)
 		self.webhookClientConfig = try container.decodeIfPresent(apiextensions.v1beta1.WebhookClientConfig.self, forKey: .webhookClientConfig)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.conversionReviewVersions, forKey: .conversionReviewVersions)
-		try container.encode(self.strategy, forKey: .strategy)
-		try container.encode(self.webhookClientConfig, forKey: .webhookClientConfig)
+		try container.encode(conversionReviewVersions, forKey: .conversionReviewVersions)
+		try container.encode(strategy, forKey: .strategy)
+		try container.encode(webhookClientConfig, forKey: .webhookClientConfig)
 	}
-
 }
-

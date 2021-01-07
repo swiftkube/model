@@ -16,7 +16,7 @@
 
 import Foundation
 
-/// `ListableResource` conformance for the type-erased `AnyKubernetesAPIResource`. 
+/// `ListableResource` conformance for the type-erased `AnyKubernetesAPIResource`.
 extension AnyKubernetesAPIResource: ListableResource {
 	public typealias List = AnyKubernetesAPIResourceList
 }

@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.LoadBalancerStatus {
+public extension core.v1.LoadBalancerStatus {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case ingress = "ingress"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.ingress = try container.decodeIfPresent([core.v1.LoadBalancerIngress].self, forKey: .ingress)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.ingress, forKey: .ingress)
+		try container.encode(ingress, forKey: .ingress)
 	}
-
 }
-

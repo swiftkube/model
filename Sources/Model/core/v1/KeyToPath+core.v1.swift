@@ -58,7 +58,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.KeyToPath {
+public extension core.v1.KeyToPath {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -67,20 +67,18 @@ extension core.v1.KeyToPath {
 		case path = "path"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.key = try container.decode(String.self, forKey: .key)
 		self.mode = try container.decodeIfPresent(Int32.self, forKey: .mode)
 		self.path = try container.decode(String.self, forKey: .path)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.key, forKey: .key)
-		try container.encode(self.mode, forKey: .mode)
-		try container.encode(self.path, forKey: .path)
+		try container.encode(key, forKey: .key)
+		try container.encode(mode, forKey: .mode)
+		try container.encode(path, forKey: .path)
 	}
-
 }
-

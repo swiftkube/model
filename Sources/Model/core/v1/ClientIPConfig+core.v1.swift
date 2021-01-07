@@ -46,23 +46,21 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ClientIPConfig {
+public extension core.v1.ClientIPConfig {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case timeoutSeconds = "timeoutSeconds"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.timeoutSeconds = try container.decodeIfPresent(Int32.self, forKey: .timeoutSeconds)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.timeoutSeconds, forKey: .timeoutSeconds)
+		try container.encode(timeoutSeconds, forKey: .timeoutSeconds)
 	}
-
 }
-

@@ -64,7 +64,7 @@ public extension rbac.v1alpha1 {
 ///
 /// Codable conformance
 ///
-extension rbac.v1alpha1.Subject {
+public extension rbac.v1alpha1.Subject {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -74,7 +74,7 @@ extension rbac.v1alpha1.Subject {
 		case namespace = "namespace"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiVersion = try container.decodeIfPresent(String.self, forKey: .apiVersion)
 		self.kind = try container.decode(String.self, forKey: .kind)
@@ -82,14 +82,12 @@ extension rbac.v1alpha1.Subject {
 		self.namespace = try container.decodeIfPresent(String.self, forKey: .namespace)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.apiVersion, forKey: .apiVersion)
-		try container.encode(self.kind, forKey: .kind)
-		try container.encode(self.name, forKey: .name)
-		try container.encode(self.namespace, forKey: .namespace)
+		try container.encode(apiVersion, forKey: .apiVersion)
+		try container.encode(kind, forKey: .kind)
+		try container.encode(name, forKey: .name)
+		try container.encode(namespace, forKey: .namespace)
 	}
-
 }
-

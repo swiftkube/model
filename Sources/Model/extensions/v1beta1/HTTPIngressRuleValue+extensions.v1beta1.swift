@@ -46,23 +46,21 @@ public extension extensions.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension extensions.v1beta1.HTTPIngressRuleValue {
+public extension extensions.v1beta1.HTTPIngressRuleValue {
 
 	private enum CodingKeys: String, CodingKey {
 
 		case paths = "paths"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.paths = try container.decode([extensions.v1beta1.HTTPIngressPath].self, forKey: .paths)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.paths, forKey: .paths)
+		try container.encode(paths, forKey: .paths)
 	}
-
 }
-

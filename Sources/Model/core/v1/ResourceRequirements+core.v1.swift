@@ -52,7 +52,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.ResourceRequirements {
+public extension core.v1.ResourceRequirements {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -60,18 +60,16 @@ extension core.v1.ResourceRequirements {
 		case requests = "requests"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.limits = try container.decodeIfPresent([String: Quantity].self, forKey: .limits)
 		self.requests = try container.decodeIfPresent([String: Quantity].self, forKey: .requests)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.limits, forKey: .limits)
-		try container.encode(self.requests, forKey: .requests)
+		try container.encode(limits, forKey: .limits)
+		try container.encode(requests, forKey: .requests)
 	}
-
 }
-

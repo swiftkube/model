@@ -70,7 +70,7 @@ public extension core.v1 {
 ///
 /// Codable conformance
 ///
-extension core.v1.CSIVolumeSource {
+public extension core.v1.CSIVolumeSource {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -81,7 +81,7 @@ extension core.v1.CSIVolumeSource {
 		case volumeAttributes = "volumeAttributes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.driver = try container.decode(String.self, forKey: .driver)
 		self.fsType = try container.decodeIfPresent(String.self, forKey: .fsType)
@@ -90,15 +90,13 @@ extension core.v1.CSIVolumeSource {
 		self.volumeAttributes = try container.decodeIfPresent([String: String].self, forKey: .volumeAttributes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.driver, forKey: .driver)
-		try container.encode(self.fsType, forKey: .fsType)
-		try container.encode(self.nodePublishSecretRef, forKey: .nodePublishSecretRef)
-		try container.encode(self.readOnly, forKey: .readOnly)
-		try container.encode(self.volumeAttributes, forKey: .volumeAttributes)
+		try container.encode(driver, forKey: .driver)
+		try container.encode(fsType, forKey: .fsType)
+		try container.encode(nodePublishSecretRef, forKey: .nodePublishSecretRef)
+		try container.encode(readOnly, forKey: .readOnly)
+		try container.encode(volumeAttributes, forKey: .volumeAttributes)
 	}
-
 }
-

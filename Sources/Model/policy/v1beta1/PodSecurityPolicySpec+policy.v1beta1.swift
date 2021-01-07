@@ -54,7 +54,7 @@ public extension policy.v1beta1 {
 		public var allowedProcMountTypes: [String]?
 		///
 		/// allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed. Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
-		/// 
+		///
 		/// Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
 		///
 		public var allowedUnsafeSysctls: [String]?
@@ -68,7 +68,7 @@ public extension policy.v1beta1 {
 		public var defaultAllowPrivilegeEscalation: Bool?
 		///
 		/// forbiddenSysctls is a list of explicitly forbidden sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of forbidden sysctls. Single * means all sysctls are forbidden.
-		/// 
+		///
 		/// Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "foo.bar", "foo.baz", etc.
 		///
 		public var forbiddenSysctls: [String]?
@@ -188,7 +188,7 @@ public extension policy.v1beta1 {
 ///
 /// Codable conformance
 ///
-extension policy.v1beta1.PodSecurityPolicySpec {
+public extension policy.v1beta1.PodSecurityPolicySpec {
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -218,7 +218,7 @@ extension policy.v1beta1.PodSecurityPolicySpec {
 		case volumes = "volumes"
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.allowPrivilegeEscalation = try container.decodeIfPresent(Bool.self, forKey: .allowPrivilegeEscalation)
 		self.allowedCSIDrivers = try container.decodeIfPresent([policy.v1beta1.AllowedCSIDriver].self, forKey: .allowedCSIDrivers)
@@ -246,34 +246,32 @@ extension policy.v1beta1.PodSecurityPolicySpec {
 		self.volumes = try container.decodeIfPresent([String].self, forKey: .volumes)
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
-		try container.encode(self.allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
-		try container.encode(self.allowedCSIDrivers, forKey: .allowedCSIDrivers)
-		try container.encode(self.allowedCapabilities, forKey: .allowedCapabilities)
-		try container.encode(self.allowedFlexVolumes, forKey: .allowedFlexVolumes)
-		try container.encode(self.allowedHostPaths, forKey: .allowedHostPaths)
-		try container.encode(self.allowedProcMountTypes, forKey: .allowedProcMountTypes)
-		try container.encode(self.allowedUnsafeSysctls, forKey: .allowedUnsafeSysctls)
-		try container.encode(self.defaultAddCapabilities, forKey: .defaultAddCapabilities)
-		try container.encode(self.defaultAllowPrivilegeEscalation, forKey: .defaultAllowPrivilegeEscalation)
-		try container.encode(self.forbiddenSysctls, forKey: .forbiddenSysctls)
-		try container.encode(self.fsGroup, forKey: .fsGroup)
-		try container.encode(self.hostIPC, forKey: .hostIPC)
-		try container.encode(self.hostNetwork, forKey: .hostNetwork)
-		try container.encode(self.hostPID, forKey: .hostPID)
-		try container.encode(self.hostPorts, forKey: .hostPorts)
-		try container.encode(self.privileged, forKey: .privileged)
-		try container.encode(self.readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
-		try container.encode(self.requiredDropCapabilities, forKey: .requiredDropCapabilities)
-		try container.encode(self.runAsGroup, forKey: .runAsGroup)
-		try container.encode(self.runAsUser, forKey: .runAsUser)
-		try container.encode(self.runtimeClass, forKey: .runtimeClass)
-		try container.encode(self.seLinux, forKey: .seLinux)
-		try container.encode(self.supplementalGroups, forKey: .supplementalGroups)
-		try container.encode(self.volumes, forKey: .volumes)
+		try container.encode(allowPrivilegeEscalation, forKey: .allowPrivilegeEscalation)
+		try container.encode(allowedCSIDrivers, forKey: .allowedCSIDrivers)
+		try container.encode(allowedCapabilities, forKey: .allowedCapabilities)
+		try container.encode(allowedFlexVolumes, forKey: .allowedFlexVolumes)
+		try container.encode(allowedHostPaths, forKey: .allowedHostPaths)
+		try container.encode(allowedProcMountTypes, forKey: .allowedProcMountTypes)
+		try container.encode(allowedUnsafeSysctls, forKey: .allowedUnsafeSysctls)
+		try container.encode(defaultAddCapabilities, forKey: .defaultAddCapabilities)
+		try container.encode(defaultAllowPrivilegeEscalation, forKey: .defaultAllowPrivilegeEscalation)
+		try container.encode(forbiddenSysctls, forKey: .forbiddenSysctls)
+		try container.encode(fsGroup, forKey: .fsGroup)
+		try container.encode(hostIPC, forKey: .hostIPC)
+		try container.encode(hostNetwork, forKey: .hostNetwork)
+		try container.encode(hostPID, forKey: .hostPID)
+		try container.encode(hostPorts, forKey: .hostPorts)
+		try container.encode(privileged, forKey: .privileged)
+		try container.encode(readOnlyRootFilesystem, forKey: .readOnlyRootFilesystem)
+		try container.encode(requiredDropCapabilities, forKey: .requiredDropCapabilities)
+		try container.encode(runAsGroup, forKey: .runAsGroup)
+		try container.encode(runAsUser, forKey: .runAsUser)
+		try container.encode(runtimeClass, forKey: .runtimeClass)
+		try container.encode(seLinux, forKey: .seLinux)
+		try container.encode(supplementalGroups, forKey: .supplementalGroups)
+		try container.encode(volumes, forKey: .volumes)
 	}
-
 }
-
