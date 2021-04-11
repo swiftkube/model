@@ -28,7 +28,8 @@ public extension apiextensions.v1beta1 {
 	/// CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>. Deprecated in v1.16, planned for removal in v1.22. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
 	///
 	struct CustomResourceDefinition: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource,
+		StatusHavingResource
 	{
 		///
 		/// ListableResource.List associated type

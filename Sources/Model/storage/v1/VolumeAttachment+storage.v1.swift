@@ -30,7 +30,8 @@ public extension storage.v1 {
 	/// VolumeAttachment objects are non-namespaced.
 	///
 	struct VolumeAttachment: KubernetesAPIResource, MetadataHavingResource, ClusterScopedResource,
-		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource,
+		StatusHavingResource
 	{
 		///
 		/// ListableResource.List associated type

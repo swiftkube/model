@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.1
+
+### New
+
+- New marker protocols for:
+  - `ScalableResource`
+  - `StatusHavingResorce`
+  - `EvictableResource`
+
+## 0.3.0
+
+- Update to Kubernetes v1.19.8
+
 ## 0.2.2
 
 - Change personal copyright to Swiftkube Project

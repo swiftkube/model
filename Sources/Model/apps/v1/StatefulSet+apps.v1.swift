@@ -31,7 +31,8 @@ public extension apps.v1 {
 	/// The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 	///
 	struct StatefulSet: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource,
+		ScalableResource, StatusHavingResource
 	{
 		///
 		/// ListableResource.List associated type

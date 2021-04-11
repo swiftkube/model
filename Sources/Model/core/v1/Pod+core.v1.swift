@@ -28,7 +28,8 @@ public extension core.v1 {
 	/// Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.
 	///
 	struct Pod: KubernetesAPIResource, MetadataHavingResource, NamespacedResource,
-		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource
+		ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource,
+		EvictableResource, StatusHavingResource
 	{
 		///
 		/// ListableResource.List associated type

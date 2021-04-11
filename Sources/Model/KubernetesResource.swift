@@ -151,3 +151,32 @@ public protocol DeletableResource: KubernetesResource {}
 ///  ```
 ///  is not supported.
 public protocol CollectionDeletableResource: KubernetesResource {}
+
+// MARK: - EvictableResource
+
+///
+/// A type of `KubernetesResource`s that can be evicted by creatign an eviction object.
+///
+public protocol EvictableResource: KubernetesResource {}
+
+// MARK: - ScalableResource
+
+///
+/// A type of `KubernetesResource`s that can be scaled.
+///
+/// For example a `Deployment` can be scaled up and down, e.g.
+/// ```
+/// PUT /apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale
+/// ```
+public protocol ScalableResource: KubernetesResource {}
+
+// MARK: - StatusHavingResource
+
+///
+/// A type of `KubernetesResource`s that holds a ``.
+///
+/// For example a `Deployment` can be scaled up and down, e.g.
+/// ```
+/// PUT /apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale
+/// ```
+public protocol StatusHavingResource: KubernetesResource {}
