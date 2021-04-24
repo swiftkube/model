@@ -18,21 +18,21 @@ import Foundation
 
 // MARK: - JSONCodingKeys
 
-struct JSONCodingKeys: CodingKey {
-	var stringValue: String
-	var intValue: Int?
+public struct JSONCodingKeys: CodingKey {
+	public var stringValue: String
+	public var intValue: Int?
 
-	init?(stringValue: String) {
+	public init?(stringValue: String) {
 		self.stringValue = stringValue
 	}
 
-	init?(intValue: Int) {
+	public init?(intValue: Int) {
 		self.init(stringValue: "\(intValue)")
 		self.intValue = intValue
 	}
 }
 
-extension KeyedDecodingContainer {
+public extension KeyedDecodingContainer {
 
 	func decode(_ type: [String: Any].Type, forKey key: K) throws -> [String: Any] {
 		let container = try nestedContainer(keyedBy: JSONCodingKeys.self, forKey: key)
@@ -112,7 +112,7 @@ extension KeyedDecodingContainer {
 	}
 }
 
-extension UnkeyedDecodingContainer {
+public extension UnkeyedDecodingContainer {
 
 	mutating func decode(_ type: [String: Any].Type) throws -> [String: Any] {
 		let container = try nestedContainer(keyedBy: JSONCodingKeys.self)
@@ -156,7 +156,7 @@ extension UnkeyedDecodingContainer {
 	}
 }
 
-extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
+public extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
 
 	mutating func encode(_ value: [String: Any]) throws {
 		for (key, value) in value {
@@ -207,7 +207,7 @@ extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
 	}
 }
 
-extension KeyedEncodingContainerProtocol {
+public extension KeyedEncodingContainerProtocol {
 
 	mutating func encode(_ value: [String: Any]?, forKey key: Key) throws {
 		guard let value = value else { return }
@@ -224,7 +224,7 @@ extension KeyedEncodingContainerProtocol {
 	}
 }
 
-extension UnkeyedEncodingContainer {
+public extension UnkeyedEncodingContainer {
 
 	mutating func encode(_ value: [String: Any]) throws {
 		var container = nestedContainer(keyedBy: JSONCodingKeys.self)
