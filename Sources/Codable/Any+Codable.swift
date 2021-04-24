@@ -86,9 +86,11 @@ extension KeyedDecodingContainer {
 		for key in allKeys {
 			if let value = try? decode(Bool.self, forKey: key) {
 				dictionary[key.stringValue] = value
-			} else if let value = try? decode(Double.self, forKey: key) {
-				dictionary[key.stringValue] = value
 			} else if let value = try? decode(Int.self, forKey: key) {
+				dictionary[key.stringValue] = value
+			} else if let value = try? decode(UInt.self, forKey: key) {
+				dictionary[key.stringValue] = value
+			} else if let value = try? decode(Double.self, forKey: key) {
 				dictionary[key.stringValue] = value
 			} else if let value = try? decode(String.self, forKey: key) {
 				dictionary[key.stringValue] = value
@@ -128,9 +130,11 @@ extension UnkeyedDecodingContainer {
 		while isAtEnd == false {
 			if let value = try? decode(Bool.self) {
 				array.append(value)
-			} else if let value = try? decode(Double.self) {
-				array.append(value)
 			} else if let value = try? decode(Int.self) {
+				array.append(value)
+			} else if let value = try? decode(UInt.self) {
+				array.append(value)
+			} else if let value = try? decode(Double.self) {
 				array.append(value)
 			} else if let value = try? decode(String.self) {
 				array.append(value)
@@ -160,9 +164,29 @@ extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
 			switch value {
 			case let value as Bool:
 				try encode(value, forKey: key)
-			case let value as Double:
-				try encode(value, forKey: key)
 			case let value as Int:
+				try encode(value, forKey: key)
+			case let value as Int8:
+				try encode(value, forKey: key)
+			case let value as Int16:
+				try encode(value, forKey: key)
+			case let value as Int32:
+				try encode(value, forKey: key)
+			case let value as Int64:
+				try encode(value, forKey: key)
+			case let value as UInt:
+				try encode(value, forKey: key)
+			case let value as UInt8:
+				try encode(value, forKey: key)
+			case let value as UInt16:
+				try encode(value, forKey: key)
+			case let value as UInt32:
+				try encode(value, forKey: key)
+			case let value as UInt64:
+				try encode(value, forKey: key)
+			case let value as Float:
+				try encode(value, forKey: key)
+			case let value as Double:
 				try encode(value, forKey: key)
 			case let value as String:
 				try encode(value, forKey: key)
@@ -212,9 +236,29 @@ extension UnkeyedEncodingContainer {
 			switch value {
 			case let value as Bool:
 				try encode(value)
+			case let value as Float:
+				try encode(value)
 			case let value as Double:
 				try encode(value)
 			case let value as Int:
+				try encode(value)
+			case let value as Int8:
+				try encode(value)
+			case let value as Int16:
+				try encode(value)
+			case let value as Int32:
+				try encode(value)
+			case let value as Int64:
+				try encode(value)
+			case let value as UInt:
+				try encode(value)
+			case let value as UInt8:
+				try encode(value)
+			case let value as UInt16:
+				try encode(value)
+			case let value as UInt32:
+				try encode(value)
+			case let value as UInt64:
 				try encode(value)
 			case let value as String:
 				try encode(value)
