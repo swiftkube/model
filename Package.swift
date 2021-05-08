@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
 	name: "SwiftkubeModel",
+	platforms: [
+		.macOS(.v10_12), .iOS(.v12), .tvOS(.v12), .watchOS(.v5)
+	],
 	products: [
 		.library(
 			name: "SwiftkubeModel",
