@@ -12,9 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: swift build -v
+      run: set -o pipefail && swift build -v
     - name: Test
-      run: swift test --enable-test-discovery
+      run: set -o pipefail && swift test --enable-test-discovery
   iOS:
     name: Test iOS
     runs-on: macOS-10.15
@@ -24,13 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: iOS - ${{ matrix.destination }}
-        run: xcodebuild -scheme SwiftkubeModel-Package -destination "${{ matrix.destination }}" clean test | xcpretty
+        run: set -o pipefail && xcodebuild -scheme SwiftkubeModel -destination "${{ matrix.destination }}" clean test | xcpretty
   linux:
     runs-on: ubuntu-18.04
     container: swift:5.2
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: swift build -v --enable-test-discovery
+      run: set -o pipefail && swift build -v --enable-test-discovery
     - name: Test
-      run: swift test --enable-test-discovery
+      run: set -o pipefail && swift test --enable-test-discovery
