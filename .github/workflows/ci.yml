@@ -20,7 +20,7 @@ jobs:
     runs-on: macOS-10.15
     strategy:
       matrix:
-        destination: ["OS=14.5,name=iPhone 12 Pro"]
+        destination: ["platform=iOS Simulator,OS=14.4,name=iPhone 12 Pro"]
     steps:
       - uses: actions/checkout@v2
       - name: iOS - ${{ matrix.destination }}
