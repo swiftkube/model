@@ -10,7 +10,7 @@
 	<a href="https://swift.org/package-manager">
 		<img src="https://img.shields.io/badge/swiftpm-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
 	</a>
-	<img src="https://img.shields.io/badge/platforms-mac+linux-brightgreen.svg?style=flat" alt="Mac + Linux" />
+	<img src="https://img.shields.io/badge/platforms-mac+ios+linux-brightgreen.svg?style=flat" alt="macOS + iOS + Linux" />
 	<a href="https://github.com/swiftkube/model/actions">
 		<img src="https://github.com/swiftkube/model/workflows/swiftkube-model-ci/badge.svg" alt="CI Status">
 	</a>
@@ -351,7 +351,7 @@ let data = try? JSONEncoder().encode(resource)
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.2.0"),
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.3.0"),
 ```
 
 then include it as a dependency in your target:

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.2
+
+- Add supported platforms for Swift package
+- Add CI for iOS build
+
 ## 0.3.1
 
 ### New
