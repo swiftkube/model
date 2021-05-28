@@ -20,36 +20,27 @@ import XCTest
 struct QuantityTest {
     let str: String
     let value: String
-    let toString: String
-    let friendlyString: String
+    let desc: String
+    let friendlyDesc: String
+    
+    var parseFailed: Bool = false
 }
 
 let testArr: [QuantityTest] = [
-    .init(str: "5300m", value: "5.3", toString: "5300m", friendlyString: "5.3"),
-    .init(str: "5.4", value: "5.4", toString: "5400m", friendlyString: "5.4"),
-    .init(str: "0", value: "0", toString: "0", friendlyString: "0"),
-    .init(str: ".3", value: "0.3", toString: "300m", friendlyString: "300m"),
-    .init(str: "33.01", value: "33.01", toString: "33010m", friendlyString: "33.01"),
-    .init(str: "33.0001",
-          value: "33.0001",
-          toString: "33000100u",
-          friendlyString: "33.0001"),
-    .init(str: "5Gi",
-          value: "\(5 * pow(1024, 3))",
-          toString: "5Gi",
-          friendlyString: "5Gi"),
-    .init(str: "5120Gi",
-          value: "\(5 * pow(1024, 4))",
-          toString: "5Ti",
-          friendlyString: "5Ti"),
-    .init(str: "5G",
-          value: "\(5 * pow(1000, 3))",
-          toString: "5G",
-          friendlyString: "5G"),
-    .init(str: "5000G",
-          value: "\(5 * pow(1000, 4))",
-          toString: "5T",
-          friendlyString: "5T"),
+    .init(str: "5300m",     value: "5.3",                   desc: "5300m",      friendlyDesc: "5.3"),
+    .init(str: "5.4",       value: "5.4",                   desc: "5400m",      friendlyDesc: "5.4"),
+    .init(str: "0",         value: "0",                     desc: "0",          friendlyDesc: "0"),
+    .init(str: ".3",        value: "0.3",                   desc: "300m",       friendlyDesc: "300m"),
+    .init(str: "33.01",     value: "33.01",                 desc: "33010m",     friendlyDesc: "33.01"),
+    .init(str: "33.0001",   value: "33.0001",               desc: "33000100u",  friendlyDesc: "33.0001"),
+    .init(str: "5Gi",       value: "\(5 * pow(1024, 3))",   desc: "5Gi",        friendlyDesc: "5Gi"),
+    .init(str: "5120Gi",    value: "\(5 * pow(1024, 4))",   desc: "5Ti",        friendlyDesc: "5Ti"),
+    .init(str: "5G",        value: "\(5 * pow(1000, 3))",   desc: "5G",         friendlyDesc: "5G"),
+    .init(str: "5000G",     value: "\(5 * pow(1000, 4))",   desc: "5T",         friendlyDesc: "5T"),
+    
+    // parse failed
+    .init(str: "1.0.0", value: "0", desc: "0", friendlyDesc: "0", parseFailed: true),
+    .init(str: "0..0", value: "0", desc: "0", friendlyDesc: "0", parseFailed: true),
 ]
 
 final class QunantityParseTests: XCTestCase {
@@ -57,10 +48,11 @@ final class QunantityParseTests: XCTestCase {
     func testQuantity() {
         
         for t in testArr {
-            let q = Quantity(stringLiteral: t.str)
+            var q = Quantity(stringLiteral: t.str)
             XCTAssertEqual(q.getValue(), Decimal(string: t.value))
-            XCTAssertEqual(q.toString(), t.toString)
-            XCTAssertEqual(q.toFriendlyString(), t.friendlyString)
+            XCTAssertEqual(q.description, t.desc)
+            XCTAssertEqual(q.friendlyDescription, t.friendlyDesc)
+            XCTAssertEqual(q.ok, !t.parseFailed)
         }
     }
 }

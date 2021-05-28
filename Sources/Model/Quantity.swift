@@ -43,67 +43,59 @@ enum UnitType {
     case bianrySI
 }
 
-struct BePair {
-    let base: Int
-    let exponent: Int
-    let powValue: Decimal
-    init(base: Int, exponent: Int) {
-        self.base = base
-        self.exponent = exponent
-        if exponent < 0 {
-            powValue = 1 / pow(Decimal(base), -1 * exponent)
-        } else {
-            powValue = pow(Decimal(base), exponent)
-        }
+func pow(_ base: Int, _ exponent: Int) -> Decimal {
+    if exponent < 0 {
+        return 1 / pow(Decimal(base), -1 * exponent)
+    } else {
+        return pow(Decimal(base), exponent)
     }
 }
 
-struct DecSuffixed {
+struct KeyPair {
     let key: String
-    let bePair: BePair
+    let pair: Decimal
 }
 
-//case "Ki", "Mi", "Gi", "Ti", "Pi", "Ei":
-//unitType = .bianrySI
-let decBinarySI = [
-    DecSuffixed(key: "Ki", bePair: BePair(base: 2, exponent: 10)),
-    DecSuffixed(key: "Mi", bePair: BePair(base: 2, exponent: 20)),
-    DecSuffixed(key: "Gi", bePair: BePair(base: 2, exponent: 30)),
-    DecSuffixed(key: "Ti", bePair: BePair(base: 2, exponent: 40)),
-    DecSuffixed(key: "Pi", bePair: BePair(base: 2, exponent: 50)),
-    DecSuffixed(key: "Ei", bePair: BePair(base: 2, exponent: 60)),
+let decimalSIKeyPairNegative = [
+    KeyPair(key: "m", pair: pow(10, -3)),
+    KeyPair(key: "u", pair: pow(10, -6)),
+    KeyPair(key: "n", pair: pow(10, -9)),
 ]
 
-//case "m", "k", "M", "G", "T", "P", "e":
-//unitType = .decimalSI
-let decDecimalSINag = [
-    DecSuffixed(key: "m", bePair: BePair(base: 10, exponent: -3)),
-    DecSuffixed(key: "u", bePair: BePair(base: 10, exponent: -6)),
-    DecSuffixed(key: "n", bePair: BePair(base: 10, exponent: -9)),
+let decimalSIKeyPairPositive = [
+    KeyPair(key: "", pair:  pow(10, 0)),
+    KeyPair(key: "k", pair: pow(10, 3)),
+    KeyPair(key: "M", pair: pow(10, 6)),
+    KeyPair(key: "G", pair: pow(10, 9)),
+    KeyPair(key: "T", pair: pow(10, 12)),
+    KeyPair(key: "P", pair: pow(10, 15)),
+    KeyPair(key: "E", pair: pow(10, 18)),
 ]
-let decDecimalSIPos = [
-    DecSuffixed(key: "", bePair: BePair(base: 10, exponent: 0)),
-    DecSuffixed(key: "k", bePair: BePair(base: 10, exponent: 3)),
-    DecSuffixed(key: "M", bePair: BePair(base: 10, exponent: 6)),
-    DecSuffixed(key: "G", bePair: BePair(base: 10, exponent: 9)),
-    DecSuffixed(key: "T", bePair: BePair(base: 10, exponent: 12)),
-    DecSuffixed(key: "P", bePair: BePair(base: 10, exponent: 15)),
-    DecSuffixed(key: "E", bePair: BePair(base: 10, exponent: 18)),
+
+let binarySIKeyPair = [
+    KeyPair(key: "Ki", pair: pow(2, 10)),
+    KeyPair(key: "Mi", pair: pow(2, 20)),
+    KeyPair(key: "Gi", pair: pow(2, 30)),
+    KeyPair(key: "Ti", pair: pow(2, 40)),
+    KeyPair(key: "Pi", pair: pow(2, 50)),
+    KeyPair(key: "Ei", pair: pow(2, 60)),
 ]
-let decDecimalSI = decDecimalSINag + decDecimalSIPos
 
+let decimalSIKeyPair = decimalSIKeyPairNegative + decimalSIKeyPairPositive
 
-let frndBinarySI = Array(decBinarySI.reversed())
-var frndDecimalSI = Array((decDecimalSINag.reversed() + decDecimalSIPos).reversed())
-
+let binarySIKeyPairFriendly = Array(binarySIKeyPair.reversed())
+var decimalSIKeyPairFriendly = Array((decimalSIKeyPairNegative.reversed() + decimalSIKeyPairPositive).reversed())
 
 // TODO: Implement proper quantity serde: https://github.com/kubernetes/apimachinery/blob/master/pkg/api/resource/quantity.go
-public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
-    let value: String
+public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, CustomStringConvertible {
     
+    let value: String
+    var ok: Bool = true
     var decimalValue: Decimal = 0
     var unit: String = ""
     var unitType: UnitType = .decimalSI
+    
+    public var description: String = "0"
     
     public func getOriginalValue() -> String {
         return value
@@ -115,7 +107,12 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
     
     public init(stringLiteral value: String) {
         self.value = value
-        self.parseData(str: value)
+        do {
+            try self.parseData(str: value)
+            description = toString()
+        } catch {
+            ok = false
+        }
     }
     
     public init(integerLiteral value: Int) {
@@ -126,42 +123,48 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         self.init(stringLiteral: "\(value)")
     }
     
-    mutating func parseData(str: String) {
+    mutating func parseData(str: String) throws {
         let range = NSRange(location: 0, length: str.count)
-        let regex = try! NSRegularExpression(pattern: "^[0-9.e]+", options: [])
+        let regex = try! NSRegularExpression(pattern: "^\\d*\\.?\\d*e?\\d*", options: [])
         let results = regex.matches(in: str, options: [], range: range)
         if results.count != 1 {
-            return
+            throw DecodingError.dataCorrupted(DecodingError.Context(
+                codingPath: [],
+                debugDescription: "Cannot decode value: " + str
+            ))
         }
         let r = results[0].range
-        
         guard let num = Decimal(string: str[r.location..<(r.location + r.length)]) else {
             return
         }
         
-        unit = str[(r.location + r.length)...]
+        let unit = str[(r.location + r.length)...]
         switch unit {
         case "Ki", "Mi", "Gi", "Ti", "Pi", "Ei":
             unitType = .bianrySI
         case "", "n", "u", "m", "k", "M", "G", "T", "P", "E":
             unitType = .decimalSI
         default:
-            return
+            throw DecodingError.dataCorrupted(DecodingError.Context(
+                codingPath: [],
+                debugDescription: "Cannot decode value: " + str
+            ))
         }
+        self.unit = unit
         self.decimalValue = num * getUnitMultiple()
     }
     
     func getUnitMultiple() -> Decimal {
-        var arr : [DecSuffixed] = []
+        var arr : [KeyPair] = []
         switch unitType {
         case .bianrySI:
-            arr = decBinarySI
+            arr = binarySIKeyPair
         case .decimalSI:
-            arr = decDecimalSI
+            arr = decimalSIKeyPair
         }
         for dec in arr {
             if dec.key == unit {
-                return dec.bePair.powValue
+                return dec.pair
             }
         }
         return 1
@@ -173,39 +176,39 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
     ///
     ///  33.01 =>  33010m
     ///
-    public func toString() -> String {
+    func toString() -> String {
         if decimalValue == 0 {
             return "0"
         }
-        var arr : [DecSuffixed] = []
+        var arr : [KeyPair] = []
         switch unitType {
         case .bianrySI:
-            arr = decBinarySI
+            arr = binarySIKeyPair
         case .decimalSI:
-            arr = decDecimalSI
+            arr = decimalSIKeyPair
         }
         let hasDecimal = "\(decimalValue)".firstIndex(of: ".") != nil
         var i = 0
         for dec in arr {
             if hasDecimal {
-                if dec.bePair.exponent > 0 {
+                if dec.pair > 1 {
                     break
                 }
                 i += 1
-                let nagPow = decimalValue / dec.bePair.powValue
+                let nagPow = decimalValue / dec.pair
                 let tmpHasDigital = "\(nagPow)".firstIndex(of: ".")  != nil
                 if tmpHasDigital {
                     continue
                 }
                 break
             } else {
-                if dec.bePair.exponent < 0 {
+                if dec.pair < 1 {
                     i += 1
                     continue
                 }
                 
                 let numInt = Int64(truncating: NSDecimalNumber(decimal: decimalValue))
-                let vInt = Int64(truncating: NSDecimalNumber(decimal: dec.bePair.powValue))
+                let vInt = Int64(truncating: NSDecimalNumber(decimal: dec.pair))
                 let remain = numInt % vInt
                 if remain == 0 {
                     i += 1
@@ -218,37 +221,37 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
             return "\(decimalValue)"
         }
         let dec = arr[i-1]
-        let tmp = decimalValue / dec.bePair.powValue
+        let tmp = decimalValue / dec.pair
         return "\(tmp)\(dec.key)"
     }
     
     
     ///
-    /// toFriendlyString
+    /// friendlyDescription
     /// unit is matched from large to small
     ///
     ///  33.01 =>  33.01
     ///
-    public func toFriendlyString() -> String {
+    lazy public var friendlyDescription: String = {
         if decimalValue == 0 {
             return "0"
         }
-        var arr : [DecSuffixed] = []
+        var arr : [KeyPair] = []
         switch unitType {
         case .bianrySI:
-            arr = frndBinarySI
+            arr = binarySIKeyPairFriendly
         case .decimalSI:
-            arr = frndDecimalSI
+            arr = decimalSIKeyPairFriendly
         }
         
         for dec in arr {
-            let t = decimalValue / dec.bePair.powValue
+            let t = decimalValue / dec.pair
             if t > 1 {
                 return "\(t)\(dec.key)"
             }
         }
         return "\(decimalValue)"
-    }
+    }()
     
 }
 
