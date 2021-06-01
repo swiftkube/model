@@ -38,9 +38,9 @@ extension String {
     }
 }
 
-enum UnitType {
+public enum UnitType {
     case decimalSI
-    case bianrySI
+    case binarySI
 }
 
 func pow(_ base: Int, _ exponent: Int) -> Decimal {
@@ -101,7 +101,10 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         return value
     }
     
-    public func getValue() -> Decimal {
+    public func getValue() -> Decimal? {
+        if !ok {
+            return nil
+        }
         return decimalValue
     }
     
@@ -109,7 +112,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         self.value = value
         do {
             try self.parseData(str: value)
-            description = toString()
+            description = Self.description(decimalValue, unitType)
         } catch {
             ok = false
         }
@@ -141,7 +144,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         let unit = str[(r.location + r.length)...]
         switch unit {
         case "Ki", "Mi", "Gi", "Ti", "Pi", "Ei":
-            unitType = .bianrySI
+            unitType = .binarySI
         case "", "n", "u", "m", "k", "M", "G", "T", "P", "E":
             unitType = .decimalSI
         default:
@@ -157,7 +160,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
     func getUnitMultiple() -> Decimal {
         var arr : [KeyPair] = []
         switch unitType {
-        case .bianrySI:
+        case .binarySI:
             arr = binarySIKeyPair
         case .decimalSI:
             arr = decimalSIKeyPair
@@ -170,24 +173,60 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         return 1
     }
     
+    lazy public var friendlyDescription: String = Self.friendlyDescription(decimalValue, unitType)
+    
+}
+
+extension Quantity {
+    
     ///
-    /// toString
-    /// unit is matched from small to large
+    /// friendlyDescription
+    /// unit is matched from large to small
     ///
-    ///  33.01 =>  33010m
+    ///  33.01 =>  33.01
     ///
-    func toString() -> String {
-        if decimalValue == 0 {
+    public static func friendlyDescription (_ num: Decimal, _ unitType: UnitType) -> String {
+        if num == 0 {
             return "0"
         }
         var arr : [KeyPair] = []
         switch unitType {
-        case .bianrySI:
+        case .binarySI:
+            arr = binarySIKeyPairFriendly
+        case .decimalSI:
+            arr = decimalSIKeyPairFriendly
+        }
+        
+        for dec in arr {
+            let t = num / dec.pair
+            if t >= 1 {
+                return "\(t)\(dec.key)"
+            }
+        }
+        return "\(num)"
+    }
+    
+    ///
+    /// description
+    /// unit is matched from small to large
+    ///
+    ///  33.01 =>  33010m
+    ///
+    public static func description (_ num: Decimal, _ unitType: UnitType) -> String {
+        if num == 0 {
+            return "0"
+        }
+        var arr : [KeyPair] = []
+        switch unitType {
+        case .binarySI:
             arr = binarySIKeyPair
         case .decimalSI:
             arr = decimalSIKeyPair
         }
-        let hasDecimal = "\(decimalValue)".firstIndex(of: ".") != nil
+        let hasDecimal = "\(num)".firstIndex(of: ".") != nil
+        if unitType == .binarySI && num < 1 {
+            return "\(num)"
+        }
         var i = 0
         for dec in arr {
             if hasDecimal {
@@ -195,7 +234,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
                     break
                 }
                 i += 1
-                let nagPow = decimalValue / dec.pair
+                let nagPow = num / dec.pair
                 let tmpHasDigital = "\(nagPow)".firstIndex(of: ".")  != nil
                 if tmpHasDigital {
                     continue
@@ -207,7 +246,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
                     continue
                 }
                 
-                let numInt = Int64(truncating: NSDecimalNumber(decimal: decimalValue))
+                let numInt = Int64(truncating: NSDecimalNumber(decimal: num))
                 let vInt = Int64(truncating: NSDecimalNumber(decimal: dec.pair))
                 let remain = numInt % vInt
                 if remain == 0 {
@@ -218,41 +257,12 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
             }
         }
         if i == 0 {
-            return "\(decimalValue)"
+            return "\(num)"
         }
         let dec = arr[i-1]
-        let tmp = decimalValue / dec.pair
+        let tmp = num / dec.pair
         return "\(tmp)\(dec.key)"
     }
-    
-    
-    ///
-    /// friendlyDescription
-    /// unit is matched from large to small
-    ///
-    ///  33.01 =>  33.01
-    ///
-    lazy public var friendlyDescription: String = {
-        if decimalValue == 0 {
-            return "0"
-        }
-        var arr : [KeyPair] = []
-        switch unitType {
-        case .bianrySI:
-            arr = binarySIKeyPairFriendly
-        case .decimalSI:
-            arr = decimalSIKeyPairFriendly
-        }
-        
-        for dec in arr {
-            let t = decimalValue / dec.pair
-            if t > 1 {
-                return "\(t)\(dec.key)"
-            }
-        }
-        return "\(decimalValue)"
-    }()
-    
 }
 
 // MARK: Codable

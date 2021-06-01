@@ -19,7 +19,7 @@ import XCTest
 
 struct QuantityTest {
     let str: String
-    let value: String
+    let value: String?
     let desc: String
     let friendlyDesc: String
     
@@ -39,8 +39,41 @@ let testArr: [QuantityTest] = [
     .init(str: "5000G",     value: "\(5 * pow(1000, 4))",   desc: "5T",         friendlyDesc: "5T"),
     
     // parse failed
-    .init(str: "1.0.0", value: "0", desc: "0", friendlyDesc: "0", parseFailed: true),
-    .init(str: "0..0", value: "0", desc: "0", friendlyDesc: "0", parseFailed: true),
+    .init(str: "1.0.0", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
+    .init(str: "0..0", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
+]
+
+struct QuantityStaticTest {
+    let str1: String
+    let str2: String
+    let sumDesc: String
+    let sumFDesc: String
+}
+
+struct QuantityStaticBinTest {
+    let str1: String
+    let str2: String
+    let sumBinDesc: String
+    let sumBinFDesc: String
+}
+
+let tmp = 5000 * pow(1024, 3) + 0.2
+let testStaticArr: [QuantityStaticTest] = [
+    .init(str1: "200m", str2: "800m", sumDesc: "1", sumFDesc: "1"),
+    .init(str1: "1000", str2: "24", sumDesc: "1024", sumFDesc: "1.024k"),
+    .init(str1: "5000m", str2: "200m", sumDesc: "5200m", sumFDesc: "5.2"),
+    .init(str1: "5000Gi", str2: "200m",
+          sumDesc: "\(tmp * 1000)m",
+          sumFDesc: "\(tmp / pow(1000, 4))T")
+]
+
+let testStaticBinArr: [QuantityStaticBinTest] = [
+    .init(str1: "200m", str2: "800m", sumBinDesc: "1", sumBinFDesc: "1"),
+    .init(str1: "1000", str2: "24", sumBinDesc: "1Ki", sumBinFDesc: "1Ki"),
+    .init(str1: "5Gi", str2: "5Gi", sumBinDesc: "10Gi", sumBinFDesc: "10Gi"),
+    .init(str1: "2560Gi", str2: "2560Gi",
+          sumBinDesc: "5Ti",
+          sumBinFDesc: "5Ti")
 ]
 
 final class QunantityParseTests: XCTestCase {
@@ -49,10 +82,41 @@ final class QunantityParseTests: XCTestCase {
         
         for t in testArr {
             var q = Quantity(stringLiteral: t.str)
-            XCTAssertEqual(q.getValue(), Decimal(string: t.value))
+            if t.value == nil {
+                XCTAssertEqual(q.getValue(), nil)
+            } else {
+                XCTAssertEqual(q.getValue(), Decimal(string: t.value!))
+            }
             XCTAssertEqual(q.description, t.desc)
             XCTAssertEqual(q.friendlyDescription, t.friendlyDesc)
             XCTAssertEqual(q.ok, !t.parseFailed)
+        }
+    }
+    
+    func testQuantityStatic () {
+        for t in testStaticArr {
+            let q1 = Quantity(stringLiteral: t.str1)
+            let q2 = Quantity(stringLiteral: t.str2)
+            
+            let sum = q1.getValue()! + q2.getValue()!
+            
+            let desc = Quantity.description(sum, .decimalSI)
+            let fDesc = Quantity.friendlyDescription(sum, .decimalSI)
+            
+            XCTAssertEqual(desc, t.sumDesc)
+            XCTAssertEqual(fDesc, t.sumFDesc)
+        }
+        for t in testStaticBinArr {
+            let q1 = Quantity(stringLiteral: t.str1)
+            let q2 = Quantity(stringLiteral: t.str2)
+            
+            let sum = q1.getValue()! + q2.getValue()!
+            
+            let binDesc = Quantity.description(sum, .binarySI)
+            let binFDesc = Quantity.friendlyDescription(sum, .binarySI)
+            
+            XCTAssertEqual(binDesc, t.sumBinDesc)
+            XCTAssertEqual(binFDesc, t.sumBinFDesc)
         }
     }
 }
