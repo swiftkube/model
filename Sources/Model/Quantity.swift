@@ -18,7 +18,6 @@ import Foundation
 
 // MARK: - Quantity
 
-
 extension String {
     
     subscript(offset: Int) -> Character {
@@ -108,25 +107,52 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         return decimalValue
     }
     
-    public init(stringLiteral value: String) {
-        self.value = value
-        do {
-            try self.parseData(str: value)
+    public init?(_ string: String) {
+        self.value = string
+        if (try? parseData(str: string)) == true {
             description = Self.description(decimalValue, unitType)
-        } catch {
-            ok = false
+            return
         }
+        return nil
+    }
+    
+    public init(stringLiteral value: String) {
+        guard let initialized = Self(value) else {
+            self.value = value
+            ok = false
+            print("Invalid string literal for Quantity(\(value))")
+            return
+        }
+        self = initialized
     }
     
     public init(integerLiteral value: Int) {
-        self.init(stringLiteral: "\(value)")
+        self.value = "\(value)"
+        if value < 0 {
+            ok = false
+            print("Invalid integer literal for Quantity(\(value))")
+            return
+        }
+        ok = true
+        unit = ""
+        unitType = .decimalSI
+        decimalValue = Decimal(value)
     }
     
     public init(floatLiteral value: Double) {
-        self.init(stringLiteral: "\(value)")
+        self.value = "\(value)"
+        if value < 0 {
+            ok = false
+            print("Invalid float literal for Quantity(\(value))")
+            return
+        }
+        ok = true
+        unit = ""
+        unitType = .decimalSI
+        decimalValue = Decimal(value)
     }
     
-    mutating func parseData(str: String) throws {
+    mutating func parseData(str: String) throws -> Bool {
         let range = NSRange(location: 0, length: str.count)
         let regex = try! NSRegularExpression(pattern: "^\\d*\\.?\\d*e?\\d*", options: [])
         let results = regex.matches(in: str, options: [], range: range)
@@ -138,7 +164,10 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         }
         let r = results[0].range
         guard let num = Decimal(string: str[r.location..<(r.location + r.length)]) else {
-            return
+            return false
+        }
+        if num < 0 {
+            return false
         }
         
         let unit = str[(r.location + r.length)...]
@@ -155,6 +184,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
         }
         self.unit = unit
         self.decimalValue = num * getUnitMultiple()
+        return true
     }
     
     func getUnitMultiple() -> Decimal {

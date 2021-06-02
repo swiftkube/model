@@ -37,10 +37,12 @@ let testArr: [QuantityTest] = [
     .init(str: "5120Gi",    value: "\(5 * pow(1024, 4))",   desc: "5Ti",        friendlyDesc: "5Ti"),
     .init(str: "5G",        value: "\(5 * pow(1000, 3))",   desc: "5G",         friendlyDesc: "5G"),
     .init(str: "5000G",     value: "\(5 * pow(1000, 4))",   desc: "5T",         friendlyDesc: "5T"),
-    
+
     // parse failed
     .init(str: "1.0.0", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
     .init(str: "0..0", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
+    .init(str: "-5300m", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
+    .init(str: "-5", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
 ]
 
 struct QuantityStaticTest {
@@ -83,7 +85,7 @@ final class QunantityParseTests: XCTestCase {
         for t in testArr {
             var q = Quantity(stringLiteral: t.str)
             if t.value == nil {
-                XCTAssertEqual(q.getValue(), nil)
+                XCTAssertNil(q.getValue())
             } else {
                 XCTAssertEqual(q.getValue(), Decimal(string: t.value!))
             }
