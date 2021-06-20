@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-import XCTest
 @testable import SwiftkubeModel
+import XCTest
 
 final class GroupVersionKindTests: XCTestCase {
 

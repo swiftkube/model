@@ -14,9 +14,8 @@
 // limitations under the License.
 //
 
-import XCTest
 @testable import SwiftkubeModel
-
+import XCTest
 
 final class AnyKubernetesAPIResourceListTests: XCTestCase {
 
@@ -56,7 +55,7 @@ final class AnyKubernetesAPIResourceListTests: XCTestCase {
 				$0.containers = [
 					sk.container(name: "nginx") {
 						$0.image = "nginx"
-					}
+					},
 				]
 			}
 		}

@@ -14,9 +14,8 @@
 // limitations under the License.
 //
 
-import XCTest
 @testable import SwiftkubeModel
-
+import XCTest
 
 final class AnyKubernetesAPIResourceTests: XCTestCase {
 
@@ -47,14 +46,13 @@ final class AnyKubernetesAPIResourceTests: XCTestCase {
 				$0.containers = [
 					sk.container(name: "nginx") {
 						$0.image = "nginx"
-					}
+					},
 				]
 			}
 		}
 
 		let resource = AnyKubernetesAPIResource(pod)
 		let data = try? JSONEncoder().encode(resource)
-
 
 		let roundtrip = try? JSONDecoder().decode(AnyKubernetesAPIResource.self, from: data!)
 

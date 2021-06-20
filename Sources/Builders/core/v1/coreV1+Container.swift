@@ -38,7 +38,7 @@ public extension sk {
 		case let .exec(command: command):
 			probe.exec = core.v1.ExecAction(command: command)
 		case let .httpGet(scheme: scheme, host: host, path: path, port: port, headers: headersMap):
-			let headers = headersMap?.map { (key, value) -> core.v1.HTTPHeader in
+			let headers = headersMap?.map { key, value -> core.v1.HTTPHeader in
 				core.v1.HTTPHeader(name: key, value: value)
 			}
 			probe.httpGet = core.v1.HTTPGetAction(
@@ -132,7 +132,7 @@ public enum ProbeAction {
 extension Array: ExpressibleByDictionaryLiteral where Array.Element == core.v1.EnvVar {
 
 	public init(dictionaryLiteral elements: (String, ContainerEnvVarType)...) {
-		self = elements.map { (name, value) -> core.v1.EnvVar in
+		self = elements.map { name, value -> core.v1.EnvVar in
 			value.envVar(withName: name.uppercased())
 		}
 	}
