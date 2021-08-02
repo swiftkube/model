@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Update to Kubernetes v1.20.9
+- Add proper `Quantity` SerDe (PR #1 by @mustard-mh)
+
 ## 0.3.2
 
 - Add supported platforms for Swift package
