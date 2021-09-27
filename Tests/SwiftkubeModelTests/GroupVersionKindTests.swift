@@ -25,7 +25,7 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.group, "apps")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Deployment")
-		XCTAssertEqual(gvk?.pluralName, "deployments")
+//		XCTAssertEqual(gvk?.pluralName, "deployments")
 	}
 
 	func testInitByResourceInstance() {
@@ -34,7 +34,7 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.group, "apps")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Deployment")
-		XCTAssertEqual(gvk?.pluralName, "deployments")
+//		XCTAssertEqual(gvk?.pluralName, "deployments")
 	}
 
 	func testInitByAnyResourceInstance() {
@@ -44,65 +44,67 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.group, "apps")
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "Deployment")
-		XCTAssertEqual(gvk?.pluralName, "deployments")
+//		XCTAssertEqual(gvk?.pluralName, "deployments")
 	}
 
 	func testInitByString() {
 		let apiVersion = "v1"
 		let kind = "Pod"
 
-		let gvk = try? GroupVersionKind(for: "\(apiVersion)/\(kind)")
+		let gvk = GroupVersionKind(for: "\(apiVersion)/\(kind)")
 
-		XCTAssertEqual(gvk?.group, "core")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "Pod")
-		XCTAssertEqual(gvk?.pluralName, "pods")
+		XCTAssertEqual(gvk.group, "core")
+		XCTAssertEqual(gvk.version, "v1")
+		XCTAssertEqual(gvk.kind, "Pod")
+//		XCTAssertEqual(gvk?.pluralName, "pods")
 	}
 
+  func testInitByStringLiteral() {
+    let gvk: GroupVersionKind = "v1/Pod"
+
+    XCTAssertEqual(gvk.group, "core")
+    XCTAssertEqual(gvk.version, "v1")
+    XCTAssertEqual(gvk.kind, "Pod")
+//    XCTAssertEqual(gvk?.pluralName, "pods")
+  }
+
 	func testInitByRawValue() {
-		var gvk = GroupVersionKind(rawValue: "v1/Pod")
+		let gvk = GroupVersionKind(for: "secret")
 
-		XCTAssertEqual(gvk?.group, "core")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "Pod")
-		XCTAssertEqual(gvk?.pluralName, "pods")
-
-		gvk = try? GroupVersionKind(for: "secret")
-
-		XCTAssertEqual(gvk?.group, "core")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "Secret")
+		XCTAssertEqual(gvk.group, "core")
+		XCTAssertEqual(gvk.version, "v1")
+		XCTAssertEqual(gvk.kind, "Secret")
 	}
 
 	func testInitByPluralName() {
-		var gvk = try? GroupVersionKind(for: "pods")
+		var gvk = GroupVersionKind(for: "pods")
 
-		XCTAssertEqual(gvk?.group, "core")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "Pod")
-		XCTAssertEqual(gvk?.pluralName, "pods")
+		XCTAssertEqual(gvk.group, "core")
+		XCTAssertEqual(gvk.version, "v1")
+		XCTAssertEqual(gvk.kind, "Pod")
+//		XCTAssertEqual(gvk?.pluralName, "pods")
 
-		gvk = try? GroupVersionKind(for: "clusterrolebindings")
+		gvk = GroupVersionKind(for: "clusterrolebindings")
 
-		XCTAssertEqual(gvk?.group, "rbac.authorization.k8s.io")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "ClusterRoleBinding")
-		XCTAssertEqual(gvk?.pluralName, "clusterrolebindings")
+		XCTAssertEqual(gvk.group, "rbac.authorization.k8s.io")
+		XCTAssertEqual(gvk.version, "v1")
+		XCTAssertEqual(gvk.kind, "ClusterRoleBinding")
+//		XCTAssertEqual(gvk?.pluralName, "clusterrolebindings")
 	}
 
 	func testInitByShortName() {
-		var gvk = try? GroupVersionKind(for: "sa")
+		var gvk = GroupVersionKind(for: "sa")
 
-		XCTAssertEqual(gvk?.group, "core")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "ServiceAccount")
-		XCTAssertEqual(gvk?.pluralName, "serviceaccounts")
+		XCTAssertEqual(gvk.group, "core")
+		XCTAssertEqual(gvk.version, "v1")
+		XCTAssertEqual(gvk.kind, "ServiceAccount")
+//		XCTAssertEqual(gvk?.pluralName, "serviceaccounts")
 
-		gvk = try? GroupVersionKind(for: "psp")
+		gvk = GroupVersionKind(for: "psp")
 
-		XCTAssertEqual(gvk?.group, "policy")
-		XCTAssertEqual(gvk?.version, "v1beta1")
-		XCTAssertEqual(gvk?.kind, "PodSecurityPolicy")
-		XCTAssertEqual(gvk?.pluralName, "podsecuritypolicies")
+		XCTAssertEqual(gvk.group, "policy")
+		XCTAssertEqual(gvk.version, "v1beta1")
+		XCTAssertEqual(gvk.kind, "PodSecurityPolicy")
+//		XCTAssertEqual(gvk?.pluralName, "podsecuritypolicies")
 	}
 }

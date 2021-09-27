@@ -34,26 +34,8 @@ extension GroupVersionKind {
 	/// ```
 	///
 	/// - Parameter resourceReference: A resource reference in string form.
-	public init(for resourceReference: String) throws {
-		if let gvk = GroupVersionKind(rawValue: resourceReference) {
-			self = gvk
-			return
-		}
-
-		if let gvk = GroupVersionKind.allCases.first(where: { GroupVersionKind.gvkMatch(element: $0, string: resourceReference) }) {
-			self = gvk
-			return
-		}
-
-		throw SwiftkubeModelError.unknownAPIObject("Cannot determine GroupVersionKind for: \(resourceReference)")
-	}
-
-	private static func gvkMatch(element: GroupVersionKind, string: String) -> Bool {
-		let lowercased = string.lowercased()
-
-		return element.kind.lowercased() == lowercased ||
-			element.pluralName == lowercased ||
-			element.shortName == lowercased
+	public init(for resourceReference: String) {
+    self.init(stringLiteral: resourceReference)
 	}
 }
 

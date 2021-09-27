@@ -27,11 +27,7 @@ public extension GroupVersionKind {
 	///
 	/// - Parameter resource: An instance of a `KubernetesAPIResource`
 	init?<R: KubernetesAPIResource>(of resource: R) {
-		if let gvk = GroupVersionKind(rawValue: "\(resource.apiVersion)/\(resource.kind)") {
-			self = gvk
-		} else {
-			return nil
-		}
+		self = GroupVersionKind(stringLiteral: "\(resource.apiVersion)/\(resource.kind)")
 	}
 
 	/// Creates a new instance of `GroupVersionKind` for the given `KubernetesAPIResource` type.
