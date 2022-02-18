@@ -22,9 +22,9 @@ extension GroupVersionKind {
 	///
 	/// A resource reference can be:
 	/// - Full API Group string
-	/// - Lowecassed singular resource kind
-	/// - Lowercased plural resource name
-	/// - lowecased short resource name
+	/// - Lower-cased singular resource kind
+	/// - Lower-cased plural resource name
+	/// - Lower-cased short resource name
 	///
 	/// ```swift
 	/// let gvk = GroupVersionKind(rawValue: "apps/v1/Deployment")

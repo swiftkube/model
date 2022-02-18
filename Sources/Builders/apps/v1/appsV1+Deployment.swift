@@ -31,8 +31,8 @@ public extension apps.v1.Deployment {
 
 	mutating func expose(on servicePort: Int32, type: ServiceType = .clusterIP) -> core.v1.Service? {
 		guard
-			let name = self.name,
-			var metadata = self.metadata,
+			let name = name,
+			var metadata = metadata,
 			let containerPort = spec?.template.spec?.containers.first?.ports?.first?.containerPort
 		else {
 			return nil
