@@ -74,156 +74,156 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			throw SwiftkubeModelError.decodingError("Couldn't decode apiVersion and/or kind at: \(container.codingPath)")
 		}
 
-		let gvk = GroupVersionKind(rawValue: "\(apiVersionString)/\(kindString)")
+		let gvk = GroupVersionKind(of: "\(apiVersionString)/\(kindString)")
 
 		let decoded: KubernetesAPIResource
 		switch gvk {
 
-		case .coreV1Binding:
+		case GroupVersionKind.coreV1Binding:
 			decoded = try core.v1.Binding(from: decoder)
-		case .coreV1ComponentStatus:
+		case GroupVersionKind.coreV1ComponentStatus:
 			decoded = try core.v1.ComponentStatus(from: decoder)
-		case .coreV1ConfigMap:
+		case GroupVersionKind.coreV1ConfigMap:
 			decoded = try core.v1.ConfigMap(from: decoder)
-		case .coreV1Endpoints:
+		case GroupVersionKind.coreV1Endpoints:
 			decoded = try core.v1.Endpoints(from: decoder)
-		case .coreV1Event:
+		case GroupVersionKind.coreV1Event:
 			decoded = try core.v1.Event(from: decoder)
-		case .coreV1LimitRange:
+		case GroupVersionKind.coreV1LimitRange:
 			decoded = try core.v1.LimitRange(from: decoder)
-		case .coreV1Namespace:
+		case GroupVersionKind.coreV1Namespace:
 			decoded = try core.v1.Namespace(from: decoder)
-		case .coreV1Node:
+		case GroupVersionKind.coreV1Node:
 			decoded = try core.v1.Node(from: decoder)
-		case .coreV1PersistentVolume:
+		case GroupVersionKind.coreV1PersistentVolume:
 			decoded = try core.v1.PersistentVolume(from: decoder)
-		case .coreV1PersistentVolumeClaim:
+		case GroupVersionKind.coreV1PersistentVolumeClaim:
 			decoded = try core.v1.PersistentVolumeClaim(from: decoder)
-		case .coreV1Pod:
+		case GroupVersionKind.coreV1Pod:
 			decoded = try core.v1.Pod(from: decoder)
-		case .coreV1PodTemplate:
+		case GroupVersionKind.coreV1PodTemplate:
 			decoded = try core.v1.PodTemplate(from: decoder)
-		case .coreV1ReplicationController:
+		case GroupVersionKind.coreV1ReplicationController:
 			decoded = try core.v1.ReplicationController(from: decoder)
-		case .coreV1ResourceQuota:
+		case GroupVersionKind.coreV1ResourceQuota:
 			decoded = try core.v1.ResourceQuota(from: decoder)
-		case .coreV1Secret:
+		case GroupVersionKind.coreV1Secret:
 			decoded = try core.v1.Secret(from: decoder)
-		case .coreV1Service:
+		case GroupVersionKind.coreV1Service:
 			decoded = try core.v1.Service(from: decoder)
-		case .coreV1ServiceAccount:
+		case GroupVersionKind.coreV1ServiceAccount:
 			decoded = try core.v1.ServiceAccount(from: decoder)
-		case .admissionregistrationV1MutatingWebhookConfiguration:
+		case GroupVersionKind.admissionregistrationV1MutatingWebhookConfiguration:
 			decoded = try admissionregistration.v1.MutatingWebhookConfiguration(from: decoder)
-		case .admissionregistrationV1ValidatingWebhookConfiguration:
+		case GroupVersionKind.admissionregistrationV1ValidatingWebhookConfiguration:
 			decoded = try admissionregistration.v1.ValidatingWebhookConfiguration(from: decoder)
-		case .apiextensionsV1CustomResourceDefinition:
+		case GroupVersionKind.apiextensionsV1CustomResourceDefinition:
 			decoded = try apiextensions.v1.CustomResourceDefinition(from: decoder)
-		case .apiregistrationV1APIService:
+		case GroupVersionKind.apiregistrationV1APIService:
 			decoded = try apiregistration.v1.APIService(from: decoder)
-		case .appsV1ControllerRevision:
+		case GroupVersionKind.appsV1ControllerRevision:
 			decoded = try apps.v1.ControllerRevision(from: decoder)
-		case .appsV1DaemonSet:
+		case GroupVersionKind.appsV1DaemonSet:
 			decoded = try apps.v1.DaemonSet(from: decoder)
-		case .appsV1Deployment:
+		case GroupVersionKind.appsV1Deployment:
 			decoded = try apps.v1.Deployment(from: decoder)
-		case .appsV1ReplicaSet:
+		case GroupVersionKind.appsV1ReplicaSet:
 			decoded = try apps.v1.ReplicaSet(from: decoder)
-		case .appsV1StatefulSet:
+		case GroupVersionKind.appsV1StatefulSet:
 			decoded = try apps.v1.StatefulSet(from: decoder)
-		case .authenticationV1TokenRequest:
+		case GroupVersionKind.authenticationV1TokenRequest:
 			decoded = try authentication.v1.TokenRequest(from: decoder)
-		case .authenticationV1TokenReview:
+		case GroupVersionKind.authenticationV1TokenReview:
 			decoded = try authentication.v1.TokenReview(from: decoder)
-		case .authorizationV1LocalSubjectAccessReview:
+		case GroupVersionKind.authorizationV1LocalSubjectAccessReview:
 			decoded = try authorization.v1.LocalSubjectAccessReview(from: decoder)
-		case .authorizationV1SelfSubjectAccessReview:
+		case GroupVersionKind.authorizationV1SelfSubjectAccessReview:
 			decoded = try authorization.v1.SelfSubjectAccessReview(from: decoder)
-		case .authorizationV1SelfSubjectRulesReview:
+		case GroupVersionKind.authorizationV1SelfSubjectRulesReview:
 			decoded = try authorization.v1.SelfSubjectRulesReview(from: decoder)
-		case .authorizationV1SubjectAccessReview:
+		case GroupVersionKind.authorizationV1SubjectAccessReview:
 			decoded = try authorization.v1.SubjectAccessReview(from: decoder)
-		case .autoscalingV1HorizontalPodAutoscaler:
+		case GroupVersionKind.autoscalingV1HorizontalPodAutoscaler:
 			decoded = try autoscaling.v1.HorizontalPodAutoscaler(from: decoder)
-		case .autoscalingV2Beta2HorizontalPodAutoscaler:
+		case GroupVersionKind.autoscalingV2Beta2HorizontalPodAutoscaler:
 			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler(from: decoder)
-		case .autoscalingV2Beta1HorizontalPodAutoscaler:
+		case GroupVersionKind.autoscalingV2Beta1HorizontalPodAutoscaler:
 			decoded = try autoscaling.v2beta1.HorizontalPodAutoscaler(from: decoder)
-		case .batchV1CronJob:
+		case GroupVersionKind.batchV1CronJob:
 			decoded = try batch.v1.CronJob(from: decoder)
-		case .batchV1Job:
+		case GroupVersionKind.batchV1Job:
 			decoded = try batch.v1.Job(from: decoder)
-		case .batchV1Beta1CronJob:
+		case GroupVersionKind.batchV1Beta1CronJob:
 			decoded = try batch.v1beta1.CronJob(from: decoder)
-		case .certificatesV1CertificateSigningRequest:
+		case GroupVersionKind.certificatesV1CertificateSigningRequest:
 			decoded = try certificates.v1.CertificateSigningRequest(from: decoder)
-		case .coordinationV1Lease:
+		case GroupVersionKind.coordinationV1Lease:
 			decoded = try coordination.v1.Lease(from: decoder)
-		case .discoveryV1EndpointSlice:
+		case GroupVersionKind.discoveryV1EndpointSlice:
 			decoded = try discovery.v1.EndpointSlice(from: decoder)
-		case .discoveryV1Beta1EndpointSlice:
+		case GroupVersionKind.discoveryV1Beta1EndpointSlice:
 			decoded = try discovery.v1beta1.EndpointSlice(from: decoder)
-		case .eventsV1Event:
+		case GroupVersionKind.eventsV1Event:
 			decoded = try events.v1.Event(from: decoder)
-		case .eventsV1Beta1Event:
+		case GroupVersionKind.eventsV1Beta1Event:
 			decoded = try events.v1beta1.Event(from: decoder)
-		case .flowcontrolV1Beta1FlowSchema:
+		case GroupVersionKind.flowcontrolV1Beta1FlowSchema:
 			decoded = try flowcontrol.v1beta1.FlowSchema(from: decoder)
-		case .flowcontrolV1Beta1PriorityLevelConfiguration:
+		case GroupVersionKind.flowcontrolV1Beta1PriorityLevelConfiguration:
 			decoded = try flowcontrol.v1beta1.PriorityLevelConfiguration(from: decoder)
-		case .internalV1Alpha1StorageVersion:
+		case GroupVersionKind.internalV1Alpha1StorageVersion:
 			decoded = try `internal`.v1alpha1.StorageVersion(from: decoder)
-		case .networkingV1Ingress:
+		case GroupVersionKind.networkingV1Ingress:
 			decoded = try networking.v1.Ingress(from: decoder)
-		case .networkingV1IngressClass:
+		case GroupVersionKind.networkingV1IngressClass:
 			decoded = try networking.v1.IngressClass(from: decoder)
-		case .networkingV1NetworkPolicy:
+		case GroupVersionKind.networkingV1NetworkPolicy:
 			decoded = try networking.v1.NetworkPolicy(from: decoder)
-		case .nodeV1RuntimeClass:
+		case GroupVersionKind.nodeV1RuntimeClass:
 			decoded = try node.v1.RuntimeClass(from: decoder)
-		case .nodeV1Beta1RuntimeClass:
+		case GroupVersionKind.nodeV1Beta1RuntimeClass:
 			decoded = try node.v1beta1.RuntimeClass(from: decoder)
-		case .nodeV1Alpha1RuntimeClass:
+		case GroupVersionKind.nodeV1Alpha1RuntimeClass:
 			decoded = try node.v1alpha1.RuntimeClass(from: decoder)
-		case .policyV1PodDisruptionBudget:
+		case GroupVersionKind.policyV1PodDisruptionBudget:
 			decoded = try policy.v1.PodDisruptionBudget(from: decoder)
-		case .policyV1Beta1PodDisruptionBudget:
+		case GroupVersionKind.policyV1Beta1PodDisruptionBudget:
 			decoded = try policy.v1beta1.PodDisruptionBudget(from: decoder)
-		case .policyV1Beta1PodSecurityPolicy:
+		case GroupVersionKind.policyV1Beta1PodSecurityPolicy:
 			decoded = try policy.v1beta1.PodSecurityPolicy(from: decoder)
-		case .rbacV1ClusterRole:
+		case GroupVersionKind.rbacV1ClusterRole:
 			decoded = try rbac.v1.ClusterRole(from: decoder)
-		case .rbacV1ClusterRoleBinding:
+		case GroupVersionKind.rbacV1ClusterRoleBinding:
 			decoded = try rbac.v1.ClusterRoleBinding(from: decoder)
-		case .rbacV1Role:
+		case GroupVersionKind.rbacV1Role:
 			decoded = try rbac.v1.Role(from: decoder)
-		case .rbacV1RoleBinding:
+		case GroupVersionKind.rbacV1RoleBinding:
 			decoded = try rbac.v1.RoleBinding(from: decoder)
-		case .rbacV1Alpha1ClusterRole:
+		case GroupVersionKind.rbacV1Alpha1ClusterRole:
 			decoded = try rbac.v1alpha1.ClusterRole(from: decoder)
-		case .rbacV1Alpha1ClusterRoleBinding:
+		case GroupVersionKind.rbacV1Alpha1ClusterRoleBinding:
 			decoded = try rbac.v1alpha1.ClusterRoleBinding(from: decoder)
-		case .rbacV1Alpha1Role:
+		case GroupVersionKind.rbacV1Alpha1Role:
 			decoded = try rbac.v1alpha1.Role(from: decoder)
-		case .rbacV1Alpha1RoleBinding:
+		case GroupVersionKind.rbacV1Alpha1RoleBinding:
 			decoded = try rbac.v1alpha1.RoleBinding(from: decoder)
-		case .schedulingV1PriorityClass:
+		case GroupVersionKind.schedulingV1PriorityClass:
 			decoded = try scheduling.v1.PriorityClass(from: decoder)
-		case .schedulingV1Alpha1PriorityClass:
+		case GroupVersionKind.schedulingV1Alpha1PriorityClass:
 			decoded = try scheduling.v1alpha1.PriorityClass(from: decoder)
-		case .storageV1CSIDriver:
+		case GroupVersionKind.storageV1CSIDriver:
 			decoded = try storage.v1.CSIDriver(from: decoder)
-		case .storageV1CSINode:
+		case GroupVersionKind.storageV1CSINode:
 			decoded = try storage.v1.CSINode(from: decoder)
-		case .storageV1StorageClass:
+		case GroupVersionKind.storageV1StorageClass:
 			decoded = try storage.v1.StorageClass(from: decoder)
-		case .storageV1VolumeAttachment:
+		case GroupVersionKind.storageV1VolumeAttachment:
 			decoded = try storage.v1.VolumeAttachment(from: decoder)
-		case .storageV1Beta1CSIStorageCapacity:
+		case GroupVersionKind.storageV1Beta1CSIStorageCapacity:
 			decoded = try storage.v1beta1.CSIStorageCapacity(from: decoder)
-		case .storageV1Alpha1CSIStorageCapacity:
+		case GroupVersionKind.storageV1Alpha1CSIStorageCapacity:
 			decoded = try storage.v1alpha1.CSIStorageCapacity(from: decoder)
-		case .storageV1Alpha1VolumeAttachment:
+		case GroupVersionKind.storageV1Alpha1VolumeAttachment:
 			decoded = try storage.v1alpha1.VolumeAttachment(from: decoder)
 		default:
 			let context = DecodingError.Context(

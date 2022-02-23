@@ -48,7 +48,7 @@ public protocol KubernetesResourceList: Codable {
 public protocol MetadataHavingResource: KubernetesResource {
 	/// The `meta.v1.ObjectMeta` object.
 	var metadata: meta.v1.ObjectMeta? { get }
-	/// The resurce's name, i.e. `metadata.name`.
+	/// The resource's name, i.e. `metadata.name`.
 	var name: String? { get }
 }
 
