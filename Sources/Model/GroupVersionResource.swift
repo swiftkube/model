@@ -29,10 +29,30 @@ public struct GroupVersionResource {
 	/// The plural name of the resource.
 	public let resource: String
 
+	/// Creates a new GroupVersionResource given its parts.
+	/// - Parameters:
+	///   - group: The group of the resource.
+	///   - version: The version of the resource.
+	///   - resource: The plural name of the resource.
+	public init(group: String, version: String, resource: String) {
+		self.group = group
+		self.version = version
+		self.resource = resource
+	}
+
+	/// The API Version of this GroupVersionResource.
+	public var apiVersion: String {
+		if group == "core" {
+			return version
+		} else {
+			return "\(group)/\(version)"
+		}
+	}
+
 	/// The URL path prefix for this APIVersion.
 	///
 	/// `/api` for the legacy `core` group and `/apis` for the named groups.
-	var urlPathPrefix: String {
+	public var urlPathPrefix: String {
 		if group == "core" {
 			return "/api"
 		} else {
@@ -41,7 +61,7 @@ public struct GroupVersionResource {
 	}
 
 	/// The URL path for this APIVersion in the form of `/api/version` or `/apis/group/version`.
-	var urlPath: String {
+	public var urlPath: String {
 		if group == "core" {
 			return "\(urlPathPrefix)/\(version)"
 		} else {
