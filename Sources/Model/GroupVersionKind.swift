@@ -19,7 +19,7 @@ import Foundation
 // MARK: - GroupVersionKind
 
 ///
-/// GroupVersionKind unambiguously identifies a resource.
+/// GroupVersionKind unambiguously identifies a kind.
 ///
 public struct GroupVersionKind: Equatable {
 	/// The group of the resource.
@@ -67,6 +67,26 @@ public struct GroupVersionKind: Equatable {
 		}
 	}
 
+	/// The URL path prefix for this APIVersion.
+	///
+	/// `/api` for the legacy `core` group and `/apis` for the named groups.
+	var urlPathPrefix: String {
+		if group == "core" {
+			return "/api"
+		} else {
+			return "/apis"
+		}
+	}
+
+	/// The URL path for this APIVersion in the form of `/api/version` or `/apis/group/version`.
+	var urlPath: String {
+		if group == "core" {
+			return "\(urlPathPrefix)/\(version)"
+		} else {
+			return "\(urlPathPrefix)/\(group)/\(version)"
+		}
+	}
+
 	public var groupKind: GroupKind {
 		GroupKind(group: group, kind: kind)
 	}
@@ -74,17 +94,6 @@ public struct GroupVersionKind: Equatable {
 	public var groupVersion: GroupVersion {
 		GroupVersion(group: group, version: version)
 	}
-}
-
-// MARK: - GroupVersionResource
-
-///
-/// GroupVersionResource unambiguously identifies a resource.
-///
-public struct GroupVersionResource {
-	public let group: String
-	public let version: String
-	public let resource: String
 }
 
 // MARK: - GroupKind

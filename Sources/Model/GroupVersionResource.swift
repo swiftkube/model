@@ -16,7 +16,18 @@
 
 import Foundation
 
-public extension GroupVersionKind {
+// MARK: - GroupVersionResource
+
+///
+/// GroupVersionResource unambiguously identifies a resource.
+///
+public struct GroupVersionResource {
+	/// The group of the resource.
+	public let group: String
+	/// The version of the resource.
+	public let version: String
+	/// The plural name of the resource.
+	public let resource: String
 
 	/// The URL path prefix for this APIVersion.
 	///
