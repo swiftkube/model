@@ -14,11 +14,15 @@ let package = Package(
 			targets: ["SwiftkubeModel"]
 		),
 	],
-	dependencies: [],
+	dependencies: [
+		.package(url: "https://github.com/Flight-School/AnyCodable", from: "0.6.0"),
+	],
 	targets: [
 		.target(
 			name: "SwiftkubeModel",
-			dependencies: [],
+			dependencies: [
+				.product(name: "AnyCodable", package: "AnyCodable")
+			],
 			path: "Sources"
 		),
 		.testTarget(
