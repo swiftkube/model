@@ -21,7 +21,7 @@ import Foundation
 ///
 /// GroupVersionResource unambiguously identifies a resource.
 ///
-public struct GroupVersionResource {
+public struct GroupVersionResource: Equatable {
 	/// The group of the resource.
 	public let group: String
 	/// The version of the resource.
@@ -38,6 +38,25 @@ public struct GroupVersionResource {
 		self.group = group
 		self.version = version
 		self.resource = resource
+	}
+
+	/// Create a new GroupVersionResource given its `apiVersion` and `resource`.
+	/// - Parameter apiVersion: The `apiVersion` of the GVR, e.g. apps/v1
+	/// - Parameter resource: The plural name of the resource.
+	public init?(apiVersion: String, resource: String) {
+		let parts = apiVersion.split(separator: "/")
+
+		if parts.count == 1 {
+			self.group = "core"
+			self.version = String(parts[0])
+			self.resource = resource
+		} else if parts.count == 2 {
+			self.group = String(parts[0])
+			self.version = String(parts[1])
+			self.resource = resource
+		} else {
+			return nil
+		}
 	}
 
 	/// The API Version of this GroupVersionResource.

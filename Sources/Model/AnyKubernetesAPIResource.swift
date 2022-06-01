@@ -70,12 +70,18 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 			decodedKind = decoder.userInfo[CodingUserInfoKey.kind] as? String
 		}
 
-		guard let apiVersionString = decodedAPIVersion, let kindString = decodedKind else {
-			throw SwiftkubeModelError.decodingError("Couldn't decode apiVersion and/or kind at: \(container.codingPath)")
+		let decodedPluralName = decoder.userInfo[CodingUserInfoKey.resources] as? String
+
+		if let apiVersion = decodedAPIVersion, let kind = decodedKind {
+			try self.init(gvk: GroupVersionKind(apiVersion: apiVersion, kind: kind), decoder: decoder)
+		} else if let apiVersion = decodedAPIVersion, let pluralName = decodedPluralName {
+			try self.init(gvr: GroupVersionResource(apiVersion: apiVersion, resource: pluralName), decoder: decoder)
+		} else {
+			throw SwiftkubeModelError.decodingError("Couldn't decode resource at: \(container.codingPath)")
 		}
+	}
 
-		let gvk = GroupVersionKind(of: "\(apiVersionString)/\(kindString)")
-
+	public init(gvk: GroupVersionKind?, decoder: Decoder) throws {
 		let decoded: KubernetesAPIResource
 		switch gvk {
 
@@ -226,11 +232,164 @@ public struct AnyKubernetesAPIResource: KubernetesAPIResource {
 		case GroupVersionKind.storageV1Alpha1VolumeAttachment:
 			decoded = try storage.v1alpha1.VolumeAttachment(from: decoder)
 		default:
-			let context = DecodingError.Context(
-				codingPath: [CodingKeys.apiVersion, CodingKeys.kind],
-				debugDescription: "Unknown Kubernetes object gvk: \(String(describing: gvk))"
-			)
-			throw DecodingError.dataCorrupted(context)
+			decoded = try UnstructuredResource(from: decoder)
+		}
+
+		self.init(decoded)
+	}
+
+	public init(gvr: GroupVersionResource?, decoder: Decoder) throws {
+		let decoded: KubernetesAPIResource
+		switch gvr {
+
+		case GroupVersionResource.coreV1Binding:
+			decoded = try core.v1.Binding(from: decoder)
+		case GroupVersionResource.coreV1ComponentStatus:
+			decoded = try core.v1.ComponentStatus(from: decoder)
+		case GroupVersionResource.coreV1ConfigMap:
+			decoded = try core.v1.ConfigMap(from: decoder)
+		case GroupVersionResource.coreV1Endpoints:
+			decoded = try core.v1.Endpoints(from: decoder)
+		case GroupVersionResource.coreV1Event:
+			decoded = try core.v1.Event(from: decoder)
+		case GroupVersionResource.coreV1LimitRange:
+			decoded = try core.v1.LimitRange(from: decoder)
+		case GroupVersionResource.coreV1Namespace:
+			decoded = try core.v1.Namespace(from: decoder)
+		case GroupVersionResource.coreV1Node:
+			decoded = try core.v1.Node(from: decoder)
+		case GroupVersionResource.coreV1PersistentVolume:
+			decoded = try core.v1.PersistentVolume(from: decoder)
+		case GroupVersionResource.coreV1PersistentVolumeClaim:
+			decoded = try core.v1.PersistentVolumeClaim(from: decoder)
+		case GroupVersionResource.coreV1Pod:
+			decoded = try core.v1.Pod(from: decoder)
+		case GroupVersionResource.coreV1PodTemplate:
+			decoded = try core.v1.PodTemplate(from: decoder)
+		case GroupVersionResource.coreV1ReplicationController:
+			decoded = try core.v1.ReplicationController(from: decoder)
+		case GroupVersionResource.coreV1ResourceQuota:
+			decoded = try core.v1.ResourceQuota(from: decoder)
+		case GroupVersionResource.coreV1Secret:
+			decoded = try core.v1.Secret(from: decoder)
+		case GroupVersionResource.coreV1Service:
+			decoded = try core.v1.Service(from: decoder)
+		case GroupVersionResource.coreV1ServiceAccount:
+			decoded = try core.v1.ServiceAccount(from: decoder)
+		case GroupVersionResource.admissionregistrationV1MutatingWebhookConfiguration:
+			decoded = try admissionregistration.v1.MutatingWebhookConfiguration(from: decoder)
+		case GroupVersionResource.admissionregistrationV1ValidatingWebhookConfiguration:
+			decoded = try admissionregistration.v1.ValidatingWebhookConfiguration(from: decoder)
+		case GroupVersionResource.apiextensionsV1CustomResourceDefinition:
+			decoded = try apiextensions.v1.CustomResourceDefinition(from: decoder)
+		case GroupVersionResource.apiregistrationV1APIService:
+			decoded = try apiregistration.v1.APIService(from: decoder)
+		case GroupVersionResource.appsV1ControllerRevision:
+			decoded = try apps.v1.ControllerRevision(from: decoder)
+		case GroupVersionResource.appsV1DaemonSet:
+			decoded = try apps.v1.DaemonSet(from: decoder)
+		case GroupVersionResource.appsV1Deployment:
+			decoded = try apps.v1.Deployment(from: decoder)
+		case GroupVersionResource.appsV1ReplicaSet:
+			decoded = try apps.v1.ReplicaSet(from: decoder)
+		case GroupVersionResource.appsV1StatefulSet:
+			decoded = try apps.v1.StatefulSet(from: decoder)
+		case GroupVersionResource.authenticationV1TokenRequest:
+			decoded = try authentication.v1.TokenRequest(from: decoder)
+		case GroupVersionResource.authenticationV1TokenReview:
+			decoded = try authentication.v1.TokenReview(from: decoder)
+		case GroupVersionResource.authorizationV1LocalSubjectAccessReview:
+			decoded = try authorization.v1.LocalSubjectAccessReview(from: decoder)
+		case GroupVersionResource.authorizationV1SelfSubjectAccessReview:
+			decoded = try authorization.v1.SelfSubjectAccessReview(from: decoder)
+		case GroupVersionResource.authorizationV1SelfSubjectRulesReview:
+			decoded = try authorization.v1.SelfSubjectRulesReview(from: decoder)
+		case GroupVersionResource.authorizationV1SubjectAccessReview:
+			decoded = try authorization.v1.SubjectAccessReview(from: decoder)
+		case GroupVersionResource.autoscalingV1HorizontalPodAutoscaler:
+			decoded = try autoscaling.v1.HorizontalPodAutoscaler(from: decoder)
+		case GroupVersionResource.autoscalingV2Beta2HorizontalPodAutoscaler:
+			decoded = try autoscaling.v2beta2.HorizontalPodAutoscaler(from: decoder)
+		case GroupVersionResource.autoscalingV2Beta1HorizontalPodAutoscaler:
+			decoded = try autoscaling.v2beta1.HorizontalPodAutoscaler(from: decoder)
+		case GroupVersionResource.batchV1CronJob:
+			decoded = try batch.v1.CronJob(from: decoder)
+		case GroupVersionResource.batchV1Job:
+			decoded = try batch.v1.Job(from: decoder)
+		case GroupVersionResource.batchV1Beta1CronJob:
+			decoded = try batch.v1beta1.CronJob(from: decoder)
+		case GroupVersionResource.certificatesV1CertificateSigningRequest:
+			decoded = try certificates.v1.CertificateSigningRequest(from: decoder)
+		case GroupVersionResource.coordinationV1Lease:
+			decoded = try coordination.v1.Lease(from: decoder)
+		case GroupVersionResource.discoveryV1EndpointSlice:
+			decoded = try discovery.v1.EndpointSlice(from: decoder)
+		case GroupVersionResource.discoveryV1Beta1EndpointSlice:
+			decoded = try discovery.v1beta1.EndpointSlice(from: decoder)
+		case GroupVersionResource.eventsV1Event:
+			decoded = try events.v1.Event(from: decoder)
+		case GroupVersionResource.eventsV1Beta1Event:
+			decoded = try events.v1beta1.Event(from: decoder)
+		case GroupVersionResource.flowcontrolV1Beta1FlowSchema:
+			decoded = try flowcontrol.v1beta1.FlowSchema(from: decoder)
+		case GroupVersionResource.flowcontrolV1Beta1PriorityLevelConfiguration:
+			decoded = try flowcontrol.v1beta1.PriorityLevelConfiguration(from: decoder)
+		case GroupVersionResource.internalV1Alpha1StorageVersion:
+			decoded = try `internal`.v1alpha1.StorageVersion(from: decoder)
+		case GroupVersionResource.networkingV1Ingress:
+			decoded = try networking.v1.Ingress(from: decoder)
+		case GroupVersionResource.networkingV1IngressClass:
+			decoded = try networking.v1.IngressClass(from: decoder)
+		case GroupVersionResource.networkingV1NetworkPolicy:
+			decoded = try networking.v1.NetworkPolicy(from: decoder)
+		case GroupVersionResource.nodeV1RuntimeClass:
+			decoded = try node.v1.RuntimeClass(from: decoder)
+		case GroupVersionResource.nodeV1Beta1RuntimeClass:
+			decoded = try node.v1beta1.RuntimeClass(from: decoder)
+		case GroupVersionResource.nodeV1Alpha1RuntimeClass:
+			decoded = try node.v1alpha1.RuntimeClass(from: decoder)
+		case GroupVersionResource.policyV1PodDisruptionBudget:
+			decoded = try policy.v1.PodDisruptionBudget(from: decoder)
+		case GroupVersionResource.policyV1Beta1PodDisruptionBudget:
+			decoded = try policy.v1beta1.PodDisruptionBudget(from: decoder)
+		case GroupVersionResource.policyV1Beta1PodSecurityPolicy:
+			decoded = try policy.v1beta1.PodSecurityPolicy(from: decoder)
+		case GroupVersionResource.rbacV1ClusterRole:
+			decoded = try rbac.v1.ClusterRole(from: decoder)
+		case GroupVersionResource.rbacV1ClusterRoleBinding:
+			decoded = try rbac.v1.ClusterRoleBinding(from: decoder)
+		case GroupVersionResource.rbacV1Role:
+			decoded = try rbac.v1.Role(from: decoder)
+		case GroupVersionResource.rbacV1RoleBinding:
+			decoded = try rbac.v1.RoleBinding(from: decoder)
+		case GroupVersionResource.rbacV1Alpha1ClusterRole:
+			decoded = try rbac.v1alpha1.ClusterRole(from: decoder)
+		case GroupVersionResource.rbacV1Alpha1ClusterRoleBinding:
+			decoded = try rbac.v1alpha1.ClusterRoleBinding(from: decoder)
+		case GroupVersionResource.rbacV1Alpha1Role:
+			decoded = try rbac.v1alpha1.Role(from: decoder)
+		case GroupVersionResource.rbacV1Alpha1RoleBinding:
+			decoded = try rbac.v1alpha1.RoleBinding(from: decoder)
+		case GroupVersionResource.schedulingV1PriorityClass:
+			decoded = try scheduling.v1.PriorityClass(from: decoder)
+		case GroupVersionResource.schedulingV1Alpha1PriorityClass:
+			decoded = try scheduling.v1alpha1.PriorityClass(from: decoder)
+		case GroupVersionResource.storageV1CSIDriver:
+			decoded = try storage.v1.CSIDriver(from: decoder)
+		case GroupVersionResource.storageV1CSINode:
+			decoded = try storage.v1.CSINode(from: decoder)
+		case GroupVersionResource.storageV1StorageClass:
+			decoded = try storage.v1.StorageClass(from: decoder)
+		case GroupVersionResource.storageV1VolumeAttachment:
+			decoded = try storage.v1.VolumeAttachment(from: decoder)
+		case GroupVersionResource.storageV1Beta1CSIStorageCapacity:
+			decoded = try storage.v1beta1.CSIStorageCapacity(from: decoder)
+		case GroupVersionResource.storageV1Alpha1CSIStorageCapacity:
+			decoded = try storage.v1alpha1.CSIStorageCapacity(from: decoder)
+		case GroupVersionResource.storageV1Alpha1VolumeAttachment:
+			decoded = try storage.v1alpha1.VolumeAttachment(from: decoder)
+		default:
+			decoded = try UnstructuredResource(from: decoder)
 		}
 
 		self.init(decoded)

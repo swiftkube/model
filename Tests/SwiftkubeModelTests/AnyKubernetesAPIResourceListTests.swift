@@ -62,12 +62,12 @@ final class AnyKubernetesAPIResourceListTests: XCTestCase {
 
 		let resource = AnyKubernetesAPIResource(pod)
 		let list = AnyKubernetesAPIResourceList(apiVersion: "v1", kind: "PodList", metadata: nil, items: [resource])
-		let data = try? JSONEncoder().encode(list)
+		let data = try! JSONEncoder().encode(list)
 
-		let roundtrip = try? JSONDecoder().decode(AnyKubernetesAPIResourceList.self, from: data!)
-		XCTAssertEqual(roundtrip?.apiVersion, list.apiVersion)
-		XCTAssertEqual(roundtrip?.kind, list.kind)
-		XCTAssertEqual(roundtrip?.items[0].apiVersion, roundtrip?.items[0].apiVersion)
-		XCTAssertEqual(roundtrip?.items[0].kind, roundtrip?.items[0].kind)
+		let roundtrip = try! JSONDecoder().decode(AnyKubernetesAPIResourceList.self, from: data)
+		XCTAssertEqual(roundtrip.apiVersion, list.apiVersion)
+		XCTAssertEqual(roundtrip.kind, list.kind)
+		XCTAssertEqual(roundtrip.items[0].apiVersion, roundtrip.items[0].apiVersion)
+		XCTAssertEqual(roundtrip.items[0].kind, roundtrip.items[0].kind)
 	}
 }

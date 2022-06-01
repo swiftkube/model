@@ -14,15 +14,36 @@
 // limitations under the License.
 //
 
+import AnyCodable
 import Foundation
 
-class UnstructuredResource: KubernetesAPIResource {
+// MARK: - UnstructuredResource
+
+/// Unstructured allows objects that do not have registered `KubernetesAPIResource`s to be manipulated
+/// generically. This can be used to deal with the API objects from a plug-in. Unstructured
+/// objects still have functioning TypeMeta features-- kind, version, etc.
+///
+@dynamicMemberLookup
+public struct UnstructuredResource: KubernetesAPIResource {
+
+	private var properties = [String: AnyCodable]()
 
 	/// This resource's `apiVersion`.
-	public var apiVersion: String
+	public var apiVersion: String {
+		properties["apiVersion"]?.value as? String ?? ""
+	}
 
 	/// This resource's `kind`.
-	public var kind: String
+	public var kind: String {
+		properties["kind"]?.value as? String ?? ""
+	}
 
-	public var metadata: meta.v1.ObjectMeta?
+	/// This associated `metadata` of this resource.
+	public var metadata: meta.v1.ObjectMeta? {
+		properties["metadata"]?.value as? meta.v1.ObjectMeta
+	}
+
+	public subscript<T>(dynamicMember key: String) -> T? {
+		properties[key]?.value as? T
+	}
 }

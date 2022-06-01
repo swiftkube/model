@@ -40,6 +40,24 @@ public struct GroupVersionKind: Equatable {
 		self.kind = kind
 	}
 
+	/// Create a new GroupVersionKind given an APIVersion and Kind.
+	/// - Parameter rawValue: The raw string representation of the GVK, e.g. apps/v1/Deployment
+	public init?(apiVersion: String, kind: String) {
+		let parts = apiVersion.split(separator: "/")
+
+		if parts.count == 1 {
+			self.group = "core"
+			self.version = String(parts[0])
+			self.kind = kind
+		} else if parts.count == 2 {
+			self.group = String(parts[0])
+			self.version = String(parts[1])
+			self.kind = kind
+		} else {
+			return nil
+		}
+	}
+
 	/// Create a new GroupVersionKind given its raw string representation.
 	/// - Parameter rawValue: The raw string representation of the GVK, e.g. apps/v1/Deployment
 	public init?(of rawValue: String) {

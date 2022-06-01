@@ -76,4 +76,13 @@ public struct AnyKubernetesAPIResourceList: KubernetesResourceList {
 
 		self.init(apiVersion: apiVersion, kind: kind, metadata: metadata, items: items)
 	}
+
+	public func encode(to encoder: Encoder) throws {
+		var encodingContainer = encoder.container(keyedBy: CodingKeys.self)
+
+		try encodingContainer.encode(apiVersion, forKey: .apiVersion)
+		try encodingContainer.encode(kind, forKey: .kind)
+		try encodingContainer.encodeIfPresent(metadata, forKey: .metadata)
+		try encodingContainer.encode(items, forKey: .items)
+	}
 }
