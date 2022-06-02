@@ -19,7 +19,7 @@
 /// Kubernetes v1.22.7
 /// apiextensions.v1.CustomResourceValidation
 ///
-import AnyCodable
+
 import Foundation
 
 public extension apiextensions.v1 {
@@ -31,12 +31,12 @@ public extension apiextensions.v1 {
 		///
 		/// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 		///
-		public var openAPIV3Schema: [String: AnyCodable]?
+		public var openAPIV3Schema: [String: Any]?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
-			openAPIV3Schema: [String: AnyCodable]? = nil
+			openAPIV3Schema: [String: Any]? = nil
 		) {
 			self.openAPIV3Schema = openAPIV3Schema
 		}
@@ -55,7 +55,7 @@ public extension apiextensions.v1.CustomResourceValidation {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.openAPIV3Schema = try container.decodeIfPresent([String: AnyCodable].self, forKey: .openAPIV3Schema)
+		self.openAPIV3Schema = try container.decodeIfPresent([String: Any].self, forKey: .openAPIV3Schema)
 	}
 
 	func encode(to encoder: Encoder) throws {
