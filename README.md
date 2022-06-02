@@ -36,14 +36,16 @@
 - [x] `Codable` support
 - [x] Closure-based builders for convenient object composition
 - [x] Type-erased wrappers for Kubernetes resources
+- [x] `UnstructuredResource` type for handling any Kubernetes resource
 
 ## Compatibility Matrix
 
-|                                         | <1.18.9 | 1.18.9 - 1.18.13 | 1.19.8 | 1.20.9 |
-|----------------------------------|-----------|-----------------------|----------|----------|
-| SwiftkubeModel 0.2.x      | -           | ✓                       | -          | -          |
-| SwiftkubeModel 0.3.x      | -           | -                         | ✓        | -          |
-| SwiftkubeModel 0.4.x      | -           | -                         | -          | ✓         | 
+|                      | <1.18.9 | 1.18.9 - 1.18.13 | 1.19.8 | 1.20.9 | 1.22.7 |
+|----------------------|---------|------------------|--------|--------|--------|
+| SwiftkubeModel 0.2.x | -       | ✓                | -      | -      | -      |
+| SwiftkubeModel 0.3.x | -       | -                | ✓      | -      | -      |
+| SwiftkubeModel 0.4.x | -       | -                | -      | ✓      | -      | 
+| SwiftkubeModel 0.5.x | -       | -                | -      | -      | ✓      | 
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the model and Kubernetes have in common will work.
@@ -347,6 +349,31 @@ let resource = try? JSONDecoder().decode(AnyKubernetesAPIResource.self, from: da
 let data = try? JSONEncoder().encode(resource) 
 ```
 
+`SwiftkubeModel` also provides the `UnstruturedResource`, that is used as fallback for any unknown Kubernetes resource, that can't be determined by its GVK or GVR.
+
+`UnstruturedResource` allows objects that do not have registered `KubernetesAPIResource`s to be manipulated generically. 
+This can be used to deal with the API objects from a plug-in or CRDs. 
+
+```swift
+let json = """
+  {
+    "apiVersion": "stable.example.com/v1",
+    "kind": "CronTab",
+    "metadata": {
+      "name": "my-new-cron-object",
+      "namespace": "default"
+    },
+     "spec": {
+       "cronSpec": "* * * * */5",
+       "image": "my-awesome-cron-image"
+     }
+  }
+"""
+
+let data = str.data(using: .utf8)!
+let cron = try? JSONDecoder().decode(UnstructuredResource.self, from: data)
+```
+
 ## Installation
 
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
@@ -363,7 +390,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.4.0")
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.5.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [
