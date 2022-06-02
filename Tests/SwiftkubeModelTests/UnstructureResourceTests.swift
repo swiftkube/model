@@ -15,7 +15,6 @@
 //
 
 @testable import SwiftkubeModel
-import AnyCodable
 import XCTest
 
 final class UnstructuredResourceTests: XCTestCase {

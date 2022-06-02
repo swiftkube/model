@@ -14,7 +14,6 @@
 // limitations under the License.
 //
 
-import AnyCodable
 import Foundation
 
 // MARK: - UnstructuredResource
