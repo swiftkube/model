@@ -27,7 +27,7 @@ jobs:
         run: set -o pipefail && xcodebuild -scheme SwiftkubeModel -destination "${{ matrix.destination }}" clean test | xcpretty
   linux:
     runs-on: ubuntu-18.04
-    container: swift:5.2
+    container: swift:5.5
     steps:
     - uses: actions/checkout@v2
     - name: Build
