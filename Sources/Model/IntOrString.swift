@@ -58,10 +58,10 @@ extension IntOrString: Codable {
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()
-        if let intValue = Int(value) {
-            try container.encode(intValue)
-        } else {
-            try container.encode(value)
-        }
+		if let intValue = Int(value) {
+			try container.encode(intValue)
+		} else {
+			try container.encode(value)
+		}
 	}
 }
