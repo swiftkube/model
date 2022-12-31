@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.6.0
+
+- Update to Kubernetes 1.24.8
+- Update to Swift 5.5
+
+## 0.5.2
+
+- Add GVK & GVR extensions for determining namespace scope
+
+## 0.5.1
+
+- Add GVR extension to construct instances given a string representation
+
+## 0.5.0
+
+- Update to Kubernetes v1.22.7
+- Change `GroupVersionKind` to struct instead of an enum
+- Introduce `GroupVersionResource` type
+- Improve handling of `UnstructuredResource`
+
 ## 0.4.0
 
 - Update to Kubernetes v1.20.9
