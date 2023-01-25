@@ -18,15 +18,27 @@ import Foundation
 
 // MARK: - UnstructuredResource
 
+///
 /// Unstructured allows objects that do not have registered `KubernetesAPIResource`s to
 /// be manipulated generically. This can be used to deal with the API objects from a plug-in.
 /// Unstructured objects still have functioning TypeMeta features-- kind, version, etc.
 ///
 @dynamicMemberLookup
-public struct UnstructuredResource: KubernetesAPIResource {
+public struct UnstructuredResource: KubernetesAPIResource, ListableResource {
 
-	private var properties = [String: Any]()
+	///
+	/// ListableResource.List associated type
+	///
+	public typealias List = UnstructuredResourceList
 
+	///
+	/// Dictionary holding this resource's unstructured representation
+	///
+	public let properties: Dictionary<String, Any>
+
+	/// Constructs an unstructured instance of a resource given a Dictionary representation.
+	///
+	/// - Parameter properties: A dictionary representation of the resource to construct.
 	public init(properties: Dictionary<String, Any>) {
 		self.properties = properties
 	}
@@ -41,7 +53,7 @@ public struct UnstructuredResource: KubernetesAPIResource {
 		properties["kind"] as? String ?? ""
 	}
 
-	/// This associated `metadata` of this resource.
+	/// This resource's `metadata`.
 	public var metadata: meta.v1.ObjectMeta? {
 		properties["metadata"] as? meta.v1.ObjectMeta
 	}

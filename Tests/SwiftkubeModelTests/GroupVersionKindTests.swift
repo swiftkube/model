@@ -35,15 +35,6 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.kind, "Deployment")
 	}
 
-	func testInitByAnyResourceInstance() {
-		let resource = AnyKubernetesAPIResource(apps.v1.Deployment())
-		let gvk = GroupVersionKind(of: resource)
-
-		XCTAssertEqual(gvk?.group, "apps")
-		XCTAssertEqual(gvk?.version, "v1")
-		XCTAssertEqual(gvk?.kind, "Deployment")
-	}
-
 	func testInitByString() {
 		let apiVersion = "v1"
 		let kind = "Pod"
