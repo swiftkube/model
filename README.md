@@ -47,9 +47,11 @@
 | SwiftkubeModel 0.4.x | -       | -                | -      | ✓      | -      | -      |
 | SwiftkubeModel 0.5.x | -       | -                | -      | -      | ✓      | -      |
 | SwiftkubeModel 0.6.x | -       | -                | -      | -      | -      | ✓      |
+| SwiftkubeModel 0.7.x | -       | -                | -      | -      | -      | ✓      |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
-- `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the model and Kubernetes have in common will work.
+- `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the
+- model and Kubernetes have in common will work.
 
 ## Usage
 
@@ -62,7 +64,9 @@ let metadata = meta.v1.ObjectMatadata(name: "swiftkube")
 let pod = core.v1.Pod(metadata: metadata)
 ```
 
-All the objects are namespaced according to their API group and version, e.g. `apps.v1.Deployment` or `networking.v1beta1.Ingress`. Which means, that for example `rbac.v1.Role` and `rbac.v1beta1.Role` are completely different objects.
+All the objects are namespaced according to their API group and version, e.g. `apps.v1.Deployment` or 
+`networking.v1beta1.Ingress`. Which means, that for example `rbac.v1.Role` and `rbac.v1beta1.Role` are completely 
+different objects.
 
 ### Examples
 
@@ -106,7 +110,8 @@ let configMap = core.v1.ConfigMap(
 )
 ```
 
-A more complete example of a `Deployment`, that defines `Probes`, `ResourceRequirements`, `Volumes` and `VolumeMounts` would look something like this:
+A more complete example of a `Deployment`, that defines `Probes`, `ResourceRequirements`, `Volumes` and `VolumeMounts` 
+would look something like this:
 
 ```swift
 let deployment = apps.v1.Deployment(
@@ -173,14 +178,17 @@ let deployment = apps.v1.Deployment(
 
 ### Builders
 
-From the above example it is clear, that a certain knowledge of all the subtypes and their API groups is required, in order to comose a complete manifest. Furthermore, Swift doesn't allow arbitrary arguments order.
+From the above example it is clear, that a certain knowledge of all the subtypes and their API groups is required, in 
+order to comose a complete manifest. Furthermore, Swift doesn't allow arbitrary arguments order.
 
-For this purpose `SwiftkubeModel` provides simple closure-based builder functions for convenience. All these functions reside under the `sk` namespace.
+For this purpose `SwiftkubeModel` provides simple closure-based builder functions for convenience. All these functions 
+reside under the `sk` namespace.
 
-> :warning: The syntax is not yet finalized and can break many times before v1.0.0 ships. This can also be replaced with Function/Result Builders, which is currently a WIP.
+> :warning: The syntax is not yet finalized and can break many times before v1.0.0 ships. This can also be replaced 
+> with Function/Result Builders, which is currently a WIP.
 
 
-> :warning: `SwiftkubeModel` currently provides conveniece builders only for the most common Kubernetes objects.
+> :warning: `SwiftkubeModel` currently provides convenience builders only for the most common Kubernetes objects.
 
 The above example would look like this:
 
@@ -232,7 +240,8 @@ let deployment = sk.deployment(name: "opa") {
 
 ### Extensions
 
-In addition to closure-based builders, `SwiftkubeModel` extends the Model objects with some convenience functions, *inspired by [cdk8s](https://cdk8s.io)*
+In addition to closure-based builders, `SwiftkubeModel` extends the Model objects with some convenience functions, 
+*inspired by [cdk8s](https://cdk8s.io)*
 
 #### core.v1.ConfigMap
 
@@ -281,7 +290,7 @@ namespace.remove(finalizer: "foo")
 ```swift
 let secret: core.v1.Secret = sk.secret(name: "test")
 
-// populate the secert
+// populate the secret
 configMap.add(data: "stuff", forKey: "foo")
 configMap.add(file: URL(fileURLWithPath: "/some/path"), forKey: "foo")
 ```
@@ -323,37 +332,44 @@ let service = deployment.expose(on: 8080, type: .clusterIP)
 
 ### Type-erasure
 
-Often when working with Kubernetes the concrete type of the resource is not known or not relevant, e.g. when creating resources from a YAML manifest file. Other times the type or kind of the resource must be derived at runtime given its string representation.
+Often when working with Kubernetes the concrete type of the resource is not known or not relevant, e.g. when creating 
+resources from a YAML manifest file. Other times the type or kind of the resource must be derived at runtime given its
+string representation.
 
-`SwiftkubeModel` provides a type-erased resource implementation `AnyKubernetesAPIResource` and its corresponding List-Type `AnyKubernetesAPIResourceList` in order to tackle these use-cases.
+`SwiftkubeModel` provides a type-erased resource implementation `UnstructuredResource` and its corresponding 
+List-Type `UnstructuredResourceList` in order to tackle these use-cases.
+
+`UnstruturedResource` allows objects that do not have registered `KubernetesAPIResource`s to be manipulated generically.
+This can be used to deal with the API objects from a plug-in or CRDs.
 
 Here are some examples to clarify their purpose:
 
 ```swift
-// Given a JSON string, e.g. at runtime, containing some Kuberenete resource
-let str = """
-   {
-      "apiVersion": "v1",
-      "kind": "Pod",
-        "metadata": {
-          "name": "test",
-          "namespace": "ns"
-      }
-   }
-	"""
+// Given a JSON string, e.g. at runtime, containing some Kubernetes resource
+let json = """
+  {
+    "apiVersion": "stable.example.com/v1",
+    "kind": "CronTab",
+    "metadata": {
+      "name": "my-new-cron-object",
+      "namespace": "default"
+    },
+     "spec": {
+       "cronSpec": "* * * * */5",
+       "image": "my-awesome-cron-image"
+     }
+  }
+"""
 
 // We can still decode it without knowing the concrete type
 let data = str.data(using: .utf8)!
-let resource = try? JSONDecoder().decode(AnyKubernetesAPIResource.self, from: data)
+let resource = try? JSONDecoder().decode(UnstructuredResource.self, from: data)
 
 // When encoding the previous instance, it serializes the underlying resource
-let data = try? JSONEncoder().encode(resource) 
+let encoded = try? JSONEncoder().encode(resource)
 ```
 
-`SwiftkubeModel` also provides the `UnstruturedResource`, that is used as fallback for any unknown Kubernetes resource, that can't be determined by its GVK or GVR.
-
-`UnstruturedResource` allows objects that do not have registered `KubernetesAPIResource`s to be manipulated generically. 
-This can be used to deal with the API objects from a plug-in or CRDs. 
+The `UnstruturedResource` exposes its internal dictionary representation and also provides a dynamic subscript support:
 
 ```swift
 let json = """
@@ -373,6 +389,18 @@ let json = """
 
 let data = str.data(using: .utf8)!
 let cron = try? JSONDecoder().decode(UnstructuredResource.self, from: data)
+
+// Shortcut vars
+print(cron.apiVersion)
+print(cron.kind)
+print(cron.metadata)
+
+// The internal Dictionary<String: Any> representation
+print(cron.properties)
+
+// Dynamic member lookup
+let spec: [String: Any]? = cron.spec
+print(spec?["cronSpec"])
 ```
 
 ## Installation
@@ -380,7 +408,7 @@ let cron = try? JSONDecoder().decode(UnstructuredResource.self, from: data)
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.6.0"),
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.7.0")
 ```
 
 then include it as a dependency in your target:
@@ -391,7 +419,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.6.0")
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.7.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [
@@ -405,4 +433,5 @@ Then run `swift build`.
 
 ## License
 
-Swiftkube project is licensed under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0). See [LICENSE](./LICENSE) for more details.
+Swiftkube project is licensed under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0). 
+See [LICENSE](./LICENSE) for more details.

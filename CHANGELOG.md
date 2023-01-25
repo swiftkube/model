@@ -1,9 +1,13 @@
 # Changelog
 
-## 0.6.0
+## 0.7.0
+
+- Drop `AnyKubernetesAPIResource` in favour of `UnstructuredResource`
+
+`## 0.6.0
 
 - Update to Kubernetes 1.24.8
-- Update to Swift 5.5
+- Update to Swift 5.5`
 
 ## 0.5.2
 
