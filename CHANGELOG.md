@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1
+
+- Fix UnstructuredResource's `metadata` encoding
+
 ## 0.7.0
 
 - Drop `AnyKubernetesAPIResource` in favour of `UnstructuredResource`

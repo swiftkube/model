@@ -87,7 +87,10 @@ extension UnstructuredResource: Codable {
 		var encodingContainer = encoder.container(keyedBy: JSONCodingKeys.self)
 
 		try properties.forEach { key, value in
-			try encodingContainer.encodeAny(value, forKey: JSONCodingKeys(stringValue: key)!)
+			switch key {
+			case "metadata": try encodingContainer.encodeIfPresent(value as? meta.v1.ObjectMeta, forKey: JSONCodingKeys(stringValue: key)!)
+			default: try encodingContainer.encodeAny(value, forKey: JSONCodingKeys(stringValue: key)!)
+			}
 		}
 	}
 }
