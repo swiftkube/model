@@ -21,7 +21,7 @@ import Foundation
 ///
 /// GroupVersionKind unambiguously identifies a kind.
 ///
-public struct GroupVersionKind: Equatable {
+public struct GroupVersionKind: Hashable {
 	/// The group of the resource.
 	public let group: String
 	/// The version of the resource.
@@ -119,7 +119,7 @@ public struct GroupVersionKind: Equatable {
 ///
 /// GroupKind specifies a Group and a Kind, but does not force a version.
 /// This is useful for identifying concepts during lookup stages without having partially valid types.
-public struct GroupKind {
+public struct GroupKind: Hashable {
 	/// The group of the resource.
 	public let group: String
 	/// The kind of the resource.
@@ -138,7 +138,7 @@ public struct GroupKind {
 ///
 /// GroupVersion contains the Group and the Version, which uniquely identifies the API.
 ///
-public struct GroupVersion {
+public struct GroupVersion: Hashable {
 	/// The group of the resource.
 	public let group: String
 	/// The version of the resource.

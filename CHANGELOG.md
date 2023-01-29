@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.2
+
+- Make `GroupVersionResource` and its friends Hashable
+
 ## 0.7.1
 
 - Fix UnstructuredResource's `metadata` encoding

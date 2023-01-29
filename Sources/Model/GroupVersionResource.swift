@@ -21,7 +21,7 @@ import Foundation
 ///
 /// GroupVersionResource unambiguously identifies a resource.
 ///
-public struct GroupVersionResource: Equatable {
+public struct GroupVersionResource: Hashable {
 	/// The group of the resource.
 	public let group: String
 	/// The version of the resource.
