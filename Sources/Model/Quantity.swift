@@ -92,7 +92,7 @@ var decimalSIKeyPairFriendly = Array((decimalSIKeyPairNegative.reversed() + deci
 // MARK: - Quantity
 
 // TODO: Implement proper quantity serde: https://github.com/kubernetes/apimachinery/blob/master/pkg/api/resource/quantity.go
-public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, CustomStringConvertible {
+public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, CustomStringConvertible, Hashable {
 
 	let value: String
 	var ok: Bool = true
@@ -303,7 +303,7 @@ public extension Quantity {
 // MARK: Codable
 
 ///
-/// Codable confromace.
+/// Codable conformance.
 ///
 extension Quantity: Codable {
 

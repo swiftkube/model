@@ -74,4 +74,29 @@ final class UnstructuredResourceTests: XCTestCase {
 		XCTAssertEqual(spec?["cronSpec"] as? String, "* * * * */5")
 		XCTAssertEqual(spec?["image"] as? String, "my-awesome-cron-image")
 	}
+
+	func testHash() {
+		let resource1 = UnstructuredResource(properties: [
+			"apiVersion": "v1",
+			"kind": "ConfigMap",
+			"metadata": meta.v1.ObjectMeta(name: "cm-1", namespace: "default"),
+			"data": [
+				"foo": 42,
+				"bar": "baz"
+			]
+		])
+
+		let resource2 = UnstructuredResource(properties: [
+			"apiVersion": "v1",
+			"data": [
+				"bar": "baz",
+				"foo": 42,
+			],
+			"kind": "ConfigMap",
+			"metadata": meta.v1.ObjectMeta(name: "cm-1", namespace: "default")
+		])
+
+		XCTAssertEqual(resource1, resource2)
+		XCTAssertEqual(resource1.hashValue, resource2.hashValue)
+	}
 }

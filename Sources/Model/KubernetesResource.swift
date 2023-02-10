@@ -21,7 +21,7 @@ import Foundation
 ///
 /// A marker protocol for all Kubernetes resources.
 ///
-public protocol KubernetesResource: Codable {}
+public protocol KubernetesResource: Codable, Hashable {}
 
 // MARK: - KubernetesResourceList
 

@@ -37,7 +37,7 @@ public extension meta.v1 {
 		///  * If Type is Error: *Status is recommended; other types may make sense
 		///    depending on context.
 		///
-		public var object: [String: Any]
+		public var object: JSONObject
 		///
 		/// No description
 		///
@@ -46,7 +46,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			object: [String: Any],
+			object: JSONObject,
 			type: String
 		) {
 			self.object = object
@@ -68,7 +68,7 @@ public extension meta.v1.WatchEvent {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.object = try container.decode([String: Any].self, forKey: .object)
+		self.object = try container.decode(JSONObject.self, forKey: .object)
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 

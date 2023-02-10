@@ -94,3 +94,25 @@ extension UnstructuredResource: Codable {
 		}
 	}
 }
+
+// MARK: Hashable
+
+extension UnstructuredResource: Hashable {
+
+	public static func == (lhs: UnstructuredResource, rhs: UnstructuredResource) -> Bool {
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = .sortedKeys
+
+		let lhsData = try! encoder.encode(lhs)
+		let rhsData = try! encoder.encode(rhs)
+		return lhsData == rhsData
+	}
+
+	public func hash(into hasher: inout Hasher) {
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = .sortedKeys
+
+		let data = try! encoder.encode(self)
+		hasher.combine(data)
+	}
+}

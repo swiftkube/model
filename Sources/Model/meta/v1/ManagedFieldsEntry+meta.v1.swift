@@ -41,7 +41,7 @@ public extension meta.v1 {
 		///
 		/// FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.
 		///
-		public var fieldsV1: [String: Any]?
+		public var fieldsV1: JSONObject?
 		///
 		/// Manager is an identifier of the workflow managing these fields.
 		///
@@ -64,7 +64,7 @@ public extension meta.v1 {
 		public init(
 			apiVersion: String? = nil,
 			fieldsType: String? = nil,
-			fieldsV1: [String: Any]? = nil,
+			fieldsV1: JSONObject? = nil,
 			manager: String? = nil,
 			operation: String? = nil,
 			subresource: String? = nil,
@@ -101,7 +101,7 @@ public extension meta.v1.ManagedFieldsEntry {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.apiVersion = try container.decodeIfPresent(String.self, forKey: .apiVersion)
 		self.fieldsType = try container.decodeIfPresent(String.self, forKey: .fieldsType)
-		self.fieldsV1 = try container.decodeIfPresent([String: Any].self, forKey: .fieldsV1)
+		self.fieldsV1 = try container.decodeIfPresent(JSONObject.self, forKey: .fieldsV1)
 		self.manager = try container.decodeIfPresent(String.self, forKey: .manager)
 		self.operation = try container.decodeIfPresent(String.self, forKey: .operation)
 		self.subresource = try container.decodeIfPresent(String.self, forKey: .subresource)
