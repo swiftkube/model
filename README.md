@@ -34,20 +34,22 @@
 
 - [x] Model structs for all Kubernetes objects
 - [x] `Codable` support
+- [x] `Hashable` resources
 - [x] Closure-based builders for convenient object composition
 - [x] Type-erased wrappers for Kubernetes resources
 - [x] `UnstructuredResource` type for handling any Kubernetes resource
 
 ## Compatibility Matrix
 
-|                      | <1.18.9 | 1.18.9 - 1.18.13 | 1.19.8 | 1.20.9 | 1.22.7 | 1.24.8 |
-|----------------------|---------|------------------|--------|--------|--------|--------|
-| SwiftkubeModel 0.2.x | -       | ✓                | -      | -      | -      | -      |
-| SwiftkubeModel 0.3.x | -       | -                | ✓      | -      | -      | -      |
-| SwiftkubeModel 0.4.x | -       | -                | -      | ✓      | -      | -      |
-| SwiftkubeModel 0.5.x | -       | -                | -      | -      | ✓      | -      |
-| SwiftkubeModel 0.6.x | -       | -                | -      | -      | -      | ✓      |
-| SwiftkubeModel 0.7.x | -       | -                | -      | -      | -      | ✓      |
+|         | <1.18.9 | 1.18.9 - 1.18.13 | 1.19.8 | 1.20.9 | 1.22.7 | 1.24.8 | 1.24.10 |
+|---- ----|---------|------------------|--------|--------|--------|--------|--------|
+| `0.2.x` | -       | ✓                | -      | -      | -      | -      | -      |
+| `0.3.x` | -       | -                | ✓      | -      | -      | -      | -      |
+| `0.4.x` | -       | -                | -      | ✓      | -      | -      | -      |
+| `0.5.x` | -       | -                | -      | -      | ✓      | -      | -      |
+| `0.6.x` | -       | -                | -      | -      | -      | ✓      | -      |
+| `0.7.x` | -       | -                | -      | -      | -      | ✓      | -      |
+| `0.8.x` | -       | -                | -      | -      | -      | -      | ✓      |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.0
+
+- Update to Kubernetes 1.24.10
+- Make all `KubernetesResources` `Hashable`
+- Introduce a new `JSONObject` type to represent arbitrary JSON fields in the following resources:
+  - `apiextensions.v1.CustomResourceValidation`
+  - `apps.v1.ControllerRevision`
+  - `meta.v1.ManagedFieldsEntry`
+  - `meta.v1.WatchEvent`
+
 ## 0.7.2
 
 - Make `GroupVersionResource` and its friends Hashable
