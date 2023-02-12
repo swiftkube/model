@@ -22,4 +22,6 @@ public enum SwiftkubeModelError: Error {
 	case unknownAPIObject(String)
 	/// Thrown on decoding errors.
 	case decodingError(String)
+	/// Thrown when a Kubernetes object is missing a field that is requied to perform an operation
+	case fieldDoesntExist(String)
 }

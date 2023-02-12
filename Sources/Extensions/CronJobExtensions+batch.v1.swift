@@ -16,20 +16,12 @@
 
 import Foundation
 
-// MARK: - createJobFromCronjobErrors
-
-enum createJobFromCronjobErrors: Error {
-	case jobSpecDoesntExist
-	case jobMetadataDoesntExist
-	case cronjobNameDoesntExist
-}
-
 public extension batch.v1.CronJob {
 	func generateJob(withName name: String = "manual") throws -> batch.v1.Job {
-		guard let jobTemplateSpec = spec?.jobTemplate.spec else { throw createJobFromCronjobErrors.jobSpecDoesntExist }
-		guard let cronJobName = self.name else { throw createJobFromCronjobErrors.cronjobNameDoesntExist }
+		guard let jobTemplateSpec = spec?.jobTemplate.spec else { throw SwiftkubeModelError.fieldDoesntExist("Job spec") }
+		guard let cronJobName = self.name else { throw SwiftkubeModelError.fieldDoesntExist("Cronjob Name") }
 		let jobName = "\(cronJobName)-\(name)-\(GenerateRandomHash(length: 3))"
-		guard let metadata = metadata else { throw createJobFromCronjobErrors.jobMetadataDoesntExist }
+		guard let metadata = metadata else { throw SwiftkubeModelError.fieldDoesntExist("Job Metadata") }
 		var existingMetadata = metadata
 		existingMetadata.name = jobName
 		var job = batch.v1.Job()
