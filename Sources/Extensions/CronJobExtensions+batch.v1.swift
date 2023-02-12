@@ -25,10 +25,10 @@ enum createJobFromCronjobErrors: Error {
 }
 
 public extension batch.v1.CronJob {
-	func generateJob() throws -> batch.v1.Job {
+	func generateJob(withName name: String = "manual") throws -> batch.v1.Job {
 		guard let jobTemplateSpec = spec?.jobTemplate.spec else { throw createJobFromCronjobErrors.jobSpecDoesntExist }
-		guard let name = name else { throw createJobFromCronjobErrors.cronjobNameDoesntExist }
-		let jobName = "\(name)-manual-\(GenerateRandomHash(length: 3))"
+		guard let cronJobName = self.name else { throw createJobFromCronjobErrors.cronjobNameDoesntExist }
+		let jobName = "\(cronJobName)-\(name)-\(GenerateRandomHash(length: 3))"
 		guard let metadata = metadata else { throw createJobFromCronjobErrors.jobMetadataDoesntExist }
 		var existingMetadata = metadata
 		existingMetadata.name = jobName
