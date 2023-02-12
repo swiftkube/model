@@ -25,9 +25,9 @@ let exampleZeroLengthHash = GenerateRandomHash(length: 0)
 
 final class HashesTests: XCTestCase {
 
-    func testGenerateRandomHash() throws {
+	func testGenerateRandomHash() throws {
 
 		XCTAssertEqual(exampleHash.count, 3)
 		XCTAssertEqual(exampleZeroLengthHash.count, 0)
-    }
+	}
 }
