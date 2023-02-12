@@ -14,14 +14,20 @@
 // limitations under the License.
 //
 
-import Foundation
+@testable import SwiftkubeModel
+import XCTest
 
-/// Represents SwiftkubeModel errors.
-public enum SwiftkubeModelError: Error {
-	/// Thrown when dealing with an unknown Kubernetes object, i.e. when a correspondinf `GroupVersionKind` cann't be determined.
-	case unknownAPIObject(String)
-	/// Thrown on decoding errors.
-	case decodingError(String)
-	/// Thrown when a Kubernetes object is missing a field that is requied to perform an operation
-	case fieldDoesntExist(String)
+let exampleHash = GenerateRandomHash(length: 3)
+
+let exampleZeroLengthHash = GenerateRandomHash(length: 0)
+
+// MARK: - HashesTests
+
+final class HashesTests: XCTestCase {
+
+	func testGenerateRandomHash() throws {
+
+		XCTAssertEqual(exampleHash.count, 3)
+		XCTAssertEqual(exampleZeroLengthHash.count, 0)
+	}
 }
