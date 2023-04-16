@@ -77,9 +77,7 @@ let testStaticBinArr: [QuantityStaticBinTest] = [
 	.init(str1: "200m", str2: "800m", sumBinDesc: "1", sumBinFDesc: "1"),
 	.init(str1: "1000", str2: "24", sumBinDesc: "1Ki", sumBinFDesc: "1Ki"),
 	.init(str1: "5Gi", str2: "5Gi", sumBinDesc: "10Gi", sumBinFDesc: "10Gi"),
-	.init(str1: "2560Gi", str2: "2560Gi",
-	      sumBinDesc: "5Ti",
-	      sumBinFDesc: "5Ti"),
+	.init(str1: "2560Gi", str2: "2560Gi", sumBinDesc: "5Ti", sumBinFDesc: "5Ti"),
 ]
 
 // MARK: - QunantityParseTests

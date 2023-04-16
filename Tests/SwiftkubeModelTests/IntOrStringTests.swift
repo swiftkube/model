@@ -20,14 +20,14 @@ import XCTest
 // MARK: - IntOrStringTest
 
 struct IntOrStringTest {
-    let str: String
-    let json: String
-    let isInt: Bool
+	let str: String
+	let json: String
+	let isInt: Bool
 }
 
 let intOrStringsArr: [IntOrStringTest] = [
-    .init(str: "80", json: "80", isInt: true),
-    .init(str: "abc", json: "\"abc\"", isInt: false)
+	.init(str: "80", json: "80", isInt: true),
+	.init(str: "abc", json: "\"abc\"", isInt: false)
 ]
 
 
@@ -35,16 +35,16 @@ let intOrStringsArr: [IntOrStringTest] = [
 
 final class IntOrStringTests: XCTestCase {
 
-    func testIntOrString() throws {
+	func testIntOrString() throws {
 
-        for t in intOrStringsArr {
-            
-            let v = IntOrString(stringLiteral: t.str)
-            let encoder = JSONEncoder()
-            let jsonValue = String(data: try encoder.encode(v), encoding: .utf8)
-            
-            XCTAssertEqual(v.isInt, t.isInt)
-            XCTAssertEqual(jsonValue, t.json)
-        }
-    }
+		for t in intOrStringsArr {
+
+			let v = IntOrString(stringLiteral: t.str)
+			let encoder = JSONEncoder()
+			let jsonValue = String(data: try encoder.encode(v), encoding: .utf8)
+
+			XCTAssertEqual(v.isInt, t.isInt)
+			XCTAssertEqual(jsonValue, t.json)
+		}
+	}
 }

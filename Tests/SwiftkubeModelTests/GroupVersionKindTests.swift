@@ -81,10 +81,10 @@ final class GroupVersionKindTests: XCTestCase {
 		XCTAssertEqual(gvk?.version, "v1")
 		XCTAssertEqual(gvk?.kind, "ServiceAccount")
 
-		gvk = GroupVersionKind(for: "psp")
+		gvk = GroupVersionKind(for: "netpol")
 
-		XCTAssertEqual(gvk?.group, "policy")
-		XCTAssertEqual(gvk?.version, "v1beta1")
-		XCTAssertEqual(gvk?.kind, "PodSecurityPolicy")
+		XCTAssertEqual(gvk?.group, "networking.k8s.io")
+		XCTAssertEqual(gvk?.version, "v1")
+		XCTAssertEqual(gvk?.kind, "NetworkPolicy")
 	}
 }
