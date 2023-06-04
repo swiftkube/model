@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/Swift-5.5-orange.svg" />
-	<a href="https://v1-24.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/">
-		<img src="https://img.shields.io/badge/Kubernetes-1.24.8-blue.svg" alt="Kubernetes 1.24.8"/>
+	<img src="https://img.shields.io/badge/Swift-5.6-orange.svg" />
+	<a href="https://v1-26.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/">
+		<img src="https://img.shields.io/badge/Kubernetes-1.24.8-blue.svg" alt="Kubernetes 1.26.4"/>
 	</a>
 	<a href="https://swift.org/package-manager">
 		<img src="https://img.shields.io/badge/swiftpm-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
@@ -52,6 +52,7 @@
 | `0.8.x`  | -       | -                | -      | -      | -      | -      | ✓       | -      | -      |
 | `0.9.x`  | -       | -                | -      | -      | -      | -      | -       | ✓      | -      |
 | `0.10.x` | -       | -                | -      | -      | -      | -      | -       | -      | ✓      |
+| `0.11.x` | -       | -                | -      | -      | -      | -      | -       | -      | ✓      |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the
