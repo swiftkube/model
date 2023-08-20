@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.12.0
+
+- Update to Kubernetes v1.28.0
+
+## 0.11.0
+
+- Drop support for Swift 5.5
+
+## 0.10.0
+
+- Update to Kubernetes v1.26.4
+
+## 0.9.0
+
+- Update to Kubernetes v1.25.9
+- Add `CronJob/generateJob()` and `GenerateRandomHash`
+
 ## 0.8.0
 
 - Update to Kubernetes 1.24.10
