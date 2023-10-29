@@ -49,13 +49,13 @@ public extension admissionregistration.v1beta1 {
 		///
 		/// List of PolicyBinding.
 		///
-		public var items: [admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding]?
+		public var items: [admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding]
 		///
 		/// Default memberwise initializer
 		///
 		public init(
 			metadata: meta.v1.ListMeta? = nil,
-			items: [admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding]? = nil
+			items: [admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding]
 		) {
 			self.metadata = metadata
 			self.items = items
@@ -79,7 +79,7 @@ public extension admissionregistration.v1beta1.ValidatingAdmissionPolicyBindingL
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ListMeta.self, forKey: .metadata)
-		self.items = try container.decodeIfPresent([admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding].self, forKey: .items)
+		self.items = try container.decode([admissionregistration.v1beta1.ValidatingAdmissionPolicyBinding].self, forKey: .items)
 	}
 
 	func encode(to encoder: Encoder) throws {
