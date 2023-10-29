@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.0
+
+- Update to Kubernetes v1.28.3
+- Make `GroupVersionResource` conform to `Codable`  (#9 by @ewilken)
+
 ## 0.12.0
 
 - Update to Kubernetes v1.28.0
@@ -62,7 +67,7 @@
 ## 0.4.0
 
 - Update to Kubernetes v1.20.9
-- Add proper `Quantity` SerDe (PR #1 by @mustard-mh)
+- Add proper `Quantity` SerDe (#1 by @mustard-mh)
 
 ## 0.3.2
 
