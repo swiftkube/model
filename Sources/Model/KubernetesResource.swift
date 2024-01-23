@@ -36,6 +36,8 @@ public protocol KubernetesResourceList: Codable {
 	var apiVersion: String { get }
 	/// `Kind` is a string value representing the REST resource this object represents.
 	var kind: String { get }
+	/// Standard list metadata.
+	var metadata: meta.v1.ListMeta? { get }
 	/// An array of `KubernetesResource` items.
 	var items: [Item] { get }
 }
