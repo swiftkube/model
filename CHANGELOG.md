@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.0
+
+- Update to Kubernetes v1.29.6
+- Include optional `ListMeta` metadata field on `KubernetesResourceList` (#10 by @ewilken)
+
 ## 0.13.0
 
 - Update to Kubernetes v1.28.3
