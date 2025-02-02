@@ -22,7 +22,7 @@ import Foundation
 ///
 /// When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the
 /// inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
-public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, Hashable {
+public struct IntOrString: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, Hashable, Sendable {
 
 	private let value: String
 

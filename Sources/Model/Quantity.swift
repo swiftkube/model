@@ -87,7 +87,7 @@ let binarySIKeyPair = [
 let decimalSIKeyPair = decimalSIKeyPairNegative + decimalSIKeyPairPositive
 
 let binarySIKeyPairFriendly = Array(binarySIKeyPair.reversed())
-var decimalSIKeyPairFriendly = Array((decimalSIKeyPairNegative.reversed() + decimalSIKeyPairPositive).reversed())
+let decimalSIKeyPairFriendly = Array((decimalSIKeyPairNegative.reversed() + decimalSIKeyPairPositive).reversed())
 
 // MARK: - Quantity
 
