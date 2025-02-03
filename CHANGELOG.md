@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.0
+
+- Update to Kubernetes v1.32.0
+- Support Swift 6
+
 ## 0.14.0
 
 - Update to Kubernetes v1.29.6
