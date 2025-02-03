@@ -10,11 +10,25 @@ jobs:
   macOS:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: set -o pipefail && swift build -v
-    - name: Test
-      run: set -o pipefail && swift test --enable-test-discovery
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: swift build
+      - name: Test
+        run: swift test --enable-test-discovery
+  linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ["swift:5.9", "swift:5.10", "swift:6.0"]
+    container: ${{ matrix.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: swift build
+      - name: Test
+        run: swift test --enable-test-discovery
   iOS:
     name: Test iOS
     runs-on: macos-latest
@@ -22,15 +36,7 @@ jobs:
       matrix:
         destination: ["platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: iOS - ${{ matrix.destination }}
         run: set -o pipefail && xcodebuild -scheme SwiftkubeModel -destination "${{ matrix.destination }}" clean test | xcpretty
-  linux:
-    runs-on: ubuntu-latest
-    container: swift:5.10
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v --enable-test-discovery
-    - name: Test
-      run: swift test --enable-test-discovery
