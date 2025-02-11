@@ -21,14 +21,14 @@ import Foundation
 ///
 /// A marker protocol for all Kubernetes resources.
 ///
-public protocol KubernetesResource: Codable, Hashable {}
+public protocol KubernetesResource: Codable, Hashable, Sendable {}
 
 // MARK: - KubernetesResourceList
 
 ///
 /// A type that represents a list of Kubernetes resources, e.g. `DeploymentList`.
 ///
-public protocol KubernetesResourceList: Codable {
+public protocol KubernetesResourceList: Codable, Sendable {
 	/// The associated `KubernetesResource` item type, e.g. `Deployment`
 	associatedtype Item: KubernetesResource
 

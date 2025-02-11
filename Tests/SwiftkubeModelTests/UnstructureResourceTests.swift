@@ -83,7 +83,7 @@ final class UnstructuredResourceTests: XCTestCase {
 			"data": [
 				"foo": 42,
 				"bar": "baz"
-			]
+			] as [String: any Sendable]
 		])
 
 		let resource2 = UnstructuredResource(properties: [
@@ -91,7 +91,7 @@ final class UnstructuredResourceTests: XCTestCase {
 			"data": [
 				"bar": "baz",
 				"foo": 42,
-			],
+			] as [String: any Sendable],
 			"kind": "ConfigMap",
 			"metadata": meta.v1.ObjectMeta(name: "cm-1", namespace: "default")
 		])

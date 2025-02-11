@@ -30,15 +30,15 @@ import Foundation
 ///
 /// The implementation assumes a correct JSON object and uses a forced ``JSONSerialization`` in order
 /// to convert the dictionary to a ``Data`` instance, which in turn is used for equality and hashing.
-public struct JSONObject: Hashable, Codable {
+public struct JSONObject: Hashable, Codable, Sendable {
 
 	/// A dictionary holding the JSON properties
-	public var properties: Dictionary<String, Any>
+	public var properties: Dictionary<String, any Sendable>
 
 	/// Constructs an instance of JsonField given a Dictionary representation.
 	///
 	/// - Parameter properties: A JSON dictionary
-	public init(properties: Dictionary<String, Any>) {
+	public init(properties: Dictionary<String, any Sendable>) {
 		self.properties = properties
 	}
 
@@ -61,7 +61,7 @@ public struct JSONObject: Hashable, Codable {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: JSONCodingKeys.self)
-		var properties = [String: Any]()
+		var properties = [String: any Sendable]()
 
 		for key in container.allKeys {
 			properties[key.stringValue] = try container.decodeAnyIfPresent(forKey: key)

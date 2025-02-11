@@ -34,7 +34,7 @@ public struct JSONCodingKeys: CodingKey {
 
 public extension KeyedDecodingContainer {
 
-	func decodeAnyIfPresent(forKey key: K) throws -> Any? {
+	func decodeAnyIfPresent(forKey key: K) throws -> (any Sendable)? {
 		guard contains(key), try decodeNil(forKey: key) == false else {
 			return nil
 		}
@@ -42,7 +42,7 @@ public extension KeyedDecodingContainer {
 		return try decodeAny(forKey: key)
 	}
 
-	func decodeAny(forKey key: K) throws -> Any {
+	func decodeAny(forKey key: K) throws -> any Sendable {
 		if let value = try? decode(Bool.self, forKey: key) {
 			return value
 		} else if let value = try? decode(Int.self, forKey: key) {
@@ -53,9 +53,9 @@ public extension KeyedDecodingContainer {
 			return value
 		} else if let value = try? decode(String.self, forKey: key) {
 			return value
-		} else if let value = try? decode([String: Any].self, forKey: key) {
+		} else if let value = try? decode([String: any Sendable].self, forKey: key) {
 			return value
-		} else if let value = try? decode([Any].self, forKey: key) {
+		} else if let value = try? decode([any Sendable].self, forKey: key) {
 			return value
 		} else if let nilValue = try? decodeNil(forKey: key), nilValue == true {
 			return nilValue
@@ -68,54 +68,54 @@ public extension KeyedDecodingContainer {
 		}
 	}
 
-	func decode(_ type: [String: Any].Type, forKey key: K) throws -> [String: Any] {
+	func decode(_ type: [String: any Sendable].Type, forKey key: K) throws -> [String: any Sendable] {
 		let container = try nestedContainer(keyedBy: JSONCodingKeys.self, forKey: key)
 		return try container.decode(type)
 	}
 
-	func decodeIfPresent(_ type: [String: Any].Type, forKey key: K) throws -> [String: Any]? {
+	func decodeIfPresent(_ type: [String: any Sendable].Type, forKey key: K) throws -> [String: any Sendable]? {
 		guard contains(key), try decodeNil(forKey: key) == false else {
 			return nil
 		}
 		return try decode(type, forKey: key)
 	}
 
-	func decode(_ type: [String: Any]?.Type, forKey key: K) throws -> [String: Any]? {
-		try decodeIfPresent([String: Any]?.self, forKey: key)
+	func decode(_ type: [String: any Sendable]?.Type, forKey key: K) throws -> [String: any Sendable]? {
+		try decodeIfPresent([String: any Sendable]?.self, forKey: key)
 	}
 
-	func decodeIfPresent(_ type: [String: Any]?.Type, forKey key: K) throws -> [String: Any]? {
+	func decodeIfPresent(_ type: [String: any Sendable]?.Type, forKey key: K) throws -> [String: any Sendable]? {
 		guard contains(key), try decodeNil(forKey: key) == false else {
 			return nil
 		}
 		return try decode(type, forKey: key)
 	}
 
-	func decode(_ type: [Any].Type, forKey key: K) throws -> [Any] {
+	func decode(_ type: [any Sendable].Type, forKey key: K) throws -> [any Sendable] {
 		var container = try nestedUnkeyedContainer(forKey: key)
 		return try container.decode(type)
 	}
 
-	func decodeIfPresent(_ type: [Any].Type, forKey key: K) throws -> [Any]? {
+	func decodeIfPresent(_ type: [any Sendable].Type, forKey key: K) throws -> [any Sendable]? {
 		guard contains(key), try decodeNil(forKey: key) == false else {
 			return nil
 		}
 		return try decode(type, forKey: key)
 	}
 
-	func decode(_ type: [Any]?.Type, forKey key: K) throws -> [Any]? {
-		try decodeIfPresent([Any]?.self, forKey: key)
+	func decode(_ type: [any Sendable]?.Type, forKey key: K) throws -> [any Sendable]? {
+		try decodeIfPresent([any Sendable]?.self, forKey: key)
 	}
 
-	func decodeIfPresent(_ type: [Any]?.Type, forKey key: K) throws -> [Any]? {
+	func decodeIfPresent(_ type: [any Sendable]?.Type, forKey key: K) throws -> [any Sendable]? {
 		guard contains(key), try decodeNil(forKey: key) == false else {
 			return nil
 		}
 		return try decode(type, forKey: key)
 	}
 
-	func decode(_ type: [String: Any].Type) throws -> [String: Any] {
-		var dictionary = [String: Any]()
+	func decode(_ type: [String: any Sendable].Type) throws -> [String: any Sendable] {
+		var dictionary = [String: any Sendable]()
 
 		for key in allKeys {
 			if let value = try? decode(Bool.self, forKey: key) {
@@ -128,9 +128,9 @@ public extension KeyedDecodingContainer {
 				dictionary[key.stringValue] = value
 			} else if let value = try? decode(String.self, forKey: key) {
 				dictionary[key.stringValue] = value
-			} else if let value = try? decode([String: Any].self, forKey: key) {
+			} else if let value = try? decode([String: any Sendable].self, forKey: key) {
 				dictionary[key.stringValue] = value
-			} else if let value = try? decode([Any].self, forKey: key) {
+			} else if let value = try? decode([any Sendable].self, forKey: key) {
 				dictionary[key.stringValue] = value
 			} else if let nilValue = try? decodeNil(forKey: key), nilValue == true {
 				dictionary[key.stringValue] = nil
@@ -148,18 +148,18 @@ public extension KeyedDecodingContainer {
 
 public extension UnkeyedDecodingContainer {
 
-	mutating func decode(_ type: [String: Any].Type) throws -> [String: Any] {
+	mutating func decode(_ type: [String: any Sendable].Type) throws -> [String: any Sendable] {
 		let container = try nestedContainer(keyedBy: JSONCodingKeys.self)
 		return try container.decode(type)
 	}
 
-	mutating func decodeIfPresent(_ type: [String: Any].Type) throws -> [String: Any]? {
+	mutating func decodeIfPresent(_ type: [String: any Sendable].Type) throws -> [String: any Sendable]? {
 		guard try !isAtEnd && !decodeNil() else { return nil }
 		return try decode(type)
 	}
 
-	mutating func decode(_ type: [Any].Type) throws -> [Any] {
-		var array: [Any] = []
+	mutating func decode(_ type: [any Sendable].Type) throws -> [any Sendable] {
+		var array: [any Sendable] = []
 
 		while isAtEnd == false {
 			if let value = try? decode(Bool.self) {
@@ -172,12 +172,12 @@ public extension UnkeyedDecodingContainer {
 				array.append(value)
 			} else if let value = try? decode(String.self) {
 				array.append(value)
-			} else if let value = try? decode([String: Any].self) {
+			} else if let value = try? decode([String: any Sendable].self) {
 				array.append(value)
-			} else if var nested = try? nestedUnkeyedContainer(), let value = try? nested.decode([Any].self) {
+			} else if var nested = try? nestedUnkeyedContainer(), let value = try? nested.decode([any Sendable].self) {
 				array.append(value)
 			} else if let nilValue = try? decodeNil(), nilValue == true {
-				array.append(Any?.none as Any)
+				array.append(Sendable?.none as any Sendable)
 			} else {
 				let context = DecodingError.Context(
 					codingPath: codingPath,

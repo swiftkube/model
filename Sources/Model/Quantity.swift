@@ -39,7 +39,7 @@ extension String {
 
 // MARK: - UnitType
 
-public enum UnitType {
+public enum UnitType: Sendable {
 	case decimalSI
 	case binarySI
 }
@@ -92,7 +92,9 @@ let decimalSIKeyPairFriendly = Array((decimalSIKeyPairNegative.reversed() + deci
 // MARK: - Quantity
 
 // TODO: Implement proper quantity serde: https://github.com/kubernetes/apimachinery/blob/master/pkg/api/resource/quantity.go
-public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, CustomStringConvertible, Hashable {
+public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
+	CustomStringConvertible, Hashable, Sendable
+{
 
 	let value: String
 	var ok: Bool = true

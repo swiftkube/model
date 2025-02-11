@@ -34,12 +34,12 @@ public struct UnstructuredResource: KubernetesAPIResource, ListableResource {
 	///
 	/// Dictionary holding this resource's unstructured representation
 	///
-	public let properties: Dictionary<String, Any>
+	public let properties: Dictionary<String, any Sendable>
 
 	/// Constructs an unstructured instance of a resource given a Dictionary representation.
 	///
 	/// - Parameter properties: A dictionary representation of the resource to construct.
-	public init(properties: Dictionary<String, Any>) {
+	public init(properties: Dictionary<String, any Sendable>) {
 		self.properties = properties
 	}
 
@@ -69,7 +69,7 @@ extension UnstructuredResource: Codable {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: JSONCodingKeys.self)
-		var properties = [String: Any]()
+		var properties = [String: any Sendable]()
 
 		for key in container.allKeys {
 			switch key.stringValue {
