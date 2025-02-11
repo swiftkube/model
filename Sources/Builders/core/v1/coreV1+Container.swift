@@ -129,7 +129,7 @@ public enum ProbeAction {
 
 // MARK: - Array + ExpressibleByDictionaryLiteral
 
-extension Array: @retroactive ExpressibleByDictionaryLiteral where Array.Element == core.v1.EnvVar {
+extension Array: ExpressibleByDictionaryLiteral where Array.Element == core.v1.EnvVar {
 
 	public init(dictionaryLiteral elements: (String, ContainerEnvVarType)...) {
 		self = elements.map { name, value -> core.v1.EnvVar in
