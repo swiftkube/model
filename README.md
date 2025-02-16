@@ -40,21 +40,23 @@
 - [x] Model structs for all Kubernetes objects
 - [x] `Codable` support
 - [x] `Hashable` resources
+- [x] `Sendable` support
 - [x] Closure-based builders for convenient object composition
 - [x] Type-erased wrappers for Kubernetes resources
 - [x] `UnstructuredResource` type for handling any Kubernetes resource
 
 ## Compatibility Matrix
 
-|          | 1.25.9 | 1.26.4 | 1.28.0 | 1.28.3 | 1.29.6 | 1.32.0 |
-|----------|--------|--------|--------|--------|--------|--------|
-| `0.9.x`  | ✓      | -      | -      | -      | -      | -      |
-| `0.10.x` | -      | ✓      | -      | -      | -      | -      |
-| `0.11.x` | -      | ✓      | -      | -      | -      | -      |
-| `0.12.x` | -      | -      | ✓      | -      | -      | -      |
-| `0.13.x` | -      | -      | -      | ✓      | ✓      | -      |
-| `0.14.x` | -      | -      | -      | -      | ✓      | -      |
-| `0.15.x` | -      | -      | -      | -      | -      | ✓      |
+|          | 1.25.9 | 1.26.4 | 1.28.0 | 1.28.3 | 1.29.6 | 1.32.0 | 1.32.0 |
+|----------|--------|--------|--------|--------|--------|--------|--------|
+| `0.9.x`  | ✓      | -      | -      | -      | -      | -      | -      |
+| `0.10.x` | -      | ✓      | -      | -      | -      | -      | -      |
+| `0.11.x` | -      | ✓      | -      | -      | -      | -      | -      |
+| `0.12.x` | -      | -      | ✓      | -      | -      | -      | -      |
+| `0.13.x` | -      | -      | -      | ✓      | ✓      | -      | -      |
+| `0.14.x` | -      | -      | -      | -      | ✓      | -      | -      |
+| `0.15.x` | -      | -      | -      | -      | -      | ✓      | ✓      |
+| `0.16.x` | -      | -      | -      | -      | -      | ✓      | ✓      |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the
@@ -182,6 +184,39 @@ let deployment = apps.v1.Deployment(
     )
 )
 ```
+
+### Sendables
+
+All resources are `Sendable` structs.
+
+There is, however, one caveat when working with resources having a `JSONObject` field:
+
+- `apiextensions.v1.CustomResourceValidation`
+- `apps.v1.ControllerRevision`
+- `meta.v1.ManagedFieldsEntry`
+- `meta.v1.WatchEvent`
+- `resource.v1alpha3.AllocatedDeviceStatus`
+- `resource.v1alpha3.OpaqueDeviceConfiguration`
+
+or when working with `UnstructuredResource`.
+
+They store their properties as `Dictionary<String, any Sendable>`. Thus, dictionary literals must be
+explicitly cast to `[String: any Sendable]`.
+
+For example:
+
+```swift
+UnstructuredResource(properties: [
+    "apiVersion": "v1",
+    "kind": "ConfigMap",
+    "metadata": meta.v1.ObjectMeta(name: "configs", namespace: "default"),
+    "data": [
+        "foo": 42,
+	    "bar": "baz"
+    ] as [String: any Sendable]
+])
+```
+
 
 ### Builders
 
@@ -415,7 +450,7 @@ print(spec?["cronSpec"])
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.14.0")
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.16.0")
 ```
 
 then include it as a dependency in your target:
@@ -426,7 +461,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.14.0")
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.16.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [

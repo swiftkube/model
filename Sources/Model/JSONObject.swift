@@ -25,6 +25,8 @@ import Foundation
 /// - apps.v1.ControllerRevision
 /// - meta.v1.ManagedFieldsEntry
 /// - meta.v1.WatchEvent
+/// - resource.v1alpha3.AllocatedDeviceStatus
+/// - resource.v1alpha3.OpaqueDeviceConfiguration
 ///
 /// in order to allow for implementing ``Hashable`` protocol
 ///

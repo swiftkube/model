@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.16.0
+
+- Make all resources `Sendable`
+
 ## 0.15.0
 
 - Update to Kubernetes v1.32.0
