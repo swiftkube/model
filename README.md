@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-	<a href="https://swift.org">
-		<img src="https://img.shields.io/badge/swift-6.0-f05138.svg"/>
+	<a href="https://swiftpackageindex.com/swiftkube/model">
+		<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fswiftkube%2Fmodel%2Fbadge%3Ftype%3Dswift-versions"/>
 	</a>
-	<a href="https://swift.org">
-		<img src="https://img.shields.io/badge/swift-5.6+-f05138.svg"/>
+	<a href="https://swiftpackageindex.com/swiftkube/model">
+		<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fswiftkube%2Fmodel%2Fbadge%3Ftype%3Dplatforms"/>
 	</a>
 	<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/">
 		<img src="https://img.shields.io/badge/Kubernetes-1.32.0-blue.svg" alt="Kubernetes 1.32.0"/>
@@ -15,7 +15,6 @@
 	<a href="https://swift.org/package-manager">
 		<img src="https://img.shields.io/badge/swiftpm-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
 	</a>
-	<img src="https://img.shields.io/badge/platforms-mac+ios+linux-brightgreen.svg?style=flat" alt="macOS + iOS + Linux" />
 	<a href="https://github.com/swiftkube/model/actions">
 		<img src="https://github.com/swiftkube/model/workflows/swiftkube-model-ci/badge.svg" alt="CI Status">
 	</a>
