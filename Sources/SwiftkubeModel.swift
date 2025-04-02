@@ -18,10 +18,10 @@ import Foundation
 
 /// Represents SwiftkubeModel errors.
 public enum SwiftkubeModelError: Error {
-	/// Thrown when dealing with an unknown Kubernetes object, i.e. when a correspondinf `GroupVersionKind` cann't be determined.
+	/// Thrown when dealing with an unknown Kubernetes object, i.e. when a corresponding `GroupVersionKind` cannot be determined.
 	case unknownAPIObject(String)
 	/// Thrown on decoding errors.
 	case decodingError(String)
-	/// Thrown when a Kubernetes object is missing a field that is requied to perform an operation
+	/// Thrown when a Kubernetes object is missing a field that is required to perform an operation.
 	case fieldDoesntExist(String)
 }
