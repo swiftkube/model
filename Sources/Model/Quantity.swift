@@ -98,7 +98,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 
 	let value: String
 	var ok: Bool = true
-	var decimalValue: Decimal = 0
+	public private(set) var decimalValue: Decimal = 0
 	var unit: String = ""
 	var unitType: UnitType = .decimalSI
 
