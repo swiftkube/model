@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.0
+
+- Update to Kubernetes v1.32.2
+- Make `Quantity.decimalValue` publicly readable (#13 by @ewilken)
+
 ## 0.16.0
 
 - Make all resources `Sendable`
