@@ -228,6 +228,8 @@ public extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
 			try encode(value, forKey: key)
 		case Optional<Any>.none:
 			try encodeNil(forKey: key)
+		case let value as AnyNullWrapper:
+			try encode(value, forKey: key)
 		default:
 			let context = EncodingError.Context(
 				codingPath: codingPath + [key],
@@ -275,6 +277,8 @@ public extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
 				try encode(value, forKey: key)
 			case Optional<Any>.none:
 				try encodeNil(forKey: key)
+			case let value as AnyNullWrapper:
+				try encode(value, forKey: key)
 			default:
 				let context = EncodingError.Context(
 					codingPath: codingPath + [key],
