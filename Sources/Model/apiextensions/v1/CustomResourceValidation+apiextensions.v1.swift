@@ -20,7 +20,11 @@
 /// apiextensions.v1.CustomResourceValidation
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - apiextensions.v1.CustomResourceValidation
 
@@ -33,12 +37,12 @@ public extension apiextensions.v1 {
 		///
 		/// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 		///
-		public var openAPIV3Schema: JSONObject?
+		public var openAPIV3Schema: [String: JSONField]?
 		///
 		/// Default memberwise initializer
 		///
 		public init(
-			openAPIV3Schema: JSONObject? = nil
+			openAPIV3Schema: [String: JSONField]? = nil
 		) {
 			self.openAPIV3Schema = openAPIV3Schema
 		}
@@ -57,7 +61,7 @@ public extension apiextensions.v1.CustomResourceValidation {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.openAPIV3Schema = try container.decodeIfPresent(JSONObject.self, forKey: .openAPIV3Schema)
+		self.openAPIV3Schema = try container.decodeIfPresent([String: JSONField].self, forKey: .openAPIV3Schema)
 	}
 
 	func encode(to encoder: Encoder) throws {

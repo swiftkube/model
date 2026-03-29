@@ -20,7 +20,11 @@
 /// core.v1.EndpointSubset
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - core.v1.EndpointSubset
 

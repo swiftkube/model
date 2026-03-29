@@ -20,7 +20,11 @@
 /// flowcontrol.v1.GroupSubject
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - flowcontrol.v1.GroupSubject
 

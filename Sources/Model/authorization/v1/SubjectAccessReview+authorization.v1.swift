@@ -20,7 +20,11 @@
 /// authorization.v1.SubjectAccessReview
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - authorization.v1.SubjectAccessReview
 

@@ -20,7 +20,11 @@
 /// autoscaling.v2.PodsMetricSource
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - autoscaling.v2.PodsMetricSource
 

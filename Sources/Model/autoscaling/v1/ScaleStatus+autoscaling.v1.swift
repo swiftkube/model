@@ -20,7 +20,11 @@
 /// autoscaling.v1.ScaleStatus
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - autoscaling.v1.ScaleStatus
 

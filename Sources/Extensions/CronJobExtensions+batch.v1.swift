@@ -14,7 +14,11 @@
 // limitations under the License.
 //
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 public extension batch.v1.CronJob {
 	func generateJob(withName name: String = "manual") throws -> batch.v1.Job {

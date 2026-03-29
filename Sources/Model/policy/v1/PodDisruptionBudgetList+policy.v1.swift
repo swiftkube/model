@@ -20,7 +20,11 @@
 /// policy.v1.PodDisruptionBudgetList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - policy.v1.PodDisruptionBudgetList
 

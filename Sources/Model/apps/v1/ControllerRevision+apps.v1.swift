@@ -20,7 +20,11 @@
 /// apps.v1.ControllerRevision
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - apps.v1.ControllerRevision
 
@@ -51,7 +55,7 @@ public extension apps.v1 {
 		///
 		/// Data is the serialized representation of the state.
 		///
-		public var data: JSONObject?
+		public var data: [String: JSONField]?
 		///
 		/// Revision indicates the revision of the state represented by Data.
 		///
@@ -61,7 +65,7 @@ public extension apps.v1 {
 		///
 		public init(
 			metadata: meta.v1.ObjectMeta? = nil,
-			data: JSONObject? = nil,
+			data: [String: JSONField]? = nil,
 			revision: Int64
 		) {
 			self.metadata = metadata
@@ -88,7 +92,7 @@ public extension apps.v1.ControllerRevision {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.metadata = try container.decodeIfPresent(meta.v1.ObjectMeta.self, forKey: .metadata)
-		self.data = try container.decodeIfPresent(JSONObject.self, forKey: .data)
+		self.data = try container.decodeIfPresent([String: JSONField].self, forKey: .data)
 		self.revision = try container.decode(Int64.self, forKey: .revision)
 	}
 

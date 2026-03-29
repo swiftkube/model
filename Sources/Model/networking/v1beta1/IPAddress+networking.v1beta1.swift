@@ -20,7 +20,11 @@
 /// networking.v1beta1.IPAddress
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - networking.v1beta1.IPAddress
 

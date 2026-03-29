@@ -20,7 +20,11 @@
 /// resource.v1beta1.OpaqueDeviceConfiguration
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - resource.v1beta1.OpaqueDeviceConfiguration
 
@@ -43,13 +47,13 @@ public extension resource.v1beta1 {
 		///
 		/// The length of the raw data must be smaller or equal to 10 Ki.
 		///
-		public var parameters: JSONObject
+		public var parameters: [String: JSONField]
 		///
 		/// Default memberwise initializer
 		///
 		public init(
 			driver: String,
-			parameters: JSONObject
+			parameters: [String: JSONField]
 		) {
 			self.driver = driver
 			self.parameters = parameters
@@ -71,7 +75,7 @@ public extension resource.v1beta1.OpaqueDeviceConfiguration {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.driver = try container.decode(String.self, forKey: .driver)
-		self.parameters = try container.decode(JSONObject.self, forKey: .parameters)
+		self.parameters = try container.decode([String: JSONField].self, forKey: .parameters)
 	}
 
 	func encode(to encoder: Encoder) throws {

@@ -20,7 +20,11 @@
 /// storagemigration.v1alpha1.MigrationCondition
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - storagemigration.v1alpha1.MigrationCondition
 

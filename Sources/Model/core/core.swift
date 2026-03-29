@@ -19,7 +19,11 @@
 /// Kubernetes v1.33.3
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 ///
 /// Namespace for `core`

@@ -20,7 +20,11 @@
 /// apiextensions.v1.WebhookConversion
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - apiextensions.v1.WebhookConversion
 

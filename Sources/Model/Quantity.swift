@@ -14,28 +14,11 @@
 // limitations under the License.
 //
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
-
-// MARK: - Quantity
-
-extension String {
-
-	subscript(offset: Int) -> Character {
-		self[index(startIndex, offsetBy: offset)]
-	}
-
-	subscript(_ range: CountableRange<Int>) -> String {
-		let start = index(startIndex, offsetBy: max(0, range.lowerBound))
-		let end = index(start, offsetBy: min(count - range.lowerBound,
-		                                     range.upperBound - range.lowerBound))
-		return String(self[start ..< end])
-	}
-
-	subscript(_ range: CountablePartialRangeFrom<Int>) -> String {
-		let start = index(startIndex, offsetBy: max(0, range.lowerBound))
-		return String(self[start...])
-	}
-}
+#endif
 
 // MARK: - UnitType
 
@@ -161,24 +144,21 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 	}
 
 	mutating func parseData(str: String) throws -> Bool {
-		let range = NSRange(location: 0, length: str.count)
-		let regex = try! NSRegularExpression(pattern: "^\\d*\\.?\\d*e?\\d*", options: [])
-		let results = regex.matches(in: str, options: [], range: range)
-		if results.count != 1 {
+		let regex = /^\d*\.?\d*e?\d*/
+		guard let match = str.prefixMatch(of: regex) else {
 			throw DecodingError.dataCorrupted(DecodingError.Context(
 				codingPath: [],
 				debugDescription: "Cannot decode value: " + str
 			))
 		}
-		let r = results[0].range
-		guard let num = Decimal(string: str[r.location ..< (r.location + r.length)]) else {
+		guard let num = Decimal(string: String(match.output)) else {
 			return false
 		}
 		if num < 0 {
 			return false
 		}
 
-		let unit = str[(r.location + r.length)...]
+		let unit = str[match.range.upperBound...]
 		switch unit {
 		case "Ki", "Mi", "Gi", "Ti", "Pi", "Ei":
 			unitType = .binarySI
@@ -283,8 +263,11 @@ public extension Quantity {
 					continue
 				}
 
-				let numInt = Int64(truncating: NSDecimalNumber(decimal: num))
-				let vInt = Int64(truncating: NSDecimalNumber(decimal: dec.pair))
+				guard let numInt = Int64(num.description),
+				      let vInt = Int64(dec.pair.description) else {
+					i += 1
+					continue
+				}
 				let remain = numInt % vInt
 				if remain == 0 {
 					i += 1

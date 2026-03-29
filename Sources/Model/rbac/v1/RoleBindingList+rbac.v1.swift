@@ -20,7 +20,11 @@
 /// rbac.v1.RoleBindingList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - rbac.v1.RoleBindingList
 

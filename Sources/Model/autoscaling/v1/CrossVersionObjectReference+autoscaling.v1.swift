@@ -20,7 +20,11 @@
 /// autoscaling.v1.CrossVersionObjectReference
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - autoscaling.v1.CrossVersionObjectReference
 

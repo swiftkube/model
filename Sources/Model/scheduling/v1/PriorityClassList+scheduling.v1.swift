@@ -20,7 +20,11 @@
 /// scheduling.v1.PriorityClassList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - scheduling.v1.PriorityClassList
 

@@ -20,7 +20,11 @@
 /// authentication.v1.TokenRequest
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - authentication.v1.TokenRequest
 

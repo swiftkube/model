@@ -20,7 +20,11 @@
 /// meta.v1.FieldSelectorRequirement
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - meta.v1.FieldSelectorRequirement
 

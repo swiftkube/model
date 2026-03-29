@@ -20,7 +20,11 @@
 /// apps.v1.ControllerRevisionList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - apps.v1.ControllerRevisionList
 

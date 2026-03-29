@@ -20,7 +20,11 @@
 /// events.v1.EventSeries
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - events.v1.EventSeries
 

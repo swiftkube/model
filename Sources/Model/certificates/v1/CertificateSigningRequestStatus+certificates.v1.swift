@@ -20,7 +20,11 @@
 /// certificates.v1.CertificateSigningRequestStatus
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - certificates.v1.CertificateSigningRequestStatus
 

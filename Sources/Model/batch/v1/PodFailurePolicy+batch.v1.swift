@@ -20,7 +20,11 @@
 /// batch.v1.PodFailurePolicy
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - batch.v1.PodFailurePolicy
 

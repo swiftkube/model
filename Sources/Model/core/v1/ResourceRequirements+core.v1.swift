@@ -20,7 +20,11 @@
 /// core.v1.ResourceRequirements
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - core.v1.ResourceRequirements
 

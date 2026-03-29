@@ -20,7 +20,11 @@
 /// admissionregistration.v1beta1.MatchResources
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - admissionregistration.v1beta1.MatchResources
 

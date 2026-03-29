@@ -20,7 +20,11 @@
 /// resource.v1alpha3.DeviceClass
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - resource.v1alpha3.DeviceClass
 

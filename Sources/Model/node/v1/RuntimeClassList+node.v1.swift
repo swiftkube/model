@@ -20,7 +20,11 @@
 /// node.v1.RuntimeClassList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - node.v1.RuntimeClassList
 

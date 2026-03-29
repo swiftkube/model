@@ -20,7 +20,11 @@
 /// coordination.v1beta1.LeaseCandidate
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - coordination.v1beta1.LeaseCandidate
 

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/home/tobias/dev/swiftkube/modelgen"
+    ]
+  }
+}

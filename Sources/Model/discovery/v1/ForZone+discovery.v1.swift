@@ -20,7 +20,11 @@
 /// discovery.v1.ForZone
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - discovery.v1.ForZone
 

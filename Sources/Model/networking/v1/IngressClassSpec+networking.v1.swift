@@ -20,7 +20,11 @@
 /// networking.v1.IngressClassSpec
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - networking.v1.IngressClassSpec
 

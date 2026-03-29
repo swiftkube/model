@@ -20,7 +20,11 @@
 /// admissionregistration.v1.MutatingWebhook
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - admissionregistration.v1.MutatingWebhook
 

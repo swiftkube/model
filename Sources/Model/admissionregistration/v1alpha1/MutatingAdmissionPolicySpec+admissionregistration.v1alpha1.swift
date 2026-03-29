@@ -20,7 +20,11 @@
 /// admissionregistration.v1alpha1.MutatingAdmissionPolicySpec
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - admissionregistration.v1alpha1.MutatingAdmissionPolicySpec
 

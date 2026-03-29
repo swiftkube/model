@@ -20,7 +20,11 @@
 /// resource.v1beta2.AllocatedDeviceStatus
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - resource.v1beta2.AllocatedDeviceStatus
 
@@ -41,7 +45,7 @@ public extension resource.v1beta2 {
 		///
 		/// The length of the raw data must be smaller or equal to 10 Ki.
 		///
-		public var data: JSONObject?
+		public var data: [String: JSONField]?
 		///
 		/// Device references one device instance via its name in the driver's resource pool. It must be a DNS label.
 		///
@@ -67,7 +71,7 @@ public extension resource.v1beta2 {
 		///
 		public init(
 			conditions: [meta.v1.Condition]? = nil,
-			data: JSONObject? = nil,
+			data: [String: JSONField]? = nil,
 			device: String,
 			driver: String,
 			networkData: resource.v1beta2.NetworkDeviceData? = nil,
@@ -101,7 +105,7 @@ public extension resource.v1beta2.AllocatedDeviceStatus {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.conditions = try container.decodeIfPresent([meta.v1.Condition].self, forKey: .conditions)
-		self.data = try container.decodeIfPresent(JSONObject.self, forKey: .data)
+		self.data = try container.decodeIfPresent([String: JSONField].self, forKey: .data)
 		self.device = try container.decode(String.self, forKey: .device)
 		self.driver = try container.decode(String.self, forKey: .driver)
 		self.networkData = try container.decodeIfPresent(resource.v1beta2.NetworkDeviceData.self, forKey: .networkData)

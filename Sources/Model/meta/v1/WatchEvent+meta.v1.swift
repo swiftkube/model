@@ -20,7 +20,11 @@
 /// meta.v1.WatchEvent
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - meta.v1.WatchEvent
 
@@ -37,7 +41,7 @@ public extension meta.v1 {
 		///  * If Type is Error: *Status is recommended; other types may make sense
 		///    depending on context.
 		///
-		public var object: JSONObject
+		public var object: [String: JSONField]
 		///
 		/// No description
 		///
@@ -46,7 +50,7 @@ public extension meta.v1 {
 		/// Default memberwise initializer
 		///
 		public init(
-			object: JSONObject,
+			object: [String: JSONField],
 			type: String
 		) {
 			self.object = object
@@ -68,7 +72,7 @@ public extension meta.v1.WatchEvent {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.object = try container.decode(JSONObject.self, forKey: .object)
+		self.object = try container.decode([String: JSONField].self, forKey: .object)
 		self.type = try container.decode(String.self, forKey: .type)
 	}
 

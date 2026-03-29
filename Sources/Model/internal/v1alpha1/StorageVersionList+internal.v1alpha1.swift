@@ -20,7 +20,11 @@
 /// internal.v1alpha1.StorageVersionList
 ///
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // MARK: - `internal`.v1alpha1.StorageVersionList
 
