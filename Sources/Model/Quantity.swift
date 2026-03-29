@@ -170,7 +170,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 				debugDescription: "Cannot decode value: " + str
 			))
 		}
-		self.unit = unit
+		self.unit = String(unit)
 		decimalValue = num * getUnitMultiple()
 		return true
 	}
