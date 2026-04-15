@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.0
+
+- Update to Kubernetes v1.34.6
+
 ## 0.18.0
 
 - Update to Kubernetes v1.33.3

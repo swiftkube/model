@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Swiftkube Project
+// Copyright 2020-2026 Swiftkube Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ protocol AnyNullWrapper: Sendable, Encodable {
 
 // MARK: - NullWrapper
 
-public struct NullWrapper<T>: Sendable, Encodable, AnyNullWrapper where T: Encodable, T: Sendable {
+public struct NullWrapper<T: Encodable & Sendable>: Sendable, Encodable, AnyNullWrapper {
 
 	let wrappedValue: T?
 
