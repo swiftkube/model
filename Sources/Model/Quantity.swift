@@ -144,7 +144,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 	}
 
 	mutating func parseData(str: String) throws -> Bool {
-		let regex = /^\d*\.?\d*e?\d*/
+		let regex = #/^\d*\.?\d*e?\d*/#
 		guard let match = str.prefixMatch(of: regex) else {
 			throw DecodingError.dataCorrupted(DecodingError.Context(
 				codingPath: [],
