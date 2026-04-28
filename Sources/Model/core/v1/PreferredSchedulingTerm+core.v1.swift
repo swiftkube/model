@@ -20,11 +20,7 @@
 // core.v1.PreferredSchedulingTerm
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - core.v1.PreferredSchedulingTerm
 

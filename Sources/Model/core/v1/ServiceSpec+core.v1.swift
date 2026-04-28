@@ -20,11 +20,7 @@
 // core.v1.ServiceSpec
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - core.v1.ServiceSpec
 

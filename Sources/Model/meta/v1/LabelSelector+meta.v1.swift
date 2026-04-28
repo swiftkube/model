@@ -20,11 +20,7 @@
 // meta.v1.LabelSelector
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - meta.v1.LabelSelector
 

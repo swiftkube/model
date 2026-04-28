@@ -20,11 +20,7 @@
 // networking.v1.NetworkPolicyEgressRule
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - networking.v1.NetworkPolicyEgressRule
 

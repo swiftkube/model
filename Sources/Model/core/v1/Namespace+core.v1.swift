@@ -20,11 +20,7 @@
 // core.v1.Namespace
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - core.v1.Namespace
 

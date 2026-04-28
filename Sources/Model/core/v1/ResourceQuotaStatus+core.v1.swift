@@ -20,11 +20,7 @@
 // core.v1.ResourceQuotaStatus
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - core.v1.ResourceQuotaStatus
 

@@ -20,11 +20,7 @@
 // core.v1.TCPSocketAction
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - core.v1.TCPSocketAction
 

@@ -20,11 +20,7 @@
 // storage.v1alpha1.VolumeAttributesClassList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - storage.v1alpha1.VolumeAttributesClassList
 

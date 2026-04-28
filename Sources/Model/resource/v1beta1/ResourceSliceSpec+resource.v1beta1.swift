@@ -20,11 +20,7 @@
 // resource.v1beta1.ResourceSliceSpec
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - resource.v1beta1.ResourceSliceSpec
 

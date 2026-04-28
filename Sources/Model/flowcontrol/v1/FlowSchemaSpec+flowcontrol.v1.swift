@@ -20,11 +20,7 @@
 // flowcontrol.v1.FlowSchemaSpec
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - flowcontrol.v1.FlowSchemaSpec
 

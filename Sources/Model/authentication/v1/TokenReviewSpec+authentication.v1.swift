@@ -20,11 +20,7 @@
 // authentication.v1.TokenReviewSpec
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - authentication.v1.TokenReviewSpec
 

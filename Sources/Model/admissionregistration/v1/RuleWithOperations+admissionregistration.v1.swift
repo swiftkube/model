@@ -20,11 +20,7 @@
 // admissionregistration.v1.RuleWithOperations
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - admissionregistration.v1.RuleWithOperations
 

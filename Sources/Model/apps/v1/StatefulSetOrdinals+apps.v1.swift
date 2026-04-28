@@ -20,11 +20,7 @@
 // apps.v1.StatefulSetOrdinals
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - apps.v1.StatefulSetOrdinals
 

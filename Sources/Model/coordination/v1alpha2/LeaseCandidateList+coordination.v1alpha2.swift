@@ -20,11 +20,7 @@
 // coordination.v1alpha2.LeaseCandidateList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - coordination.v1alpha2.LeaseCandidateList
 

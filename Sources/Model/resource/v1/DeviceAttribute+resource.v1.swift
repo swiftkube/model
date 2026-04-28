@@ -20,11 +20,7 @@
 // resource.v1.DeviceAttribute
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - resource.v1.DeviceAttribute
 

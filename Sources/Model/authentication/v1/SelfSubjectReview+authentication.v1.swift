@@ -20,11 +20,7 @@
 // authentication.v1.SelfSubjectReview
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - authentication.v1.SelfSubjectReview
 

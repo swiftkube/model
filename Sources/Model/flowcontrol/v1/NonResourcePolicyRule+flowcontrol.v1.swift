@@ -20,11 +20,7 @@
 // flowcontrol.v1.NonResourcePolicyRule
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - flowcontrol.v1.NonResourcePolicyRule
 

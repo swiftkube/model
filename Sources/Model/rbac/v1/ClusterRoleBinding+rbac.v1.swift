@@ -20,11 +20,7 @@
 // rbac.v1.ClusterRoleBinding
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - rbac.v1.ClusterRoleBinding
 

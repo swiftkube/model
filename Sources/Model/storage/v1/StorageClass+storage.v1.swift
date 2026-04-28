@@ -20,11 +20,7 @@
 // storage.v1.StorageClass
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - storage.v1.StorageClass
 

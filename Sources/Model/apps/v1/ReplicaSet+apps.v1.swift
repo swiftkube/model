@@ -20,11 +20,7 @@
 // apps.v1.ReplicaSet
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - apps.v1.ReplicaSet
 

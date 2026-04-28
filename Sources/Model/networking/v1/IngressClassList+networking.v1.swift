@@ -20,11 +20,7 @@
 // networking.v1.IngressClassList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - networking.v1.IngressClassList
 

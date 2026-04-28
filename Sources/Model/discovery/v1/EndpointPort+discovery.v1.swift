@@ -20,11 +20,7 @@
 // discovery.v1.EndpointPort
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - discovery.v1.EndpointPort
 

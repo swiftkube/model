@@ -20,11 +20,7 @@
 // resource.v1beta2.ResourceClaimTemplate
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - resource.v1beta2.ResourceClaimTemplate
 

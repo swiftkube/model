@@ -20,11 +20,7 @@
 // admissionregistration.v1beta1.MatchCondition
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - admissionregistration.v1beta1.MatchCondition
 

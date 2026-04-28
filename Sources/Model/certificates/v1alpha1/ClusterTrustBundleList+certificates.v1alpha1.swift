@@ -20,11 +20,7 @@
 // certificates.v1alpha1.ClusterTrustBundleList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - certificates.v1alpha1.ClusterTrustBundleList
 

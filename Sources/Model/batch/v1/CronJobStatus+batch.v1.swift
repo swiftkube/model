@@ -20,11 +20,7 @@
 // batch.v1.CronJobStatus
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - batch.v1.CronJobStatus
 

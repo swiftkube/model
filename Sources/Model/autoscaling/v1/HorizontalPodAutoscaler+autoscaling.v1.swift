@@ -20,11 +20,7 @@
 // autoscaling.v1.HorizontalPodAutoscaler
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - autoscaling.v1.HorizontalPodAutoscaler
 

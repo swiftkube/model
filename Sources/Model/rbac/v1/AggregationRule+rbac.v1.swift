@@ -20,11 +20,7 @@
 // rbac.v1.AggregationRule
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - rbac.v1.AggregationRule
 

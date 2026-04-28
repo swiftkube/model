@@ -20,11 +20,7 @@
 // apiregistration.v1.APIService
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - apiregistration.v1.APIService
 

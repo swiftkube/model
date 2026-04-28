@@ -20,11 +20,7 @@
 // storage.v1.CSIDriver
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - storage.v1.CSIDriver
 

@@ -19,11 +19,7 @@
 // Kubernetes v1.34.6
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 ///
 /// Namespace for `batch.v1`

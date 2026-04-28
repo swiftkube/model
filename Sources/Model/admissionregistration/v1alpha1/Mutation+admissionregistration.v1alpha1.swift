@@ -20,11 +20,7 @@
 // admissionregistration.v1alpha1.Mutation
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - admissionregistration.v1alpha1.Mutation
 

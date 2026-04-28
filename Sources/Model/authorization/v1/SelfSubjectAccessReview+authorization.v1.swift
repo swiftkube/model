@@ -20,11 +20,7 @@
 // authorization.v1.SelfSubjectAccessReview
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - authorization.v1.SelfSubjectAccessReview
 

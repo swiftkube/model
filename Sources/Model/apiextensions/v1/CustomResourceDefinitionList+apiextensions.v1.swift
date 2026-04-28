@@ -20,11 +20,7 @@
 // apiextensions.v1.CustomResourceDefinitionList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - apiextensions.v1.CustomResourceDefinitionList
 

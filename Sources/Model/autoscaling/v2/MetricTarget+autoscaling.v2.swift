@@ -20,11 +20,7 @@
 // autoscaling.v2.MetricTarget
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - autoscaling.v2.MetricTarget
 

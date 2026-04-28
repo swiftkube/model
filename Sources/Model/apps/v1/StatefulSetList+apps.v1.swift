@@ -20,11 +20,7 @@
 // apps.v1.StatefulSetList
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - apps.v1.StatefulSetList
 

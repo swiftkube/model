@@ -20,11 +20,7 @@
 // certificates.v1.CertificateSigningRequestCondition
 //
 
-#if canImport(FoundationEssentials)
-import FoundationEssentials
-#else
 import Foundation
-#endif
 
 // MARK: - certificates.v1.CertificateSigningRequestCondition
 
