@@ -15,9 +15,9 @@
 //
 
 #if canImport(FoundationEssentials)
-import FoundationEssentials
+	import FoundationEssentials
 #else
-import Foundation
+	import Foundation
 #endif
 
 /// GenerateRandomHash returns a three character. I

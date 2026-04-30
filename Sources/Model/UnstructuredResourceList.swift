@@ -15,12 +15,12 @@
 //
 
 #if canImport(FoundationEssentials)
-import FoundationEssentials
+	import FoundationEssentials
 #else
-import Foundation
+	import Foundation
 #endif
 
-// MARK: - UnstructuredResource
+// MARK: - UnstructuredResourceList
 
 ///
 /// UnstructuredResourceList is a collection of UnstructuredResources.
