@@ -15,9 +15,9 @@
 //
 
 #if canImport(FoundationEssentials)
-import FoundationEssentials
+	import FoundationEssentials
 #else
-import Foundation
+	import Foundation
 #endif
 
 // MARK: - UnitType
@@ -28,10 +28,19 @@ public enum UnitType: Sendable {
 }
 
 func pow(_ base: Int, _ exponent: Int) -> Decimal {
+	let baseDecimal = Decimal(base)
 	if exponent < 0 {
-		return 1 / pow(Decimal(base), -1 * exponent)
+		var result = Decimal(1)
+		for _ in 0 ..< -exponent {
+			result /= baseDecimal
+		}
+		return result
 	} else {
-		return pow(Decimal(base), exponent)
+		var result = Decimal(1)
+		for _ in 0 ..< exponent {
+			result *= baseDecimal
+		}
+		return result
 	}
 }
 
@@ -264,7 +273,8 @@ public extension Quantity {
 				}
 
 				guard let numInt = Int64(num.description),
-				      let vInt = Int64(dec.pair.description) else {
+				      let vInt = Int64(dec.pair.description)
+				else {
 					i += 1
 					continue
 				}
