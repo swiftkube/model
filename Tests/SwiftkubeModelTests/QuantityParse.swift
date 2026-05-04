@@ -35,10 +35,10 @@ let testArr: [QuantityTest] = [
 	.init(str: ".3", value: "0.3", desc: "300m", friendlyDesc: "300m"),
 	.init(str: "33.01", value: "33.01", desc: "33010m", friendlyDesc: "33.01"),
 	.init(str: "33.0001", value: "33.0001", desc: "33000100u", friendlyDesc: "33.0001"),
-	.init(str: "5Gi", value: "\(5 * pow(1024, 3))", desc: "5Gi", friendlyDesc: "5Gi"),
-	.init(str: "5120Gi", value: "\(5 * pow(1024, 4))", desc: "5Ti", friendlyDesc: "5Ti"),
-	.init(str: "5G", value: "\(5 * pow(1000, 3))", desc: "5G", friendlyDesc: "5G"),
-	.init(str: "5000G", value: "\(5 * pow(1000, 4))", desc: "5T", friendlyDesc: "5T"),
+	.init(str: "5Gi", value: "\(5 * Decimal(1024).powered(by: 3)))", desc: "5Gi", friendlyDesc: "5Gi"),
+	.init(str: "5120Gi", value: "\(5 * Decimal(1024).powered(by: 4)))", desc: "5Ti", friendlyDesc: "5Ti"),
+	.init(str: "5G", value: "\(5 * Decimal(1000).powered(by: 3)))", desc: "5G", friendlyDesc: "5G"),
+	.init(str: "5000G", value: "\(5 * Decimal(1000).powered(by: 4)))", desc: "5T", friendlyDesc: "5T"),
 
 	// parse failed
 	.init(str: "1.0.0", value: nil, desc: "0", friendlyDesc: "0", parseFailed: true),
@@ -65,12 +65,13 @@ struct QuantityStaticBinTest {
 	let sumBinFDesc: String
 }
 
-let tmp = 5000 * pow(1024, 3) + 0.2
+let tmp = 5000 * Decimal(1024).powered(by: 3) + 0.2
+
 let testStaticArr: [QuantityStaticTest] = [
 	.init(str1: "200m", str2: "800m", sumDesc: "1", sumFDesc: "1"),
 	.init(str1: "1000", str2: "24", sumDesc: "1024", sumFDesc: "1.024k"),
 	.init(str1: "5000m", str2: "200m", sumDesc: "5200m", sumFDesc: "5.2"),
-	.init(str1: "5000Gi", str2: "200m", sumDesc: "\(tmp * 1000)m", sumFDesc: "\(tmp / pow(1000, 4))T"),
+	.init(str1: "5000Gi", str2: "200m", sumDesc: "\(tmp * 1000)m", sumFDesc: "\(tmp / Decimal(1000).powered(by: 4))T"),
 ]
 
 let testStaticBinArr: [QuantityStaticBinTest] = [

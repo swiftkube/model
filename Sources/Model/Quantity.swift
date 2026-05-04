@@ -27,19 +27,26 @@ public enum UnitType: Sendable {
 	case binarySI
 }
 
-func pow(_ base: Int, _ exponent: Int) -> Decimal {
-	let baseDecimal = Decimal(base)
-	if exponent < 0 {
-		var result = Decimal(1)
-		for _ in 0 ..< -exponent {
-			result /= baseDecimal
+extension Decimal {
+	func powered(by exponent: Int) -> Decimal {
+		if exponent == 0 {
+			return 1
 		}
-		return result
-	} else {
-		var result = Decimal(1)
-		for _ in 0 ..< exponent {
-			result *= baseDecimal
+
+		if exponent < 0 {
+			return 1 / powered(by: -exponent)
 		}
+
+		var result = Decimal(1)
+		var base = self
+		var exp = exponent
+
+		while exp > 0 {
+			if exp % 2 == 1 { result *= base }
+			base *= base
+			exp /= 2
+		}
+
 		return result
 	}
 }
@@ -52,28 +59,28 @@ struct KeyPair {
 }
 
 let decimalSIKeyPairNegative = [
-	KeyPair(key: "m", pair: pow(10, -3)),
-	KeyPair(key: "u", pair: pow(10, -6)),
-	KeyPair(key: "n", pair: pow(10, -9)),
+	KeyPair(key: "m", pair: Decimal(10).powered(by: -3)),
+	KeyPair(key: "u", pair: Decimal(10).powered(by: -6)),
+	KeyPair(key: "n", pair: Decimal(10).powered(by: -9)),
 ]
 
 let decimalSIKeyPairPositive = [
-	KeyPair(key: "", pair: pow(10, 0)),
-	KeyPair(key: "k", pair: pow(10, 3)),
-	KeyPair(key: "M", pair: pow(10, 6)),
-	KeyPair(key: "G", pair: pow(10, 9)),
-	KeyPair(key: "T", pair: pow(10, 12)),
-	KeyPair(key: "P", pair: pow(10, 15)),
-	KeyPair(key: "E", pair: pow(10, 18)),
+	KeyPair(key: "", pair: Decimal(10).powered(by: 0)),
+	KeyPair(key: "k", pair: Decimal(10).powered(by: 3)),
+	KeyPair(key: "M", pair: Decimal(10).powered(by: 6)),
+	KeyPair(key: "G", pair: Decimal(10).powered(by: 9)),
+	KeyPair(key: "T", pair: Decimal(10).powered(by: 12)),
+	KeyPair(key: "P", pair: Decimal(10).powered(by: 15)),
+	KeyPair(key: "E", pair: Decimal(10).powered(by: 18)),
 ]
 
 let binarySIKeyPair = [
-	KeyPair(key: "Ki", pair: pow(2, 10)),
-	KeyPair(key: "Mi", pair: pow(2, 20)),
-	KeyPair(key: "Gi", pair: pow(2, 30)),
-	KeyPair(key: "Ti", pair: pow(2, 40)),
-	KeyPair(key: "Pi", pair: pow(2, 50)),
-	KeyPair(key: "Ei", pair: pow(2, 60)),
+	KeyPair(key: "Ki", pair: Decimal(2).powered(by: 10)),
+	KeyPair(key: "Mi", pair: Decimal(2).powered(by: 20)),
+	KeyPair(key: "Gi", pair: Decimal(2).powered(by: 30)),
+	KeyPair(key: "Ti", pair: Decimal(2).powered(by: 40)),
+	KeyPair(key: "Pi", pair: Decimal(2).powered(by: 50)),
+	KeyPair(key: "Ei", pair: Decimal(2).powered(by: 60)),
 ]
 
 let decimalSIKeyPair = decimalSIKeyPairNegative + decimalSIKeyPairPositive
