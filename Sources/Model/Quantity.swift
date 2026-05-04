@@ -14,28 +14,11 @@
 // limitations under the License.
 //
 
-import Foundation
-
-// MARK: - Quantity
-
-extension String {
-
-	subscript(offset: Int) -> Character {
-		self[index(startIndex, offsetBy: offset)]
-	}
-
-	subscript(_ range: CountableRange<Int>) -> String {
-		let start = index(startIndex, offsetBy: max(0, range.lowerBound))
-		let end = index(start, offsetBy: min(count - range.lowerBound,
-		                                     range.upperBound - range.lowerBound))
-		return String(self[start ..< end])
-	}
-
-	subscript(_ range: CountablePartialRangeFrom<Int>) -> String {
-		let start = index(startIndex, offsetBy: max(0, range.lowerBound))
-		return String(self[start...])
-	}
-}
+#if canImport(FoundationEssentials)
+	import FoundationEssentials
+#else
+	import Foundation
+#endif
 
 // MARK: - UnitType
 
@@ -45,10 +28,19 @@ public enum UnitType: Sendable {
 }
 
 func pow(_ base: Int, _ exponent: Int) -> Decimal {
+	let baseDecimal = Decimal(base)
 	if exponent < 0 {
-		return 1 / pow(Decimal(base), -1 * exponent)
+		var result = Decimal(1)
+		for _ in 0 ..< -exponent {
+			result /= baseDecimal
+		}
+		return result
 	} else {
-		return pow(Decimal(base), exponent)
+		var result = Decimal(1)
+		for _ in 0 ..< exponent {
+			result *= baseDecimal
+		}
+		return result
 	}
 }
 
@@ -161,24 +153,21 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 	}
 
 	mutating func parseData(str: String) throws -> Bool {
-		let range = NSRange(location: 0, length: str.count)
-		let regex = try! NSRegularExpression(pattern: "^\\d*\\.?\\d*e?\\d*", options: [])
-		let results = regex.matches(in: str, options: [], range: range)
-		if results.count != 1 {
+		let regex = #/^\d*\.?\d*e?\d*/#
+		guard let match = str.prefixMatch(of: regex) else {
 			throw DecodingError.dataCorrupted(DecodingError.Context(
 				codingPath: [],
 				debugDescription: "Cannot decode value: " + str
 			))
 		}
-		let r = results[0].range
-		guard let num = Decimal(string: str[r.location ..< (r.location + r.length)]) else {
+		guard let num = Decimal(string: String(match.output)) else {
 			return false
 		}
 		if num < 0 {
 			return false
 		}
 
-		let unit = str[(r.location + r.length)...]
+		let unit = str[match.range.upperBound...]
 		switch unit {
 		case "Ki", "Mi", "Gi", "Ti", "Pi", "Ei":
 			unitType = .binarySI
@@ -190,7 +179,7 @@ public struct Quantity: ExpressibleByStringLiteral, ExpressibleByIntegerLiteral,
 				debugDescription: "Cannot decode value: " + str
 			))
 		}
-		self.unit = unit
+		self.unit = String(unit)
 		decimalValue = num * getUnitMultiple()
 		return true
 	}
@@ -283,8 +272,12 @@ public extension Quantity {
 					continue
 				}
 
-				let numInt = Int64(truncating: NSDecimalNumber(decimal: num))
-				let vInt = Int64(truncating: NSDecimalNumber(decimal: dec.pair))
+				guard let numInt = Int64(num.description),
+				      let vInt = Int64(dec.pair.description)
+				else {
+					i += 1
+					continue
+				}
 				let remain = numInt % vInt
 				if remain == 0 {
 					i += 1

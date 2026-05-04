@@ -14,7 +14,13 @@
 // limitations under the License.
 //
 
-import Foundation
+#if canImport(FoundationEssentials)
+	import FoundationEssentials
+#else
+	import Foundation
+#endif
+
+// MARK: - SwiftkubeModelError
 
 /// Represents SwiftkubeModel errors.
 public enum SwiftkubeModelError: Error {

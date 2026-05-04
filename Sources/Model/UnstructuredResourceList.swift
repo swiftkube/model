@@ -14,9 +14,13 @@
 // limitations under the License.
 //
 
-import Foundation
+#if canImport(FoundationEssentials)
+	import FoundationEssentials
+#else
+	import Foundation
+#endif
 
-// MARK: - UnstructuredResource
+// MARK: - UnstructuredResourceList
 
 ///
 /// UnstructuredResourceList is a collection of UnstructuredResources.

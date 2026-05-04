@@ -14,7 +14,11 @@
 // limitations under the License.
 //
 
-import Foundation
+#if canImport(FoundationEssentials)
+	import FoundationEssentials
+#else
+	import Foundation
+#endif
 
 // MARK: - JSONCodingKeys
 
