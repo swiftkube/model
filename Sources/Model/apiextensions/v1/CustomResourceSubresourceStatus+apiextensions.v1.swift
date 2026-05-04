@@ -37,8 +37,7 @@ public extension apiextensions.v1 {
 		///
 		/// Default memberwise initializer
 		///
-		public init(
-		) {
+		public init() {
 		}
 	}
 }

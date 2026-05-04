@@ -37,8 +37,7 @@ public extension scheduling.v1alpha1 {
 		///
 		/// Default memberwise initializer
 		///
-		public init(
-		) {
+		public init() {
 		}
 	}
 }
