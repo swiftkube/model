@@ -9,8 +9,8 @@
 	<a href="https://swiftpackageindex.com/swiftkube/model">
 		<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fswiftkube%2Fmodel%2Fbadge%3Ftype%3Dplatforms"/>
 	</a>
-	<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/">
-		<img src="https://img.shields.io/badge/Kubernetes-1.34.6-blue.svg" alt="Kubernetes 1.34.6"/>
+	<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/">
+		<img src="https://img.shields.io/badge/Kubernetes-1.35.3-blue.svg" alt="Kubernetes 1.35.3"/>
 	</a>
 	<a href="https://swift.org/package-manager">
 		<img src="https://img.shields.io/badge/swiftpm-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
@@ -46,18 +46,18 @@
 
 ## Compatibility Matrix
 
-|          | 1.26.4 | 1.28.0 | 1.28.3 | 1.29.6 | 1.32.0 | 1.32.2 | 1.33.3 | 1.34.6 |
+|          | 1.28.0 | 1.28.3 | 1.29.6 | 1.32.0 | 1.32.2 | 1.33.3 | 1.34.6 | 1.35.3 |
 |----------|--------|--------|--------|--------|--------|--------|--------|--------|
-| `0.10.x` | ✓      | -      | -      | -      | -      | -      | -      | -      |
-| `0.11.x` | ✓      | -      | -      | -      | -      | -      | -      | -      |
-| `0.12.x` | -      | ✓      | -      | -      | -      | -      | -      | -      |
-| `0.13.x` | -      | -      | ✓      | ✓      | -      | -      | -      | -      |
-| `0.14.x` | -      | -      | -      | ✓      | -      | -      | -      | -      |
-| `0.15.x` | -      | -      | -      | -      | ✓      | -      | -      | -      |
-| `0.16.x` | -      | -      | -      | -      | ✓      | -      | -      | -      |
-| `0.17.x` | -      | -      | -      | -      | -      | ✓      | -      | -      |
-| `0.18.x` | -      | -      | -      | -      | -      | -      | ✓      | -      |
-| `0.19.x` | -      | -      | -      | -      | -      | -      | -      | ✓      |
+| `0.11.x` | -      | -      | -      | -      | -      | -      | -      | -      |
+| `0.12.x` | ✓      | -      | -      | -      | -      | -      | -      | -      |
+| `0.13.x` | -      | ✓      | ✓      | -      | -      | -      | -      | -      |
+| `0.14.x` | -      | -      | ✓      | -      | -      | -      | -      | -      |
+| `0.15.x` | -      | -      | -      | ✓      | -      | -      | -      | -      |
+| `0.16.x` | -      | -      | -      | ✓      | -      | -      | -      | -      |
+| `0.17.x` | -      | -      | -      | -      | ✓      | -      | -      | -      |
+| `0.18.x` | -      | -      | -      | -      | -      | ✓      | -      | -      |
+| `0.19.x` | -      | -      | -      | -      | -      | -      | ✓      | -      |
+| `0.20.x` | -      | -      | -      | -      | -      | -      | -      | ✓      |
 
 - `✓` Exact match of API objects in both model and the Kubernetes version.
 - `-` API objects mismatches either due to the removal of old API or the addition of new API. However, everything the
@@ -451,7 +451,7 @@ print(spec?["cronSpec"])
 To use the `SwiftkubeModel` in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.18.0")
+.package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.20.0")
 ```
 
 then include it as a dependency in your target:
@@ -462,7 +462,7 @@ import PackageDescription
 let package = Package(
     // ...
     dependencies: [
-        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.18.0")
+        .package(name: "SwiftkubeModel", url: "https://github.com/swiftkube/model.git", from: "0.20.0")
     ],
     targets: [
         .target(name: "<your-target>", dependencies: [
