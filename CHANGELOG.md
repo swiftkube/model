@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.20.0
+
+- Update to Kubernetes v1.35.3
+- Use `FoundationEssentials` instead of `Foundation` when available (#14 by @t089)
+- Breaking Changes:
+  - Drop support for Swift 5
+  - Use Swift Tools Version 6
+  - Increase min SDKs to `macOS(.v13), .iOS(.v16), .tvOS(.v16), .watchOS(.v9)`
+
 ## 0.19.0
 
 - Update to Kubernetes v1.34.6
